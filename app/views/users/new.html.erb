@@ -1,6 +1,6 @@
-<h1>Sign In</h1>
+<h1>Register New Account</h1>
 <%= form_for(@user) do |f| %>
-	<%= render	'shared/error_messages'%>
+	<%= render	'shared/error_messages', :object => f.object %>
 	<div class="field">
 		<%= f.label :name %><br />
 		<%= f.text_field :name %>

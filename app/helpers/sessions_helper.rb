@@ -22,6 +22,21 @@ module SessionsHelper
         current_user = nil
     end
     
+    def authenticate
+	   deny_access if !signed_in?
+  	end
+  	
+  	def correct_project_user
+  	  @project = Project.find(params[:id])
+  	  user = @project.user
+	    redirect_to(root_path) unless user = current_user 
+  	end
+
+    def current_project_user?
+  	  user = @project.user
+	    user == current_user 
+  	end
+  	  	
     def deny_access
         session[:trying_to_access] = request.fullpath
         flash[:notice] = "Sign in first!"

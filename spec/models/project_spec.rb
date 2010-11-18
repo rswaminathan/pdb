@@ -1,18 +1,8 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+require 'spec_helper'
 
-one:
-  name: MyString
-  description: MyText
-  kind: MyString
-  user_id: 1
-  id: 1
-
-two:
-  name: MyString
-  description: MyText
-  kind: MyString
-  user_id: 1
-  id: 1
+describe Project do
+  pending "add some examples to (or delete) #{__FILE__}"
+end
 
 # == Schema Information
 #

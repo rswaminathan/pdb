@@ -1,3 +1,18 @@
 <h1>
 <%= @user.name %>, <%= @user.email %>
 </h1>
+<% if signed_in? %>
+  <%=link_to "Edit Profile", edit_user_path(current_user) %>	
+<% end%>  
+<%if @user.projects.any? %>
+  <div id="projects">
+    
+    <h2><%= pluralize(@user.projects.count, "Project") %>:</h2>
+    <table border="0" cellspacing="5" cellpadding="5">
+          <% @projects.each do |p| %>
+            <tr><td><%= link_to p.name, p %></td></tr>
+          <% end %>
+    </table>
+    
+  </div>
+<% end %>

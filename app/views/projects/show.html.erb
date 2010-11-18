@@ -1,0 +1,13 @@
+<h1>
+  <%=@project.name %>
+</h1>
+<% if current_project_user? %>
+<h3>  <%= link_to "Edit Project", edit_project_path%> </h3>
+<h3>  <%= link_to "Delete Project", @project , :confirm => "Are you sure?", 
+:method => :delete %> </h3>
+<% end%>
+  <div id="project">
+    Creator: <%= @user.name %> <br />  
+    Type:    <%=@project.kind %><br />
+    Description: <%=@project.description %> <br />
+  </div>

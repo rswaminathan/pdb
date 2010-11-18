@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
     
     attr_accessor       :password
-    attr_accessible :name, :email, :password, :password_confirmation    
+    attr_accessible     :name, :email, :password, :password_confirmation    
     email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+    
+    has_many :projects
     
     validates :name, :presence          => true,
               :length                   => { :maximum => 50}
@@ -54,6 +56,7 @@ class User < ActiveRecord::Base
       end
 end
 
+
 # == Schema Information
 #
 # Table name: users
@@ -64,5 +67,6 @@ end
 #  created_at         :datetime
 #  updated_at         :datetime
 #  encrypted_password :string(255)
+#  salt               :string(255)
 #
 

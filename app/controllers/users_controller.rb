@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @projects = @user.projects
   end
   
   def create
@@ -42,9 +43,6 @@ class UsersController < ApplicationController
   
   private
   	
-  	def authenticate
-	   deny_access if !signed_in?
-  	end
 
   	def correct_user
 	   @user = User.find(params[:id])
