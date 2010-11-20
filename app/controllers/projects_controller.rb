@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
 
     before_filter :authenticate,         :only => [:new, :create]
     before_filter :correct_project_user, :only => [:edit, :update, :destroy]
+    
     def new
     	@title = "New Project"
       @project = current_user.projects.build

@@ -26,13 +26,14 @@ class UsersController < ApplicationController
   end  
   
   def edit
-  	@user = User.find(params[:id])
+  	@user = User.find_by_id(params[:id])
   	@title = "Edit User"
   end
   
   def update
-      @user = User.find(params[:id])
+      @user = User.find_by_id(params[:id])
       if @user.update_attributes(params[:user])
+        sign_in @user
         flash[:success] = "Profile updated!"
         redirect_to(@user) 
       else
@@ -43,9 +44,8 @@ class UsersController < ApplicationController
   
   private
   	
-
   	def correct_user
-	   @user = User.find(params[:id])
+	   @user = User.find_by_id(params[:id])
 	   redirect_to(root_path) unless @user = current_user  
   	end   
 end

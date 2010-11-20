@@ -27,7 +27,7 @@ module SessionsHelper
   	end
   	
   	def correct_project_user
-  	  @project = Project.find(params[:id])
+  	  @project = Project.find_by_id(params[:id])
   	  user = @project.user
 	    redirect_to(root_path) unless user = current_user 
   	end
