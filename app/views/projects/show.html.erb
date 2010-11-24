@@ -1,4 +1,4 @@
-  <div id="project" class="span-17 colborder">
+  <div id="project" class="span-16 colborder">
     <div id="project_name"><%=@project.name %></div>
     <% if current_project_user? %>
       <div><h3>(<%= link_to "Edit Project", edit_project_path%> |
@@ -12,7 +12,7 @@
     <p><%=@project.description %></p>
     </div>
   </div>
- <div id="sidebar" class="span-6 last">
+ <div id="sidebar" class="span-7 last">
   <div class="sidebar_section prepend-top">    
     <div id="creators">  
       <div class="sidebar_header"><%= pluralize(@users.count, "Collaborator") %></div>
