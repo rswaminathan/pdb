@@ -1,19 +1,40 @@
-<h1>
-  <%=@project.name %>
-</h1>
-<% if current_project_user? %>
-<h3>  <%= link_to "Edit Project", edit_project_path%> </h3>
-<h3>  <%= link_to "Delete Project", @project , :confirm => "Are you sure?", 
-:method => :delete %> </h3>
-<h3>  <%= link_to "Add a Collaborator", edit_project_path %> </h3>
-<% end%>
-  <div id="project">
-    <%if @users.any? %>
-      <%= pluralize(@users.count, "Collaborator") %>:
+  <div id="project" class="span-17 colborder">
+    <div id="project_name"><%=@project.name %></div>
+    <% if current_project_user? %>
+      <div><h3>(<%= link_to "Edit Project", edit_project_path%> |
+      <%= link_to "Delete Project", @project , :confirm => "Are you sure?", 
+      :method => :delete %>)</h3></div>    
+    <% end%>
+   
+    <div id="project_kind"><%=@project.kind %></div><br />
+    <div id="project_description">
+    Description:
+    <p><%=@project.description %></p>
+    </div>
+  </div>
+ <div id="sidebar" class="span-6 last">
+  <div class="sidebar_section prepend-top">    
+    <div id="creators">  
+      <div class="sidebar_header"><%= pluralize(@users.count, "Collaborator") %></div>
+      <%if @users.any? %>       
       <% @users.each do |u| %>
-        <%= link_to u.name, u %> <br />
+        <div class="user">
+          <div class="user_pic" "><%= image_tag("gravatar.jpg", :class => "left") %></div>          
+          <div id="user_name"><%= link_to u.name, u %></div>          
+        </div>
+        
       <% end%>
     <% end %> 
-    Type:    <%=@project.kind %><br />
-    Description: <%=@project.description %> <br />
+    <% if current_project_user? %>
+      <div id="add_collaborator" class="prepend-3"<%= link_to "(Edit Collaborators)", edit_collaborators_project_path %>
+      </div>  
+    <% end%>
+    </div>
   </div>
+  <div class="sidebar_section prepend-top">
+      <div id ="chat">
+      <div class="sidebar_header">Chat</div>
+      </div>
+  </div>
+ </div>
+

@@ -28,12 +28,12 @@ module SessionsHelper
   	
   	def correct_project_user
   	  @project = Project.find_by_id(params[:id])
-  	  user = @project.user
-	    redirect_to(root_path) unless user = current_user 
+  	  @users = @project.users
+	    redirect_to(root_path) unless (signed_in? && @users.exists?(current_user))
   	end
 
     def current_project_user?
-  	  @users.exists?(current_user)
+  	  signed_in? && @users.exists?(current_user)
   	end
   	  	
     def deny_access

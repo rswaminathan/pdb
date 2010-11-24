@@ -10,7 +10,14 @@ Pdb::Application.routes.draw do
  
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
-  resources :projects
+  
+  resources :projects do
+    member do
+      get 'edit_collaborators'
+      post 'update_collaborators'
+      delete 'delete_collaborators'
+    end
+  end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,17 @@
+<h1>Edit Collaborators</h1>
+<%= form_for(:user, :url => update_collaborators_project_path) do |f| %>
+	<div class="field">
+		<%= f.label :collaborator, "Collaborator's Email" %><br />
+	  <%= f.text_field :email %>
+	</div>
+	<div class="submit">
+		<%= f.submit "Add Collaborator" %><br />
+	</div>
+<% end %>
+<%=signed_in? %>
+<div id="list_collaborators">
+<h2> Current Collaborators</h2>
+<% @users.each do |u| %>
+<%=u.name %> | <%=u.email %> | <%= link_to "Remove Collaborator", delete_collaborators_project_path(@project, :user_id => u.id) , :confirm => "Are you sure you want to remove this collaborator?", :method => :delete %><br />
+<% end %>
+</div>

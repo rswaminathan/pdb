@@ -6,10 +6,40 @@
   <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
+<style type="text/css">
+.sidebar_header {
+ background-color:#333;
+ color: #FFF;
+ font-size: 1.5em;
+ }
+
+.user{
+  font-size: 1.5em; 
+  height: 80px;
+  padding-top: 0.5em;
+}
+
+#project_kind{
+ 	border: 3px solid #A00;
+	width: 6em;
+	text-align:center;
+	margin-right:auto;
+	margin-top: 0.5em;
+	background-color:#333;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	color: #FFF;
+}
+
+#project_name{
+  font-size: 4em;
+}
+
+</style>
 </head>
 <body>
-<div class="container">
-	<h2> Project Database </h2>
+
+	<h1> Project Database </h1>
 	<% if signed_in? %>
 		<div id="logout">
 			<%= link_to "Log Out", logout_path %>
@@ -27,6 +57,7 @@
 			<%= link_to "Register", new_user_path %>	
 		</div>	
 	<% end %>	
+<div class="container">
 <section class ="round">
 	<% flash.each do |key, value| %>
 		<div class = "flash <%= key %>"><%= value %></div>
