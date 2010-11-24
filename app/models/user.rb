@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
     attr_accessible     :name, :email, :password, :password_confirmation    
     email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     
-    has_many :projects
+    has_and_belongs_to_many :projects
     
     validates :name, :presence          => true,
               :length                   => { :maximum => 50}
@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
     validates :password, :presence     => true,
                          :confirmation => true
 
-    before_save :encrypt_password       
+    before_save :encrypt_password     
 
     def has_password?(submitted_password)
       encrypted_password == encrypt(submitted_password)

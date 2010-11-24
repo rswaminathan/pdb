@@ -2,7 +2,7 @@ class Project < ActiveRecord::Base
   
   attr_accessible :name, :description, :kind
   
-  belongs_to :user
+  has_and_belongs_to_many :users
                      
   validates :name,        :presence   => true
   validates :description, :presence   => true

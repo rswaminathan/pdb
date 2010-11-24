@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
   
     def create
       @project = current_user.projects.build(params[:project])
+      current_user.projects << @project
         if @project.save
           flash[:success] = "Project added!"
           redirect_to @project
@@ -19,8 +20,8 @@ class ProjectsController < ApplicationController
     end
     
     def show
-      @project = Project.find(params[:id])
-      @user = @project.user
+      @project = Project.find_by_id(params[:id])
+      @users = @project.users
     end
     
     def destroy

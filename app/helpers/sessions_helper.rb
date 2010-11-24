@@ -33,8 +33,7 @@ module SessionsHelper
   	end
 
     def current_project_user?
-  	  user = @project.user
-	    user == current_user 
+  	  @users.exists?(current_user)
   	end
   	  	
     def deny_access
