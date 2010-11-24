@@ -35,28 +35,27 @@
   font-size: 4em;
 }
 
+#header_text{
+   background-color: #333;
+   color: #ffffff;
+   font-size: 1.5em;
+}
+
+#header_text a{
+   color: #ffffff;
+}
 </style>
 </head>
 <body>
-
-	<h1> Project Database </h1>
+	<div id="header_text" align="center">
 	<% if signed_in? %>
-		<div id="logout">
-			<%= link_to "Log Out", logout_path %>
-		<div id="profile"
-			<%=link_to "Profile", user_path(current_user) %>	
-		</div>
-		<div id="add_project">
-		  <%= link_to "Add a Project", new_project_path %>
-		</div>
+			<%= link_to "Log Out", logout_path %> | <%=link_to "Profile", user_path(current_user) %> |
+ <%= link_to "Add a Project", new_project_path %>
 	<% else %>
-		<div id="login">
 			<%= link_to "Log In", login_path %>	
-		</div>
-		<div id="register">
 			<%= link_to "Register", new_user_path %>	
-		</div>	
 	<% end %>	
+ </div>
 <div class="container">
 <section class ="round">
 	<% flash.each do |key, value| %>
