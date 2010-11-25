@@ -1,7 +1,10 @@
 class User < ActiveRecord::Base
-    
+    has_attached_file :photo, 
+                      :styles => {:thumb=> "80x80#", :small  => "400x400>" },
+                      :default_url => "/images/gravatar.jpg"                      
+
     attr_accessor       :password
-    attr_accessible     :name, :email, :password, :password_confirmation    
+    attr_accessible     :name, :email, :password, :password_confirmation, :photo   
     email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     
     has_and_belongs_to_many :projects

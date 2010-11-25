@@ -1,6 +1,9 @@
 class Project < ActiveRecord::Base
-  
-  attr_accessible :name, :description, :kind
+  has_attached_file :photo, 
+                    :styles => {:thumb=> "80x80#", :small  => "600x480>" },
+                    :default_url => "/images/gravatar.jpg"    
+
+  attr_accessible :name, :description, :kind, :photo
   
   has_and_belongs_to_many :users
                      

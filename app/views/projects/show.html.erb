@@ -7,7 +7,7 @@
     <% end%>
    
     <div id="project_kind"><%=@project.kind %></div><br />
-    <div class="project_picture"><%= image_tag("pic.jpg", :width => "600")%></div>    
+    <div class="project_picture"><%= image_tag @project.photo.url(:small) %></div>    
     <div id="project_description">
     <p><%=@project.description %></p>
     </div>
@@ -19,7 +19,7 @@
       <%if @users.any? %>       
       <% @users.each do |u| %>
         <div class="user">
-          <div class="user_pic" "><%= image_tag("gravatar.jpg", :class => "left") %></div>          
+          <div class="user_pic" "><%= image_tag u.photo.url(:thumb), :class => "left" %></div>          
           <div id="user_name"><%= link_to u.name, u %></div>          
         </div>
         
