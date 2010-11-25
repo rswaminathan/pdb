@@ -15,14 +15,15 @@
     <table border="0" cellspacing="5" cellpadding="5">
           <% @projects.each do |p| %>
             <tr>
-              <td><%=image_tag("gravatar.jpg") %></td>
+              <td width="80px;"><%=image_tag("gravatar.jpg") %></td>
               <td>
-                <table border="0">
+                <table border="0" id="project_summary">
                 <tr><td><%= link_to p.name, p %></td></tr> 
-                <tr><td><%= p.description %></td>></tr>
-                <tr><td><%= p.kind %></td></tr>
+                <tr><td><%= p.description %></td></tr>
+                <tr><td><%= p.kind%></td></tr>
                 </table>
-              </td>         
+              </td>
+                          
             </tr>
           <% end %>
     </table>
