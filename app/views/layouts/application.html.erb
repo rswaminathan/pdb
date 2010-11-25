@@ -20,12 +20,12 @@
   padding-top: 0.5em;
 }
 
+
 #project_kind{
  	border: 3px solid #A00;
 	width: 6em;
 	text-align:center;
 	margin-right:auto;
-	margin-top: 0.5em;
 	background-color:#333;
 	border-radius: 6px;
 	-moz-border-radius: 6px;
@@ -40,6 +40,8 @@
    background-color: #333;
    color: #ffffff;
    font-size: 1.5em;
+   padding-right: 0.6em;
+   margin-bottom: 1em;
 }
 
 #header_text a{
@@ -48,15 +50,19 @@
 </style>
 </head>
 <body>
-	<div id="header_text" align="center">
-	<% if signed_in? %>
+
+<div class="container">
+	<div id="header_text">
+  <div id="home" style="float: left; padding-left:0.5em;"><%=link_to "Home", root_url%></div>
+  <div align="right">	
+  <% if signed_in? %>
 			<%= link_to "Log Out", logout_path %> | <%=link_to "Profile", user_path(current_user) %> |
  <%= link_to "Add a Project", new_project_path %>
 	<% else %>
 			<%= link_to "Log In", login_path %> | <%= link_to "Register", new_user_path %>	
 	<% end %>	
+</div>
  </div>
-<div class="container">
 <section class ="round">
 	<% flash.each do |key, value| %>
 		<div class = "flash <%= key %>"><%= value %></div>
