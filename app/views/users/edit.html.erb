@@ -17,6 +17,11 @@
 		<%= f.label :password_confirmation, "Confirm password" %><br />
 		<%= f.password_field :password_confirmation %>
 	</div>
+ 	<div class="field">
+		<%= f.label :profile_picture %><br />
+		<%= f.file_field :profile_picture %>
+	</div>
+
 	<div class="submit">
 		<%= f.submit "Update Profile" %><br />
 	</div>
