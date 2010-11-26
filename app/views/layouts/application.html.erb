@@ -39,33 +39,40 @@
   font-size: 4em;
 }
 
-#header_text{
+#topbar{
    background-color: #333;
    color: #ffffff;
-   font-size: 1.5em;
-   padding-right: 0.6em;
+   font-size: 1em;
    margin-bottom: 1em;
+   font-weight: bold;
 }
 
-#header_text a{
+#topbar a{
    color: #ffffff;
+}
+
+
+#header_menu{
+   text-align:right;
 }
 </style>
 </head>
 <body>
+<div id='topbar'>
+  <div class="container">
+   <div class="span-16"><%=link_to "Home", root_url%></div>
+   <div class="span-8 last" id="header_menu">
+      <% if signed_in? %>
+			<%= link_to "Log Out", logout_path %> | <%=link_to "Profile", user_path(current_user) %> |
+      <%= link_to "Add a Project", new_project_path %>
+	    <% else %>
+			<%= link_to "Log In", login_path %> | <%= link_to "Register", new_user_path %>	
+    	<% end %>	
+   </div>
+  </div>
+</div>
 
 <div class="container">
-	<div id="header_text">
-  <div id="home" style="float: left; padding-left:0.5em;"><%=link_to "Home", root_url%></div>
-  <div align="right">	
-  <% if signed_in? %>
-			<%= link_to "Log Out", logout_path %> | <%=link_to "Profile", user_path(current_user) %> |
- <%= link_to "Add a Project", new_project_path %>
-	<% else %>
-			<%= link_to "Log In", login_path %> | <%= link_to "Register", new_user_path %>	
-	<% end %>	
-</div>
- </div>
 <section class ="round">
 	<% flash.each do |key, value| %>
 		<div class = "flash <%= key %>"><%= value %></div>

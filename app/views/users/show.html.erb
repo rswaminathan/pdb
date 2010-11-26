@@ -1,13 +1,13 @@
 <div id="profile_div" class="span-10 colborder">
 <h1>
-<%= @user.name %>
+<%= @user.name %><br />
 <%#= @user.email %>
 <% if @user.photo.exists? %>
 <%= image_tag @user.photo.url(:small) %>
 <% end %>
 </h1>
-<% if signed_in? %>
-  <%=link_to "Edit Profile", edit_user_path(current_user) %>	
+<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
+  <%=link_to "Edit Your Profile", edit_user_path(current_user) %>	
 <% end%> 
 </div>
 
