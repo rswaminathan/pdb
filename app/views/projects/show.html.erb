@@ -26,14 +26,14 @@
       <% end%>
     <% end %> 
     <% if current_project_user? %>
-      <div id="add_collaborator" class="prepend-4"<%= link_to "(Edit Collaborators)", edit_collaborators_project_path %>
+      <div id="add_collaborator" class="prepend-4"><%= link_to "(Edit Collaborators)", edit_collaborators_project_path %>
       </div>  
     <% end%>
     </div>
   </div>
   <div class="sidebar_section prepend-top">
       <div id ="chat">
-      <div class="sidebar_header">Chat</div>
+      <div class="sidebar_header">Comments</div>
       <% @comments.each do |c| %>
       <%= link_to c.user.name, c.user %> : <%= c.body %><br />
       <% end %>
