@@ -10,12 +10,13 @@ Pdb::Application.routes.draw do
  
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
-  
+  resources :comments
   resources :projects do
     member do
       get 'edit_collaborators'
       post 'update_collaborators'
       delete 'delete_collaborators'
+      post 'create_comment'
     end
   end
   

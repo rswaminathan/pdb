@@ -22,6 +22,7 @@ class ProjectsController < ApplicationController
     def show
       @project = Project.find_by_id(params[:id])
       @users = @project.users
+      @comments = @project.comments
     end
     
     def destroy
@@ -71,6 +72,19 @@ class ProjectsController < ApplicationController
       flash[:success] = "Removed Collaborator"
       redirect_to @project
       end   
+    end
+
+     def create_comment # TODO: authenticate user/project
+      @project = Project.find_by_id(params[:id])
+      comment = current_user.comments.build(params[:comment]);
+      comment.project = @project
+        if comment.save
+          flash[:success] = "Comment added!"
+          redirect_to @project
+        else
+          flash[:error] = "Comment not added!"
+          redirect_to @project
+        end
     end
 
     private
