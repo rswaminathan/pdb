@@ -2,10 +2,8 @@
 <html>
 <head>
   <title><%=title %></title>
-  <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
-  <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
-  <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
+  <%= render 'layouts/stylesheets' %>
 <style type="text/css">
 .sidebar_header {
  background-color:#333;
@@ -39,7 +37,7 @@
   font-size: 4em;
 }
 
-#topbar{
+#header{
    background-color: #333;
    color: #ffffff;
    font-size: 1em;
@@ -47,30 +45,31 @@
    font-weight: bold;
 }
 
-#topbar a{
+#header a{
    color: #ffffff;
 }
 
+#footer{
+   allign: center;
 
+   background-color: #fff;
+   color: #000000;
+   font-size: 0.8em;   
+	margin-top: 3em;
+   margin-bottom: 3em;
+   font-weight: bold;
+}
+
+#footer a{
+   color: inherit;
+}
 #header_menu{
    text-align:right;
 }
 </style>
 </head>
 <body>
-<div id='topbar'>
-  <div class="container">
-   <div class="span-16"><%=link_to "Home", root_url%></div>
-   <div class="span-8 last" id="header_menu">
-      <% if signed_in? %>
-			<%= link_to "Log Out", logout_path %> | <%=link_to "Profile", user_path(current_user) %> |
-      <%= link_to "Add a Project", new_project_path %>
-	    <% else %>
-			<%= link_to "Log In", login_path %> | <%= link_to "Register", new_user_path %>	
-    	<% end %>	
-   </div>
-  </div>
-</div>
+   <%= render 'layouts/header' %>
 
 <div class="container">
 <section class ="round">
@@ -80,6 +79,7 @@
 	<%= yield %>
 </section>
 </div>
-<%#= debug(params) if Rails.env.development? %>
+<%= render 'layouts/footer' %>
+<%= debug(params) if Rails.env.development?%>
 </body>
 </html>
