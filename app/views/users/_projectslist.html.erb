@@ -11,11 +11,9 @@
             <tr>
               <td width="80px;"><%=image_tag p.photo.url(:thumb) %></td>
               <td>
-                <table border="0" id="project_summary">
-                <tr><td><%= link_to p.name, p %></td></tr> 
-                <tr><td><%= p.description %></td></tr>
-                <tr><td><%= p.kind%></td></tr>
-                </table>
+                <div id="project_name_div"><%= link_to p.name, p %></div> 
+                <div id="project_description_div"><%= p.description %></div>
+                <div id="project_kind"><%= p.kind%></div>
               </td>
                           
             </tr>
