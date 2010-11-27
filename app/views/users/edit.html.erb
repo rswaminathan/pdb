@@ -1,3 +1,4 @@
+<div id="profile_div" class="span-10 colborder">
 <h1>Edit Profile</h1>
 <%= form_for @user, :html => { :multipart => true } do |f| %>
 	<%= render	'shared/error_messages', :object => f.object %>
@@ -9,6 +10,7 @@
 		<%= f.label :email %><br />
 		<%= f.text_field :email %>
 	</div>
+	
 	<div class="field">
 		<%= f.label :password %><br />
 		<%= f.password_field :password %>
@@ -17,12 +19,36 @@
 		<%= f.label :password_confirmation, "Confirm password" %><br />
 		<%= f.password_field :password_confirmation %>
 	</div>
+	
+	
+	<div class="field">
+		<%= f.label :institution %><br />
+		<%= f.text_field :institution %>
+	</div>
+	<div class="field">
+		<%= f.label :occupation %><br />
+		<%= f.text_field :occupation %>
+	</div>
+	<div class="field">
+		<%= f.label :year %><br />
+		<%= f.text_field :year %>
+	</div>
+	
  	<div class="field">
 		<%= f.label :photo %><br />
 		<%= f.file_field :photo %>
 	</div>
-
+	
+	<div class="field">
+		<%= f.label :about %><br />
+		<%= f.text_area :about %>
+	</div>
+	
 	<div class="submit">
 		<%= f.submit "Update Profile" %><br />
 	</div>
 <% end %>
+</div>
+<div id="user_projects" class="span-13 last">
+   <%= render 'users/users_sidebar' %>
+</div> 

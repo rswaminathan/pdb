@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
                       :default_url => "/images/gravatar.jpg"                      
 
     attr_accessor       :password
-    attr_accessible     :name, :email, :password, :password_confirmation, :photo   
+    attr_accessible     :name, :email, :about, :password, :password_confirmation, :photo, :institution, :occupation, :year
     email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     
     has_and_belongs_to_many :projects

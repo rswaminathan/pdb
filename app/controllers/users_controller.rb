@@ -3,16 +3,20 @@ class UsersController < ApplicationController
   before_filter :authenticate, :only => [:edit, :destroy]
   before_filter :correct_user, :only => [:edit, :update]
  
+ sidebar_type=["user_info","project_list"]
+ 
   def new
   	@title = "Sign Up"
     @user = User.new
+    
   end
 
   def show
     @user = User.find(params[:id])
     @projects = @user.projects
+    @sidebar_page = params[:page]
   end
-  
+    
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -28,6 +32,8 @@ class UsersController < ApplicationController
   def edit
   	@user = User.find_by_id(params[:id])
   	@title = "Edit User"
+    @projects = @user.projects
+  	
   end
   
   def update

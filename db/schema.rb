@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101126032716) do
+ActiveRecord::Schema.define(:version => 20101127004900) do
 
   create_table "comments", :force => true do |t|
     t.string   "body"
@@ -36,18 +36,7 @@ ActiveRecord::Schema.define(:version => 20101126032716) do
     t.integer "user_id"
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "encrypted_password"
-    t.string   "salt"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-  end
-
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+# Could not dump table "users" because of following StandardError
+#   Unknown type 'body' for column 'about'
 
 end
