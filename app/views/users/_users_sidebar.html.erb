@@ -1,0 +1,7 @@
+   <% if @sidebar_page.nil? %>
+   <%= render "users/projectslist" %>
+   <% else %>
+   <%= render "users/#{@sidebar_page}" %>
+   <% end %>
+<br/>
+	<%= render 'users/users_sidebar_footer' %>
