@@ -10,8 +10,8 @@ class ProjectsController < ApplicationController
   
     def create
       @project = current_user.projects.build(params[:project]);
-      current_user.projects << @project
         if @project.save
+          current_user.projects << @project
           flash[:success] = "Project added!"
           redirect_to @project
         else
