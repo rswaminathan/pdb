@@ -6,8 +6,8 @@ class AddSchooltoUsers < ActiveRecord::Migration
   end
 
   def self.down
-  remove_column :users, :institution, :string
-  remove_column :users, :occupation, :string
-  remove_column :users, :year, :string
+  remove_column :users, :institution
+  remove_column :users, :occupation
+  remove_column :users, :year
   end
 end
