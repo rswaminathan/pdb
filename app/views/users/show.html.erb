@@ -1,39 +1,20 @@
 <div id="profile_div" class="span-10 colborder">
 <h1>
-<%= @user.name %><br />
-<%#= @user.email %>
+<%= @user.name %>
+<br />
+
 <% if @user.photo.exists? %>
 <%= image_tag @user.photo.url(:small) %>
 <% end %>
 </h1>
 <% if signed_in? && @current_user == User.find_by_id(params[:id])%>
   <%=link_to "Edit Your Profile", edit_user_path(current_user) %>	
-<% end%> 
-</div>
+<% end%>
 
+<%= @user.institution %>
+<%= @user.occupation %>
+<%= @user.year %>
+ </div>
 <div id="user_projects" class="span-13 last">
-<%if @user.projects.any? %>
-  <div id="project">
-    <h2><%= pluralize(@user.projects.count, "Project") %>:</h2>
-    <table border="0" cellspacing="5" cellpadding="5">
-          <% @projects.each do |p| %>
-            <tr>
-              <td width="80px;"><%=image_tag p.photo.url(:thumb) %></td>
-              <td>
-                <table border="0" id="project_summary">
-                <tr><td><%= link_to p.name, p %></td></tr> 
-                <tr><td><%= p.description %></td></tr>
-                <tr><td><%= p.kind%></td></tr>
-                </table>
-              </td>
-                          
-            </tr>
-          <% end %>
-    </table>
-    
-  </div>
-</div>
-
- 
-
-<% end %>
+   <%= render 'users/users_sidebar' %>
+</div> 

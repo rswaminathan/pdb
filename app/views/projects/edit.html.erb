@@ -1,5 +1,6 @@
+<div id="project" class="span-16 colborder">
 <h1>Edit Project</h1>
-<%= form_for @project, :html => { :multipart => true } do |f| %>
+<%= form_for(@project) do |f| %>
 	<%= render	'shared/error_messages', :object => f.object %>
 	<div class="field">
 		<%= f.label :name %><br />
@@ -13,11 +14,15 @@
 		<%= f.label :description %><br />
 		<%= f.text_area :description %>
 	</div>
- 	<div class="field">
-		<%= f.label :photo %><br />
-		<%= f.file_field :photo %>
-	</div>
 	<div class="submit">
 		<%= f.submit "Edit Project" %><br />
 	</div>
 <% end %>
+</div>
+<div id="sidebar" class="span-7 last">
+
+<%= render 'projects/projects_sidebar' %>
+
+ </div>
+
+

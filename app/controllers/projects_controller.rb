@@ -33,6 +33,7 @@ class ProjectsController < ApplicationController
     
     def edit
       @title = "Edit Project"
+      @comments = @project.comments
     end
 
     def update
@@ -46,7 +47,8 @@ class ProjectsController < ApplicationController
     end
 
     def edit_collaborators
-      @title = "Edit Collaborators"  
+      @title = "Edit Collaborators"
+      @comments = @project.comments  
     end
 
     def update_collaborators

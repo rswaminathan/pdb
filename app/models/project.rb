@@ -9,7 +9,6 @@ class Project < ActiveRecord::Base
   has_many :comments
                      
   validates :name,        :presence   => true
-  validates :description, :presence   => true
   
   default_scope :order => 'projects.created_at DESC'
 end
