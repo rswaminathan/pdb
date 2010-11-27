@@ -1,7 +1,10 @@
 class User < ActiveRecord::Base
     has_attached_file :photo, 
                       :styles => {:thumb=> "80x80#", :small  => "400x400>" },
-                      :default_url => "/images/gravatar.jpg"                      
+                      :default_url => "/images/gravatar.jpg",
+                      :storage => s3,
+                      :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
+                      :path => "/:style/:filename"                      
 
     attr_accessor       :password
     attr_accessible     :name, :email, :about, :password, :password_confirmation, :photo, :institution, :occupation, :year
