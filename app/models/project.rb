@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
   has_attached_file :photo, 
                     :styles => {:thumb=> "80x80#", :small  => "640x480>" },
-                    :default_url => "/images/gravatar.jpg"    
+                    :default_url => "/images/gravatar.jpg",    
                     :storage => :s3,
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
                     :path => "/:style/:filename"   
