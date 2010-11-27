@@ -1,0 +1,40 @@
+<div class="sidebar_section">    
+   <div id="creators">  
+     <div class="sidebar_header"><%=@users.count == 1 ? "Creator" : "Creator".pluralize %></div>
+     <%if @users.any? %>       
+     <% @users.each do |u| %>
+       <div class="user">
+         <div class="user_pic" "><%= image_tag u.photo.url(:thumb), :class => "left" %></div>
+          
+         <div id="user_name"> <%= link_to u.name, u %></div>          
+       </div>
+       
+     <% end%>
+   <% end %> 
+   <% if current_project_user? %>
+     <div id="add_collaborator" class="prepend-4"<%= link_to "(Edit Collaborators)", edit_collaborators_project_path %>
+     </div>  
+   <% end%>
+   </div>
+ </div>
+ <div class="sidebar_section prepend-top">
+     <div id ="chat">
+     <div class="sidebar_header">Comments</div>
+     <% @comments.each do |c| %>
+     <%= link_to c.user.name, c.user %> : <%= c.body %><br />
+     <% end %>
+     <% if signed_in? %>
+     <div id ="comment_sumbit">
+       <%= form_for(:comment, :url => create_comment_project_path) do |f| %>
+	      <div class="field">
+		      <%= f.label :comment %><br />
+		      <%= f.text_field :body %>
+	      </div>
+      	<div class="submit">
+		      <%= f.submit "Add Comment" %><br />
+	      </div>
+       <% end %>
+     </div>
+     </div>
+    <% end%>
+ </div>

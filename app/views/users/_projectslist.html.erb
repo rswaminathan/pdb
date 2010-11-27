@@ -1,0 +1,26 @@
+<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
+<%= link_to "Add a Project!", new_project_path %>
+<% end %>
+
+<%if @user.projects.any? %>
+  <div id="project">
+    <h2><%= pluralize(@user.projects.count, "Project") %>:</h2>
+    <table border="0" cellspacing="5" cellpadding="5">
+	<% if !@projects.nil? %>
+          <% @projects.each do |p| %>
+            <tr>
+              <td width="80px;"><%=image_tag p.photo.url(:thumb) %></td>
+              <td>
+                <table border="0" id="project_summary">
+                <tr><td><%= link_to p.name, p %></td></tr> 
+                <tr><td><%= p.description %></td></tr>
+                <tr><td><%= p.kind%></td></tr>
+                </table>
+              </td>
+                          
+            </tr>
+          <% end %>
+		<% end %>
+    </table>
+  </div>
+<% end %>
