@@ -1,10 +1,10 @@
-<div id="profile_div" class="span-10 colborder">
+<div id="profile_div" class="span-9 colborder">
 <h1>
 <%= @user.name %>
 <br />
 </h1>
 <% if signed_in? && @current_user == User.find_by_id(params[:id])%>
-  <%=link_to "Edit Your Profile!", edit_user_path(current_user) %>	
+<div id="login_special"> <%=link_to "Edit Your Profile!", edit_user_path(current_user) %></div>	
 <% end%>
 
 <% if @user.photo.exists? %>
@@ -17,6 +17,6 @@
 <%= @user.occupation %>
 <%= @user.year %>
  </div>
-<div id="user_projects" class="span-13 last">
+<div id="user_projects" class="span-14 last">
    <%= render 'users/users_sidebar' %>
 </div> 

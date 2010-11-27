@@ -2,6 +2,7 @@ class Project < ActiveRecord::Base
   has_attached_file :photo, 
                     :styles => {:thumb=> "80x80#", :small  => "640x480>" },   
                     :storage => :s3,
+                    :default_url => "/images/lightbulb.jpg",
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
                     :path => "/:style/:filename"   
 

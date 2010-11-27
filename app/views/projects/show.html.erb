@@ -1,9 +1,9 @@
-  <div id="project" class="span-16 colborder">
+  <div id="project" class="span-18 colborder">
     <div id="project_name"><%=@project.name %></div>
-    <% if current_project_user? %>
-      <div><h3>(<%= link_to "Edit Project", edit_project_path%> |
+    <% if current_project_user? %> 
+      <div id="login_special" ><h3><%= link_to "Edit Project", edit_project_path%> |
       <%= link_to "Delete Project", @project , :confirm => "Are you sure?", 
-      :method => :delete %>)</h3></div>    
+      :method => :delete %></h3></div>  
     <% end%>
    
     <div id="project_kind"><%=@project.kind %></div><br />
@@ -12,7 +12,7 @@
     <p><%=@project.description %></p>
     </div>
   </div>
- <div id="sidebar" class="span-7 last">
+ <div id="sidebar" class="span-5 last">
   <%= render 'projects/projects_sidebar' %>
  </div>
 
