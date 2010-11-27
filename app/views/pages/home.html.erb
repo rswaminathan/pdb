@@ -1,5 +1,9 @@
 <h1> Welcome to MuddFish </h1>
-<% if not(signed_in?) %>
+<% if signed_in? %>
+<%=link_to "Edit Profile", edit_user_path(current_user) %>	
+<h2> Notes: </h2>
+<p> we should institute a search feature here and a link to view profile. I'm trying to figure out searches now. </p>
+<% else %>
 <h2>Log In</h2>
 <%= form_for(:session, :url => sessions_path) do |f| %>
 
@@ -16,11 +20,6 @@
         <%= f.submit "Login" %><br />
     </div>
 <% end %>
-<% end %>
-<% if signed_in? %>
-<%=link_to "Edit Profile", edit_user_path(current_user) %>	
-<h2> Notes: </h2>
-<p> we should institute a search feature here and a link to view profile. I'm trying to figure out searches now. </p>
 <% end %>
 
 
