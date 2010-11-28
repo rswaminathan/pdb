@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
     has_attached_file :photo, 
-                      :styles => {:thumb=> "60x60#", :small  => "400x400>" },
+                      :styles => {:thumb=> "80x80#", :small  => "320x600>" },
                       :default_url => "/images/wally_small.jpg",
                       :storage => :s3,
                       :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 

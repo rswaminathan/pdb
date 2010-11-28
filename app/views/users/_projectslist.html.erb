@@ -1,10 +1,6 @@
-<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
-<div id="login_special"> <%= link_to "Add a Project!", new_project_path %> </div>
-<% end %>
 
 <%if @user.projects.any? %>
-  <div id="project">
-
+  <div id="projects">
     <table border="0" cellspacing="5" cellpadding="5">
 	<% if !@projects.nil? %>
           <% @projects.each do |p| %>

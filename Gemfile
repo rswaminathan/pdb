@@ -6,6 +6,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'annotate'
 gem 'paperclip'
 gem 'aws-s3'
+gem 'mongrel', '1.2.0.pre2'
 
 group :development do
     gem 'rspec-rails', '2.0.1'
