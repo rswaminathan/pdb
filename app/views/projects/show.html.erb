@@ -1,4 +1,4 @@
-  <div id="project" class="span-18 colborder">
+  <div id="project" class="span-18">
     <div id="project_name"><%=@project.name %></div>
     <% if current_project_user? %> 
       <div id="login_special" ><h3><%= link_to "Edit Project", edit_project_path%> |
@@ -12,7 +12,7 @@
     <p><%=@project.description %></p>
     </div>
   </div>
- <div id="sidebar" class="span-5 last">
+ <div id="sidebar" class="span-6 last">
   <%= render 'projects/projects_sidebar' %>
  </div>
 
