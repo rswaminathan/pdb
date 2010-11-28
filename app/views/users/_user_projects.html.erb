@@ -16,9 +16,13 @@
           <% end %>
 		<% end %>
     </table>
+	<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
+	<div id="login_special">
+	 <%= link_to "Add a Project!", new_project_path %>
+	  </div>
+	<% end %>
+	
   </div>
+
 <% end %>
 
-<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
- <%= link_to "Add a Project!", new_project_path %>
-<% end %>

@@ -1,13 +1,13 @@
 class User < ActiveRecord::Base
     has_attached_file :photo, 
-                      :styles => {:thumb=> "60x60#", :small  => "320x600>" },
+                      :styles => {:thumb=> "80x80#", :small  => "320x600>" },
                       :default_url => "/images/wally_small.jpg",
                       :storage => :s3,
                       :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
                       :path => "/:style/:filename"                      
 
     attr_accessor       :password
-    attr_accessible     :name, :email, :about, :password, :password_confirmation, :photo, :institution, :occupation, :year
+    attr_accessible     :name, :email, :about, :password, :password_confirmation, :photo, :institution, :occupation, :year, :skills, :contact
     email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     
     has_and_belongs_to_many :projects

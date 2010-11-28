@@ -1,0 +1,9 @@
+<%= @user.contact %>
+
+<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
+<br/>
+<br/>
+<div id="login_special">
+ <%= link_to "Edit Contact", user_path(@user, :page => "edit_contact") %>
+  </div>
+<% end %>

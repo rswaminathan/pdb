@@ -2,6 +2,21 @@ Note: please cross things off when you do them and put your name there - don't d
 
 To Do
 
+Urgent:
+
+(Ozzie at 12:20:  I added files to allow user to edit Skills, Contact.  It still needs to be modified to not require password, and to have a better border.  THe files changed are views-users, views-layouts, models-user, and db-migrate.)
+
+- Allow customization of Skills, Contact (Add to database) 
+- Edit About/Skills/Contact in field
+- Custom name
+- Need a domain
+
+Almost as Urgent:
+-Put Youtube instead of/or picture for Project
+- Add box for similar projects 
+- Password Retreival 
+
+
 Application:
 - Keep footer at minimum height
 - Make a Muddfish logo?
@@ -17,7 +32,7 @@ Person Page:
 	- Choices for "Department" (Not added yet): Engineering, Computer Science, (Insert new department here)
 	- Choices for "year" (only if student or alumni): all of them (from 1950 to 2010)
 - Change webpage to be muddfish.heroku/(person's name).  Example:  Muddfish.heroku.ozziegooen
-
+- Add "Engineering Student" or title underneath name
 
 Person Sidebar:
 
@@ -42,6 +57,8 @@ Project Page
 - Center Image
 - Allow Youtube video to uploaded instead of image
 - LONG: Add pages to project, like the navigation in the person sidebar.
+- Add Skills, Contact
+- Change About, Skills, Contact to be edited in their places.
 
 Project Sidebar 
 - Somehow make the side "Creator" box look nice
