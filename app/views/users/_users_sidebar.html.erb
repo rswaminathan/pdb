@@ -1,8 +1,8 @@
 	<%= render 'users/users_sidebar_footer' %>
 	
    <% if @sidebar_page.nil? %>
-   <%= render "users/projectslist" %>
+   <%= render "users/user_projects" %>
    <% else %>
-   <%= render "users/#{@sidebar_page}" %>
+   <%= render "users/user_#{@sidebar_page}" %>
    <% end %>
 <br/>

@@ -1,11 +1,9 @@
 <div id="project_header" class="span-14 last">
 <ul>
-<li class ="current"> <%= link_to "Projects", user_path(@user, :page => "projectslist")  %></li>
-<li><%= link_to "About", user_path(@user, :page => "userinfo")  %></li>
-<li><%= link_to "Skills", user_path(@user, :page => "userinfo")  %></li>
-<li><%= link_to "Contact", user_path(@user, :page => "userinfo")  %></li>
-<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
- <li><%= link_to "Add a Project!", new_project_path %></li>
-<% end %>
+<li class ="current"> <%= link_to "Projects", user_path(@user, :page => "projects")  %></li>
+<li class ="current"><%= link_to "About", user_path(@user, :page => "about")  %></li>
+<li class ="current"><%= link_to "Skills", user_path(@user, :page => "skills")  %></li>
+<li class ="current"><%= link_to "Contact", user_path(@user, :page => "contact")  %></li>
 </ul>
 </div>
+

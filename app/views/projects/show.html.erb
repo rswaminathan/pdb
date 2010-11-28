@@ -7,7 +7,7 @@
     <% end%>
    
     <div id="project_kind"><%=@project.kind %></div><br />
-    <div class="project_picture"><%= image_tag @project.photo.url(:small) %></div>    
+    <div id="project_picture", align="center"><%= image_tag @project.photo.url(:small) %></div>    
     <div id="project_description">
     <p><%=@project.description %></p>
     </div>
