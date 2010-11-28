@@ -1,0 +1,56 @@
+Note: please cross things off when you do them and put your name there - don't delete them
+
+To Do
+
+Application:
+- Keep footer at minimum height
+- Make a Muddfish logo?
+
+Person Page:
+
+- Center Profile Picture
+- Add quote for bottom.  
+- Make academic information go somewhere else and/or look nice.
+- Make a list/scroll down menu to choose academic information from
+	- Choices for "Institution" : "Harvey Mudd College"
+	- Choices for "Profession" (or whatever we called it): Alumni, Student, Professor, Staff
+	- Choices for "Department" (Not added yet): Engineering, Computer Science, (Insert new department here)
+	- Choices for "year" (only if student or alumni): all of them (from 1950 to 2010)
+- Change webpage to be muddfish.heroku/(person's name).  Example:  Muddfish.heroku.ozziegooen
+
+
+Person Sidebar:
+
+	Person header:
+- Change header to grey/black, make it change colors for which choice is selected (projects vs. about)
+- Make header the same size as the Muddfish top header
+	
+	Person Projects:
+- Make the small text 1pt
+- Instead of centering, put name close to the top of each picture, type close to the bottom 
+- Make the Type(international, research, website) tags less obtrusive - (thinner maybe?)
+- Change child background color from blue to light grey, then replace the white to another lighter shade of grey
+
+	Person About Page:
+- Put a rich text box in the About Page
+- Allow user to upload resume in about page?
+
+
+Project Page
+- Add rich text box
+- Maybe have unique web address for project name- "muddfish.heroku.com/heelblazer"
+- Center Image
+- Allow Youtube video to uploaded instead of image
+- LONG: Add pages to project, like the navigation in the person sidebar.
+
+Project Sidebar 
+- Somehow make the side "Creator" box look nice
+- Push Name text a little to the right
+- Add timestamps to comments
+
+
+Welcome Page
+- Do something here.
+
+About Page
+- Add to this, put our names here maybe?
