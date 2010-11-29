@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
                       :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
                       :path => "/:style/:filename"                      
 
-    attr_accessor       :password
-    attr_accessible     :name, :email, :about, :password, :password_confirmation, :photo, :institution, :occupation, :year, :skills, :contact
+    attr_accessor     :password
+        attr_accessible     :name, :email, :about, :password, :password_confirmation, :photo, :institution, :occupation, :year, :skills, :contact
     email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     
     has_and_belongs_to_many :projects
@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
               :uniqueness               => { :case_sensitive => false} 
         
     validates :password, :presence     => true,
-                         :confirmation => true
+                         :confirmation => true, :on => :create
 
     before_save :encrypt_password     
 
