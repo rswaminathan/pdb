@@ -8,7 +8,7 @@
    
     <div id="project_kind"><%=@project.kind %></div><br />
     <div id="project_picture", align="center"><%= image_tag @project.photo.url(:small) %></div>    
-    <div id="project_description">
+    <div id="project_description" class="prepend-top">
     <p><%=@project.description %></p>
     </div>
   </div>
