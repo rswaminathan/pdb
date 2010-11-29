@@ -54,8 +54,10 @@ class User < ActiveRecord::Base
       end
 
       def encrypt_password
-        self.salt = make_salt
-        self.encrypted_password = encrypt(password)     
+        if !password.nil?
+          self.salt = make_salt
+          self.encrypted_password = encrypt(password) 
+        end    
       end
         
       def secure_hash(string)
