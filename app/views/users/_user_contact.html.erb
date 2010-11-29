@@ -6,4 +6,10 @@
   </div>
 <% end %>
 
-<%= @user.contact %>
+<%= link_to "Website", @profile.website %><br />
+<%= link_to "Facebook", @profile.facebook %><br />
+<%= link_to "Twitter", @profile.twitter %><br />
+
+<h3> Other:</h3>
+<%= @profile.other %>
+

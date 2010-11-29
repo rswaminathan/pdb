@@ -27,8 +27,8 @@ Person Page:
 - Add quote for bottom.  
 - Make academic information go somewhere else and/or look nice.
 - Make a list/scroll down menu to choose academic information from
-	- Choices for "Institution" : "Harvey Mudd College"
-	- Choices for "Profession" (or whatever we called it): Alumni, Student, Professor, Staff
+	- Choices for "Institution" : "Harvey Mudd College" -- Finished by Matt at 11:22, 11/28
+	- Choices for "Profession" (or whatever we called it): Alumni, Student, Professor, Staff  -- Finished by Matt at 11:22, 11/28
 	- Choices for "Department" (Not added yet): Engineering, Computer Science, (Insert new department here)
 	- Choices for "year" (only if student or alumni): all of them (from 1950 to 2010)
 - Change webpage to be muddfish.heroku/(person's name).  Example:  Muddfish.heroku.ozziegooen

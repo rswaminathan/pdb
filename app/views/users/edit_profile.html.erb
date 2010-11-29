@@ -1,0 +1,30 @@
+<div id="profile_div" class="span-10 colborder">
+<h1>Edit Profile</h1>
+<%= form_for @profile, :url => update_profile_user_path, :html => { :multipart => true } do |f| %>
+	<%= render	'shared/error_messages', :object => f.object %>
+	<div class="field">
+		<%= f.label "Institution" %><br />
+		<%= select( "user", "institution", ["Harvey Mudd College"]) %>
+	</div>
+	<div class="field">
+		<%= f.label 'occupation' %><br />
+		<%= select( "user", "occupation", ["Professor", "Student", "Alumni", "Staff"]) %>
+	</div>
+	<div class="field">
+		<%= f.label 'Graduation Year' %><br />
+		<%= f.text_field :year %>
+	</div>
+	
+ 	<div class="field">
+		<%= f.label :photo %><br />
+		<%= f.file_field :photo %>
+	</div>
+	
+	<div class="submit">
+		<%= f.submit "Update Profile" %><br />
+	</div>
+<% end %>
+</div>
+<div id="user_projects" class="span-13 last">
+   <%= render 'users/users_sidebar' %>
+</div> 

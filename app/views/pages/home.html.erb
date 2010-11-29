@@ -1,12 +1,15 @@
+
 <h1> Welcome to MuddFish </h1>
+<h2> Muddfish allows the Harvey Mudd Community to showcase its (awesome) work <h2>
+
 <% if signed_in? %>
 <%=link_to "Edit Profile", edit_user_path(current_user) %>	
 <h2> Notes: </h2>
 <p> we should institute a search feature here and a link to view profile. I'm trying to figure out searches now. </p>
 <% else %>
-<h2>Log In</h2>
+<div class="home_register">
+<h3>Log In</h3>
 <%= form_for(:session, :url => sessions_path) do |f| %>
-
     <div class="field">
         <%= f.label :email %><br />
         <%= f.text_field :email %>
@@ -15,11 +18,36 @@
         <%= f.label :password %><br />
         <%= f.password_field :password %>
     </div>
-
     <div class="submit">
         <%= f.submit "Login" %><br />
     </div>
 <% end %>
+</div>
+<div class="home_register">
+<h3>...or make a new profile</h3>
+<%= form_for @user do |f| %>
+	<%= render	'shared/error_messages', :object => f.object %>
+	<div class="field">
+		<%= f.label :name %><br />
+		<%= f.text_field :name %>
+	</div>
+	<div class="field">
+		<%= f.label :email %><br />
+		<%= f.text_field :email %>
+	</div>
+	<div class="field">
+		<%= f.label :password %><br />
+		<%= f.password_field :password %>
+	</div>
+	<div class="field">
+		<%= f.label :password_confirmation, "Confirm password" %><br />
+		<%= f.password_field :password_confirmation %>
+	</div>
+	<div class="submit">
+		<%= f.submit "Register" %><br />
+	</div>
+<% end %>
+</div>
 <% end %>
 
 

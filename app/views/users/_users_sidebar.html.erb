@@ -3,6 +3,8 @@
    <% if @sidebar_page.nil? %>
    <%= render "users/user_projects" %>
    <% else %>
+    <div id ="user_sidebar_pages">
    <%= render "users/user_#{@sidebar_page}" %>
+    </div>
    <% end %>
 <br/>

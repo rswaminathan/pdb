@@ -4,12 +4,12 @@
 <br />
 </h1>
 <% if signed_in? && @current_user == User.find_by_id(params[:id])%>
-<div id="login_special", align="center"> <%=link_to "Edit Your Profile!", edit_user_path(current_user) %></div>	
+<div id="login_special", align="center"> <%=link_to "Edit Your Profile!", edit_profile_user_path(current_user) %></div>	
 <% end%>
 
 <div align="center">
-<% if @user.photo.exists? %>
-<%= image_tag @user.photo.url(:small) %>
+<% if !@profile.nil? && @profile.photo.exists? %>
+<%= image_tag @profile.photo.url(:small) %>
 <% end %>
 </div>
 

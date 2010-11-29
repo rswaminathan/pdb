@@ -8,8 +8,15 @@ Pdb::Application.routes.draw do
   match	'/login',  :to	=> 'sessions#new'
   match	'/logout', :to	=> 'sessions#destroy'
   root :to => "pages#home"
- 
-  resources :users
+  
+  resources :profile
+  resources :users do
+    member do
+      put 'update_profile'
+      get 'edit_profile'
+    end  
+  end
+
   resources :sessions, :only => [:new, :create, :destroy]
   resources :comments
   resources :projects do
