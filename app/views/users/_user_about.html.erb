@@ -1,4 +1,3 @@
-<%= @user.about %>
 
 <% if signed_in? && @current_user == User.find_by_id(params[:id])%>
 <br/>
@@ -7,3 +6,6 @@
  <%= link_to "Edit About", user_path(@user, :page => "edit_about")  %>
   </div>
 <% end %>
+
+
+<%= @user.about %>

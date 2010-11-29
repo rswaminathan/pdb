@@ -1,3 +1,10 @@
+<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
+<br/>
+<br/>
+<div id="login_special">
+ <%= link_to "Add a Project", new_project_path %>
+  </div>
+<% end %>
 
 <%if @user.projects.any? %>
   <div id="projects">
@@ -14,12 +21,8 @@
                           
             </tr>
           <% end %>
-		<% end %>
     </table>
-	<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
-	<div id="login_special">
-	 <%= link_to "Add a Project!", new_project_path %>
-	  </div>
+	
 	<% end %>
 	
   </div>

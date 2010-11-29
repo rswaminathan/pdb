@@ -1,12 +1,12 @@
  <br \>
 
-<%= @user.skills %>
-
 <% if signed_in? && @current_user == User.find_by_id(params[:id])%>
-<br/>
 <br/>
 <div id="login_special">
  <%= link_to "Edit Skills", user_path(@user, :page => "edit_skills") %>
 
   </div>
 <% end %>
+
+
+<%= @user.skills %>
