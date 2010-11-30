@@ -1,11 +1,10 @@
-
+<div id="profile_div">
 <h1> Welcome to MuddFish </h1>
-<h2> Muddfish allows the Harvey Mudd Community to showcase its (awesome) work <h2>
+<h2> Muddfish allows the Harvey Mudd Community to showcase its (awesome) work </h2>
+</div>
 
 <% if signed_in? %>
 <%=link_to "Edit Profile", edit_user_path(current_user) %>	
-<h2> Notes: </h2>
-<p> we should institute a search feature here and a link to view profile. I'm trying to figure out searches now. </p>
 <% else %>
 <div class="home_register">
 <h3>Log In</h3>
