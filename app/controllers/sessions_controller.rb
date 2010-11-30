@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     						             params[:session][:password])						
 	  if user.nil?
        flash.now[:error] = "Check your detailz"
-       render 'pages/home' 
+       render 'new' 
 	  else 
    		flash[:success] = "You signed in!"
    		sign_in(user)   
