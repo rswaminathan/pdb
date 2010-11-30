@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     	redirect_to @user 
     else
     	@title = "Muddfish"
-    	render 'pages#home'
+    	render 'pages/home'
     end
   end  
   

@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   def destroy
      sign_out
      flash.now[:error] = "Signed out successfully"
-     render 'pages#home'
+     render 'pages/home'
   end
 
   def create
@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     						             params[:session][:password])						
 	  if user.nil?
        flash.now[:error] = "Check your detailz"
-       render 'pages#home' 
+       render 'pages/home' 
 	  else 
    		flash[:success] = "You signed in!"
    		sign_in(user)   
