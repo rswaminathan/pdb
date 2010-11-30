@@ -1,13 +1,22 @@
+<br />
+
 <div id="home">
-<h1> Welcome to MuddFish </h1>
-<h2> Muddfish allows the Harvey Mudd Community to showcase its (awesome) work </h2>
+<h1> Welcome to Project : 
+	<span style="color: #F4B10F;"> MuddFish </span> </h1> 
+
+<br />
+
+<h2> <span style="color: #F4B10F;"> Muddfish </span> allows the Harvey Mudd Community to showcase its (<span style="color: #F4B10F;"> awesome </span> ) work </h2>
 </div>
+<br />
+<br />
+
 
 <% if signed_in? %>
 <%=link_to "Edit Profile", edit_user_path(current_user) %>	
 <% else %>
 <div class="home_register">
-<h2>Log In</h2>
+<h3>Log In</h3>
 <%= form_for(:session, :url => sessions_path) do |f| %>
     <div class="field">
         <%= f.label :email %><br />
@@ -22,8 +31,10 @@
     </div>
 <% end %>
 </div>
+
+
 <div class="home_register">
-<h2>...or make a new profile</h2>
+<h3>...or make a new profile</h3>
 <%= form_for @user do |f| %>
 	<%= render	'shared/error_messages', :object => f.object %>
 	<div class="field">

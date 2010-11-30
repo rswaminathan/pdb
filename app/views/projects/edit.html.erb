@@ -4,7 +4,7 @@
 	<%= render	'shared/error_messages', :object => f.object %>
 	<div class="field">
 		<%= f.label :name %><br />
-		<%= f.text_field :name %>
+		    <div id="project_edit_name"><%= f.text_field :name %></div>
 	</div>
 	<div class="field">
 		<%= f.label :kind %><br />
@@ -28,5 +28,4 @@
 <%= render 'projects/projects_sidebar' %>
 
  </div>
-
 

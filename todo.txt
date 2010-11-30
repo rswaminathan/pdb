@@ -5,7 +5,7 @@ To Do
 Urgent:
 
 (Ozzie at 12:20:  I added files to allow user to edit Skills, Contact.  It still needs to be modified to not require password, and to have a better border.  THe files changed are views-users, views-layouts, models-user, and db-migrate.)
-
+(Ozzie at 8:11pm on 11-29:  I fixed the issue with users attempting to view information of others before the update to database, cleaned home page to add color)
 - Allow customization of Skills, Contact (Add to database) 
 - Edit About/Skills/Contact in field
 - Custom name
@@ -53,7 +53,7 @@ Person Sidebar:
 
 Project Page
 - Add rich text box
-- Maybe have unique web address for project name- "muddfish.heroku.com/heelblazer"
+- Maybe have unique web address for project name- "muddfish.heroku.com/heelblazer" I (Matt) suggest "muddfish.heroku.com/username/heelblazer"
 - Center Image
 - Allow Youtube video to uploaded instead of image
 - LONG: Add pages to project, like the navigation in the person sidebar.

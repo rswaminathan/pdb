@@ -1,10 +1,13 @@
 <% if signed_in? && @current_user == User.find_by_id(params[:id])%>
 <br/>
 <br/>
+
 <div id="login_special">
  <%= link_to "Edit Contact", user_path(@user, :page => "edit_contact") %>
   </div>
 <% end %>
+
+<% if !@user.about.nil?%>
 
 <%= link_to "Website", @profile.website %><br />
 <%= link_to "Facebook", @profile.facebook %><br />
@@ -13,3 +16,4 @@
 <h3> Other:</h3>
 <%= @profile.other %>
 
+<% end %>
