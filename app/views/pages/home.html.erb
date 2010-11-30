@@ -1,4 +1,4 @@
-<div id="profile_div">
+<div id="home">
 <h1> Welcome to MuddFish </h1>
 <h2> Muddfish allows the Harvey Mudd Community to showcase its (awesome) work </h2>
 </div>
@@ -7,7 +7,7 @@
 <%=link_to "Edit Profile", edit_user_path(current_user) %>	
 <% else %>
 <div class="home_register">
-<h3>Log In</h3>
+<h2>Log In</h2>
 <%= form_for(:session, :url => sessions_path) do |f| %>
     <div class="field">
         <%= f.label :email %><br />
@@ -23,7 +23,7 @@
 <% end %>
 </div>
 <div class="home_register">
-<h3>...or make a new profile</h3>
+<h2>...or make a new profile</h2>
 <%= form_for @user do |f| %>
 	<%= render	'shared/error_messages', :object => f.object %>
 	<div class="field">
