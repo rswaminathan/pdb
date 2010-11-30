@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 	def home
-		@title = "Home"
+		@title = "Muddfish | Home "
     @user = User.new
 	end
 	

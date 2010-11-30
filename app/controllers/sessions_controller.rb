@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   def destroy
      sign_out
      flash.now[:error] = "Signed out successfully"
-     render 'pages/home'
+     render 'new'
   end
 
   def create
