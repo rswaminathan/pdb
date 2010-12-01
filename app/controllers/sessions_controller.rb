@@ -14,8 +14,8 @@ class SessionsController < ApplicationController
    user = User.authenticate(params[:session][:email], 
     						             params[:session][:password])						
 	  if user.nil?
-       flash[:error] = "Check your detailz"
-       redirect_to root_url
+       flash.now[:error] = "Check your detailz"
+       render 'new' 
 	  else 
    		flash[:success] = "You signed in!"
    		sign_in(user)   

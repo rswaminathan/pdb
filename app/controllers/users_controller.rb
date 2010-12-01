@@ -26,8 +26,8 @@ class UsersController < ApplicationController
     	flash[:success] = "Yay! You registered"
     	redirect_to @user 
     else
-    	@title = "Muddfish"
-    	render 'pages/home'
+    	@title = "Sign Up"
+    	render 'new'
     end
   end  
   
