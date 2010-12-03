@@ -5,11 +5,11 @@
 	<%= render	'shared/error_messages', :object => f.object %>
 	<div class="field">
 		<%= f.label "Institution" %><br />
-		<%= select( "user", "institution", ["Harvey Mudd College"]) %>
+		<%= select( "profile", "institution", ["Harvey Mudd College"]) %>
 	</div>
 	<div class="field">
 		<%= f.label 'occupation' %><br />
-		<%= select( "user", "occupation", ["Professor", "Student", "Alumni", "Staff"]) %>
+		<%= select( "profile", "occupation", ["Professor", "Student", "Alumni", "Staff"]) %>
 	</div>
 	<div class="field">
 		<%= f.label 'Graduation Year' %><br />
