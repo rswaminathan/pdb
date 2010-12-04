@@ -1,13 +1,15 @@
- <br \>
+<% if !@profile.nil?%>
+<%= raw @profile.skills %>
+<% end %>
+
+<br />
 
 <% if signed_in? && @current_user == User.find_by_id(params[:id])%>
-<br/>
-<div id="login_special">
- <%= link_to "Edit Skills", user_path(@user, :page => "edit_skills") %>
-
-  </div>
+<button id="showDlg">Edit Page</button>
+<div id="dialogContainer">>
+	<div class="bd">
+    <%= render 'shared/edit_page', :profile_field => :skills %>
+	</div>
+</div>
 <% end %>
 
-<% if !@user.skills.nil?%>
-<%= @profile.skills %>
-<% end %>

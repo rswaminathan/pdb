@@ -1,13 +1,14 @@
-
-<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
-<br/>
-<br/>
-
-<div id="login_special">
- <%= link_to "Edit About", user_path(@user, :page => "edit_about")  %>
-  </div>
+<% if !@profile.nil?%>
+<%= raw @profile.about %>
 <% end %>
 
-<% if !@user.about.nil?%>
-<%= raw @profile.about %>
+<br />
+
+<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
+<button id="showDlg">Edit Page</button>
+<div id="dialogContainer">
+	<div class="bd">
+    <%= render 'shared/edit_page', :profile_field => :about %>
+	</div>
+</div>
 <% end %>

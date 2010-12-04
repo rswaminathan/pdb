@@ -6,10 +6,20 @@
       :method => :delete %></h3></div>  
     <% end%>
    
-    <div id="project_kind"><%=@project.kind %></div><br />
-    <div id="project_picture", align="center"><%= image_tag @project.photo.url(:small) %></div>    
+  
+    <% @project.kind_list.each do |t| %>
+        <div id="project_kind">
+        <%= t %>
+        </div>    
+    <% end %>
+    <br />
+    <div id="project_picture", align="center">
+	<% if @project.photo.exists? %>
+	<%= image_tag @project.photo.url(:small) %>
+	<% end %>
+	</div>    
     <div id="project_description" class="prepend-top">
-    <p><%=@project.description %></p>
+    <p><%= raw @project.description %></p>
     </div>
   </div>
  <div id="sidebar" class="span-6 last">

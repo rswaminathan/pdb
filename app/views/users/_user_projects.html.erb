@@ -1,13 +1,12 @@
 <% if signed_in? && @current_user == User.find_by_id(params[:id])%>
-<br/>
-<br/>
+
 <div id="login_special">
  <%= link_to "Add a Project", new_project_path %>
   </div>
 <% end %>
 
 <%if @user.projects.any? %>
-  <div id="projects">
+  <div id="projects" class="span-19">
     <table border="0" cellspacing="5" cellpadding="5">
 	<% if !@projects.nil? %>
           <% @projects.each do |p| %>
@@ -16,7 +15,9 @@
               <td>
                 <div id="project_name_div"><%= link_to p.name, p %></div> 
                 <div id="project_description_div"><%= truncate(p.description, :length => 150) %></div>
-                <div id="project_kind"><%= p.kind%></div>
+                <% p.kind_list.each do |t| %>
+                    <div id="project_kind"><%= t %> </div>    
+                <% end %>
               </td>
                           
             </tr>

@@ -6,7 +6,6 @@ class Project < ActiveRecord::Base
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
                     :path => "/:style/:filename"   
 
-  attr_accessible :name, :description, :kind, :photo
   
   has_and_belongs_to_many :users
   has_many :comments
@@ -14,6 +13,9 @@ class Project < ActiveRecord::Base
   validates :name,        :presence   => true
   
   default_scope :order => 'projects.created_at DESC'
+  
+  acts_as_taggable
+  acts_as_taggable_on :kind
 end
 
 # == Schema Information

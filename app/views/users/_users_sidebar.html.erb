@@ -1,9 +1,9 @@
-	<%= render 'users/users_sidebar_footer' %>
-	  <div id ="user_sidebar_pages" class="yui-skin-sam">
+	 <div id ="user_sidebar_pages" class="yui-skin-sam">
    <% if @sidebar_page.nil? %>
+	<%= render 'users/users_sidebar_footer' %>
    <%= render "users/user_projects" %>
    <% else %>
    <%= render "users/user_#{@sidebar_page}" %>
-    </div>
    <% end %>
+   </div>
 <br/>
