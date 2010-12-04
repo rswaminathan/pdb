@@ -2,6 +2,7 @@ Pdb::Application.routes.draw do
   
 	
   get 'pages/home'
+  match '/ozzie_gooen', :to => 'users#show', :id => 2
   match '/about',   :to => 'pages#about'
   match 'signup',	:to => 'users#new'
   match '/contact', :to => 'pages#contact'
