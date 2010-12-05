@@ -1,14 +1,9 @@
 <div id="user_background" class="span-24">
 
-
-
-<div id="user_header" class="span-24">
   <%= render 'users/user_header' %>
-</div>
-	
 
 
-<div id="profile_div" class="span-5">
+<div id="profile_div" class="span-6">
 
 <% if signed_in? && @current_user == User.find_by_id(params[:id])%>
 <div id="login_special", align="center"> <%=link_to "Edit Your Profile!", edit_profile_user_path(current_user) %></div>	
@@ -19,19 +14,27 @@
 <%= image_tag @profile.photo.url(:small) %>
 <% end %>
 </div>
-<ul>
-<li class ="current"> <%= link_to "Projects", user_path(@user, :page => "projects")  %></li>
-<li class ="current"><%= link_to "About", user_path(@user, :page => "about")  %></li>
-<li class ="current"><%= link_to "Skills", user_path(@user, :page => "skills")  %></li>
-<li class ="current"><%= link_to "Contact", user_path(@user, :page => "contact")  %></li>
-</ul>
- <br \>
-<%= @profile.institution %>
-<%= @profile.occupation %>
-<%= @profile.year %>
+
+<div id="user_info_tabs_containter" class ="span-6">
+<div id="user_info_tabs">	
+<%= link_to "Projects", user_path(@user, :page => "projects")  %>
+</div>
+<div id="user_info_tabs">	
+<%= link_to "About", user_path(@user, :page => "about")  %>
+</div>
+<div id="user_info_tabs">	
+<%= link_to "Skills", user_path(@user, :page => "skills")  %>
+</div>
+<div id="user_info_tabs">	
+<%= link_to "Contact", user_path(@user, :page => "contact")  %>
+</div>
 </div>
 
-<div id="user_projects" class="span-19 last">
+ <br \>
+
+</div>
+
+<div id="user_projects" class="span-18 last">
    <%= render 'users/users_sidebar' %>
 </div>
 

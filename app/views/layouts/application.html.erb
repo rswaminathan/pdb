@@ -6,13 +6,13 @@
   <%= render 'layouts/stylesheets' %>
 <style type="text/css">
 body{
-  background: url("/images/bg-noise.png") repeat scroll 0 0 #666666;  
+  background: url("/images/bg-noise.png") repeat scroll 0 0 #aaaaaa;  
 }
 
 .home_register {
   float: left;
   margin: 0 0 0 1em;
-  background: url("/images/bg-gradient-large.png") repeat-x scroll 0 -1px rgba(255, 255, 255, 0.6);
+  background: url("/images/bg-gradient-large.png") repeat-x scroll 0 -1px #B0BCF9;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
   border-radius: 0.4em 0.4em 0.4em 0.4em;
   padding: 1em 1em 0.5em 1em;
@@ -27,7 +27,7 @@ body{
  }
 
 .container #header_title a{
-	color: #F4B10F;
+	color: #B0BCF9 ;
 }
 
 #home h1{
@@ -85,14 +85,15 @@ a {
 
 
  #user_projects {
-    background: url("/images/bg-gradient-large.png") repeat-x scroll 0 -1px rgba(255, 255, 255, 0.3);
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    
     margin: 0em 0.5em 0.5em -0.5em;
-    padding: 1em 0em 1em 0em;
+    padding: 0.5em 0em 0em 0em;
+	border-radius: 0.5em 0.5em 0.5em 0.5em;
 }
 
 #user_sidebar_pages{
-    margin: 3em 0 0 0em;
+    margin: 0em 0 0 0em; 
+
 }
 
 #project_description {
@@ -111,46 +112,90 @@ border-radius: 0.2em 0.2em 0.2em 0.2em;
 }
 
 #user_background{
-	background: rgba(255, 255, 255, 0.4);
+	background: #fff;
+	border-radius: 0.5em 0.5em 0.5em 0.5em;
 }
 
 #user_header{
-	background: url("/images/bg-gradient-large.png") repeat-x scroll 0 -1px rgba(255, 255, 255, 0.3);
-    padding: 0.2em 0em 0em 0em;
-    margin-bottom: 0.5em;
+	background: #5988CB;
+	padding: 0.2em 0em 0em 0em;
+	border-radius: 0.5em 0.5em 0em 0em;
 }
 
+#user_header_background{
+	background: #000;
+	border-radius: 0.5em 0.5em 0em 0em;
+}
+#user_header text{
+	text-color: #fff;
+}
 #user_header h1{
 	margin-left: 0.2em;
 	margin-bottom: 0.1em;
+	color: #fff;
 }
 
 #user_header h2{
 	margin-left: 0.5em;
 	margin-bottom: 0.1em;	
 	 font-size: 1.5em;
+	color: #fff;
+}
+.header_tabs{
+  float:right;
+ 	border-left: 2px solid #ffffff;
+ 	border-top: 2px solid #ffffff;
+ 	border-right: 2px solid #ffffff;
+	padding: 0 1em 0 1em;
+	text-align:center;
+	margin-right:auto;
+	background: rgba(255, 255, 255, 0.9);
+	font-size: 1.3em;
+	line-height: 1.8em;
+	border-radius: 0.3em 0.3em 0em 0em;
+	margin: 0em 0.3em 0em 0em;
+}
+
+#current_tab{
+	background: rgba(255,255,255, 1);
+	
+}
+
+#user_info_tabs{
+	text-align:center;
+	color: #000;
+	margin-bottom:0.5em;
+	font-size: 1.2em;
+	padding: 0 0.4em 0 0.4em;
+}
+
+#user_info_tabs_containter{
+		margin-top:1em;
+		margin-left:0.5em;
 }
 
 #profile_div{
-	color:#fff;
+	padding: 0.5em 0 0 0 ;
+	background-color: #e5ecf9;
+	min-height: 40em;
+	border-radius: 0em 0em 0em 0.5em;
+	
 
 }
 
-#profile_div{
-	margin-left: 0em;
-}
 
 #project_kind{
   float:left;
- 	border: 2px solid #9C8273;
-	width: 6em;
+	border: 1px solid #3DA0DA;
 	text-align:center;
-	margin-right:auto;
-	background-color:#bbb;
-	border-radius: 3px;
+	-border-radius: 5px;
+	-webkit-border-radius: 5px;
 	 font-size: 1em;
-	-moz-border-radius: 2px;
-	color: #300;
+	-moz-border-radius: 5px;
+	color: #3DA0DA;
+	margin-right:0.5em;
+	padding: 0 0.5em 0 0.5em;
+	font-weight: bold;
 
 }
 
@@ -176,9 +221,6 @@ border-radius: 0.2em 0.2em 0.2em 0.2em;
    list-style: none outside;
 }
 
-#header_title a{
-	color: #F4B10F;
-}
 
 #project_header li{
 	 float: left;
@@ -200,7 +242,6 @@ border-radius: 0.2em 0.2em 0.2em 0.2em;
   font-size: 1em;
 }
 
-#projects tbody tr:nth-child(even) td, tbody tr.even td {background:rgba(255, 255, 255, 0.2)}
 
 #project_name_div a{
   font-size: 1.3em;
@@ -208,7 +249,6 @@ border-radius: 0.2em 0.2em 0.2em 0.2em;
 }
 
 #project_description_div{
-
 	font-size: 1em;
 	line-height: 1em;
 	padding-bottom: 0.5em;

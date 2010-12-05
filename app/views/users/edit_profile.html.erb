@@ -8,8 +8,12 @@
 		<%= select( "profile", "institution", ["Harvey Mudd College"]) %>
 	</div>
 	<div class="field">
-		<%= f.label 'occupation' %><br />
+		<%= f.label 'Occupation' %><br />
 		<%= select( "profile", "occupation", ["Professor", "Student", "Alumni", "Staff"]) %>
+	</div>
+	<div class="field">
+		<%= f.label 'Department' %><br />
+		<%= select( "profile", "department", ["Engineering", "Computer Science", "Biology", "Chemistry", "Math", "Physics" ]) %>
 	</div>
 	<div class="field">
 		<%= f.label 'Graduation Year' %><br />
@@ -19,6 +23,11 @@
  	<div class="field">
 		<%= f.label :photo %><br />
 		<%= f.file_field :photo %>
+	</div>
+	
+	<div class="field">
+		<%= f.label 'Top 4 Tags for Unique Project Pages' %><br />
+		<%= f.text_field :top_tag_list %>
 	</div>
 	
 	<div class="submit">

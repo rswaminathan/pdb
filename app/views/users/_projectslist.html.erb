@@ -8,7 +8,7 @@
               <td width="80px;"><%logo = image_tag p.photo.url(:thumb) %>   <%= link_to logo, p %></td>
               <td>
                 <div id="project_name_div"><%= link_to p.name, p %></div> 
-                <div id="project_description_div"><%= truncate(p.description, :length => 150) %></div>
+                <div id="project_description_div"><%= truncate(p.description, :length => 300) %></div>
                 <div id="project_kind"><%= p.kind%></div>
               </td>
                           

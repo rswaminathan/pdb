@@ -14,6 +14,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @projects = @user.projects
+    if !params[:tag].nil?
+      @projects = @projects.tagged_with params[:tag]
+    end
     @sidebar_page = params[:page]
     @profile = @user.profile 
   end
