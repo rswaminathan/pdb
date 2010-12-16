@@ -1,5 +1,7 @@
 <div class="sidebar_section">    
-   <div id="creators">  
+   <div id="creators"> 
+	 </br>
+    
      <div class="sidebar_header" id="project_header" ><%=@users.count == 1 ? "Creator" : "Creator".pluralize %></div>
      <%if @users.any? %>  
      	<div id="users_list">
@@ -17,6 +19,19 @@
    <% end%>
    </div>
  </div>
+
+<div class="sidebar_section prepend-top">
+	<div class="sidebar_header" id="project_header">Tags</div>
+    </br>
+    <% @project.kind_list.each do |t| %>
+        <div id="project_kind">
+        <%= t %>
+        </div>    
+    <% end %>
+   </br>
+   </br>
+ </div>
+
  <div class="sidebar_section prepend-top">
      <div id ="chat">
      <div class="sidebar_header" id="project_header">Comments</div>
@@ -39,4 +54,6 @@
     <% end%>
      </div>
      </div>
+
+
  </div>
