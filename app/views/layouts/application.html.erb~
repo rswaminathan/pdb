@@ -6,9 +6,7 @@
   <%= render 'layouts/stylesheets' %>
 <style type="text/css">
 body{
-  
-  background:#ECE1D2;
-	
+  background: url("/images/bg-noise.png") repeat scroll 0 0 #aaaaaa;  
 }
 
 .home_register {
@@ -21,7 +19,7 @@ body{
 }
 
 .sidebar_header {
- background-color:#5988CB;
+ background-color:#333;
  color: #FFF;
  border-radius: 0.5em 0.5em 0em 0em;
  font-size: 1.5em;
@@ -29,9 +27,8 @@ body{
  }
 
 .container #header_title a{
-	color: #E46900 ;
+	color: #B0BCF9 ;
 }
-
 
 #home h1{
  color: #FFF;
@@ -44,7 +41,7 @@ body{
 }
 
 #users_list {
-	background-color: #e5ecf9;
+    background: url("/images/bg-gradient-large.png") repeat-x scroll 0 -1px rgba(255, 255, 255, 0.6);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
     border-radius: 0em 0em 0.5em 0.5em;
     padding: 0.8em 1em 0.5em 0.5em;
@@ -92,7 +89,6 @@ a {
     margin: 0em 0.5em 0.5em -0.5em;
     padding: 0.5em 0em 0em 0em;
 	border-radius: 0.5em 0.5em 0.5em 0.5em;
-	
 }
 
 #user_sidebar_pages{
@@ -101,7 +97,7 @@ a {
 }
 
 #project_description {
-	background-color:  #e5ecf9;
+    background: url("/images/bg-gradient-large.png") repeat-x scroll 0 -1px rgba(255, 255, 255, 0.6);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
     border-radius: 0.4em 0.4em 0.4em 0.4em;
     margin-bottom: 2em;
@@ -118,28 +114,20 @@ border-radius: 0.2em 0.2em 0.2em 0.2em;
 #user_background{
 	background: #fff;
 	border-radius: 0.5em 0.5em 0.5em 0.5em;
-	-moz-box-shadow: 0 0 5px 5px #888;
-	-webkit-box-shadow: 0 2px 5px 2px#888;
-	box-shadow: 0 0 5px 5px #888;
-	border: 1px solid #000;
+  -webkit-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.5);
+  -khtml-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.55);
+
 }
 
 #user_header{
-	background: url("/images/bg-gradient-small.png") repeat-x scroll 0 -1px #111;
-    /*
-	background: #D83218;
-	*/
-	padding: 0.5em 0em 0em 0em;
+	background: #474747;
+	padding: 0.2em 0em 0em 0em;
 	border-radius: 0.5em 0.5em 0em 0em;
-	
 }
 
-#user_header h1{
-	padding: 0.1em 0 0 0.2em;
-}
-#user_header h2{
-	padding: 0 0 0 0.5em;
-}
+tbody tr:nth-child(even) td, tbody tr.even td {background:#dddddd;}
+
 #user_header_background{
 	background: #000;
 	border-radius: 0.5em 0.5em 0em 0em;
@@ -150,7 +138,8 @@ border-radius: 0.2em 0.2em 0.2em 0.2em;
 #user_header h1{
 	margin-left: 0.2em;
 	margin-bottom: 0.1em;
-	color: #fff;
+	color: #222;
+  text-shadow: 0px 2px 3px #555;
 }
 
 #user_header h2{
@@ -161,13 +150,10 @@ border-radius: 0.2em 0.2em 0.2em 0.2em;
 }
 .header_tabs{
   float:right;
- 	border-left: 2px solid #E7730A;
- 	border-top: 2px solid #E7730A;
- 	border-right: 2px solid #E7730A;
 	padding: 0 1em 0 1em;
 	text-align:center;
 	margin-right:auto;
-	background: rgba(255, 255, 255, 0.9);
+	background: #dddddd;
 	font-size: 1.3em;
 	line-height: 1.8em;
 	border-radius: 0.3em 0.3em 0em 0em;
@@ -176,14 +162,9 @@ border-radius: 0.2em 0.2em 0.2em 0.2em;
 
 #current_tab{
 	background: rgba(255,255,255, 1);
-	border-left: 2px solid #ffffff;
- 	border-top: 2px solid #ffffff;
- 	border-right: 2px solid #ffffff;
+	
 }
 
-#current_tab a{
-	font-weight: bold;
-}
 #user_info_tabs{
 	text-align:center;
 	color: #000;
@@ -199,9 +180,10 @@ border-radius: 0.2em 0.2em 0.2em 0.2em;
 
 #profile_div{
 	padding: 0.5em 0 0 0 ;
-	background-color: #eee;
+	background-color: #dddddd;
 	min-height: 40em;
 	border-radius: 0em 0em 0em 0.5em;
+	
 
 }
 
@@ -243,13 +225,6 @@ border-radius: 0.2em 0.2em 0.2em 0.2em;
    list-style: none outside;
 }
 
-#project{
-	background: #fff;
-	border-radius: 0.5em 0.5em 0.5em 0.5em;
-	-moz-box-shadow: 0 0 5px 5px #888;
-	-webkit-box-shadow: 0 2px 5px 2px#888;
-	box-shadow: 0 0 5px 5px #888;
-}
 
 #project_header li{
 	 float: left;
@@ -262,8 +237,8 @@ border-radius: 0.2em 0.2em 0.2em 0.2em;
   font-size: 3em;
 }
 
-#project_name_div {
-  font-size: 1.3em;
+#project_name_div{
+  font-size: 1.2em;
 }
 
 #project_edit_name {
@@ -275,7 +250,6 @@ border-radius: 0.2em 0.2em 0.2em 0.2em;
 #project_name_div a{
   font-size: 1.3em;
   font-weight: bold;
-  color: #111;
 }
 
 #project_description_div{
@@ -290,7 +264,7 @@ border-radius: 0.2em 0.2em 0.2em 0.2em;
 }
 
 #header{
-   background-color: #333;
+   background-color: #474747;
    color: #ffffff;
    font-size: 1em;
    margin-bottom: 1em;
@@ -332,7 +306,7 @@ border-radius: 0.2em 0.2em 0.2em 0.2em;
 }
 
 #projects img{
-	border:0px;
+	border:2px;
 }
 </style>
 </head>
@@ -340,16 +314,12 @@ border-radius: 0.2em 0.2em 0.2em 0.2em;
    <%= render 'layouts/header' %>
 
 <div class="container">
-
 <section class ="round">
 	<% flash.each do |key, value| %>
 		<div class = "flash <%= key %>"><%= value %></div>
 	<% end %>
-	
 </section>
-<div id="container_background">
 	<%= yield %>
-</div>
 </div>
 <%= render 'layouts/footer' %>
 <%= debug(params) if Rails.env.development?%>

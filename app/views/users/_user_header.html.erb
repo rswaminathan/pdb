@@ -15,7 +15,7 @@
 
 <div class="span-14 last">
 <% list = @profile.top_tag_list %>
-<% if (list.size > 0) && (list.size < 5) %>
+<% if (list.size > 0) && (list.size < 7) %>
 <% list.each do |l| %>
 <div class="header_tabs" <%="id = 'current_tab'" if l == params[:tag]%>  >
 		
