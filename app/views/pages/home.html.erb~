@@ -15,7 +15,7 @@
 <% if signed_in? %>
 <%=link_to "Edit Profile", edit_user_path(current_user) %>	
 <% else %>
-<div class="home_register span-10">
+<div class="home_register">
 <h3>Log In</h3>
 <%= form_for(:session, :url => sessions_path) do |f| %>
     <div class="field">
@@ -33,7 +33,7 @@
 </div>
 
 
-<div class="home_register span-10">
+<div class="home_register">
 <h3>...or make a new profile</h3>
 <%= form_for @user do |f| %>
 	<%= render	'shared/error_messages', :object => f.object %>
