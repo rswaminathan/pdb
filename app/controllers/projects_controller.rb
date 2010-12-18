@@ -31,8 +31,8 @@ class ProjectsController < ApplicationController
       redirect_to current_user
     end
     
-  def search
-    @projects = Project.search(params[:q][:search])
+    def search
+      @projects = Project.search(params[:q])
     end
     
     def edit

@@ -1,5 +1,6 @@
 <div>
-<%= form_for(:q, :url => projects_search_path) do |f| %>
+<%= form_for(:q, :url => projects_search_path, 
+             :html    => {:method => :get}) do |f| %>
 <div class="field">
 <%= f.label :search %>
 <%= f.text_field :search %>
