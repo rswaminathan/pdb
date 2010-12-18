@@ -1,9 +1,9 @@
 <div>
-<%= form_for(:q, :url => search_path, 
+<%= form_for(:q, :url => projects_search_path, 
              :html    => {:method => :get}) do |f| %>
 <div class="field">
 <%= f.label :search %>
-<%= f.text_field :search %>
+<%= f.text_field %>
 </div>
 <div class="submit">
 <%= f.submit "Search" %>
