@@ -31,6 +31,10 @@ class ProjectsController < ApplicationController
       redirect_to current_user
     end
     
+  def search
+    @projects = Project.search(params[:q][:search])
+    end
+    
     def edit
       @title = "Edit Project"
       @comments = @project.comments

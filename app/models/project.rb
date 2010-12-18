@@ -1,4 +1,10 @@
 class Project < ActiveRecord::Base
+  index do
+    name
+    description
+    kind
+  end
+
   has_attached_file :photo, 
                     :styles => {:thumb=> "80x80#", :small  => "640x480>" },   
                     :storage => :s3,

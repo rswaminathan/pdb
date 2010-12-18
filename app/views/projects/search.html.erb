@@ -1,0 +1,17 @@
+<div>
+<%= form_for(:q, :url => projects_search_path) do |f| %>
+<div class="field">
+<%= f.label :search %>
+<%= f.text_field :search %>
+</div>
+<div class="submit">
+<%= f.submit "Search" %>
+</div>
+<% end %>
+
+<div id="search_display">
+<% @projects.each do |p| %>
+<%= link_to p.name, p %>
+<% end %>
+</div>
+</div>

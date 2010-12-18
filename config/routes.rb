@@ -26,6 +26,7 @@ Pdb::Application.routes.draw do
       post 'update_collaborators'
       delete 'delete_collaborators'
       post 'create_comment'
+      get 'search'
     end
   end
   
