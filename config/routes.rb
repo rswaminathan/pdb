@@ -8,6 +8,7 @@ Pdb::Application.routes.draw do
   match '/contact', :to => 'pages#contact'
   match	'/login',  :to	=> 'sessions#new'
   match	'/logout', :to	=> 'sessions#destroy'
+  match '/search', :to => 'projects#search'
   root :to => "pages#home"
   
   resources :profile
@@ -26,7 +27,6 @@ Pdb::Application.routes.draw do
       post 'update_collaborators'
       delete 'delete_collaborators'
       post 'create_comment'
-      get 'search'
     end
   end
   
