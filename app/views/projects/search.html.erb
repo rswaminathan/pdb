@@ -10,8 +10,10 @@
 <% end %>
 
 <div id="search_display">
+<%if !@projects.empty? %>
 <% @projects.each do |p| %>
 <%= link_to p.name, p %>
+<% end %>
 <% end %>
 </div>
 </div>
