@@ -8,7 +8,7 @@ Pdb::Application.routes.draw do
   match '/contact', :to => 'pages#contact'
   match	'/login',  :to	=> 'sessions#new'
   match	'/logout', :to	=> 'sessions#destroy'
-  match '/search', :to => 'projects#search'
+  match '/search', :to => 'projects#search', :as => :search
   root :to => "pages#home"
   
   resources :profile
