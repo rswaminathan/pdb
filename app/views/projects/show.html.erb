@@ -4,14 +4,12 @@
 
   <%= render 'projects/projects_header' %>
 
-
-<div class="span-17">
+<div class="span-18">
     <% if current_project_user? %> 
       <div id="login_special" ><h3><%= link_to "Edit Project", edit_project_path%> |
       <%= link_to "Delete Project", @project , :confirm => "Are you sure?", 
       :method => :delete %></h3></div>  
     <% end%>
-
  
 
     <div id="project_picture", align="center">
@@ -21,10 +19,12 @@
 	</div>    
 
 
+	<div id="project_info">
 	   <%= render "projects/project_first" %>
+	</div>
+</div>
 
-
-	 </div>
+</div>
 
 
 <div id="project_sidebar" class="span-5 last">

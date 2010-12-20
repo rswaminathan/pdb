@@ -1,0 +1,17 @@
+<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
+
+<div id="login_special">
+ <%= link_to "Edit Progress", project_path(@project, :page => "progress") %>
+  </div>
+<% end %>
+
+<% if !@project.project_page.nil?%>
+
+<%= link_to "Website", @profile.website %><br />
+<%= link_to "Facebook", @profile.facebook %><br />
+<%= link_to "Twitter", @profile.twitter %><br />
+
+<h3> Other:</h3>
+<%= @profile.other %>
+
+<% end %>

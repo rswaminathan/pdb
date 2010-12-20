@@ -13,14 +13,15 @@
 	<%= link_to "Short", @project  %>
 	</div>
 	<div id="project_tabs">	
-	<%= link_to "main_info", project_path(@project, :page => "main_info")  %>
+	<%= link_to "Details", project_path(@project, :page => "main_info")  %>
 	</div>
 	<div id="project_tabs">	
-	<%= link_to "Skills", user_path(@user, :page => "skills")  %>
+	<%= link_to "Progress", project_path(@project, :page => "progress")  %>
 	</div>
 	<div id="project_tabs">	
 	<%= link_to "Contact", user_path(@user, :page => "contact")  %>
 	</div>
+	
 	
 
 </div>

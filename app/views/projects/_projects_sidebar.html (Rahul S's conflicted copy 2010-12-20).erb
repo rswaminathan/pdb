@@ -1,7 +1,8 @@
 <div class="project_sidebar">    
 
+   <div id="creators"> 
     
-    <div class="sidebar_header" id="project_sidebar_header" ><%=@users.count == 1 ? "Creator" : "Creator".pluralize %></div>
+     <div class="sidebar_header" id="project_sidebar_header" ><%=@users.count == 1 ? "Creator" : "Creator".pluralize %></div>
 	<div class="triangle1-sidebar"> </div>
 	<div class="triangle2-sidebar"> </div>
 	
@@ -26,18 +27,26 @@
      </div>  
    <% end%>
    </div>
+ </div>
 
+<div class="sidebar_section prepend-top">
 	<div class="sidebar_header" id="project_sidebar_header">Tags</div>
 	<div class="triangle1-sidebar"> </div>
 	<div class="triangle2-sidebar"> </div>
-	    <% @project.kind_list.each do |t| %>
+	
+    <div id="project_tags_list">
+    <% @project.kind_list.each do |t| %>
         <div id="project_kind">
         <%= t %>
         </div>    
     <% end %>
-    </br>
+    </div>
+ </div>
 
+
+ <div class="sidebar_section prepend-top">
 	
+     <div id ="chat">
      <div class="sidebar_header" id="project_sidebar_header">Comments</div>
 	<div class="triangle1-sidebar"> </div>
 	<div class="triangle2-sidebar"> </div>
@@ -59,8 +68,7 @@
 	      </div>
        <% end %>
     <% end%>
-
-
+     </div>
      </div>
 
 
