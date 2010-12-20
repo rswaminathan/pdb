@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101205054900) do
+ActiveRecord::Schema.define(:version => 20101220064139) do
 
   create_table "comments", :force => true do |t|
     t.string   "body"
@@ -39,6 +39,20 @@ ActiveRecord::Schema.define(:version => 20101205054900) do
     t.integer  "photo_file_size"
     t.string   "department"
     t.string   "top_tags"
+  end
+
+  create_table "project_pages", :force => true do |t|
+    t.text    "main_info"
+    t.text    "progress"
+    t.text    "press"
+    t.text    "similar_projects"
+    t.string  "page_1_name"
+    t.text    "page_1_content"
+    t.string  "page_2_name"
+    t.text    "page_2_content"
+    t.string  "page_3_name"
+    t.text    "page_3_content"
+    t.integer "project_id"
   end
 
   create_table "projects", :force => true do |t|
@@ -75,7 +89,24 @@ ActiveRecord::Schema.define(:version => 20101205054900) do
     t.string "name"
   end
 
-# Could not dump table "users" because of following StandardError
-#   Unknown type 'body' for column 'about'
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "encrypted_password"
+    t.string   "salt"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.string   "institution"
+    t.string   "occupation"
+    t.string   "year"
+    t.text     "about"
+    t.text     "skills"
+    t.text     "contact"
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end

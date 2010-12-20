@@ -6,42 +6,104 @@
   <%= render 'layouts/stylesheets' %>
 <style type="text/css">
 body{
-  background: url("/images/bg-noise.png") repeat scroll 0 0 #aaaaaa;  
+  
+   background: url("/images/rainforest.jpg") repeat-x scroll 0 -1px ;
+
+}
+ 
+#project_tags_list{
+ padding-bottom: 1em;
 }
 
+#project_search_list{
+  margin-bottom: 2em;
+}
 .home_register {
   float: left;
   margin: 0 0 0 1em;
-  background: url("/images/bg-gradient-large.png") repeat-x scroll 0 -1px #B0BCF9;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+  background: url("/images/bg-gradient-large.png") repeat-x scroll 0 -50px #DB4F22;
+  -moz-box-shadow: 2px 2px 4px rgba(0,0,0,1);
+  -khtml-box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 2px 2px 4px rgba(0,0,0,0.4);  
   border-radius: 0.4em 0.4em 0.4em 0.4em;
   padding: 1em 1em 0.5em 1em;
+
 }
 
+#home_background {
+	background: rgba(250,250,250,0.9);
+	border-radius: 0.5em 0.5em 0.5em 0.5em;
+	-moz-box-shadow: 0 0 5px 5px #888;
+	-webkit-box-shadow: 0 2px 5px 2px#888;
+	box-shadow: 0 0 5px 5px #888;
+	border: 1px solid #000;
+    padding: 1em 1em 1em 1em;
+
+}
+
+
 .sidebar_header {
- background-color:#333;
- color: #FFF;
- border-radius: 0.5em 0.5em 0em 0em;
- font-size: 1.5em;
- padding-left: 0.5em;
+-webkit-box-shadow: rgba(0, 0, 0, 0.546875) 0px 0px 4px;
+background: #A70B00;
+float: left;
+height: 20px;
+left: -24px;
+position: relative;
+top: 0px;
+width: 225px;
+z-index: 100;
  }
 
+
+.triangle1-sidebar {
+	border-color: transparent #7E1000 transparent transparent;
+	border-style:solid;
+	border-width:10px;
+	height:0px;
+	width:0px;
+	position: relative;
+	left: -32px;
+	top: 10px;
+}
+
+.triangle2-sidebar {
+	border-color: transparent transparent transparent #7E1000;
+	border-style:solid;
+	border-width:10px;
+	height:0px;
+	width:0px;
+	position: relative;
+	left: 190px;
+	top: -10px;
+}
 .container #header_title a{
-	color: #B0BCF9 ;
+	color: #E46900 ;
+}
+
+.search_field{
+	font-size: 1em;
+	margin-left: 1em;
+	margin-right: 1em;
+	
+}
+
+.user_pic_name{
+	margin-left: 1.5em;    
+
 }
 
 #home h1{
- color: #FFF;
+ color: #111;
 	font-size: 4em;
 }
 
 #home h2{
- color: #eee;
+ color: #111;
 	font-size: 3em;	
 }
 
 #users_list {
-    background: url("/images/bg-gradient-large.png") repeat-x scroll 0 -1px rgba(255, 255, 255, 0.6);
+	
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
     border-radius: 0em 0em 0.5em 0.5em;
     padding: 0.8em 1em 0.5em 0.5em;
@@ -53,8 +115,16 @@ body{
 }
 
 .user_name{
-	text-indent: 0.3em;
+	padding: 0em 0em 0em 4.5em;
+	font-size: 1.1em;
+	font-weight: bold;
 }
+
+.user_info{
+	padding: 0em 0em 0em 5.4em;
+    font-size: 0.9em;
+}
+
 a {
   color: #333;
   text-decoration: none;
@@ -89,6 +159,7 @@ a {
     margin: 0em 0.5em 0.5em -0.5em;
     padding: 0.5em 0em 0em 0em;
 	border-radius: 0.5em 0.5em 0.5em 0.5em;
+	
 }
 
 #user_sidebar_pages{
@@ -96,8 +167,16 @@ a {
 
 }
 
+#project_background{
+	background: #ccc;
+	border-radius: 1.2em 1.2em 0.5em 0.5em;
+	-moz-box-shadow: 0 0 5px 5px #888;
+	-webkit-box-shadow: 0 2px 5px 2px#888;
+	box-shadow: 0 0 5px 5px #888;
+	border: 1px solid #000;	
+}
+
 #project_description {
-    background: url("/images/bg-gradient-large.png") repeat-x scroll 0 -1px rgba(255, 255, 255, 0.6);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
     border-radius: 0.4em 0.4em 0.4em 0.4em;
     margin-bottom: 2em;
@@ -105,41 +184,47 @@ a {
 }
 
 #project_picture img{
-  border: 2px solid #333;    
-border-radius: 0.2em 0.2em 0.2em 0.2em;
-  box-shadow: 5px 5px 5px #000;
+	margin-top:2em;
+	border-radius: 0.2em 0.2em 0.2em 0.2em;
 
 }
 
 #user_background{
 	background: #fff;
 	border-radius: 0.5em 0.5em 0.5em 0.5em;
-  -webkit-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.5);
-  -moz-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.5);
-  -khtml-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.55);
-
+	-moz-box-shadow: 0 0 5px 5px #888;
+	-webkit-box-shadow: 0 2px 5px 2px#888;
+	box-shadow: 0 0 5px 5px #888;
+	border: 1px solid #000;
 }
 
 #user_header{
-	background: #474747;
-	padding: 0.2em 0em 0em 0em;
+	background: url("/images/bg-gradient-small.png") repeat-x scroll 0 -1px #999;
+    /*
+	background: #D83218;
+	*/
+  
+	padding: 0.5em 0em 0em 0em;
 	border-radius: 0.5em 0.5em 0em 0em;
+	min-height: 6em;
+	
+	
 }
 
-tbody tr:nth-child(even) td, tbody tr.even td {background:#dddddd;}
-
-#user_header_background{
-	background: #000;
-	border-radius: 0.5em 0.5em 0em 0em;
+#user_header h1{
+	padding: 0.1em 0 0 0.2em;
 }
+#user_header h2{
+	padding: 0 0 0 0.5em;
+}
+
 #user_header text{
 	text-color: #fff;
 }
 #user_header h1{
 	margin-left: 0.2em;
 	margin-bottom: 0.1em;
-	color: #222;
-  text-shadow: 0px 2px 3px #555;
+	color: #fff;
 }
 
 #user_header h2{
@@ -150,21 +235,35 @@ tbody tr:nth-child(even) td, tbody tr.even td {background:#dddddd;}
 }
 .header_tabs{
   float:right;
+ 	border-left: 2px solid #eee;
+ 	border-top: 2px solid #eee;
+ 	border-right: 2px solid #eee;
 	padding: 0 1em 0 1em;
 	text-align:center;
 	margin-right:auto;
-	background: #dddddd;
+	background-color: #96380F;
 	font-size: 1.3em;
 	line-height: 1.8em;
-	border-radius: 0.3em 0.3em 0em 0em;
+	border-radius: 0.4em 0.4em 0em 0em;
 	margin: 0em 0.3em 0em 0em;
 }
 
+.header_tabs a{
+	color: #eee;
+}
 #current_tab{
 	background: rgba(255,255,255, 1);
-	
+	opacity:1;
+	border-left: 2px solid #ffffff;
+ 	border-top: 2px solid #ffffff;
+ 	border-right: 2px solid #ffffff;
 }
 
+#current_tab a{
+	font-weight: bold;
+	color: #CE2400;
+	
+}
 #user_info_tabs{
 	text-align:center;
 	color: #000;
@@ -180,30 +279,73 @@ tbody tr:nth-child(even) td, tbody tr.even td {background:#dddddd;}
 
 #profile_div{
 	padding: 0.5em 0 0 0 ;
-	background-color: #dddddd;
+	background-color: #eee;
 	min-height: 40em;
 	border-radius: 0em 0em 0em 0.5em;
-	
-
+   
 }
 
+#project_sidebar{
+    margin: 0.5em 0 1em 1em;
+	padding: 1em 0 0 1em;
+	background-color: #eee;
+	min-height: 30em;
+	border-radius: 0.5em 0.5em 0.5em 0.5em;
 
+	
+}
+
+#project_info{
+	background-color: #fff;
+	min-height: 10em;
+	border-radius: 0.5em 0.5em 0.5em 0.5em;
+	margin: 0.5em 0.5em 0.5em 0.5em;
+	
+	
+}
 #project_kind{
   float:left;
-	border: 1px solid #3DA0DA;
+	border: 1px solid #444;
 	text-align:center;
 	-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	 font-size: 1em;
 	-moz-border-radius: 5px;
-	color: #3DA0DA;
+	color: #444;
 	margin-right:0.5em;
 	padding: 0 0.5em 0 0.5em;
 	font-weight: bold;
 
 }
 
-#project_header{
+#project_kind_header{
+  float:left;
+	border: 1px solid #fff;
+	text-align:center;
+	-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	 font-size: 1.3em;
+	-moz-border-radius: 5px;
+	color: #fff;
+	margin: 0.1em 0.5em 0 0;
+	padding: 0em 0.2em 0em 0.2em;
+	font-weight: bold;
+}
+
+#project_kind_header_placing{
+	text-align:right;
+	
+}
+
+#project_main_page{
+background-color: #fff;
+margin: 1em 1em 1em 1em;
+border-radius: 0.2em 0.2em 0.2em 0.2em;
+box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0);
+
+}
+
+#project_sidebar_header{
 	text-align:center;
 	 font-size: 1.2em;
 	font-color:#000;
@@ -223,22 +365,74 @@ tbody tr:nth-child(even) td, tbody tr.even td {background:#dddddd;}
 	 margin: 0 0em 0em 0 ;
 	padding-left:1em;
    list-style: none outside;
+
 }
 
+#project{
+	background: #fff;
+	border-radius: 0.5em 0.5em 0.5em 0.5em;
+	-moz-box-shadow: 0 0 5px 5px #888;
+	-webkit-box-shadow: 0 2px 5px 2px#888;
+	box-shadow: 0 0 5px 5px #888;
+}
 
-#project_header li{
-	 float: left;
-   margin: 0 1em 0 0;
+#project_header {
+	
+	background: #333;
+
+	min-height: 2em;
+
+	padding: 0.5em 0em 0em 0em;
    
 }
 
-#project_name {
-  color: #eee;
-  font-size: 3em;
+#project_tabs_background{
+	background: #A70B00;
+	min-height: 2em;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0.5em 0em 0em 0em;	
+	text-align: center;
 }
 
-#project_name_div{
-  font-size: 1.2em;
+#project_tabs_container{
+	background: #fff;
+	min-height: 2em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#project_tabs{
+	float:left;
+	text-align:center;
+	font-size: 1em;
+	margin-right:0.5em;
+	padding: 0 0.5em 0 0.5em;
+	font-weight: bold;
+}
+#project_tabs a{ 
+	color:#fff;
+}
+
+#project_name_header a{
+  margin-top: 6em;
+  font-size: 3em;
+  color: #fff;
+  line-height: 1.6em;
+  padding: 0.4em 0.4em 0.4em 0.4em;
+}
+
+
+#project_name_background{
+	background: url("/images/bg-gradient-small.png") repeat-x scroll 0 -1px #999;
+
+  padding: 0.3em 0em 0.3em 0em;
+  border-radius: 1em 1em 0em 0em;
+  line-height: 0;
+}
+
+#project_name_div {
+  font-size: 1.3em;
 }
 
 #project_edit_name {
@@ -250,6 +444,7 @@ tbody tr:nth-child(even) td, tbody tr.even td {background:#dddddd;}
 #project_name_div a{
   font-size: 1.3em;
   font-weight: bold;
+  color: #C30F01;
 }
 
 #project_description_div{
@@ -264,20 +459,20 @@ tbody tr:nth-child(even) td, tbody tr.even td {background:#dddddd;}
 }
 
 #header{
-   background-color: #474747;
+   background-color: #222;
    color: #ffffff;
    font-size: 1em;
-   margin-bottom: 1em;
    font-weight: bold;
+  margin-bottom: 1em;
+
+
 }
 
-#header{
-  margin:0 0 1em 0;
-}
 
 #header a{
    color: #ffffff;
    font-weight: bold;
+
 }
 
 #footer{
@@ -306,20 +501,27 @@ tbody tr:nth-child(even) td, tbody tr.even td {background:#dddddd;}
 }
 
 #projects img{
-	border:2px;
+	border:0px;
 }
+
+#projects tbody tr:nth-child(even) td, tbody tr.even td {background:#FFF9E8 }
+
 </style>
 </head>
 <body>
    <%= render 'layouts/header' %>
 
 <div class="container">
+
 <section class ="round">
 	<% flash.each do |key, value| %>
 		<div class = "flash <%= key %>"><%= value %></div>
 	<% end %>
+	
 </section>
+<div id="container_background">
 	<%= yield %>
+</div>
 </div>
 <%= render 'layouts/footer' %>
 <%= debug(params) if Rails.env.development?%>

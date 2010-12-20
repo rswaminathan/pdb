@@ -34,13 +34,15 @@
 	<div class="triangle1-sidebar"> </div>
 	<div class="triangle2-sidebar"> </div>
 	
-    <div id="project_tags_list">
+    </br>
     <% @project.kind_list.each do |t| %>
         <div id="project_kind">
         <%= t %>
         </div>    
     <% end %>
-    </div>
+   </br>
+   </br>
+   </br>
  </div>
 
 

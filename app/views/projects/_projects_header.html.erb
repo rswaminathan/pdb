@@ -1,9 +1,26 @@
-<div id="user_header_background" class="span-24">
-<div id="user_header" class="span-24">
-
-<h1>
-<%= @project.name %>
-</h1>
-
+<div id="project_name_background" class="span-18">
+	
+	<div class="user_pic_name"><% logo = image_tag "frog60.jpg"%> <%= link_to logo, @project, :class => "left"  %></div>    
+	<div id="project_name_header"> <%= link_to @project.name, @project %> </div> 
+ 
 </div>
+
+
+<div id="project_tabs_background" class="span-18">
+	
+		
+	<div id="project_tabs">	
+	<%= link_to "Short", @project  %>
+	</div>
+	<div id="project_tabs">	
+	<%= link_to "main_info", project_path(@project, :page => "main_info")  %>
+	</div>
+	<div id="project_tabs">	
+	<%= link_to "Skills", user_path(@user, :page => "skills")  %>
+	</div>
+	<div id="project_tabs">	
+	<%= link_to "Contact", user_path(@user, :page => "contact")  %>
+	</div>
+	
+
 </div>

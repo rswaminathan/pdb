@@ -3,10 +3,11 @@ class Project < ActiveRecord::Base
     name
     description
     kind
+    abstract
   end
 
   has_attached_file :photo, 
-                    :styles => {:thumb=> "80x80#", :small  => "640x480>" },   
+                    :styles => {:tiny=> "10x10#", :thumb=> "80x80#", :small  => "640x480>" },   
                     :storage => :s3,
                     :default_url => "/images/lightbulb.jpg",
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
@@ -15,6 +16,7 @@ class Project < ActiveRecord::Base
   
   has_and_belongs_to_many :users
   has_many :comments
+  belongs_to :project_pages
                      
   validates :name,        :presence   => true
   

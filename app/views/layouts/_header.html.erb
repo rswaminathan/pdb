@@ -2,10 +2,11 @@
   <div class="container">
    <div class="span-15"><div id="header_title"><%=link_to "MuddPage", root_url%></div></div>
    <div class="span-9 last" id="header_menu">
+	<%= link_to "Search Muddpage", search_path %> |  
       <% if signed_in? %>
-			<%= link_to "Add Project!", new_project_path %> | <%=link_to "Profile", user_path(current_user) %> | <%= link_to "Account", edit_user_path(current_user)  %>	| <%= link_to "Log Out", logout_path %>
+		 <%=link_to "Profile", user_path(current_user) %> | <%= link_to "Account", edit_user_path(current_user)  %>	| <%= link_to "Log Out", logout_path %>
 	    <% else %>
-		<%= link_to "Make Your Own Profile!", new_user_path %> | <%= link_to "Sign In", login_path %>
+		<%= link_to "Sign In", login_path %>
     	<% end %>	
    </div>
   </div>
