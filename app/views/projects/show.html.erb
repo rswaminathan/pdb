@@ -9,9 +9,9 @@
     <% if current_project_user? %> 
       <div id="login_special" ><h3><%= link_to "Edit Project", edit_project_path%> |
       <%= link_to "Delete Project", @project , :confirm => "Are you sure?", 
-      :method => :delete %></h3>
-  <%= link_to "Add page", new_page_project_path(@project) %> | </h3>
-  <%= link_to "Edit page", edit_page_project_path(@project) %></h3>
+      :method => :delete %> |
+  <%= link_to "Add page", new_page_project_path(@project) %> |
+   </h3>
 </div>  
     <% end%>
  
@@ -20,7 +20,7 @@
 	<% if @project.photo.exists? %>
 	<%= image_tag @project.photo.url(:small) %>
 	<% end %>
-	</div>    
+	</div>
 
 
 	<div id="project_info">

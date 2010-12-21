@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
 
     before_filter :authenticate,         :only => [:new, :create]
     #before_filter :correct_project_user, :only => [:edit, :update, :destroy]
-    before_filter :correct_project_user, :only => [:edit_collaborators, :update_collaborators, :delete_collaborators, :edit, :update, :destroy]
+    before_filter :correct_project_user, :only => [:edit_collaborators, :update_collaborators, :delete_collaborators, :edit_page, :update_page, :edit, :update, :destroy]
     def new
     	@title = "New Project"
       @project = current_user.projects.build
@@ -29,6 +29,8 @@ class ProjectsController < ApplicationController
       else
           @page_content = @project.description
       end
+      
+      
     end
     
     def destroy
@@ -48,6 +50,7 @@ class ProjectsController < ApplicationController
     def edit
       @title = "Edit Project"
       @comments = @project.comments
+      @project_page = @project.project_pages
     end
 
     def update
@@ -118,6 +121,11 @@ class ProjectsController < ApplicationController
       redirect_to @project
     end
 
+    def edit_page
+      @project = Project.find_by_id(params[:id])
+      @page = @project.project_pages.find_by_id(params[:page])
+    end
+    
     private
       
 end
