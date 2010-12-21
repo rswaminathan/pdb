@@ -33,9 +33,10 @@
 	<div class="triangle2-sidebar"> </div>
 	
 	    <% @project.kind_list.each do |t| %>
-        <div id="project_kind">
+        <span id="project_sidebar_kind">
+	
         <%= t %>
-        </div>    
+		</span>      
     <% end %>
 
 	</br>
@@ -44,7 +45,7 @@
     <div class="sidebar_header" id="project_sidebar_header">Comments</div>
 	<div class="triangle1-sidebar"> </div>
 	<div class="triangle2-sidebar"> </div>
-
+	
     <div id="users_list"> 
 	<% @comments.each do |c| %>
      <%= link_to c.user.name, c.user %> : <%= c.body %><br />

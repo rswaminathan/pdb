@@ -10,7 +10,9 @@
       <div id="login_special" ><h3><%= link_to "Edit Project", edit_project_path%> |
       <%= link_to "Delete Project", @project , :confirm => "Are you sure?", 
       :method => :delete %></h3>
-  <%= link_to "Add page", new_page_project_path(@project) %></h3></div>  
+  <%= link_to "Add page", new_page_project_path(@project) %> | </h3>
+  <%= link_to "Edit page", edit_page_project_path(@project) %></h3>
+</div>  
     <% end%>
  
 

@@ -29,18 +29,7 @@
 	<div class="submit">
 		<%= f.submit "Edit Project" %><br />
 	</div>
-	
-
-	
-	
 <% end %>
-
-
-
-
-
-
-
 </div>
 <div id="sidebar" class="span-7 last">
 
