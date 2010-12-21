@@ -27,18 +27,21 @@
    <% end%>
    </div>
 
+
 	<div class="sidebar_header" id="project_sidebar_header">Tags</div>
 	<div class="triangle1-sidebar"> </div>
 	<div class="triangle2-sidebar"> </div>
+	
 	    <% @project.kind_list.each do |t| %>
         <div id="project_kind">
         <%= t %>
         </div>    
     <% end %>
-    </br>
 
+	</br>
+	</br>
 	
-     <div class="sidebar_header" id="project_sidebar_header">Comments</div>
+    <div class="sidebar_header" id="project_sidebar_header">Comments</div>
 	<div class="triangle1-sidebar"> </div>
 	<div class="triangle2-sidebar"> </div>
 

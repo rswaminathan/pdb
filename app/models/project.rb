@@ -16,7 +16,7 @@ class Project < ActiveRecord::Base
   
   has_and_belongs_to_many :users
   has_many :comments
-  belongs_to :project_pages
+  has_many :project_pages
                      
   validates :name,        :presence   => true
   
@@ -26,16 +26,30 @@ class Project < ActiveRecord::Base
   acts_as_taggable_on :kind
 end
 
+
 # == Schema Information
 #
 # Table name: projects
 #
-#  id          :integer         not null, primary key
-#  name        :string(255)
-#  description :text
-#  kind        :string(255)
-#  user_id     :integer
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id                 :integer         not null, primary key
+#  name               :string(255)
+#  description        :text
+#  kind               :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  photo_file_name    :string(255)
+#  photo_content_type :string(255)
+#  photo_file_size    :integer
+#  abstract           :string(255)
+#  short              :text
+#  progress           :text
+#  press              :text
+#  similar_projects   :text
+#  page_1_name        :string(255)
+#  page_1_content     :text
+#  page_2_name        :string(255)
+#  page_2_content     :text
+#  page_3_name        :string(255)
+#  page_3_content     :text
 #
 

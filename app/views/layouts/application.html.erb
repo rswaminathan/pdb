@@ -7,7 +7,7 @@
 <style type="text/css">
 body{
   
-   background: url("/images/egypt.jpg") repeat-x scroll 0 -1px ;
+	background: #EEE5BB;
 
 }
  
@@ -41,10 +41,10 @@ body{
 background: #A70B00;
 float: left;
 height: 20px;
-left: -24px;
+left: -16px;
 position: relative;
 top: 0px;
-width: 225px;
+width: 223px;
 z-index: 100;
  }
 
@@ -56,7 +56,7 @@ z-index: 100;
 	height:0px;
 	width:0px;
 	position: relative;
-	left: -32px;
+	left: -26px;
 	top: 10px;
 }
 
@@ -67,7 +67,7 @@ z-index: 100;
 	height:0px;
 	width:0px;
 	position: relative;
-	left: 190px;
+	left: 196px;
 	top: -10px;
 }
 .container #header_title a{
@@ -280,7 +280,7 @@ a {
 
 #project_sidebar{
     margin: 1em 0 0em 1em;
-	padding: 1em 0 0 1em;
+	padding: 1em 0.5em 0 0.5em;
 	background-color: #eee;
 	min-height: 30em;
 	border-radius: 0.5em 0.5em 0.5em 0.5em;
@@ -386,6 +386,7 @@ box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0);
 	margin-right: auto;
 	padding: 0.5em 0em 0em 0em;	
 	text-align: center;
+
 }
 
 #project_tabs_container{
@@ -497,9 +498,10 @@ background: url("/images/bg-gradient-small.png") repeat-x scroll 0 -1px #999;
 	border:0px;
 }
 
-#projects tbody tr:nth-child(even) td, tbody tr.even td {background:#FFF9E8 }
+#projects tbody tr:nth-child(even) td, tbody tr.even td {background:#F9FFD6 }
 
 </style>
+<%= render 'shared/analytics' %>
 </head>
 <body>
    <%= render 'layouts/header' %>
@@ -518,5 +520,6 @@ background: url("/images/bg-gradient-small.png") repeat-x scroll 0 -1px #999;
 </div>
 <%= render 'layouts/footer' %>
 <%= debug(params) if Rails.env.development?%>
+
 </body>
 </html>

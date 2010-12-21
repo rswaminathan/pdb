@@ -3,9 +3,7 @@
    <div id="creators"> 
     
      <div class="sidebar_header" id="project_sidebar_header" ><%=@users.count == 1 ? "Creator" : "Creator".pluralize %></div>
-	<div class="triangle1-sidebar"> </div>
-	<div class="triangle2-sidebar"> </div>
-	
+
      <%if @users.any? %>  
      	<div id="users_list">
      <% @users.each do |u| %>
@@ -31,9 +29,7 @@
 
 <div class="sidebar_section prepend-top">
 	<div class="sidebar_header" id="project_sidebar_header">Tags</div>
-	<div class="triangle1-sidebar"> </div>
-	<div class="triangle2-sidebar"> </div>
-	
+
     <div id="project_tags_list">
     <% @project.kind_list.each do |t| %>
         <div id="project_kind">
@@ -48,8 +44,6 @@
 	
      <div id ="chat">
      <div class="sidebar_header" id="project_sidebar_header">Comments</div>
-	<div class="triangle1-sidebar"> </div>
-	<div class="triangle2-sidebar"> </div>
 
     <div id="users_list"> 
 	<% @comments.each do |c| %>

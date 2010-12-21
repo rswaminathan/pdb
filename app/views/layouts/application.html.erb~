@@ -7,17 +7,11 @@
 <style type="text/css">
 body{
   
-   background: url("/images/rainforest.jpg") repeat-x scroll 0 -1px ;
+	background: #EEE5BB;
 
 }
  
-#project_tags_list{
- padding-bottom: 1em;
-}
 
-#project_search_list{
-  margin-bottom: 2em;
-}
 .home_register {
   float: left;
   margin: 0 0 0 1em;
@@ -47,10 +41,10 @@ body{
 background: #A70B00;
 float: left;
 height: 20px;
-left: -24px;
+left: -16px;
 position: relative;
 top: 0px;
-width: 225px;
+width: 223px;
 z-index: 100;
  }
 
@@ -62,7 +56,7 @@ z-index: 100;
 	height:0px;
 	width:0px;
 	position: relative;
-	left: -32px;
+	left: -26px;
 	top: 10px;
 }
 
@@ -73,7 +67,7 @@ z-index: 100;
 	height:0px;
 	width:0px;
 	position: relative;
-	left: 190px;
+	left: 196px;
 	top: -10px;
 }
 .container #header_title a{
@@ -106,7 +100,6 @@ z-index: 100;
 	
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
     border-radius: 0em 0em 0.5em 0.5em;
-    padding: 0.8em 1em 0.5em 0.5em;
 }
 .user{
   font-size: 1.2em; 
@@ -168,18 +161,18 @@ a {
 }
 
 #project_background{
-	background: #ccc;
+	background: #ddd;
 	border-radius: 1.2em 1.2em 0.5em 0.5em;
 	-moz-box-shadow: 0 0 5px 5px #888;
 	-webkit-box-shadow: 0 2px 5px 2px#888;
 	box-shadow: 0 0 5px 5px #888;
-	border: 1px solid #000;	
 }
 
 #project_description {
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
     border-radius: 0.4em 0.4em 0.4em 0.4em;
-    margin-bottom: 2em;
+    margin-bottom: 0em;
+	margin-top:0em;
     padding: 1em 1em 0.5em 1em;
 }
 
@@ -286,8 +279,8 @@ a {
 }
 
 #project_sidebar{
-    margin: 0.5em 0 1em 1em;
-	padding: 1em 0 0 1em;
+    margin: 1em 0 0em 1em;
+	padding: 1em 0.5em 0 0.5em;
 	background-color: #eee;
 	min-height: 30em;
 	border-radius: 0.5em 0.5em 0.5em 0.5em;
@@ -393,6 +386,7 @@ box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0);
 	margin-right: auto;
 	padding: 0.5em 0em 0em 0em;	
 	text-align: center;
+
 }
 
 #project_tabs_container{
@@ -424,8 +418,7 @@ box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0);
 
 
 #project_name_background{
-	background: url("/images/bg-gradient-small.png") repeat-x scroll 0 -1px #999;
-
+background: url("/images/bg-gradient-small.png") repeat-x scroll 0 -1px #999;
   padding: 0.3em 0em 0.3em 0em;
   border-radius: 1em 1em 0em 0em;
   line-height: 0;
@@ -451,6 +444,7 @@ box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0);
 	font-size: 1em;
 	line-height: 1em;
 	padding-bottom: 0.5em;
+	
 }
 
 #maker_name{
@@ -504,7 +498,7 @@ box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0);
 	border:0px;
 }
 
-#projects tbody tr:nth-child(even) td, tbody tr.even td {background:#FFF9E8 }
+#projects tbody tr:nth-child(even) td, tbody tr.even td {background:#F9FFD6 }
 
 </style>
 </head>
@@ -525,5 +519,6 @@ box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0);
 </div>
 <%= render 'layouts/footer' %>
 <%= debug(params) if Rails.env.development?%>
+
 </body>
 </html>

@@ -61,6 +61,7 @@ class User < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: users
@@ -72,5 +73,14 @@ end
 #  updated_at         :datetime
 #  encrypted_password :string(255)
 #  salt               :string(255)
+#  photo_file_name    :string(255)
+#  photo_content_type :string(255)
+#  photo_file_size    :integer
+#  institution        :string(255)
+#  occupation         :string(255)
+#  year               :string(255)
+#  about              :
+#  skills             :text
+#  contact            :text
 #
 

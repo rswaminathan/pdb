@@ -12,7 +12,7 @@
 <p> Look at some of our sample pages! </p>
 <br />
 <table>
-<% [User.find_by_name("Q"),User.find_by_name("Wallace"),User.find_by_name("Brain"),User.find_by_name("Professor Paul"), User.find_by_name("Student Sam")].each do |i| %>
+<% [User.find_by_name("Q"),User.find_by_name("W&G"),User.find_by_name("Brain"),User.find_by_name("Professor Paul"), User.find_by_name("Student Sam")].each do |i| %>
 <% if !i.nil? %>
 <tr>
   <td width="80px;"><%logo = image_tag i.profile.photo.url(:thumb) %>   <%= link_to logo, i %></td>

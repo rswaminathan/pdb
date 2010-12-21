@@ -11,7 +11,7 @@
 	<div id="project_tabs">	
 	<%= link_to "Main", @project  %>
 	</div>
-  <% @pages.each do |page| %>
+  <%= @pages.each do |page| %>
 	<div id="project_tabs">	
 	<%= link_to page.title.titleize, project_path(@project, :page => page.title) %>
 	</div>

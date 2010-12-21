@@ -1,0 +1,7 @@
+	
+    <div id="project_description" class="prepend-top">
+    <p><%= raw @page_content %></p>
+    </div>
+
+
+
