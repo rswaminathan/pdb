@@ -1,4 +1,4 @@
-class CreateProjectPages < ActiveRecord::Migration
+class DropProjectPages < ActiveRecord::Migration
   def self.up
     drop_table :project_pages
   end
