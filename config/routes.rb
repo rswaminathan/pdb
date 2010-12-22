@@ -2,6 +2,8 @@ Pdb::Application.routes.draw do
   
 	
   get 'pages/home'
+  match '/create', :to => 'pages#create'
+  
   match '/ozzie_gooen', :to => 'users#show', :id => 2
   match '/about',   :to => 'pages#about'
   match 'signup',	:to => 'users#new'
@@ -29,6 +31,8 @@ Pdb::Application.routes.draw do
       post 'create_comment'
       get 'new_page'
       post 'create_page'
+      get 'edit_page'
+      post 'update_page'
     end
   end
   
