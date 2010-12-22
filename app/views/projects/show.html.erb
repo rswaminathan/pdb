@@ -1,3 +1,4 @@
+<div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px">
 
 <div id="project_background" class="span-18">
 
@@ -15,12 +16,11 @@
 </div>  
     <% end%>
  
-
-    <div id="project_picture", align="center">
 	<% if @project.photo.exists? %>
+    <div id="project_picture", align="center">
 	<%= image_tag @project.photo.url(:small) %>
-	<% end %>
 	</div>
+	<% end %>
 
 
 	<div id="project_info">
@@ -36,4 +36,5 @@
   <%= render 'projects/projects_sidebar' %>
 
 
+</div>
 </div>

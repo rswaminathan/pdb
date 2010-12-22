@@ -3,8 +3,15 @@ class PagesController < ApplicationController
 		@title = "Home"
     @user = User.new
 	end
+
 	
 	def contact
 		@title = "Contact"
 	end
+	
+	def create
+	  @title = "Home"
+    @user = User.new
+  end
+  
 end
