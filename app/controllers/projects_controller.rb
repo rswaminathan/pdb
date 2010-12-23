@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
 
     before_filter :authenticate,         :only => [:new, :create]
     #before_filter :correct_project_user, :only => [:edit, :update, :destroy]
-    before_filter :correct_project_user, :only => [:edit_collaborators, :update_collaborators, :delete_collaborators, :edit_page, :update_page, :edit, :update, :destroy]
+    before_filter :correct_project_user, :only => [:edit_collaborators, :update_collaborators, :delete_collaborators, :new_page, :edit_page, :update_page, :edit, :update, :destroy]
     def new
     	@title = "New Project"
       @project = current_user.projects.build
@@ -107,6 +107,10 @@ class ProjectsController < ApplicationController
 
     def new_page
       @project = Project.find_by_id(params[:id])
+      @pages = @project.project_pages
+      @new_page = true
+      @comments = @project.comments
+      render 'show'
     end
 
     def create_page

@@ -1,3 +1,5 @@
+<div class="home_background_1">
+
 <div class="container">
 
 <div id="home">
@@ -43,75 +45,62 @@
 
 
 <div class="home_1"> 
-
-<div style="padding-left:160px; padding-top:30px; padding-bottom:500px">
-	
-	<div class="home_register span-7">
-	<h3>Make a New Profile</h3>
-	<%= form_for @user do |f| %>
-		<%= render	'shared/error_messages', :object => f.object %>
-		<div class="field">
-			<%= f.label :name %><br />
-			<%= f.text_field :name %>
-		</div>
-		<div class="field">
-			<%= f.label :email %><br />
-			<%= f.text_field :email %>
-		</div>
-		<div class="field">
-			<%= f.label :password %><br />
-			<%= f.password_field :password %>
-		</div>
-		<div class="field">
-			<%= f.label :password_confirmation, "Confirm password" %><br />
-			<%= f.password_field :password_confirmation %>
-		</div>
-		<div class="submit">
-			<%= f.submit "Register" %><br />
-		</div>
-	<% end %>
-	</div>
-	
-	
-	<% if signed_in? %>
-	<%=link_to "Edit Profile", edit_user_path(current_user) %>	
-	<% end %>
-
-
+<% i = User.find_by_name("Professor Paul") %>
+<% if !i.nil? %>
+<%logo = image_tag "examplepage600.png" %>   <%= link_to logo, i %>
+<% else %>
+<img src="/images/examplepage600.png"/>
+<% end %>
 </div> 
 
+<br />
 <br />
 
 <hr />
 <br />
-</div> 
-</div> 
+
+</div>
+
 <div class="container" style="color:#EE4B16; font-color:white; margin-left:2em; font-size:2.5em">
 
 <p> Sample Pages: </p>
-
+<div style = "font-size: 0.8em">
+<div class="span-22">
+<div id="home_sample_projects" class="span-18" style="margin-left:5em">
 <table>
-<% [User.find_by_name("Wally"),User.find_by_name("Ozzie Gooen"),User.find_by_name("Wally"),User.find_by_name("Ozzie Gooen")].each do |i| %>
+
+  
+<% c=0 %>
+<% [User.find_by_name("Ozzie Gooen"),User.find_by_name("Wally"),User.find_by_name("Ozzie Gooen"),User.find_by_name("Wally")].each do |i| %>
 <% if !i.nil? %>
-<tr>
+<% if c%2==0 %>
+<tr>	
+<% end %>
+
   <td width="80px;"><%logo = image_tag i.profile.photo.url(:thumb) %>   <%= link_to logo, i %></td>
   <td>
-	<div id="project_name_div" ><%= link_to i.name, i %></div> 
-  <td>
-	 <div class="user_info">
-		<% i.profile%>
-		<%= i.profile.department %>
-		<%= i.profile.occupation %>
-		<%= i.profile.year %>
-	 </div>
+	<div id="sample_project_name_div"><%= link_to i.name, i %></div> 
+	<div style="color:#ddd; font-size: 0.7em">
+	<% @profile = i.profile%>
+	<%= @profile.department %>
+	<%= @profile.occupation %>
+	<%= @profile.year %>
 	</td>
+	
+  </td>
+<% if c%2==1 %>
 </tr>
+</div>
+
+<% end %>
+<% c+=1 %>
 <% end %>
 <% end %>
 
-
+</div>
 </table>
-
-
+</div>
+</div>
+</div>
 </div>
 </div>

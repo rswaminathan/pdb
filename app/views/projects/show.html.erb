@@ -1,10 +1,8 @@
-<div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px">
+<div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px; clear:none">
 
 <div id="project_background" class="span-18">
 
-
   <%= render 'projects/projects_header' %>
-
 <div class="span-18">
 	
     <% if current_project_user? %> 
@@ -24,9 +22,13 @@
 	<% end %>
 
 
-	<div id="project_info">
+     <% if @new_page.nil? %> 
+      <div id ="project_info" >
 	   <%= render "projects/project_content" %>
-	</div>
+     </div>
+     <% else %>
+	   <%= render "projects/project_new_page" %>
+    <% end %>
 </div>
 
 </div>
