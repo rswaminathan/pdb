@@ -1,8 +1,6 @@
-<div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px">
+<div class="container" style="padding-top:10px; padding-bottom:20px; padding-left:20px">
 
-<div class="home_register span-12" style="float:center; margin-left: 16em">
-
-<h1>Create Profile</h1>
+<h1>Edit Profile</h1>
 <%= form_for @profile, :url => update_profile_user_path, :html => { :multipart => true } do |f| %>
 	<%= render	'shared/error_messages', :object => f.object %>
 	<div class="field">
@@ -11,11 +9,11 @@
 	</div>
 	<div class="field">
 		<%= f.label 'Occupation' %><br />
-		<%= select( "profile", "occupation", [ "Student", "Professor", "Alumni", "Staff"]) %>
+		<%= select( "profile", "occupation", ["Professor", "Student", "Alumni", "Staff"]) %>
 	</div>
 	<div class="field">
 		<%= f.label 'Department' %><br />
-		<%= select( "profile", "department", ["Engineering", "Computer Science", "Biology", "Chemistry", "Math", "Physics", "Undecided", "Other" ]) %>
+		<%= select( "profile", "department", ["Engineering", "Computer Science", "Biology", "Chemistry", "Math", "Physics" ]) %>
 	</div>
 	<div class="field">
 		<%= f.label 'Graduation Year' %><br />
@@ -27,11 +25,16 @@
 		<%= f.file_field :photo %>
 	</div>
 	
-	</br>
+	<div class="field">
+		<%= f.label 'Top 4 Tags for Unique Project Pages ' %><br />
+		<%= f.label '(Separate with Commas)' %><br />
+		
+		<%= f.text_field :top_tag_list %>
+	</div>
+	
 	<div class="submit">
-		<%= f.submit "Finish Registration" %><br />
+		<%= f.submit "Update Profile" %><br />
 	</div>
 <% end %>
-</div>
 
-</div> 
+</div>

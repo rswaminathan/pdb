@@ -1,4 +1,7 @@
-<div id="profile_div" class="span-8 colborder">
+<div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px">
+
+<div class="home_register span-12" style="float:center; margin-left: 16em">
+
 <h1>Account Settings</h1>
 <%= form_for @user, :html => { :multipart => true } do |f| %>
 	<%= render	'shared/error_messages', :object => f.object %>
@@ -26,6 +29,4 @@
 <% end %>
 </div>
 
-<div id="user_projects" class="span-13 last">
-   <%= render 'users/users_sidebar' %>
-</div> 
+</div>

@@ -7,14 +7,14 @@
 <style type="text/css">
 body{
   
-	background: #111;
+	background: #333;
 
 }
  
 
 .home_background_1{
 	background:#333;
-	width: 100%;
+	footer
     
 }
 .home_1{
@@ -276,6 +276,9 @@ a {
 .header_tabs a{
 	color: #eee;
 }
+
+
+
 #current_tab{
 	background: rgba(255,255,255, 1);
 	opacity:1;
@@ -464,7 +467,6 @@ box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0);
   padding: 0.4em 0.4em 0.4em 0.4em;
 }
 
-
 #project_name_background{
 background: url("/images/bg-gradient-small.png") repeat-x scroll 0 -1px #999;
   padding: 0.3em 0em 0.3em 0em;
@@ -474,6 +476,7 @@ background: url("/images/bg-gradient-small.png") repeat-x scroll 0 -1px #999;
 
 #project_name_div {
   font-size: 1.3em;
+  color: #C30F01;
 }
 
 #project_edit_name {
@@ -484,6 +487,18 @@ background: url("/images/bg-gradient-small.png") repeat-x scroll 0 -1px #999;
 
 #project_name_div a{
   font-size: 1.3em;
+  font-weight: bold;
+  color: #C30F01;
+}
+
+#sample_project_name_div a{
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #C30F01;
+}
+
+#project_name_div_edit a{
+  font-size: 2.3em;
   font-weight: bold;
   color: #C30F01;
 }
@@ -556,12 +571,11 @@ background: url("/images/bg-gradient-small.png") repeat-x scroll 0 -1px #999;
 	<% end %>
 	
 </section>
-<div class="home_background_1">
 
 	<%= yield %>
-</div>
+
 
 </body>
 <%= render 'layouts/footer' %>
-
+<%= debug(params) if Rails.env.development?%>
 </html>

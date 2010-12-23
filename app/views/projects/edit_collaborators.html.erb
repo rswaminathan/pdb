@@ -1,8 +1,8 @@
 <h1>Edit Collaborators</h1>
 <%= form_for(:user, :url => update_collaborators_project_path) do |f| %>
 	<div class="field">
-		<%= f.label :collaborator, "Collaborator's Email" %><br />
-	  <%= f.text_field :email %>
+		<%= f.label :collaborator, "Collaborator's Name" %><br />
+	  <%= f.text_field :name %>
 	</div>
 	<div class="submit">
 		<%= f.submit "Add Collaborator" %><br />

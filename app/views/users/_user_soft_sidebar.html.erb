@@ -1,6 +1,6 @@
 
 <% if signed_in? && @current_user == User.find_by_id(params[:id])%>
-<div id="login_special", align="center"> <%=link_to "Edit Your Profile!", edit_profile_user_path(current_user) %></div>	
+<div id="login_special", align="center"> <%=link_to "Edit Your Profile!", user_path(@user, :page => "edit_profile") %></div>	
 <% end%>
 
 <div align="center">

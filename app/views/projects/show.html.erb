@@ -12,6 +12,7 @@
       <%= link_to "Delete Project", @project , :confirm => "Are you sure?", 
       :method => :delete %> |
   <%= link_to "Add page", new_page_project_path(@project) %> |
+  <%= link_to "Edit Page", edit_page_project_path(@project, :page => params[:page]) %>
    </h3>
 </div>  
     <% end%>

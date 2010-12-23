@@ -6,7 +6,7 @@
       <% if signed_in? %>
 		 <%=link_to "Profile", user_path(current_user) %> | <%= link_to "Account", edit_user_path(current_user)  %>	| <%= link_to "Log Out", logout_path %>
 	    <% else %>
-		<%= link_to "Sign In", login_path %>
+		<%= link_to "Sign In", login_path %> | <%= link_to "Sign Up", signup_path %>
     	<% end %>	
    </div>
   </div>

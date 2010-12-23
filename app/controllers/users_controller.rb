@@ -26,8 +26,7 @@ class UsersController < ApplicationController
     if @user.save
       @user.create_profile
     	sign_in @user
-    	flash[:success] = "Yay! You registered"
-    	redirect_to @user 
+    	redirect_to edit_profile_user_path(@user)
     else
     	@title = "Sign Up"
     	render 'new'
@@ -63,7 +62,7 @@ class UsersController < ApplicationController
       @user = User.find_by_id(params[:id])
       if @user.update_attributes(params[:user])
         sign_in @user
-        flash[:success] = "Profile updated!"
+        flash[:success] = "Registration Complete!"
         redirect_to(@user) 
       else
         #flash[:error] = "Something went wrong, try again"

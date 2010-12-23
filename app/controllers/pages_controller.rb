@@ -14,4 +14,9 @@ class PagesController < ApplicationController
     @user = User.new
   end
   
+  def create2
+	  @title = "Home"
+    @user = User.new
+  end
+  
 end

@@ -3,7 +3,7 @@ Pdb::Application.routes.draw do
 	
   get 'pages/home'
   match '/create', :to => 'pages#create'
-  
+  match '/create2', :to => 'pages#create2'  
   match '/ozzie_gooen', :to => 'users#show', :id => 2
   match '/about',   :to => 'pages#about'
   match 'signup',	:to => 'users#new'
@@ -32,7 +32,7 @@ Pdb::Application.routes.draw do
       get 'new_page'
       post 'create_page'
       get 'edit_page'
-      post 'update_page'
+      put 'update_page'
     end
   end
   

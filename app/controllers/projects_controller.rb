@@ -30,7 +30,6 @@ class ProjectsController < ApplicationController
           @page_content = @project.description
       end
       
-      
     end
     
     def destroy
@@ -69,7 +68,7 @@ class ProjectsController < ApplicationController
     end
 
     def update_collaborators
-      user_to_add = User.find_by_email(params[:user][:email])
+      user_to_add = User.find_by_name(params[:user][:name])
       if (user_to_add.nil? || @users.exists?(user_to_add))
         flash.now[:error] = "Cannot find user / Duplicate user"
         render 'edit_collaborators'
@@ -123,9 +122,18 @@ class ProjectsController < ApplicationController
 
     def edit_page
       @project = Project.find_by_id(params[:id])
-      @page = @project.project_pages.find_by_id(params[:page])
+      @page = @project.project_pages.find_by_title(params[:page])
     end
     
+    def update_page
+      @page = @project.project_pages.find_by_title(params[:project_page][:title])
+      if @page.update_attributes(params[:project_page])
+        flash[:success] = "Updated Page successfully"
+        redirect_to(@project)
+      else
+        flash[:error] = "Something went wrong"
+      end
+    end
     private
       
 end

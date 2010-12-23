@@ -24,6 +24,12 @@
 <% end %>
 <% end %>
 
+<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
+<div class="header_tabs", style="background-color: #DD6C00">
+<%=link_to "Add a Tab!", user_path(@user, :page => "edit_profile") %>
+</div>
+<% end %>
+
 </div>
 </div>
 </div>

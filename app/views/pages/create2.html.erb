@@ -91,16 +91,25 @@
 <p> Sample Pages: </p>
 
 <table>
-<% [User.find_by_name("Q"),User.find_by_name("W&G"),User.find_by_name("Brain"),User.find_by_name("Professor Paul"), User.find_by_name("Student Sam")].each do |i| %>
+<% [User.find_by_name("Wally"),User.find_by_name("Ozzie Gooen"),User.find_by_name("Wally"),User.find_by_name("Ozzie Gooen")].each do |i| %>
 <% if !i.nil? %>
 <tr>
   <td width="80px;"><%logo = image_tag i.profile.photo.url(:thumb) %>   <%= link_to logo, i %></td>
   <td>
 	<div id="project_name_div" ><%= link_to i.name, i %></div> 
-  </td>
+  <td>
+	 <div class="user_info">
+		<% i.profile%>
+		<%= i.profile.department %>
+		<%= i.profile.occupation %>
+		<%= i.profile.year %>
+	 </div>
+	</td>
 </tr>
 <% end %>
 <% end %>
+
+
 </table>
 
 

@@ -1,3 +1,5 @@
+<div class="home_background_1">
+
 <div class="container">
 
 <div id="home">
@@ -42,7 +44,14 @@
 <div id="home_button"><%=link_to image_tag(src="/images/button.png"), create_path%></div>
 
 
-<div class="home_1"> <img src="/images/examplepage600.png"/></div> 
+<div class="home_1"> 
+<% i = User.find_by_name("Professor Paul") %>
+<% if !i.nil? %>
+<%logo = image_tag "examplepage600.png" %>   <%= link_to logo, i %>
+<% else %>
+<img src="/images/examplepage600.png"/>
+<% end %>
+</div> 
 
 <br />
 <br />
@@ -54,21 +63,29 @@
 <div class="container" style="color:#EE4B16; font-color:white; margin-left:2em; font-size:2.5em">
 
 <p> Sample Pages: </p>
-
+<div class="span-22">
 <table>
+<% c=0 %>
 <% [User.find_by_name("Q"),User.find_by_name("W&G"),User.find_by_name("Brain"),User.find_by_name("Professor Paul"), User.find_by_name("Student Sam")].each do |i| %>
 <% if !i.nil? %>
+<% if c%2==0 %>
 <tr>
+<% end %>
   <td width="80px;"><%logo = image_tag i.profile.photo.url(:thumb) %>   <%= link_to logo, i %></td>
   <td>
-	<div id="project_name_div" ><%= link_to i.name, i %></div> 
+	<div id="sample_project_name_div" ><%= link_to i.name, i %></div> 
   </td>
+<% if c%2==1 %>
 </tr>
+<% end %>
+<% c+=1 %>
 <% end %>
 <% end %>
 </table>
+</div>
 
 
+</div>
 </div>
 </div>
 
