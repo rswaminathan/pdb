@@ -1,4 +1,8 @@
-<div id="project" class="span-16 colborder">
+<div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px">
+
+<div class="home_register span-12" style="float:center; margin-left: 16em">
+
+
 <h1>Edit Project</h1>
 <%= form_for @project, :html => { :multipart => true } do |f| %>
 	<%= render	'shared/error_messages', :object => f.object %>
@@ -35,16 +39,10 @@
 	
 <% end %>
 
-
-
-
-
-
+</div>
 
 </div>
-<div id="sidebar" class="span-7 last">
 
-<%= render 'projects/projects_sidebar' %>
 
- </div>
+
 
