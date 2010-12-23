@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101220064139) do
+ActiveRecord::Schema.define(:version => 20101221011519) do
 
   create_table "comments", :force => true do |t|
     t.string   "body"
@@ -42,17 +42,11 @@ ActiveRecord::Schema.define(:version => 20101220064139) do
   end
 
   create_table "project_pages", :force => true do |t|
-    t.text    "main_info"
-    t.text    "progress"
-    t.text    "press"
-    t.text    "similar_projects"
-    t.string  "page_1_name"
-    t.text    "page_1_content"
-    t.string  "page_2_name"
-    t.text    "page_2_content"
-    t.string  "page_3_name"
-    t.text    "page_3_content"
-    t.integer "project_id"
+    t.string   "title"
+    t.text     "content"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "projects", :force => true do |t|
