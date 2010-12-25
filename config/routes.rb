@@ -6,7 +6,7 @@ Pdb::Application.routes.draw do
   match '/create2', :to => 'pages#create2'  
   match '/ozzie_gooen', :to => 'users#show', :id => 2
   match '/about',   :to => 'pages#about'
-  match 'signup',	:to => 'users#new'
+  match 'signup',	:to => 'pages#create'
   match '/contact', :to => 'pages#contact'
   match	'/login',  :to	=> 'sessions#new'
   match	'/logout', :to	=> 'sessions#destroy'
@@ -30,6 +30,7 @@ Pdb::Application.routes.draw do
       delete 'delete_collaborators'
       post 'create_comment'
       get 'new_page'
+      get 'newpage'
       post 'create_page'
       get 'edit_page'
       put 'update_page'
