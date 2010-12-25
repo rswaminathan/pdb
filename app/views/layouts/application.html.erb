@@ -47,6 +47,7 @@ body{
   -webkit-box-shadow: 2px 2px 4px rgba(0,0,0,0.4);  
   border-radius: 0.4em 0.4em 0.4em 0.4em;
   padding: 1em 1em 0.5em 1em;
+  -moz-border-radius: 0.4em 0.4em 0.4em 0.4em;
 
 }
 
@@ -130,8 +131,6 @@ z-index: 100;
 
 #users_list {
 	
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
-    border-radius: 0em 0em 0.5em 0.5em;
 }
 .user{
   font-size: 1.2em; 
@@ -143,6 +142,18 @@ z-index: 100;
 	padding: 0em 0em 0em 4.5em;
 	font-size: 1.1em;
 	font-weight: bold;
+}
+
+.user_name a:link {
+	color: #222;
+}
+
+.user_name a:visited {
+	color: #222;
+}
+
+.user_name a:hover {
+	color: #DC0200;
 }
 
 .user_info{
@@ -181,7 +192,7 @@ a {
     margin: 0em 0.5em 0.5em -0.5em;
     padding: 0.5em 0em 0em 0em;
 	border-radius: 0.5em 0.5em 0.5em 0.5em;
-	
+	moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
 }
 
 #user_sidebar_pages{
@@ -192,6 +203,7 @@ a {
 #project_background{
 	background: #ddd;
 	border-radius: 1.2em 1.2em 0.5em 0.5em;
+	moz-border-radius: 1.2em 1.2em 0.5em 0.5em;
 	-moz-box-shadow: 0 0 5px 5px #888;
 	-webkit-box-shadow: 0 2px 5px 2px#888;
 	box-shadow: 0 0 5px 5px #888;
@@ -200,6 +212,7 @@ a {
 #project_description {
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
     border-radius: 0.4em 0.4em 0.4em 0.4em;
+    -moz-border-radius: 0.4em 0.4em 0.4em 0.4em;
     margin-bottom: 0em;
 	margin-top:0em;
     padding: 1em 1em 0.5em 1em;
@@ -208,12 +221,14 @@ a {
 #project_picture img{
 	margin-top:2em;
 	border-radius: 0.2em 0.2em 0.2em 0.2em;
+	-moz-border-radius: 0.2em 0.2em 0.2em 0.2em;
 
 }
 
 #user_background{
 	background: #fff;
 	border-radius: 0.5em 0.5em 0.5em 0.5em;
+	-moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
 	-moz-box-shadow: 0 0 5px 1px orange;
 	-webkit-box-shadow: 0 2px 5px 2px#888;
 	box-shadow: 0 0 5px 5px #888;
@@ -228,6 +243,7 @@ a {
   
 	padding: 0.5em 0em 0em 0em;
 	border-radius: 0.5em 0.5em 0em 0em;
+	-moz-border-radius: 0.5em 0.5em 0em 0em;
 	min-height: 6em;
 	
 	
@@ -256,36 +272,35 @@ a {
 	color: #fff;
 }
 .header_tabs{
-  float:right;
- 	border-left: 2px solid #eee;
- 	border-top: 2px solid #eee;
- 	border-right: 2px solid #eee;
-	padding: 0 1em 0 1em;
-	text-align:center;
-	margin-right:auto;
-	background-color: #96380F;
-	font-size: 1.3em;
-	line-height: 1.8em;
-	border-radius: 0.4em 0.4em 0em 0em;
-	margin: 0em 0.3em 0em 0em;
+
 }
 
 .header_tabs a{
+	float:right;
+ 	border-left: 2px solid #eee;
+ 	border-top: 2px solid #eee;
+ 	border-right: 2px solid #eee;
+	text-align:center;
+	margin-right:auto;
+	background-color: #A70B00;
+	font-size: 1.3em;
+	line-height: 1.8em;
+	border-radius: 0.4em 0.4em 0em 0em;
+	-moz-border-radius: 0.4em 0.4em 0em 0em;
+	margin: 0em 0.3em 0em 0em;
 	color: #eee;
+	padding: 0 1em 0 1em;
+}
+
+.header_tabs a:hover {
+	background-color: #830900;	
 }
 
 
-
-#current_tab{
-	background: rgba(255,255,255, 1);
-	opacity:1;
-	border-left: 2px solid #ffffff;
- 	border-top: 2px solid #ffffff;
- 	border-right: 2px solid #ffffff;
-}
 
 #current_tab a{
 	font-weight: bold;
+	background-color:#fff;
 	color: #CE2400;
 	
 }
@@ -307,6 +322,7 @@ a {
 	background-color: #eee;
 	min-height: 40em;
 	border-radius: 0em 0em 0em 0.5em;
+	-moz-border-radius: 0em 0em 0em 0.5em;
    
 }
 
@@ -316,6 +332,7 @@ a {
 	background-color: #eee;
 	min-height: 30em;
 	border-radius: 0.5em 0.5em 0.5em 0.5em;
+	-moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
 
 	
 }
@@ -326,37 +343,53 @@ a {
 	border-radius: 0.5em 0.5em 0.5em 0.5em;
 	margin: 0.5em 0.5em 0.5em 0.5em;
 	padding:0.5em 0.5em 0.5em 0.5em;
-	
+	-moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
 	
 }
 
 #project_sidebar_kind{
 	float:center;
-	border: 1px solid #444;
 	text-align:center;
-	-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	 font-size: 1em;
-	-moz-border-radius: 5px;
-	color: #444;
+	font-size: 1.1em;
+	color: #A70B00;
 	margin-right:0.5em;
-	padding: 0 0.5em 0 0.5em;
+	margin-left:0.5em;
+
 	font-weight: bold;
 }
 
+#project_sidebar_kind a:link {
+	color: #222;
+}
+#project_sidebar_kind a:visited {
+	color: #222;
+}
+#project_sidebar_kind a:hover {
+	color: #DC0200;
+}
+
+
 #project_kind{
   float:left;
-	border: 1px solid #444;
 	text-align:center;
 	-border-radius: 5px;
 	-webkit-border-radius: 5px;
-	 font-size: 1em;
+	 font-size: 0.8em;
 	-moz-border-radius: 5px;
-	color: #444;
+	color: #D45901;
 	margin-right:0.5em;
-	padding: 0 0.5em 0 0.5em;
+	padding: 0 0.3em 0 0.3em;
 	font-weight: bold;
+}
 
+#project_kind a:link {
+	color: #D45901;
+}
+#project_kind a:visited {
+	color: #D45901;
+}
+#project_kind a:hover {
+	text-decoration: underline;
 }
 
 #project_kind_header{
@@ -382,6 +415,8 @@ a {
 background-color: #fff;
 margin: 1em 1em 1em 1em;
 border-radius: 0.2em 0.2em 0.2em 0.2em;
+-moz-border-radius: 0.2em 0.2em 0.2em 0.2em;
+
 box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0);
 
 }
@@ -396,6 +431,7 @@ box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0);
 #project_header li.current a{
     background: url("/images/bg-gradient.png") repeat-x scroll 0 -1px rgba(255, 255, 255, 0.5);
     border-radius: 0.2em 0.2em 0.2em 0.2em;
+	-moz-border-radius: 0.2em 0.2em 0.2em 0.2em;
     box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0);
     font-weight: bold;
     padding: 0.714em 2em;
@@ -412,6 +448,7 @@ box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0);
 #project{
 	background: #fff;
 	border-radius: 0.5em 0.5em 0.5em 0.5em;
+	-moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
 	-moz-box-shadow: 0 0 5px 5px #888;
 	-webkit-box-shadow: 0 2px 5px 2px#888;
 	box-shadow: 0 0 5px 5px #888;
@@ -429,12 +466,18 @@ box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0);
 
 #project_tabs_background{
 	background: #A70B00;
-	min-height: 2em;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 0.5em 0em 0em 0em;	
 	text-align: center;
+	float:right;
+	border-bottom: 1px solid #C91D24;
+	border-top: 1px solid #C91D24;
+	
+	
+}
 
+#project_tabs_background_2{
+	margin-bottom: 0.2em;
 }
 
 #project_tabs_container{
@@ -447,13 +490,29 @@ box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0);
 #project_tabs{
 	float:left;
 	text-align:center;
-	font-size: 1em;
-	margin-right:0.5em;
-	padding: 0 0.5em 0 0.5em;
-	font-weight: bold;
+	font-size: 1.3em;
+	display: block;
 }
+
+
+#project_tabs a:hover {
+	color: white;
+	font-size: 1.16667em;
+	font-weight: bold;
+	padding: 4px 8px 4px;
+	position: relative;
+	background-color: #830900;
+}
+
 #project_tabs a{ 
-	color:#fff;
+	color: white;
+	border-left: 1px solid #962824;
+	border-right: 1px solid #C91D24;
+	font-size: 1.16667em;
+	font-weight: bold;
+	padding: 4px 8px 4px;
+	position: relative;
+	
 }
 
 #project_name_header a{
@@ -468,24 +527,25 @@ box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0);
 background: url("/images/bg-gradient-small.png") repeat-x scroll 0 -1px #999;
   padding: 0.3em 0em 0.3em 0em;
   border-radius: 1em 1em 0em 0em;
+  -moz-border-radius: 1em 1em 0em 0em;
   line-height: 0;
 }
 
 #project_name_div {
-  font-size: 1.3em;
+  font-size: 1.5em;
   color: #C30F01;
 }
 
-#project_edit_name {
-  color: #eef;
-  font-size: 1em;
-}
-
-
-#project_name_div a{
-  font-size: 1.3em;
+#project_name_div  a:link {
   font-weight: bold;
   color: #C30F01;
+}
+#project_name_div  a:visited {
+  font-weight: bold;
+  color: #C30F01;
+}
+#project_name_div  a:hover {
+	text-decoration: underline;
 }
 
 #sample_project_name_div a{
@@ -494,18 +554,26 @@ background: url("/images/bg-gradient-small.png") repeat-x scroll 0 -1px #999;
   color: #C30F01;
 }
 
+#project_edit_name {
+  color: #eef;
+  font-size: 1em;
+}
+
 #project_name_div_edit a{
   font-size: 2.3em;
   font-weight: bold;
   color: #C30F01;
 }
 
-#project_description_div{
+#project_description_div {
 	font-size: 1em;
 	line-height: 1em;
-	padding-bottom: 0.5em;
+	padding-bottom: 0.2em;
+	margin:0em 0em 0em 0.2em;
 	
 }
+
+
 
 #maker_name{
   font-size: 0.8em;
@@ -551,6 +619,7 @@ background: url("/images/bg-gradient-small.png") repeat-x scroll 0 -1px #999;
 
 #projects img{
 	border:0px;
+	padding: 0 0 0 0;
 }
 
 #projects tbody tr:nth-child(even) td, tbody tr.even td {background:#FFF8D4 }

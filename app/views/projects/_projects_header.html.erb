@@ -6,14 +6,18 @@
 
 
 <div id="project_tabs_background" class="span-18">
+	<div id="project_tabs_background_2">
 	
 		
 	<div id="project_tabs">	
 	<%= link_to "Main", @project  %>
 	</div>
   <% @pages.each do |page| %>
-	<div id="project_tabs">	
+	<div id="project_tabs">	<%="id = 'current_tab'" if page == params[:page]%>
 	<%= link_to page.title.titleize, project_path(@project, :page => page.title) %>
+	
+	
 	</div>
   <% end %>
 	</div>
+</div>

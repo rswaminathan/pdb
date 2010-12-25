@@ -15,7 +15,11 @@
 		<%= f.text_field :kind_list %>
 	</div>
 	<div class="field">
-		<%= f.label "description (full HTML provided)" %><br />
+		<%= f.label "Abstract (Optional.  This text is shown in Project Search results.  300 letter maximum.  )" %><br />
+		<%= f.text_area :abstract %>
+	</div>
+	<div class="field">
+		<%= f.label "Main Page Description (full HTML provided)" %><br />
 		<%= f.text_area :description %>
 	</div>
 	<div class="field">

@@ -1,4 +1,6 @@
- <div id="projects" class="span-18">
+
+
+  <div id="projects" class="span-18">
     <table border="0" cellspacing="5" cellpadding="5">
 	
 	
@@ -14,7 +16,6 @@
 	<% if !@projects.nil? %>
           <% @projects.each do |p| %>
             <tr>
-	
               <td width="80px;"><%logo = image_tag p.photo.url(:thumb) %>   <%= link_to logo, p %></td>
               <td>
                 <div id="project_name_div"><%= link_to p.name, p %></div> 
@@ -31,8 +32,8 @@
                     <div id="project_kind"><%= link_to t, user_path(@user, :tag => t) %> </div>    
                 <% end %>
               </td>
+                          
             </tr>
-
           <% end %>
     </table>	
 
@@ -40,3 +41,4 @@
   </div>
 
 <% end %>
+

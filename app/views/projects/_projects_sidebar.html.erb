@@ -23,7 +23,7 @@
 
 <div class="user" >
 		<% if current_project_user? %>
-		<div class="user_pic"><%=link_to image_tag(src="/images/plus60.png"), new_project_path , :class => "left"  %>   </div> 
+		<div class="user_pic"><%=link_to image_tag(src="/images/plus60.png"), edit_collaborators_project_path , :class => "left"  %>   </div> 
      <div class="user_name"> <%= link_to "Add a Collaborator", edit_collaborators_project_path %> </div> 
 	   <% end%>
 		</div>
@@ -40,7 +40,7 @@
 	    <% @project.kind_list.each do |t| %>
         <span id="project_sidebar_kind">
 	
-        <%= t %>
+        <%= link_to t, search_path(:q => t) %>
 		</span>      
     <% end %>
 

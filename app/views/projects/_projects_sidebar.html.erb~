@@ -1,13 +1,13 @@
 <div class="project_sidebar">    
 
-   <div id="creators"> 
     
-     <div class="sidebar_header" id="project_sidebar_header" ><%=@users.count == 1 ? "Creator" : "Creator".pluralize %></div>
+    <div class="sidebar_header" id="project_sidebar_header" ><%=@users.count == 1 ? "Creator" : "Creator".pluralize %></div>
 	<div class="triangle1-sidebar"> </div>
 	<div class="triangle2-sidebar"> </div>
 	
      <%if @users.any? %>  
      	<div id="users_list">
+	
      <% @users.each do |u| %>
        <div class="user" >
          <div class="user_pic"><% logo = image_tag u.profile.photo.url(:thumb)%> <%= link_to logo, u, :class => "left"  %></div>    
@@ -20,39 +20,37 @@
 		 </div>
        </div>
      <% end%>
+
+<div class="user" >
+		<% if current_project_user? %>
+		<div class="user_pic"><%=link_to image_tag(src="/images/plus60.png"), new_project_path , :class => "left"  %>   </div> 
+     <div class="user_name"> <%= link_to "Add a Collaborator", edit_collaborators_project_path %> </div> 
+	   <% end%>
+		</div>
+		
 	</div>
    <% end %> 
-   <% if current_project_user? %>
-     <div id="add_collaborator"><%= link_to "(Edit Collaborators)", edit_collaborators_project_path %>
-     </div>  
-   <% end%>
    </div>
- </div>
 
-<div class="sidebar_section prepend-top">
+
 	<div class="sidebar_header" id="project_sidebar_header">Tags</div>
 	<div class="triangle1-sidebar"> </div>
 	<div class="triangle2-sidebar"> </div>
 	
-    </br>
-    <% @project.kind_list.each do |t| %>
-        <div id="project_kind">
-        <%= t %>
-        </div>    
-    <% end %>
-   </br>
-   </br>
-   </br>
- </div>
-
-
- <div class="sidebar_section prepend-top">
+	    <% @project.kind_list.each do |t| %>
+        <span id="project_sidebar_kind">
 	
-     <div id ="chat">
-     <div class="sidebar_header" id="project_sidebar_header">Comments</div>
+        <%= t %>
+		</span>      
+    <% end %>
+
+	</br>
+	</br>
+	
+    <div class="sidebar_header" id="project_sidebar_header">Comments</div>
 	<div class="triangle1-sidebar"> </div>
 	<div class="triangle2-sidebar"> </div>
-
+	
     <div id="users_list"> 
 	<% @comments.each do |c| %>
      <%= link_to c.user.name, c.user %> : <%= c.body %><br />
@@ -70,7 +68,8 @@
 	      </div>
        <% end %>
     <% end%>
-     </div>
+
+
      </div>
 
 
