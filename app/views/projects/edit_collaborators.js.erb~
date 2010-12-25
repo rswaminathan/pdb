@@ -1,0 +1,1 @@
+$("users_list").update("<%= escape_javascript(render :partial => "collaborator", :collection => @collaborators_found) %>");

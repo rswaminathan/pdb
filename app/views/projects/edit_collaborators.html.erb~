@@ -3,7 +3,7 @@
 <div class="home_register span-12" style="float:center; margin-left: 16em">
 
 <p>
-<%= link_to "<< Back to "+@project.name, @project %>
+<%= link_to "Back to"+@project.name, @project %>
 </p>
 <h1>Edit Collaborators</h1>
 <%= form_tag edit_collaborators_project_path, :method => :get, :remote => true do %>

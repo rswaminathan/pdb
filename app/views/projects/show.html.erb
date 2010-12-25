@@ -14,8 +14,7 @@
 			<% end %>
 
 			<% if current_project_user? %> 
-		      <div id="login_special" ><h3><%= link_to "Add page", newpage_project_path %> | 
-		<%= link_to "Edit Project", edit_project_path%> |
+		      <div id="login_special" ><h3><%= link_to "Edit Project", edit_project_path%> |
 		      <%= link_to "Delete Project", @project , :confirm => "Are you sure?", 
 		      :method => :delete %> </div>
 		  

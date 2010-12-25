@@ -2,9 +2,11 @@ Pdb::Application.routes.draw do
   
 	
   get 'pages/home'
+  match '/create', :to => 'pages#create'
+  match '/create2', :to => 'pages#create2'  
   match '/ozzie_gooen', :to => 'users#show', :id => 2
   match '/about',   :to => 'pages#about'
-  match 'signup',	:to => 'users#new'
+  match 'signup',	:to => 'pages#create'
   match '/contact', :to => 'pages#contact'
   match	'/login',  :to	=> 'sessions#new'
   match	'/logout', :to	=> 'sessions#destroy'
@@ -25,12 +27,14 @@ Pdb::Application.routes.draw do
     member do
       get 'edit_collaborators'
       post 'update_collaborators'
+      post 'search_collaborators'
       delete 'delete_collaborators'
       post 'create_comment'
       get 'new_page'
+      get 'newpage'
       post 'create_page'
       get 'edit_page'
-      post 'update_page'
+      put 'update_page'
     end
   end
   

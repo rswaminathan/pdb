@@ -1,23 +1,20 @@
 <div id="project_name_background" class="span-18">
-	
 	<div id="project_name_header"> <%= link_to @project.name, @project %> </div> 
- 
 </div>
-
-
 <div id="project_tabs_background" class="span-18">
 	<div id="project_tabs_background_2">
-	
-		
-	<div id="project_tabs">	
-	<%= link_to "Main", @project  %>
-	</div>
-  <% @pages.each do |page| %>
-	<div id="project_tabs">	<%="id = 'current_tab'" if page == params[:page]%>
-	<%= link_to page.title.titleize, project_path(@project, :page => page.title) %>
-	
-	
-	</div>
-  <% end %>
+		<div id="project_tabs">	
+			<%= link_to "Main", @project  %>
+		</div>
+		<% @pages.each do |page| %>
+			<div id="project_tabs">	<%= "id = 'current_tab'" if page == params[:page] %>
+				<%= link_to page.title.titleize, project_path(@project, :page => page.title) %>
+			</div>
+		<% end %>
+		<% if current_project_user? %>
+			<div id="project_tabs" style="border-left: 4px solid #C91D24;">
+				<b><%= link_to "New Page", newpage_project_path %></b>
+			</div>
+		<% end %>
 	</div>
 </div>

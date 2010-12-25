@@ -64,20 +64,24 @@ class ProjectsController < ApplicationController
 
     def edit_collaborators
       @title = "Edit Collaborators"
-      @comments = @project.comments  
+      @comments = @project.comments 
+      @collaborators_found = User.search_by_name(params[:search])
     end
 
+    def invite_collaborator
+      
+    end
+ 
     def update_collaborators
-      user_to_add = User.find_by_name(params[:user][:name])
+      user_to_add = User.find(params[:user_to_add])
       if (user_to_add.nil? || @users.exists?(user_to_add))
-        flash.now[:error] = "Cannot find user / Duplicate user"
-        render 'edit_collaborators'
+        flash.now[:error] = "Cannot find user / Duplicate user" 
       else
       @project.users << user_to_add
       @project.save
-      flash[:success] = "Added collaborator"
-      redirect_to @project
+      flash.now[:success] = "Added collaborator"
       end   
+      render 'edit_collaborators'
     end
 
     def delete_collaborators

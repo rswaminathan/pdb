@@ -1,0 +1,34 @@
+<div class="project_sidebar">
+	<% if @users.count == 1 %>
+		<%= render 'sidebar_triangles', :title => "Creator" %>
+	<% else %>
+		<%= render 'sidebar_triangles', :title => "Creators" %>
+	<% end %>
+	<%= render 'user_list' %>
+</div>
+<%= render 'sidebar_triangles', :title => "Tags" %>
+<% @project.kind_list.each do |t| %>
+	<span id="project_sidebar_kind">
+		<%= t %>
+	</span>      
+<% end %>
+<br /><br />
+<%= render 'sidebar_triangles', :title => "Comments" %>
+<div id="users_list">
+	<% @comments.each do |c| %>
+		<%= link_to c.user.name, c.user %> : <%= c.body %><br />
+	<% end %>
+	<% if signed_in? %>
+		<div id ="comment_sumbit">
+			<%= form_for(:comment, :url => create_comment_project_path) do |f| %>
+				<div class="field">
+					<%= f.label :comment %><br />
+					<%= f.text_field :body , :size => 20%>
+				</div>
+				<div class="submit">
+					<%= f.submit "Add Comment" %><br />
+				</div>
+			<% end %>
+		</div>
+	<% end %>
+</div>

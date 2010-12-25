@@ -27,6 +27,7 @@ Pdb::Application.routes.draw do
     member do
       get 'edit_collaborators'
       post 'update_collaborators'
+      post 'search_collaborators'
       delete 'delete_collaborators'
       post 'create_comment'
       get 'new_page'
@@ -34,6 +35,7 @@ Pdb::Application.routes.draw do
       post 'create_page'
       get 'edit_page'
       put 'update_page'
+      post 'invite_collaborator'
     end
   end
   
