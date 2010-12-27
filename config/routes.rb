@@ -3,9 +3,8 @@ Pdb::Application.routes.draw do
 	
   get 'pages/home'
   match '/create', :to => 'pages#create'
-  match '/create2', :to => 'pages#create2'  
   match '/ozzie_gooen', :to => 'users#show', :id => 2
-  match '/about',   :to => 'pages#about'
+  match '/about',   :to => 'projects#show', :id => 1
   match 'signup',	:to => 'pages#create'
   match '/contact', :to => 'pages#contact'
   match	'/login',  :to	=> 'sessions#new'

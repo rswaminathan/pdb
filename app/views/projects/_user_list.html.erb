@@ -6,7 +6,6 @@
 				<div class="user_name"><%= link_to u.name, u %></div>
 				<div class="user_info">
 					<% @profile = u.profile %><%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %><br />
-					<b><%= link_to("Remove Collaborator", delete_collaborators_project_path(@project, :user_id => u.id) , :confirm => "Are you sure you want to remove this collaborator?", :method => :delete) if current_project_user? %></b>
 				</div>
 			</div>
 		<% end%>

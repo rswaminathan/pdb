@@ -1,38 +1,32 @@
-
 <div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px">
-
-<div class="home_register span-12" style="float:center; margin-left: 16em">
-
-<h1>Add new Project</h1>
-<%= form_for(@project) do |f| %>
-	<%= render	'shared/error_messages', :object => f.object %>
-	<div class="field">
-		<%= f.label :name %><br />
-		<%= f.text_field :name %>
+	<div class="home_register span-12" style="float:center; margin-left: 16em">
+		<h1>Add new Project</h1>
+		<%= form_for(@project) do |f| %>
+			<%= render	'shared/error_messages', :object => f.object %>
+			<div class="field">
+				<%= f.label :name %><br />
+				<%= f.text_field :name %>
+			</div>
+			<div class="field">
+				<%= f.label :tags %><br />
+				<%= f.text_field :kind_list %>
+			</div>
+			<div class="field">
+				<%= f.label "Abstract (Optional.  This text is shown in Project Search results.  300 character maximum.)" %><br />
+				<%= f.text_area :abstract %>
+			</div>
+			<div class="field">
+				<%= f.label "Main Page Description (full HTML provided)" %><br />
+				<%= f.text_area :description %>
+			</div>
+			<div class="field">
+				<%= f.label :project_photo %><br />
+				<%= f.file_field :photo %>
+			</div>
+			</br></br>
+			<div class="submit">
+				<%= f.submit "Add Project" %><br />
+			</div>
+		<% end %>
 	</div>
-	<div class="field">
-		<%= f.label :tags %><br />
-		<%= f.text_field :kind_list %>
-	</div>
-	<div class="field">
-		<%= f.label "Abstract (Optional.  This text is shown in Project Search results.  300 letter maximum.  )" %><br />
-		<%= f.text_area :abstract %>
-	</div>
-	<div class="field">
-		<%= f.label "Main Page Description (full HTML provided)" %><br />
-		<%= f.text_area :description %>
-	</div>
-	<div class="field">
-		<%= f.label :project_photo %><br />
-		<%= f.file_field :photo %>
-	</div>
-	</br>
-	</br>
-	
-	<div class="submit">
-		<%= f.submit "Add Project" %><br />
-	</div>
-<% end %>
-
-</div>
 </div>

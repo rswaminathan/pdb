@@ -1,104 +1,21 @@
 <div class="container">
-
-<div id="home">
-	<br />
-	
-<h1> Free Hosting For Projects, Research, and Creations </h1> 
-
-<br />
-	
-<div class="background_2">
-	
+	<div id="home">
+		<br />
+		<%= render 'main_info' %><br />
+		<div id="home_button"><%=link_to image_tag(src="/images/button.png"), create_path %></div>
+		<div class="home_1"> 
+			<% i = User.find_by_name("Professor Paul") %>
+			<% if !i.nil? %>
+				<%logo = image_tag "examplepage600.png" %><%= link_to logo, i %>
+			<% else %>
+				<img src="/images/examplepage600.png"/>
+			<% end %>
+		</div>
+		<br />
+		<br />
+		<hr /><br />
+	</div>
+	<div class="container" style="color:#EE4B16; font-color:white; margin-left:2em; font-size:2.5em">
+		<%= render 'sample_users' %>
+	</div>
 </div>
-
-<h2> Showcase your work 
-	<br />
-	to friends, family,
-	<br /> 
-    and employers
-</h2>
-	
-<br />
-
-
-<h2> Find the awesome things 
-	<br />
-	 being made in the
-	<br /> 
-	 Harvey Mudd Community
-</h2>
-<br />
-
-<h2> Keep in touch with
-	<br />
-	 project developments
-	<br /> 
-	 and give advice
-	<br /> 
-	 to colleagues
-</h2>
-<br />
-
-<div id="home_button"><%=link_to image_tag(src="/images/button.png"), create_path%></div>
-
-
-<div class="home_1"> 
-<% i = User.find_by_name("Professor Paul") %>
-<% if !i.nil? %>
-<%logo = image_tag "examplepage600.png" %>   <%= link_to logo, i %>
-<% else %>
-<img src="/images/examplepage600.png"/>
-<% end %>
-</div> 
-
-<br />
-<br />
-
-<hr />
-<br />
-
-</div><div class="container" style="color:#EE4B16; font-color:white; margin-left:2em; font-size:2.5em">
-
-<p> Sample Pages: </p>
-<div style = "font-size: 0.8em">
-<div class="span-22">
-<div id="home_sample_projects" class="span-18" style="margin-left:5em">
-<table>
-
-  
-<% c=0 %>
-<% [User.find_by_name("Q"),User.find_by_name("W&G"),User.find_by_name("Professor Paul"), User.find_by_name("Student Sam")].each do |i| %>
-<% if !i.nil? %>
-<% if c%2==0 %>
-<tr>	
-<% end %>
-
-  <td width="80px;"><%logo = image_tag i.profile.photo.url(:thumb) %>   <%= link_to logo, i %></td>
-  <td>
-	<div id="sample_project_name_div"><%= link_to i.name, i %></div> 
-	<div style="color:#ddd; font-size: 0.7em">
-	<% @profile = i.profile%>
-	<%= @profile.department %>
-	<%= @profile.occupation %>
-	<%= @profile.year %>
-	</td>
-	
-  </td>
-<% if c%2==1 %>
-</tr>
-</div>
-
-<% end %>
-<% c+=1 %>
-<% end %>
-<% end %>
-
-</div>
-</table>
-</div>
-
-</div>
-</div>
-</div>
-
-

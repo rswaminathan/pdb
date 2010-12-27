@@ -1,23 +1,13 @@
-<div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px">
-
-<div id="user_background" class="span-24">
-
-  <%= render 'users/user_header' %>
-
-
-<div id="profile_div" class="span-6">
-
-  <%= render 'users/user_soft_sidebar' %>
-
-
-
- <br \>
-
-</div>
-
-<div id="user_projects" class="span-18 last">
-   <%= render 'users/users_sidebar' %>
-</div>
-
- </div>
+<div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 350px">
+	<div id="user_background" class="span-24">
+		<%= render 'users/user_header' %>
+		<table cellspaceing="0" style="margin:0">
+			<tbody>
+				<tr>
+					<td id="profile_div"> <%= render 'users/user_soft_sidebar' %></td>
+					<td id="user_projects"><%= render 'users/users_sidebar' %></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>

@@ -1,20 +1,21 @@
 <div id='header'>
-  <div class="container">
-   <div class="span-15"><div id="header_title" style="font-weight: bold">
-	
-	<% if signed_in? %>
-	<%=link_to "MuddPage", user_path(current_user)%></div></div>
-	<% else %>
-	<%=link_to "MuddPage", root_url%></div></div>
-	<% end %>
-	
-   <div class="span-9 last" id="header_menu">
-	<%= link_to "Search ", search_path %> |  
-      <% if signed_in? %>
-		 <%=link_to "My Profile", user_path(current_user) %> | <%= link_to "My Account", edit_user_path(current_user)  %>	| <%= link_to "Log Out", logout_path %>
-	    <% else %>
-		<%= link_to "Sign In", login_path %> | <%= link_to "Sign Up", signup_path %>
-    	<% end %>	
-   </div>
-  </div>
+	<div class="container">
+		<div class="span-15">
+			<div id="header_title" style="font-weight: bold">
+				<% if signed_in? %>
+					<%=link_to "MuddPage", user_path(current_user)%>
+				<% else %>
+					<%=link_to "MuddPage", root_url%>
+				<% end %>
+			</div>
+		</div>
+		<div class="span-9 last" id="header_menu">
+			<%= link_to "Search", search_path %> |  
+			<% if signed_in? %>
+				<%=link_to "My Profile", user_path(current_user) %> | <%= link_to "My Account", edit_user_path(current_user)  %>	| <%= link_to "Log Out", logout_path %>
+			<% else %>
+				<%= link_to "Sign In", login_path %> | <%= link_to "Sign Up", signup_path %>
+			<% end %>
+		</div>
+	</div>
 </div>
