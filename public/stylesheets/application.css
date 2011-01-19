@@ -52,6 +52,89 @@ body{
 	
 }
 
+
+.search_top {
+	float: middle;
+	margin: 0 0 0 1em;
+	background-color: #E63410;
+	-moz-box-shadow: 2px 2px 4px rgba(0,0,0,1);
+	-khtml-box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 2px 2px 4px rgba(0,0,0,0.4);  
+	border-radius: 0.4em 0.4em 0em 0em;
+	padding: 0.5em 1em 1.5em 1em;
+	-moz-border-radius: 0.4em 0.4em 0.4em 0.4em;
+	border-bottom: 3px solid #8B1725;
+	
+}
+
+.search_bottom {
+	float: middle;
+	margin: 0 0 0 1em;
+	background-color: white;
+	-moz-box-shadow: 2px 2px 4px rgba(0,0,0,1);
+	-khtml-box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 2px 2px 4px rgba(0,0,0,0.4);  
+	border-radius: 0em 0em 0.4em 0.4em;
+	padding: 0em 1em 0.5em 1em;
+	-moz-border-radius: 0em 0em 0.4em 0.4em;
+	min-height: 10em;
+}
+
+#search_names {
+	margin-top: 0.5em;
+	margin-bottom: 1em;
+	float:left;
+}
+
+#search_names a{
+		font-size: 2em;
+		font-color: white;
+		color: white;
+		padding:0.3em 0.3em 0.3em 0.3em;
+		border-radius: 0.3em 0.3em 0.3em 0.3em;
+	}
+	
+#search_names a:hover {
+		border: 2px solid white;
+		background-color: #F60;
+		
+}
+
+#search_names_chosen {
+	margin-top: 0.5em;
+	margin-bottom: 1em;
+	float:left;	
+}
+
+#search_names_chosen a{
+		font-size: 2em;
+		font-color: white;
+		color: white;
+		padding:0.3em 0.3em 0.3em 0.3em;
+		border-radius: 0.3em 0.3em 0.3em 0.3em;
+		border: 2px solid white;
+	}
+	
+#search_names_chosen a:hover {
+		background-color: #F60;
+}
+
+#following{
+	width:5em;
+	margin-left:2.2em;
+	color:white;
+	float: left;
+	font-size: 1.1em;
+}
+#following a{
+	color:white;
+}
+
+#following a:hover{
+	border-bottom: 1px solid white;
+}
+	
+
 .sidebar_header {
 	-webkit-box-shadow: rgba(0, 0, 0, 0.546875) 0px 0px 4px;
 	background: #A70B00;
@@ -133,7 +216,7 @@ body{
 }
 
 .user_name{
-	padding: 0em 0em 0em 4.5em;
+	padding: 0em 0em 0em 4.2em;
 	font-size: 1.1em;
 	font-weight: bold;
 	
@@ -155,7 +238,7 @@ body{
 }
 
 .user_info{
-	padding: 0em 0em 0em 5.4em;
+	padding: 0em 0em 0em 5.8em;
 	font-size: 0.8em;
 }
 
@@ -163,7 +246,6 @@ body{
 	padding: 0em 0em 0em 5.4em;
 	font-size: 0.8em;
 	text-align: bottom;
-	
 	
 }
 
@@ -224,10 +306,10 @@ a {
 #project_background{
 	background: #ddd;
 	border-radius: 1.2em 1.2em 0.5em 0.5em;
-	moz-border-radius: 1.2em 1.2em 0.5em 0.5em;
-	-moz-box-shadow: 0 0 5px 5px #888;
+	-moz-border-radius: 1.2em 1.2em 0.5em 0.5em;
+	-moz-box-shadow: 0 2px 5px 2px#888;
 	-webkit-box-shadow: 0 2px 5px 2px#888;
-	box-shadow: 0 0 5px 5px #888;
+	box-shadow: 0 2px 5px 2px#888;
 	
 }
 
@@ -252,9 +334,9 @@ a {
 	background: #f6f6f6;
 	border-radius: 0.5em 0.5em 0.5em 0.5em;
 	-moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
-	-moz-box-shadow: 0 0 5px 1px orange;
+	-moz-box-shadow: 0 2px 5px 2px#888;
 	-webkit-box-shadow: 0 2px 5px 2px#888;
-	box-shadow: 0 0 5px 5px #888;
+	box-shadow: 0 2px 5px 2px#888;
 	
 }
 
@@ -324,7 +406,7 @@ a {
 
 #current_tab a{
 	font-weight: bold;
-	background-color:#fff;
+	background-color:#F6F6F6;
 	color: #CE2400;
 	
 }
@@ -420,7 +502,8 @@ a {
 }
 
 #project_kind a:hover {
-	color: #333;	
+	color: #333;
+	
 }
 
 #project_kind_header{
@@ -501,7 +584,7 @@ a {
 	margin-right: auto;
 	text-align: center;
 	float:right;
-	border-bottom: 1px solid #C91D24;
+	/* border-bottom: 1px solid #C91D24; */
 	border-top: 1px solid #C91D24;
 	
 }
@@ -524,16 +607,27 @@ a {
 	text-align:center;
 	display: block;
     color: white;
-    padding: 0.1em 0 0.1em 0;
+    padding: 0.4em 0 0.4em 0;
 	
 }
 
 .project_tabs a:hover{
 	background-color: #7B0800;
+	
 }
 
 #current{
-	background-color: #8A0900;
+	background-color: #7B0800;
+	
+}
+
+#current a{
+	color: white;
+	
+}
+
+#current a:hover{
+	color: white;	
 }
 
 .project_tabs a{ 
@@ -541,8 +635,8 @@ a {
     font-size: 1.2em;
 	border-left: 1px solid #962824;
 	border-right: 1px solid #C91D24;
-	padding: 4px 8px 4px;
-
+	padding: 7px 8px 7px;
+	
 }
 
 #project_name_header a{
@@ -556,7 +650,6 @@ a {
 
 #project_name_background{
 	background: url("/images/bg-gradient-small.png") repeat-x scroll 0 -1px #999;
-	padding: 0.3em 0em 0.3em 0em;
 	border-radius: 1em 1em 0em 0em;
 	-moz-border-radius: 1em 1em 0em 0em;
 	line-height: 0;
@@ -577,7 +670,8 @@ a {
 
 #project_name_div  a:hover {
 	text-decoration: underline;
-		color: #DA2400;
+	color: #DA2400;
+	
 }
 
 #sample_project_name_div a{

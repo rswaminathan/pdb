@@ -7,6 +7,18 @@ class User < ActiveRecord::Base
     has_one                 :profile
     has_and_belongs_to_many :projects
     has_many                :comments
+	has_many				:relationship_projects,			:foreign_key => :follower_id,
+															:dependent => :destroy
+	has_many				:relationship_users,			:foreign_key => :follower_id,
+															:dependent => :destroy
+	has_many				:projects_following,			:through => :relationship_projects,
+															:source => :followed
+	has_many				:users_following, 				:through => :relationship_users,
+															:source => :followed
+	has_many 				:reverse_relationship_users,	:foreign_key => :followed_id,
+															:class_name => "RelationshipUser",
+															:dependent => :destroy
+	has_many				:followers,						:through => :reverse_relationship_users
     
     validates :name, :presence          => true,
               :length                   => { :maximum => 50}
@@ -41,7 +53,31 @@ class User < ActiveRecord::Base
       	     										 	# salt matches.
       end
     end
+	
+	def following_user?(followed)
+		relationship_users.find_by_followed_id(followed)
+	end
+	
+	def following_project?(followed)
+		relationship_projects.find_by_followed_id(followed)
+	end
 
+	def follow_user!(followed)
+		relationship_users.create!(:followed_id => followed.id)
+	end
+	
+	def follow_project!(followed)
+		relationship_projects.create!(:followed_id => followed.id)
+	end
+	
+	def unfollow_user!(followed)
+		relationship_users.find_by_followed_id(followed).destroy
+	end	
+	
+	def unfollow_project!(followed)
+		relationship_projects.find_by_followed_id(followed).destroy
+	end
+	
     private
        
       def encrypt(string)

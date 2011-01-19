@@ -1,39 +1,65 @@
- <div id="projects" class="span-18">
-    <table border="0" cellspacing="5" cellpadding="5">
-<% if signed_in? && @current_user == User.find_by_id(params[:id]) %>
-	<tr>		
-		<td><%=link_to image_tag(src="/images/plus80.png"), new_project_path %></td>
-		<td>
-			<div id="project_name_div_edit"><%=link_to "Add a Project", new_project_path %></div>
-		</td>
-	</tr>
-<% end %>
-	<% if !@projects.nil? %>
-          <% @projects.each do |p| %>
-            <tr>
-	
-              <td width="80px;"><%logo = image_tag p.photo.url(:thumb) %>   <%= link_to logo, p %></td>
-              <td>
-                <div id="project_name_div"><%= link_to p.name, p %></div> 
 
-				<% if !p.abstract.nil? %>
-                <div id="project_description_div"><%= truncate(p.abstract, :length => 300) %></div>
-				<% end %>
-				
-				<% if p.abstract.nil? || p.abstract.empty? %>
-                <div id="project_description_div"><%= truncate(p.description, :length => 300) %></div>
-				<% end %>
-				
-                <% p.kind_list.each do |t| %>
-                    <div id="project_kind"><%= link_to t, user_path(@user, :tag => t) %> </div>    
-                <% end %>
-              </td>
-            </tr>
+<% if @projects.any? %>
 
-          <% end %>
-    </table>	
-
-	
-  </div>
-
+	<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
+		<div id="project_list">		
+			<div id="user_projects_photo" class="span-3">
+				<%=link_to image_tag(src="/images/plus60.png"), new_project_path %>
+			</div>
+			<div style="min-height:60px">
+				<div id="project_name_div" style="padding-top:1em; font-size: 1.5em;" style="padding-top:0.1em"><%=link_to "Add a Project", new_project_path%> </div>
+			</div>
+		</div>
+	<% end %>
+	<% @projects.each do |u| %>
+		<% if u.photo.exists? %>
+			<div id="project_list" >
+				<div id="user_projects_photo" class="span-3"><%logo = image_tag u.photo.url(:thumb) %>    <%= link_to logo, u %></div>
+				<div style="min-height:60px"> 
+					<div id="project_name_div"><%= link_to u.name, u %></div>
+					<div id="project_description_div">
+						<% if u.abstract.nil? || u.abstract.empty? %>
+							<%= truncate(u.description, :length => 310) %>
+						<% else %>
+							<%= truncate(u.abstract, :length => 310) %>
+						<% end %>
+					</div>
+				</div>
+				<div class="user_info_2">
+					<% u.kind_list.each do |t| %>
+						<div id="project_kind"><%= link_to t, user_path(@user, :tag => t) %></div>    
+					<% end %> 
+				</div>
+			</div>
+		<% else%> 
+			<div id="project_list" style="padding: 0.3em 0em 2em 0em; min-height:0">								
+				<div id="project_name_div"><%= link_to u.name, u %> </div>
+				<div id="project_description_div" style="min-height:25px">
+					<% if u.abstract.nil? || u.abstract.empty? %>
+						<%= truncate(u.description, :length => 310) %>
+					<% else %>
+						<%= truncate(u.abstract, :length => 310) %>
+					<% end %>
+				</div>
+				<div class="user_info_2" style="padding:0">
+					<% u.kind_list.each do |t| %>
+						<div id="project_kind"><%= link_to t, user_path(@user, :tag => t) %></div>    
+					<% end %> 
+				</div>
+			</div>
+		<% end %>
+	<% end %>
+	</div> 
+<% else %>
+	<div id="no_projects"><%= "#{User.find_by_id(params[:id]).name} has no projects!" %></div>
+	<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
+		<div id="project_list">		
+			<div id="user_projects_photo" class="span-3">
+				<%=link_to image_tag(src="/images/plus60.png"), new_project_path %>
+			</div>
+			<div style="min-height:60px">
+				<div id="project_name_div" style="padding-top:1em; font-size: 1.5em;" style="padding-top:0.1em"><%=link_to "Add a Project", new_project_path%> </div>
+			</div>
+		</div>
+	<% end %>
 <% end %>

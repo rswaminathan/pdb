@@ -2,7 +2,7 @@
 	<div id="project_background" class="span-18">
 		<%= render 'projects/projects_header' %>
 		<div class="span-18">
-			<% if @page_content == @project.description %>
+			<% if @page_is_main %>
 				<% if @project.photo.exists? %>
 					<div id="project_picture", align="center">
 						<%= image_tag @project.photo.url(:small) %>
@@ -10,14 +10,18 @@
 				<% end %>
 				<% if current_project_user? %> 
 					<div id="login_special">
-						<h3><%= link_to "Edit Page", edit_project_path%> | <%= link_to "Delete Page", @project , :confirm => "Are you sure?", :method => :delete %></h3>
+						<h3><%= link_to "Edit Page", edit_project_path%></h3>
 					</div>
 				<% end%>
-				<%= render "projects/project_content" %>
+				<div id="project_info">
+					<div id="project_description" class="prepend-top">
+						<p><%= raw @project.description %></p>
+					</div>
+				</div>
 			<% else %>
 				<% if current_project_user? %> 
 					<div id="login_special">
-						<h3><%= link_to "Edit Page", edit_page_project_path(@project, :page => params[:page]) %></h3>
+						<h3><%= link_to "Edit Page", edit_page_project_path(@project, :page => params[:page]) %> | <%=link_to "Delete Page", delete_page_project_path(@project, :page => @page.title), :confirm => "Are you sure?", :method => :delete %></h3>
 					</div>
 				<% end%>
 				<%= render "projects/project_content" %>

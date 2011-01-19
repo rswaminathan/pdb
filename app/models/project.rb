@@ -7,7 +7,7 @@ class Project < ActiveRecord::Base
   end
 
   has_attached_file :photo, 
-                    :styles => {:tiny=> "10x10#", :thumb=> "60x60#", :small  => "640x480>" },   
+                    :styles => {:teeny => "30x30#",:tiny=> "50x50#", :thumb=> "60x60#", :small  => "640x480>" },   
                     :storage => :s3,
                     :default_url => "/images/lightbulb.jpg",
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
@@ -17,6 +17,8 @@ class Project < ActiveRecord::Base
   has_and_belongs_to_many :users
   has_many :comments
   has_many :project_pages
+  has_many :relationship_projects, :foreign_key => :followed_id
+  has_many :followers, :through => :relationship_projects
                      
   validates :name,        :presence   => true
   
@@ -24,6 +26,13 @@ class Project < ActiveRecord::Base
   
   acts_as_taggable
   acts_as_taggable_on :kind
+  
+  class << self
+    def search_by_name(query)
+     where("name like ?", "%#{query}%")
+    end
+   end
+     
 end
 
 

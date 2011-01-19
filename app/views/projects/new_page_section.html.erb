@@ -1,0 +1,21 @@
+<div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px">
+	<div class="home_register span-12" style="float:center; margin-left: 16em">
+		<%= form_for(:section, :url => create_page_section_project_path) do |f| %>
+			<div class="field">
+				<%= f.label :title %><br />
+				<%= f.text_field :title%>
+			</div>
+			<div class="field">
+				<%= f.label :section_photo %><br />
+				<%= f.file_field :photo %>
+			</div>
+			<div class="field">
+				<%= f.label :content %><br />
+				<%= f.text_area :content%>
+			</div>
+			<div class="submit">
+				<%= f.submit "Add Section" %><br />
+			</div>
+		<% end %>
+	</div>
+</div>
