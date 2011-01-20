@@ -23,12 +23,15 @@ class ProjectsController < ApplicationController
 	def show
 		@project = Project.find_by_id(params[:id])
 		@users = @project.users
+		@title = "#{@project.name}"
 		@comments = @project.comments
 		@pages = @project.project_pages
 		if !params[:page].nil?
-			@page_content = @project.project_pages.find_by_title(params[:page]).content
+			@page = @project.project_pages.find_by_title(params[:page])
+			@sections = @page.sections
+			@section = @sections.find_by_title(params[:section]) if !params[:section].nil?
 		else
-			@page_content = @project.description
+			@page_is_main = true
 		end
 	end
 
@@ -39,6 +42,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def search
+		@title = "Project Search"
 		if params[:q].nil? 
 			@projects = []
 		else
@@ -110,6 +114,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def new_page
+		@title = "New Page"
 		@project = Project.find_by_id(params[:id])
 		@pages = @project.project_pages
 		@new_page = true
@@ -125,23 +130,91 @@ class ProjectsController < ApplicationController
 		else
 			flash[:error] = "Error"
 		end 
-		redirect_to @project
+		redirect_to project_path(@project, :page => @page.title)
 	end
 
 	def edit_page
 		@project = Project.find_by_id(params[:id])
 		@pages = @project.project_pages
 		@page = @project.project_pages.find_by_title(params[:page])
+		@title = "Edit Page: #{params[:page]}"
+		flash[:title]=@page.title
 	end
 
 	def update_page
-		@page = @project.project_pages.find_by_title(params[:project_page][:title])
+		@page = @project.project_pages.find_by_title(flash[:title])
+		flash[:title]=nil
 		if @page.update_attributes(params[:project_page])
 			flash[:success] = "Updated Page successfully"
-			redirect_to(@project)
+			redirect_to project_path(@project, :page => @page.title)
 		else
 			flash[:error] = "Something went wrong"
 		end
 	end
+	
+	def delete_page
+		@project = Project.find_by_id(params[:id])
+		@page = @project.project_pages.find_by_title(params[:page])
+		@page.destroy
+		flash[:success] = "Page Deleted" 
+		redirect_to @project
+	end
+		
+	def new_page_section
+		@project = Project.find_by_id(params[:id])
+		@pages = @project.project_pages
+		@page = @pages.find_by_title(params[:page])
+		@title = "New Section for #{@page.title}"
+		@new_section = true
+		@comments = @project.comments
+		flash[:title]=@page.title
+	end
+	
+	def create_page_section
+		@project = Project.find_by_id(params[:id])
+		@page = @project.project_pages.find_by_title(flash[:title])
+		@section = @page.sections.build(params[:section])
+		if @section.save
+			flash[:success] = "Section Added"
+		else
+			flash[:error] = "Error"
+		end 
+		redirect_to project_path(@project, :page => @page.title)
+	end
+	
+	def edit_page_section
+		@project = Project.find_by_id(params[:id])
+		@pages = @project.project_pages
+		@page = @pages.find_by_title(params[:page])
+		@sections = @page.sections
+		@section = @sections.find_by_title(params[:section])
+		@title = "Edit #{@page.title}, Section : #{@section.title}"
+		flash[:page_title]=@page.title
+		flash[:section_title]=@section.title
+	end
+
+	def update_page_section
+		@project = Project.find_by_id(params[:id])
+		@page = @project.project_pages.find_by_title(flash[:page_title])
+		flash[:page_title]=nil
+		@section = @page.sections.find_by_title(flash[:section_title])
+		flash[:section_title]=nil
+		if @section.update_attributes(params[:section])
+			flash[:success] = "Updated Section Successfully"
+			redirect_to project_path(@project, :page => @page.title)
+		else
+			flash[:error] = "Something went wrong"
+		end
+	end
+	
+	def delete_page_section
+		@project = Project.find_by_id(params[:id])
+		@page = @project.project_pages.find_by_title(params[:page])
+		@section = @page.sections.find_by_title(params[:section])
+		@section.destroy
+		flash[:success] = "Section Deleted" 
+		redirect_to project_path(@project, :page => @page.title)
+	end
+	
 	private
 end

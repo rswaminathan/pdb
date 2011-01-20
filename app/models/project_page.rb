@@ -1,5 +1,6 @@
 class ProjectPage < ActiveRecord::Base
   belongs_to :project
+  has_many :sections
 
 end
 

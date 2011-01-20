@@ -1,0 +1,26 @@
+<div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px">
+
+	<div class="search_top">
+		<div id="search_names_chosen" style="margin-left: 10em">
+				<%=link_to "Search Projects", search_projects_path%>
+		</div>
+		
+		<div id="search_names" style="margin-left: 21em">
+				<%=link_to "Search Users", search_users_path%>
+		</div>
+		
+		<%= form_tag search_projects_path, :method => :get, :remote => true do %>
+			<div class="field" style="padding: 5em 0em 0em 30em">
+				<%= text_field_tag :search, params[:search] %>
+				<%= submit_tag "Search Projects" %><br />
+			</div>
+		<% end %>
+	</div>	
+
+			<div class="search_bottom">
+		<div id="users_list"></div>
+		<div id="invite_user"></div>
+		<br />
+	</div>
+	</div>
+	

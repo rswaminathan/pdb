@@ -1,9 +1,9 @@
-<p> Sample Pages: </p>
+<p> Top Users: </p>
 <div class="span-22">
 	<div id="home_sample_projects" class="span-18" style="margin-left:5em; font-size: 0.8em">
 		<table>
 			<% c=0 %>
-			<% [User.find_by_name("Q"),User.find_by_name("W&G"),User.find_by_name("Brain"),User.find_by_name("Professor Paul"), User.find_by_name("Student Sam")].each do |i| %>
+			<% [User.find_by_name("Rahul"),User.find_by_name("Ozzie Gooen"),User.find_by_name("Matt McDermott"),User.find_by_name("Q")].each do |i| %>
 				<% if !i.nil? %>
 					<% if c%2==0 %>
 						<tr>

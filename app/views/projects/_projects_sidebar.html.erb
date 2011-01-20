@@ -5,6 +5,7 @@
 		<%= render 'sidebar_triangles', :title => "Creators" %>
 	<% end %>
 	<%= render 'user_list' %>
+	<%= render 'follow_form' if signed_in? %>
 </div>
 <%= render 'sidebar_triangles', :title => "Tags" %>	
 <% @project.kind_list.each do |t| %>
@@ -15,9 +16,6 @@
 <br /><br />
 <%= render 'sidebar_triangles', :title => "Comments" %>
 <div id="users_list"> 
-	<% @comments.each do |c| %>
-		<%= link_to c.user.name, c.user %> : <%= c.body %><br />
-	<% end %>
 	<% if signed_in? %>
 		<div id ="comment_sumbit">
 			<%= form_for(:comment, :url => create_comment_project_path) do |f| %>

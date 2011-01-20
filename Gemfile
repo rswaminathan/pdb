@@ -2,13 +2,14 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.1'
 
-gem 'pg'
+gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'annotate'
 gem 'paperclip'
 gem 'aws-s3'
 gem 'mongrel', '1.2.0.pre2'
 gem 'acts-as-taggable-on'
 gem 'texticle'
+gem 'paginate_alphabetically'
 group :development do
     gem 'rspec-rails', '2.0.1'
 end 
