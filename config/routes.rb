@@ -21,6 +21,7 @@ Pdb::Application.routes.draw do
 			put 'update_profile'
 			get 'edit_profile'
 			get :following, :followers
+			get :feed
 		end  
 	end
 
