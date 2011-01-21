@@ -1,35 +1,15 @@
 <div id="user_header_background" class="span-24">
-<div id="user_header" class="span-24">
-
-<h1>
-<%= @user.name %>
-</h1>
-
-<div class="span-10">
-<h2>
-<%= @profile.department %>
-<%= @profile.occupation %>
-<%= @profile.year %>
-</h2>
-</div>
-
-<div class="span-14 last">
-<% list = @profile.top_tag_list %>
-<% if (list.size > 0) && (list.size < 7) %>
-<% list.each do |l| %>
-<div class="header_tabs" <%="id = 'current_tab'" if l == params[:tag]%>  >
-		
-<%= link_to l.titleize, user_path(@user, :tag => l)  %>
-</div>
-<% end %>
-<% end %>
-
-<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
-<div class="header_tabs", style="background-color: #DD6C00">
-<%=link_to "Add a Tab!", user_path(@user, :page => "edit_profile") %>
-</div>
-<% end %>
-
-</div>
-</div>
+	<div id="user_header" class="span-24">
+		<h1><%= @user.name %></h1>
+		<div class="span-10">
+			<h2><%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %></h2>
+		</div>
+		<div class="span-14-last">
+			<% ["About","Projects","Feed"].each do |p| %>
+				<div class="header_tabs" <%="id = 'current_tab'" if p.downcase == params[:page] %>>	
+					<%= link_to p, user_path(@user, :page => p.downcase) %>
+				</div>
+			<% end %>
+		</div>
+	</div>
 </div>

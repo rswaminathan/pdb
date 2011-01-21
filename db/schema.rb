@@ -10,55 +10,55 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101221011519) do
+ActiveRecord::Schema.define(:version => 20110102224227) do
 
   create_table "comments", :force => true do |t|
-    t.string   "body"
-    t.integer  "user_id"
-    t.integer  "project_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "body"
+    t.integer   "user_id"
+    t.integer   "project_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "profiles", :force => true do |t|
-    t.text     "about"
-    t.string   "institution"
-    t.string   "occupation"
-    t.integer  "year"
-    t.text     "skills"
-    t.string   "facebook"
-    t.string   "twitter"
-    t.string   "linked_in"
-    t.string   "website"
-    t.string   "other"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.string   "department"
-    t.string   "top_tags"
+    t.text      "about"
+    t.string    "institution"
+    t.string    "occupation"
+    t.integer   "year"
+    t.text      "skills"
+    t.string    "facebook"
+    t.string    "twitter"
+    t.string    "linked_in"
+    t.string    "website"
+    t.string    "other"
+    t.integer   "user_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.string    "photo_file_name"
+    t.string    "photo_content_type"
+    t.integer   "photo_file_size"
+    t.string    "department"
+    t.string    "top_tags"
   end
 
   create_table "project_pages", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.integer  "project_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "title"
+    t.text      "content"
+    t.integer   "project_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "projects", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.string   "kind"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.string   "abstract"
+    t.string    "name"
+    t.text      "description"
+    t.string    "kind"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.string    "photo_file_name"
+    t.string    "photo_content_type"
+    t.integer   "photo_file_size"
+    t.string    "abstract"
   end
 
   create_table "projects_users", :id => false, :force => true do |t|
@@ -66,14 +66,49 @@ ActiveRecord::Schema.define(:version => 20101221011519) do
     t.integer "user_id"
   end
 
-  create_table "taggings", :force => true do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
-    t.integer  "tagger_id"
-    t.string   "tagger_type"
-    t.string   "context"
+  create_table "relationship_projects", :force => true do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
     t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "relationship_projects", ["followed_id"], :name => "index_relationship_projects_on_followed_id"
+  add_index "relationship_projects", ["follower_id", "followed_id"], :name => "index_relationship_projects_on_follower_id_and_followed_id", :unique => true
+  add_index "relationship_projects", ["follower_id"], :name => "index_relationship_projects_on_follower_id"
+
+  create_table "relationship_users", :force => true do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "relationship_users", ["followed_id"], :name => "index_relationship_users_on_followed_id"
+  add_index "relationship_users", ["follower_id", "followed_id"], :name => "index_relationship_users_on_follower_id_and_followed_id", :unique => true
+  add_index "relationship_users", ["follower_id"], :name => "index_relationship_users_on_follower_id"
+
+  create_table "sections", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "project_page_id"
+  end
+
+  add_index "sections", ["project_page_id"], :name => "index_sections_on_project_page_id"
+
+  create_table "taggings", :force => true do |t|
+    t.integer   "tag_id"
+    t.integer   "taggable_id"
+    t.string    "taggable_type"
+    t.integer   "tagger_id"
+    t.string    "tagger_type"
+    t.string    "context"
+    t.timestamp "created_at"
   end
 
   add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
@@ -90,15 +125,6 @@ ActiveRecord::Schema.define(:version => 20101221011519) do
     t.datetime "updated_at"
     t.string   "encrypted_password"
     t.string   "salt"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.string   "institution"
-    t.string   "occupation"
-    t.string   "year"
-    t.text     "about"
-    t.text     "skills"
-    t.text     "contact"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

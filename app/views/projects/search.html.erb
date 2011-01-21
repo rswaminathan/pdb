@@ -14,22 +14,6 @@
 		</div>
 	</div>
 	<div id="search_display">
-		<%if !@projects.empty? %>
-			<% @projects.each do |p| %>
-				<div id="project_search_list">
-					<div id="project_name_div"><%= link_to p.name, p %></div> 
-					<div id="project_description_div"><%= truncate(p.description, :length => 300) %></div>
-					<div id="project_tags_list">
-						<% p.kind_list.each do |t| %>
-							<div id="project_kind">
-								<%= t %>
-							</div>
-						<% end %>
-						</br>
-						</br>
-					</div>
-				</div>
-			<% end %>
-		<% end %>
+		<%= render 'users/projectlist' %>
 	</div>
 </div>

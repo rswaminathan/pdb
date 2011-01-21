@@ -1,22 +1,36 @@
 <div id="projects">
 	<% if signed_in? && @current_user == User.find_by_id(params[:id]) %>
 		<div id="login_special", align="center">
-			<%=link_to "Edit Your Profile!", edit_profile_user_path(current_user) %>
+			<%=link_to "Edit Your Profile!", user_path(@user, :page => "edit_profile") %>
 		</div>	
 	<% end %>
+	
 	<div align="center">
 		<% if @profile.photo.exists? %>
 			<%= image_tag @profile.photo.url(:small) %>
 		<% end %>
 	</div>
-	<div id="user_info_tabs_containter" class ="span-6">
-		<div id="user_info_tabs">	
-			<%= link_to "Projects", user_path(@user, :page => "projects2") %>
+			
+	<%= render 'follow_form' if signed_in? %>	
+	</br>
+</br>
+</br>
+	<div id="following">
+		<div style="font-size: 1.3em">
+		<%= link_to "Following", user_path(@user, :page => "following") %>
 		</div>
-		<% ["About","Contact"].each do |s| %>
-			<div id="user_info_tabs">	
-				<%= link_to s, user_path(@user, :page => s.downcase) %>
-			</div>
-		<% end %>
+		<%= @user.projects_following.count %> Projects <%= @user.users_following.count %> Users<br />
 	</div>
+	
+	<div id="following">
+		<div style="font-size: 1.3em">
+		
+		<%= link_to "Followers", user_path(@user, :page => "followers") %>
+		</div>
+		
+		<%= @user.followers.count %> Users
+	</div>
+	
+
+	
 </div>

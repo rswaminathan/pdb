@@ -1,19 +1,10 @@
-<div class="container" style="padding-top:10px; padding-left:20px">
-
-
-<% if !@profile.nil?%>
-<%= raw @profile.skills %>
-<% end %>
-
-<br />
-
-<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
-<button id="showDlg">Edit Page</button>
-<div id="dialogContainer">>
-	<div class="bd">
-    <%= render 'shared/edit_page', :profile_field => :skills %>
+<%= raw @profile.skills %><br />
+<% if signed_in? && @current_user == User.find_by_id(params[:id]) %>
+	<button id="showDlg">Edit Page</button>
+	<div id="dialogContainer">
+		<div class="bd">
+			<%= render 'shared/edit_page', :profile_field => :skills %>
+		</div>
 	</div>
-</div>
 <% end %>
 
-</div>

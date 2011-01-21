@@ -1,0 +1,17 @@
+<div class="project_sidebar">
+		
+		<div id="users_list">
+			<% @users.each do |u| %>
+				<div class="user" >
+					<div class="user_pic"><% logo = image_tag u.profile.photo.url(:thumb)%> <%= link_to logo, u, :class => "left"  %></div>    
+					<div class="user_name"><%= link_to u.name, u %></div>
+					<div class="user_info">
+						<% @profile = u.profile %><%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %><br />
+					</div>
+				</div>
+			<% end%>
+		</div>
+	
+</div>
+
+</div>

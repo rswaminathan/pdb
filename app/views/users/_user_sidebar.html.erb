@@ -1,0 +1,8 @@
+<div id ="user_sidebar_pages" class="yui-skin-sam">
+	<% if @sidebar_page.nil? %>
+		<%= render "users/user_projects" %>
+	<% else %>
+		<%= render "users/user_#{@sidebar_page}" %>
+	<% end %>
+</div>
+

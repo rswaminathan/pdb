@@ -1,14 +1,11 @@
-<% if !@profile.nil?%>
-<%= raw @profile.about %>
-<% end %>
-
-<br />
-
 <% if signed_in? && @current_user == User.find_by_id(params[:id])%>
-<button id="showDlg">Edit Page</button>
-<div id="dialogContainer">
-	<div class="bd">
-    <%= render 'shared/edit_page', :profile_field => :about %>
+	<button id="showDlg">Edit Page</button>
+	<div id="dialogContainer">
+		<div class="bd">
+		<%= render 'shared/edit_page', :profile_field => :about %>
+		</div>
 	</div>
-</div>
+<% end %><br />
+<% if !@profile.nil?%>
+	<%= raw @profile.about %>
 <% end %>
