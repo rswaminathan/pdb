@@ -58,7 +58,6 @@ class User < ActiveRecord::Base
 		relationship_users.find_by_followed_id(followed)
 	end
 	
-<<<<<<< HEAD
 	#def total_following(user)
 	#	flash[:L]=user.projects_following
 	#	user.users_following.each do |i|
@@ -67,8 +66,6 @@ class User < ActiveRecord::Base
 	#	flash[:L]
 	#end
 	
-=======
->>>>>>> 6aeb22c55365909a6ff0b023389733f23505f45a
 	def following_project?(followed)
 		relationship_projects.find_by_followed_id(followed)
 	end

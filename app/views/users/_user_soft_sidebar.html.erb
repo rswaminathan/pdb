@@ -11,21 +11,7 @@
 		<% end %>
 	</div>
 			
-<<<<<<< HEAD
 	<%= render 'follow_form' if signed_in? %>	
-=======
-	<%= render 'follow_form' if signed_in? %>
-
-	<div id="project_tabs_background" class="span-6" style="margin: 0.2em 0 0.6em 0">
-		<div id="project_tabs_background_2" >
-			<% ["About","Contact","Projects"].each do |page| %>
-				<div class="project_tabs">
-					<%= link_to page, user_path(@user, :page => page.downcase) %>
-				</div>
-			<% end %>
-	</div>	</div>		
-					
->>>>>>> 6aeb22c55365909a6ff0b023389733f23505f45a
 	</br>
 </br>
 </br>
