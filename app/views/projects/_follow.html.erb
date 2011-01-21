@@ -1,4 +1,4 @@
 <%= form_for current_user.relationship_projects.build(:followed_id => @project.id) do |f| %>
 	<div><%= f.hidden_field :followed_id %></div>
-	<div class="actions"><%= f.submit "Follow" %></div>
+	<div class="actions"><%= f.submit "Follow Project" %></div>
 <% end %>

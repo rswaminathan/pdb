@@ -2,7 +2,12 @@
 	<div id="user_header" class="span-24">
 		<h1><%= @user.name %></h1>
 		<div class="span-10">
-			<h2><%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %></h2>
+			<h2>
+				<% if @user==current_user %>
+					<%= link_to 'Edit Profile', edit_profile_user_path %> | 
+				<% end %>
+				<%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %>
+			</h2>
 		</div>
 		<div class="span-14-last">
 			<% ["About","Projects","Feed"].each do |p| %>

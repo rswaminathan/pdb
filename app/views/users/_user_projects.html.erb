@@ -1,25 +1,23 @@
-<div id="project_tabs_background" class="span-18" style="float:left;" >
-		<% if ((1..6).include?(@profile.top_tag_list.count)) %>
-			<% @profile.top_tag_list.each do |l| %>
-				<div class="project_tabs" <%= "id = 'current_tab'" if l == params[:tag] %> style="line-height: 1.9em">	
-					<%= link_to l.titleize, user_path(@user, :page => :projects, :tag => l) %>
-				</div>
-			<% end %>
-			<% if @user==current_user %>
-				<div class="project_tabs" style="background-color:#F06F00">
-					<b><%= link_to "Add Tab", edit_profile_user_path %></b>
-				</div>
-			<% end %>
+<div id="project_tag_tabs_background" class="span-18">
+	<% if ((1..6).include?(@profile.top_tag_list.count)) %>
+		<% @profile.top_tag_list.each do |l| %>
+			<div class="project_tag_tab" <%= "id = 'current_tag_tab'" if l == params[:tag] %> style="line-height: 1.9em">	
+				<%= link_to l.titleize, user_path(@user, :page => :projects, :tag => l) %>
+			</div>
 		<% end %>
-		<% if @user.projects.count>6 %>
-			<% form_tag(user_path, :method => :get) do %>
-				<div style="text-align:right">
-					<b><%= link_to "Clear Filters", user_path %> | Filter by:</b> <%= text_field_tag :tag %>  <%= submit_tag "View" %>
-				</div>
-			<% end %>
+		<% if @user==current_user %>
+			<div class="project_tag_tab" style="background-color:#F06F00">
+				<b><%= link_to "Add Tab", edit_profile_user_path %></b>
+			</div>
 		<% end %>
+	<% end %>
+	<div style="text-align:right" class="span-6-last">
+		<% form_tag(user_path, :method => :get) do %>
+			<b><%= link_to "Clear Filters", user_path(@user, :page=> :projects) %> | Filter by:</b> <%= text_field_tag :tag %>  <%= submit_tag "View" %>
+		<% end %>
+	</div>
 </div>
-
+<br /><br />
 <% if @projects.any? %>
 	<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
 		<div id="project_list">		

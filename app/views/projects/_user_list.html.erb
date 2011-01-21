@@ -1,6 +1,6 @@
-<%if @users.any? %>  
+<%if users.any? %>  
 	<div id="users_list">
-		<% @users.each do |u| %>
+		<% users.each do |u| %>
 			<div class="user" >
 				<div class="user_pic"><% logo = image_tag u.profile.photo.url(:thumb)%> <%= link_to logo, u, :class => "left"  %></div>    
 				<div class="user_name"><%= link_to u.name, u %></div>

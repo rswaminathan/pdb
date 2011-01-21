@@ -1,12 +1,17 @@
 <div class="project_sidebar">
+	<%= render('follow_form') if (signed_in? && !current_project_user? && !@project.followers.any?) %>
 	<% if @users.count == 1 %>
 		<%= render 'sidebar_triangles', :title => "Creator" %>
 	<% else %>
 		<%= render 'sidebar_triangles', :title => "Creators" %>
 	<% end %>
-	<%= render 'user_list' %>
-	<%= render 'follow_form' if signed_in? %>
+	<%= render 'user_list', :users => @users %>
 </div>
+<% if @project.followers.any? %>
+	<%= render 'sidebar_triangles', :title => "Followers" %>
+	<%= render 'user_list', :users => @project.followers %>
+	<%= render('follow_form') if (signed_in? && !current_project_user?) %>
+<% end %>
 <%= render 'sidebar_triangles', :title => "Tags" %>	
 <% @project.kind_list.each do |t| %>
 	<span id="project_sidebar_kind">
