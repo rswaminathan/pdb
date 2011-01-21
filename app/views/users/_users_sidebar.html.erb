@@ -1,3 +1,11 @@
 <div id ="user_sidebar_pages" class="yui-skin-sam">
+<<<<<<< HEAD
 	<%= render "users/user_#{@sidebar_page}" %>
+=======
+	<% if @sidebar_page.nil? %>
+		<%= render "users/user_projects" %>
+	<% else %>
+		<%= render "users/user_#{@sidebar_page}" %>
+	<% end %>
+>>>>>>> 6aeb22c55365909a6ff0b023389733f23505f45a
 </div><br/>

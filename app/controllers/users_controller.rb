@@ -14,7 +14,10 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@title = @user.name
 		@projects = @user.projects
+<<<<<<< HEAD
 		params[:page] ||= (@user==current_user ? "feed" : "projects")
+=======
+>>>>>>> 6aeb22c55365909a6ff0b023389733f23505f45a
 		if !params[:tag].nil?
 			@projects = @projects.tagged_with params[:tag]
 		end
@@ -88,6 +91,7 @@ class UsersController < ApplicationController
 		render 'show_follow'
 	end
 	
+<<<<<<< HEAD
 	def feed
 		@title = "Snippets"
 		@user = User.find(params[:id])
@@ -96,6 +100,8 @@ class UsersController < ApplicationController
 		render 'feed'
 	end
 	
+=======
+>>>>>>> 6aeb22c55365909a6ff0b023389733f23505f45a
 	private
 
 	def correct_user

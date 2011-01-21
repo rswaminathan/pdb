@@ -54,6 +54,7 @@ GEM
       gem_plugin (~> 0.2.3)
     mongrel (1.2.0.pre2-x86-mingw32)
       gem_plugin (~> 0.2.3)
+    paginate_alphabetically (0.2.3)
     paperclip (2.3.6)
       activerecord
       activesupport
@@ -107,6 +108,7 @@ DEPENDENCIES
   annotate
   aws-s3
   mongrel (= 1.2.0.pre2)
+  paginate_alphabetically
   paperclip
   rails (= 3.0.1)
   rspec-rails (= 2.0.1)

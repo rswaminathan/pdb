@@ -10,7 +10,10 @@ Pdb::Application.routes.draw do
 	match '/about',   :to => 'projects#show', :id => 1
 	match 'signup',	:to => 'pages#create'
 	match '/contact', :to => 'pages#contact'
+<<<<<<< HEAD
 	match '/feed', :to => 'pages#feed'	
+=======
+>>>>>>> 6aeb22c55365909a6ff0b023389733f23505f45a
 	match	'/login',  :to	=> 'sessions#new'
 	match	'/logout', :to	=> 'sessions#destroy'
 	match '/search', :to => 'projects#search', :as => :search
