@@ -1,4 +1,8 @@
-<div style="font-size:2.5em"> Users </div>
+<% if @user.users_following.count != 0 %> 
+
+<div style="font-size:2em"> 
+Following <%= @user.users_following.count %> Users </div>
+
 <div id="users_list", style="margin-left:18em">
 	<% @user.users_following.each do |u| %>
 		<div class="user" >
@@ -10,8 +14,15 @@
 		</div>
 	<% end%>
 </div>
+<% end%>
 
-<div style="font-size:2.5em"> Projects </div>
+
+
+<% if @user.projects_following.count != 0 %> 
+
+<div style="font-size:2em"> 
+Following <%= @user.users_following.count %> Projects </div>
+
 </br>
 
 <% @user.projects_following.each do |u| %>
@@ -52,3 +63,5 @@
 		</div>
 	<% end %>
 <% end %>
+
+<% end%>

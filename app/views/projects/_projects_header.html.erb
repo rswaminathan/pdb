@@ -1,16 +1,5 @@
-<div id="project_name_background" class="span-18">
-	<table>
-		<tr>
-			<td><div id="project_name_header"><%= link_to @project.name, @project %></div></td>
-			<td valign="bottom"><div id="project_name_header" style="font-size:0.5em; text-align:right"><%= (link_to "Delete Project", @project , :confirm => "Are you sure?", :method => :delete) if current_project_user? %></div></td>
-		</tr>
-	</table>
-</div>
-<div id="project_tabs_background" class="span-18">
-	<div id="project_tabs_background_2">
-		<div class="project_tabs" <%= "id = 'current'" if @page_is_main %>>	
-			<%= link_to "Main", @project %>
-		</div>
+<% if @pages.any?%>
+<div id="project_tabs_background">
 		<% @pages.each do |page| %>
 			<div class="project_tabs" <%= "id = 'current'" if page.title == params[:page] %>>
 				<%= link_to page.title.titleize, project_path(@project, :page => page.title) %>
@@ -21,5 +10,13 @@
 				<b><%= link_to "New Page", newpage_project_path %></b>
 			</div>
 		<% end %>
-	</div>
 </div>
+<% else %>
+	<% if current_project_user? %>
+		<div id="project_tabs_background">
+			<div class="project_tabs" style="background-color:#F06F00">
+				<b><%= link_to "New Page", newpage_project_path %></b>
+			</div>
+		</div>
+	<% end %>
+<% end %>

@@ -1,34 +1,23 @@
-<div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px; clear:none">
-	<div id="project_background" class="span-18">
-		<%= render 'projects/projects_header' %>
-		<div class="span-18">
-			<% if @page_is_main %>
-				<% if @project.photo.exists? %>
-					<div id="project_picture", align="center">
-						<%= image_tag @project.photo.url(:small) %>
-					</div>
-				<% end %>
-				<% if current_project_user? %> 
-					<div id="login_special">
-						<h3><%= link_to "Edit Page", edit_project_path%></h3>
-					</div>
-				<% end%>
-				<div id="project_info">
-					<div id="project_description" class="prepend-top">
-						<p><%= raw @project.description %></p>
-					</div>
-				</div>
-			<% else %>
-				<% if current_project_user? %> 
-					<div id="login_special">
-						<h3><%= link_to "Edit Page", edit_page_project_path(@project, :page => params[:page]) %> | <%=link_to "Delete Page", delete_page_project_path(@project, :page => @page.title), :confirm => "Are you sure?", :method => :delete %></h3>
-					</div>
-				<% end%>
-				<%= render "projects/project_content" %>
-			<% end %>
+<div class="container" style="padding-top:13px; padding-bottom:20px; min-height: 550px; clear:none">		
+
+		<div id="project_name_background">
+					<div id="project_name_header"><%= link_to @project.name, @project %></div>
 		</div>
-	</div>
-	<div id="project_sidebar" class="span-5 last">
-		<%= render 'projects/projects_sidebar' %>
-	</div>
+		<%= render 'projects/projects_header' %>
+		<div id="project_delete" style="font-size:0.5em; text-align:right"><%= (link_to "Delete Project", @project , :confirm => "Are you sure?", :method => :delete) if current_project_user? %></div>
+		
+		<div id="project_background" class="span-24">	
+			<table cellspaceing="0" style="margin:0">
+				<tbody>
+					<tr>
+						<td id="project_main_background"> <%= render 'projects/project_main' %></td>
+
+						<td id="project_sidebar">
+						<%= render 'projects/projects_sidebar' %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
 </div>
+
