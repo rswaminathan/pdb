@@ -4,7 +4,7 @@
 					<div id="project_name_header"><%= link_to @project.name, @project %></div>
 		</div>
 		<%= render 'projects/projects_header' %>
-		<div id="project_delete" style="font-size:0.5em; text-align:right"><%= (link_to "Delete Project", @project , :confirm => "Are you sure?", :method => :delete) if current_project_user? %></div>
+		<div id="project_delete" style="font-size:0.5em; text-align:right; padding: 0.1em 0.3em 0.1em 0.3em"><%= (link_to "Edit Project Info", edit_project_path) if current_project_user? %></div>
 		
 		<div id="project_background" class="span-24">	
 			<table cellspaceing="0" style="margin:0">

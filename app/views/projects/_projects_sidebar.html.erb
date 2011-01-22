@@ -4,7 +4,7 @@
 	<% else %>
 		<%= render 'sidebar_triangles', :title => "Creators" %>
 	<% end %>
-	<div style="padding:0.5em">
+	<div style="padding-left:0.6em;padding-right:0.4em;">
 	<%= render 'user_list', :users => @users %>
 	<% if current_project_user? %>
 		<%= form_tag edit_collaborators_project_path, :method => :get do%>
@@ -18,25 +18,27 @@
 </div>
 <% if @project.followers.any? %>
 	<%= render 'sidebar_triangles', :title => "Followers" %>
-	<div style="padding:0.5em">
+	<div style="padding-left:0.6em;padding-right:0.4em;">
 		<%= render 'user_list', :users => @project.followers %>
 		<%= render 'follow_form' if (signed_in? && !(current_project_user? && (@users.count==1))) %>
 	</div>
 <% end %>
 <%= render 'sidebar_triangles', :title => "Tags" %>	
 
-<div style="padding:0.5em">
+<div style="padding:0.4em">
 <% @project.kind_list.each do |t| %>
 	<span id="project_sidebar_kind">
 		<%= link_to t, search_path(:q => t) %>
 	</span>      
 <% end %>
 </div>
-<br />
 <%= render 'sidebar_triangles', :title => "Comments" %>
 
-<div style="padding:0.5em">
-<div id="users_list"> 
+<div style="padding:0.4em">
+<div id="users_list">
+<% @comments.each do |c| %>
+	<%= link_to c.user.name, c.user %> : <%= c.body %><br />
+<% end %> 
 	<% if signed_in? %>
 		<div id ="comment_sumbit">
 			<%= form_for(:comment, :url => create_comment_project_path) do |f| %>

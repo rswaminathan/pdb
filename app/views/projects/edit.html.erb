@@ -1,6 +1,10 @@
 <div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px">
+	
 	<div class="home_register span-12" style="float:center; margin-left: 16em">
+		<div id="project_delete" style="font-size:0.5em; text-align:right"><%= (link_to "Delete Project", @project , :confirm => "Are you sure?", :method => :delete) if current_project_user? %></div>
+		
 		<h1>Edit Project</h1>
+		
 		<%= form_for @project, :html => { :multipart => true } do |f| %>
 			<%= render	'shared/error_messages', :object => f.object %>
 			<div class="field">

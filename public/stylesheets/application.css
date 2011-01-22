@@ -34,7 +34,7 @@ body{
 .home_register {
 	float: left;
 	margin: 0 0 0 1em;
-	background: url("/images/bg-gradient-large.png") repeat-x scroll 0 -50px #DB4F22;
+	background: url("/images/bg-gradient-large.png") repeat-x scroll 0 -50px #E71C16;
 	-moz-box-shadow: 2px 2px 4px rgba(0,0,0,1);
 	-khtml-box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 	-webkit-box-shadow: 2px 2px 4px rgba(0,0,0,0.4);  
@@ -136,8 +136,6 @@ body{
 	
 
 .sidebar_header {
-	margin-top: 0.5em;
-	background: #B51411;
 	height: 20px;
 	width: 230px;
 }
@@ -167,7 +165,7 @@ body{
 }
 
 .container #header_title a{
-	color: #E46900;
+	color: #EE000B;
 	
 }
 
@@ -184,7 +182,7 @@ body{
 }
 
 #home h1{
- color: #EE4B16;
+ color: #EE000B;
 	font-size: 2.8em;
 	padding-left:1em;
 	
@@ -204,10 +202,21 @@ body{
 
 .user{
 	font-size: 1.2em; 
-	height: 60px;
+	height: 50px;
 	padding-bottom: 0.5em;
+	margin:0;
+	padding:0.4em;
+	background-color: #C6221D;
+	border-radius: 0.4em;
+	-moz-border-radius: 0.4em;
+	margin-bottom:0.3em;
+	width: 208px;
 	
 }
+#users_list {
+
+}
+
 
 #user_user_name h1{
 	font-size: 2.1em;
@@ -224,6 +233,7 @@ body{
 	text-decoration: underline;
 }
 
+
 #user_user_name h2{
 	font-size:1.2em;
 	color:white;
@@ -231,30 +241,32 @@ body{
 }
 
 .user_name{
-	padding: 0em 0em 0em 4.2em;
-	font-size: 1.1em;
-	font-weight: bold;
-	
+	padding: 0em 0em 0em 3.2em;
+	font-size: 1.2em;
+	position:relative;
+	height: 26px;	
 }
 
 .user_name a:link {
-	color: #222;
+	color: #eee;
 	
 }
 
 .user_name a:visited {
-	color: #222;
+	color: white;
 	
 }
 
 .user_name a:hover {
-	color: #DC0200;
+	border-bottom: 1px solid #fff;
 	
 }
 
 .user_info{
-	padding: 0em 0em 0em 5.8em;
+	padding: 0em 0em 0em 4.9em;
 	font-size: 0.8em;
+	color: white;
+	line-height: 1.3em;
 }
 
 .user_info_2{
@@ -280,10 +292,10 @@ a {
 	float:right;
 	position: relative;
 	margin-right: 4px;
-	margin-bottom: 2px;
+	margin-top: 3px;
 	border: 2px solid #fff;
 	background: #B51411;
-	padding: 0.2em 0.3em 0.2em 0.3em;
+	padding: 0.1em 0.3em 0.1em 0.3em;
 	border-radius: 0.5em 0.5em 0.5em 0.5em;
 	-moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
 }
@@ -457,7 +469,7 @@ a {
 
 #profile_div{
 	padding: 0.5em 0 0.5em 0 ;
-	background-color: #B51411;
+	background-color: #E62434;
 	border-radius: 0.5em 0 0 0.5em;
 	-moz-border-radius: 0.5em 0 0 0.5em;
 	vertical-align: top;	
@@ -466,7 +478,7 @@ a {
 
 #project_sidebar{
     margin: 1em 0 0em 1em;
-	background-color: #FF7866;
+	background-color: #EC4048;
 	min-height: 30em;
 	border-radius: 0em 0.5em 0.5em 0em;
 	-moz-border-radius: 0em 0.5em 0.5em 0em;
@@ -569,12 +581,11 @@ a {
 
 #project_sidebar_header{
 	text-align:center;
-	font-size: 1.2em;
+	font-size: 1.5em;
 	font-color:#000;
-	color: #ffffff;
-	border-bottom: 1px solid #84190F;
- 	
-	
+	color:white;	
+ 	margin-bottom:0.6em;
+	margin-top:0.5em;	
 }
 
 #project_header li.current a{
@@ -614,17 +625,17 @@ a {
 
 #project_tabs_background{
 	position:relative;
-	top:7px;
+	top:13px;
 	float:left;
-	background: #930E0C;
+	background: #C6221D;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
 	float:left;
 	/* border-bottom: 1px solid #C91D24; */
 	border-radius: 0em 0.5em 0em 0em;
-	border-top: 1px solid #C91D24;
-	border-right: 1px solid #C91D24;
+	border-top: 1px solid #FF616A;
+	border-right: 1px solid #FF616A;
 	padding-right:0.6em;
 }
 
@@ -706,7 +717,7 @@ a {
 
 .project_tabs a{ 
 	color: white;
-    font-size: 1.5em;
+    font-size: 1.2em;
 	border-left: 1px solid #B51411;
 	padding: 5px 13px;	
 }
@@ -716,7 +727,7 @@ a {
 	top:3px;
 	margin-top: 6.3em;
 	font-size: 2.2em;
-	color: #B51411;
+	color: #F1000B;
 	line-height: 1.5em;
 	position:relative;
 }
@@ -757,7 +768,7 @@ a {
 #sample_project_name_div a{
 	font-size: 1.1em;
 	font-weight: bold;
-	color: #C30F01;
+	color: #EE000B;
 	
 }
 

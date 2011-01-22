@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 	def new
 		@title = "New Project"
 		@project = current_user.projects.build
+    @tag_string = params[:tags] ? params[:tags].gsub(" ", ", ") : ""
 	end
 
 	def create

@@ -2,7 +2,7 @@
 <% if @projects.any? %>
 
 	<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
-		<div id="project_list">		
+		<div id="project_list", style="min-height:60px">		
 			<div id="user_projects_photo" class="span-3">
 				<%=link_to image_tag(src="/images/plus60.png"), new_project_path %>
 			</div>
