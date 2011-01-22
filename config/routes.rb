@@ -25,12 +25,10 @@ Pdb::Application.routes.draw do
 			get :feed
 		end  
 	end
-
-  resources :admins do
-    collection do
+  
+  namespace :admin do
       get 'email'
       post 'send_email'
-    end
   end 
 
 	resources :sessions, :only => [:new, :create, :destroy]

@@ -4,4 +4,13 @@
 	<div class="user_info">
 		<% @profile = user.profile %><%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %><br />
 	</div>
+  <% if admin_user? %>
+  	<div id="delete_user" style="float: right;">
+		<%= form_tag user_path(user), :method => :delete do %>
+			<div class="submit">
+				<%= submit_tag "Delete User" %><br />
+			</div>
+		<% end %>
+	</div>
+    <% end %>
 </div>

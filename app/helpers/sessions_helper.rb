@@ -32,6 +32,16 @@ module SessionsHelper
 	    redirect_to(root_path) unless (signed_in? && @users.exists?(current_user))
   	end
 
+    def check_admin_user
+      redirect_to(root_path) unless admin_user?
+    end
+
+    def admin_user?
+      current_user == User.find_by_email("Ozzie_Gooen@hmc.edu") ||
+      current_user == User.find_by_email("rswaminathan@hmc.edu") ||
+      current_user == User.find_by_email("matthew_mcdermott@hmc.edu")
+    end
+  
     def current_project_user?
   	  signed_in? && @users.exists?(current_user)
   	end

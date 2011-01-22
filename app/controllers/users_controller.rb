@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 	before_filter :authenticate, :only => [:edit, :destroy]
 	before_filter :correct_user, :only => [:edit, :update, :edit_profile, :update_profile]
-
+  before_filter :check_admin_user,   :only => [:destroy]
 	sidebar_type=["user_info","project_list"]
 
 	def new
@@ -33,7 +33,13 @@ class UsersController < ApplicationController
 			render 'new'
 		end
 	end  
-
+  
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:success] = "Deleted user"
+    redirect_to(search_users_path)
+  end
 	def edit
 		@user = User.find_by_id(params[:id])
 		@title = "Edit #{@user.name}'s Account"

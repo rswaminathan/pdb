@@ -1,7 +1,8 @@
-<%= form_for :email, :url => send_email_admin_path do |f| %>
+<div align="center" id ="project_info" class="container">
+<%= form_for :email, :url => admin_send_email_path do |f| %>
   		<div class="field">
 				<%= f.label :subject %><br />
-				<%= f.text_area :subject %>
+				<%= f.text_field :subject %>
 			</div>
 
 			<div class="field">
@@ -10,6 +11,13 @@
 			</div>
     
 			<div class="submit">
-				<%= f.submit "Send to User" %><br />
+				<%= f.submit "Send Email to User List" %><br />
 			</div>
 <% end %>
+<div id="user_list">
+Current User List: <br />
+<% @users.each do |user| %>
+<%= user.name%>, <%= user.email %> <br />
+<% end %>
+</div>
+</div>
