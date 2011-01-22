@@ -1,25 +1,41 @@
 <div class="project_sidebar">
-	<%= render('follow_form') if (signed_in? && !current_project_user? && !@project.followers.any?) %>
 	<% if @users.count == 1 %>
 		<%= render 'sidebar_triangles', :title => "Creator" %>
 	<% else %>
 		<%= render 'sidebar_triangles', :title => "Creators" %>
 	<% end %>
+	<div style="padding:0.5em">
 	<%= render 'user_list', :users => @users %>
+	<% if current_project_user? %>
+		<%= form_tag edit_collaborators_project_path, :method => :get do%>
+			<div class="submit">
+				<%= submit_tag "Add Collaborator" %><br />
+			</div>
+		<% end %>  
+	<% end%>
+	<%= render 'follow_form' if (signed_in? && @project.followers.empty? && !(current_project_user? && (@users.count==1))) %>
+	</div>
 </div>
 <% if @project.followers.any? %>
 	<%= render 'sidebar_triangles', :title => "Followers" %>
-	<%= render 'user_list', :users => @project.followers %>
-	<%= render('follow_form') if (signed_in? && !current_project_user?) %>
+	<div style="padding:0.5em">
+		<%= render 'user_list', :users => @project.followers %>
+		<%= render 'follow_form' if (signed_in? && !(current_project_user? && (@users.count==1))) %>
+	</div>
 <% end %>
 <%= render 'sidebar_triangles', :title => "Tags" %>	
+
+<div style="padding:0.5em">
 <% @project.kind_list.each do |t| %>
 	<span id="project_sidebar_kind">
 		<%= link_to t, search_path(:q => t) %>
 	</span>      
 <% end %>
-<br /><br />
+</div>
+<br />
 <%= render 'sidebar_triangles', :title => "Comments" %>
+
+<div style="padding:0.5em">
 <div id="users_list"> 
 	<% if signed_in? %>
 		<div id ="comment_sumbit">
@@ -34,4 +50,6 @@
 			<% end %>
 		</div>
 	<% end %>
+	</div>
 </div>
+

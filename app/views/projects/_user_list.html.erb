@@ -11,10 +11,3 @@
 		<% end%>
 	</div>
 <% end %> 
-<% if current_project_user? %>
-	<%= form_tag edit_collaborators_project_path, :method => :get do%>
-		<div class="submit">
-			<%= submit_tag "Add Collaborator" %><br />
-		</div>
-	<% end %>  
-<% end%>

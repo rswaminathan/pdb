@@ -1,11 +1,25 @@
-<div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 350px">
-	<div id="user_background" class="span-24">
-		<%= render 'users/user_header' %>
+<div class="container" style="padding-top:8px; padding-bottom:20px; min-height: 350px">
+				
+				<div class="span-14-last", style="margin-right:1em; min-height:20px">
+					<% list = @profile.top_tag_list %>
+					<% if (list.size > 0) && (list.size < 7) %>
+						<% list.each do |l| %>
+						<div class="header_tabs" <%="id = 'current_tab'" if l == params[:tag]%>  >
+							<%= link_to l.titleize, user_path(@user, :tag => l)  %>
+						</div>
+				<% end %>
+				<% end %>
+				</div>
+				
+	<div id="user_background" class="span-24">	
 		<table cellspaceing="0" style="margin:0">
 			<tbody>
 				<tr>
 					<td id="profile_div"> <%= render 'users/user_soft_sidebar' %></td>
-					<td id="user_projects"><%= render 'users/users_sidebar' %></td>
+
+					<td id="user_projects">
+					
+					<%= render 'users/users_sidebar' %></td>
 				</tr>
 			</tbody>
 		</table>
