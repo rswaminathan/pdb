@@ -14,12 +14,11 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@title = @user.name
 		@projects = @user.projects
-		params[:page] ||= (@user==current_user ? "feed" : "projects")
 		if !params[:tag].nil?
 			@projects = @projects.tagged_with params[:tag]
 		end
 		@sidebar_page = params[:page]
-		@profile = @user.profile 
+		@profile = @user.profile
 	end
 
 	def create
