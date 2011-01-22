@@ -137,7 +137,7 @@ body{
 
 .sidebar_header {
 	margin-top: 0.5em;
-	background: #CE000C;
+	background: #B51411;
 	height: 20px;
 	width: 230px;
 }
@@ -466,7 +466,7 @@ a {
 
 #project_sidebar{
     margin: 1em 0 0em 1em;
-	background-color: #FFA18F;
+	background-color: #FF7866;
 	min-height: 30em;
 	border-radius: 0em 0.5em 0.5em 0em;
 	-moz-border-radius: 0em 0.5em 0.5em 0em;
@@ -572,7 +572,7 @@ a {
 	font-size: 1.2em;
 	font-color:#000;
 	color: #ffffff;
-	border-bottom: 1px solid #A32115;
+	border-bottom: 1px solid #84190F;
  	
 	
 }
