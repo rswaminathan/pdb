@@ -206,7 +206,6 @@ body{
 	padding-bottom: 0.5em;
 	margin:0;
 	padding:0.4em;
-<<<<<<< HEAD
 	background-color: #9B1613;
 	border-radius: 0.4em;
 	-moz-border-radius: 0.4em;
@@ -224,19 +223,7 @@ color:white;
 
 #users_list a:hover{
 color:white;
-=======
-	background-color: #C6221D;
-	border-radius: 0.4em;
-	-moz-border-radius: 0.4em;
-	margin-bottom:0.3em;
-	width: 208px;
-	
->>>>>>> c5d2936dc4d4fe7261d1d9f4e38b706ccc051133
 }
-#users_list {
-
-}
-
 
 #user_user_name h1{
 	font-size: 2.1em;
@@ -489,11 +476,7 @@ a {
 
 #profile_div{
 	padding: 0.5em 0 0.5em 0 ;
-<<<<<<< HEAD
 	background-color: #C01426;
-=======
-	background-color: #E62434;
->>>>>>> c5d2936dc4d4fe7261d1d9f4e38b706ccc051133
 	border-radius: 0.5em 0 0 0.5em;
 	-moz-border-radius: 0.5em 0 0 0.5em;
 	vertical-align: top;	
@@ -502,11 +485,7 @@ a {
 
 #project_sidebar{
     margin: 1em 0 0em 1em;
-<<<<<<< HEAD
 	background-color: #C01426;
-=======
-	background-color: #EC4048;
->>>>>>> c5d2936dc4d4fe7261d1d9f4e38b706ccc051133
 	min-height: 30em;
 	border-radius: 0.5em 0em 0em 0.5em;
 	-moz-border-radius: 0.5em 0em 0em 0.5em;
@@ -641,19 +620,11 @@ a {
 
 #project_sidebar_header{
 	text-align:center;
-<<<<<<< HEAD
 	font-size: 1.4em;
 	font-color:#000;
 	color:white;	
  	margin-bottom:0.5em;
 	margin-top:0.7em;	
-=======
-	font-size: 1.5em;
-	font-color:#000;
-	color:white;	
- 	margin-bottom:0.6em;
-	margin-top:0.5em;	
->>>>>>> c5d2936dc4d4fe7261d1d9f4e38b706ccc051133
 }
 
 #project_header li.current a{
@@ -795,11 +766,7 @@ a {
 	top:3px;
 	margin-top: 6.3em;
 	font-size: 2.2em;
-<<<<<<< HEAD
 	color: white;
-=======
-	color: #F1000B;
->>>>>>> c5d2936dc4d4fe7261d1d9f4e38b706ccc051133
 	line-height: 1.5em;
 }
 

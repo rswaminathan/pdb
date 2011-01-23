@@ -41,7 +41,6 @@ module SessionsHelper
     end
 
     def admin_user?
-<<<<<<< HEAD
       if !@admin_user.nil?
         return @admin_user
       end
@@ -52,15 +51,6 @@ module SessionsHelper
 		current_user == User.find_by_email("Ozzie_Gooen@hmc.edu") ||
 		current_user == User.find_by_email("rswaminathan@hmc.edu") ||
 		current_user == User.find_by_email("matt_mcdermott@hmc.edu")
-=======
-      @admin_user ||= admin_user
-    end
-
-    def admin_user
-      current_user == User.find_by_email("Ozzie_Gooen@hmc.edu") ||
-      current_user == User.find_by_email("rswaminathan@hmc.edu") ||
-      current_user == User.find_by_email("matthew_mcdermott@hmc.edu")
->>>>>>> c5d2936dc4d4fe7261d1d9f4e38b706ccc051133
     end
   
     def current_project_user?

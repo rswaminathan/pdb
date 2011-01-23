@@ -7,7 +7,6 @@
 	<% else %>
 		<%= render 'sidebar_triangles', :title => "Creators" %>
 	<% end %>
-<<<<<<< HEAD
 	<div id="project_sidebar_section">
     <div id ="project_collaborators_list">
 	    <%= render 'user_list', :users => @collaborators %>
@@ -20,10 +19,6 @@
         :remote => true %>
       </div>
     <% end %>
-=======
-	<div style="padding-left:0.6em;padding-right:0.4em;">
-	<%= render 'user_list', :users => @users %>
->>>>>>> c5d2936dc4d4fe7261d1d9f4e38b706ccc051133
 	<% if current_project_user? %>
 		<%= form_tag edit_collaborators_project_path, :method => :get do%>
 			<div class="submit">
@@ -36,22 +31,14 @@
 </div>
 <% if @project.followers.any? %>
 	<%= render 'sidebar_triangles', :title => "Followers" %>
-<<<<<<< HEAD
 	<div id="project_sidebar_section">
-=======
-	<div style="padding-left:0.6em;padding-right:0.4em;">
->>>>>>> c5d2936dc4d4fe7261d1d9f4e38b706ccc051133
 		<%= render 'user_list', :users => @project.followers %>
 		<%= render 'follow_form' if (signed_in? && !(current_project_user? && (@users.count==1))) %>
 	</div>
 <% end %>
 <%= render 'sidebar_triangles', :title => "Tags" %>	
 
-<<<<<<< HEAD
 <div id="project_sidebar_section", style="border: 1px solid #DD515C">
-=======
-<div style="padding:0.4em">
->>>>>>> c5d2936dc4d4fe7261d1d9f4e38b706ccc051133
 <% @project.kind_list.each do |t| %>
 	<span id="project_sidebar_kind", style="margin-left:0.6em">
 		<%= link_to t, search_path(:q => t) %>
@@ -60,11 +47,7 @@
 </div>
 <%= render 'sidebar_triangles', :title => "Comments" %>
 
-<<<<<<< HEAD
 <div id="project_sidebar_section", style="border: 1px solid #DD515C">
-=======
-<div style="padding:0.4em">
->>>>>>> c5d2936dc4d4fe7261d1d9f4e38b706ccc051133
 <div id="users_list">
 <% @comments.each do |c| %>
 	<%= link_to c.user.name, c.user %> : <%= c.body %><br />
