@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 <% if admin_user? %>
 	<div id="delete_user" style="float: left; margin-left:20em">
 		<%= form_tag user_path(user), :method => :delete, :confirm => "Are you sure?" do %>
+=======
+
+<% if admin_user? %>
+	<div id="delete_user" style="float: left; margin-left:20em">
+		<%= form_tag user_path(user), :method => :delete do %>
+>>>>>>> c5d2936dc4d4fe7261d1d9f4e38b706ccc051133
 			<div class="submit">
 				<%= submit_tag "Delete User" %><br />
 			</div>

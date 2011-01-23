@@ -1,7 +1,21 @@
+<<<<<<< HEAD
 <% if signed_in? && current_user_page? %>
 	<div id="project_list", style="min-height:60px">		
 		<div id="user_projects_photo" class="span-3">
 			<%=link_to image_tag(src="/images/plus60.png"), new_project_path %>
+=======
+
+<% if @projects.any? %>
+
+	<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
+		<div id="project_list", style="min-height:60px">		
+			<div id="user_projects_photo" class="span-3">
+				<%=link_to image_tag(src="/images/plus60.png"), new_project_path %>
+			</div>
+			<div style="min-height:60px">
+				<div id="project_name_div" style="padding-top:1em; font-size: 1.5em;" style="padding-top:0.1em"><%=link_to "Add a Project", new_project_path%> </div>
+			</div>
+>>>>>>> c5d2936dc4d4fe7261d1d9f4e38b706ccc051133
 		</div>
 		<div style="min-height:60px">
 			<div id="project_name_div" style="padding-top:1em; font-size: 1.5em;" style="padding-top:0.1em"><%=link_to "Add #{@projects.any? ? "A" : "Your First"} Project", new_project_path%> </div>
