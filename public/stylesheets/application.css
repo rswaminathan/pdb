@@ -210,7 +210,7 @@ body{
 	border-radius: 0.4em;
 	-moz-border-radius: 0.4em;
 	margin-bottom:0.3em;
-	width: 208px;	
+	width: 240px;	
 }
 
 #users_list {
@@ -270,7 +270,7 @@ color:white;
 }
 
 .user_info{
-	padding: 0em 0em 0em 4.9em;
+	padding: 0em 0em 0 4.9em;
 	font-size: 0.8em;
 	color: white;
 	line-height: 1.3em;
@@ -504,7 +504,7 @@ a {
 #project_info{
 	float:bottom;
 	background-color: #fff;
-	min-height: 10em;
+	min-height: 5em;
 	border-radius: 0.5em 0.5em 0.5em 0.5em;
 	margin: 0.5em 0.5em 0.5em 0.5em;
 	padding:0.5em 0.5em 0.5em 0.5em;
@@ -516,7 +516,7 @@ a {
 
 	float:right;
 	text-align:center;
-	background-color: #C03843;
+	background-color: #A70B00;
 	font-size: 1.3em;
 	line-height: 1em;
 	border-radius: 0em 0em 0.4em 0.4em;
