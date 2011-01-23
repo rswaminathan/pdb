@@ -1,20 +1,18 @@
-<% if @user.followers.count != 0 %> 
-
-<div style="font-size:2em"> 
-Followed by <%= @user.followers.count %> Users </div>
-</br>
-
-
-<div id="users_list">
-	<% @user.followers.each do |u| %>
-		<div class="user" >
-			<div class="user_pic"><% logo = image_tag u.profile.photo.url(:tiny)%> <%= link_to logo, u, :class => "left"  %></div>    
-			<div class="user_name"><%= link_to u.name, u %></div>
-			<div class="user_info">
-				<% @profile = u.profile %><%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %><br />
+<% unless @user.followers.count == 0 %> 
+	<div style="font-size:2em">Followed by <%= "#{@user.followers.count} #{@user.followers.count==1 ? 'User' : 'Users'}" %></div>
+	</br>
+	<div id="users_list">
+		<% @user.followers.each do |u| %>
+			<div class="user" >
+				<div class="user_pic"><% logo = image_tag u.profile.photo.url(:tiny)%> <%= link_to logo, u, :class => "left"  %></div>    
+				<div class="user_name"><%= link_to u.name, u %></div>
+				<div class="user_info" >
+					<% @profile = u.profile %><%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %><br />
+					<%= "#{u.projects.count} #{u.projects.count == 1 ? 'Project' : 'Projects'} | #{u.followers.count} #{u.followers.count == 1 ? 'Follower' : 'Followers'}" %><br />
+				</div>
 			</div>
-		</div>
-	<% end%>
-</div>
-
-<% end%>
+		<% end%>
+	</div>
+<% else %>
+	<div style="font-size:2em"><%= "#{@user.name.titleize} has no Followers" %></div>
+<% end %>

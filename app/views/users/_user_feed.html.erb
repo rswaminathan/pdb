@@ -1,23 +1,21 @@
 <div style="font-size:2em; color: #913100;"> 
 Project Feed </div>
 <hr>
-
-
-<% h = {:L => @user.projects_following, :i => []} %>
-<% @user.users_following.each do |i| %>
-	<% i.projects.each do |u| %>
-		<% h[:L] += [u] unless (h[:L].include?(u) || @user.projects.include?(u)) %>
+<% h = {:L => @user.projects_following, :i => [], :max => ["Main",nil]} %>
+<% @user.users_following.each do |user| %>
+	<% user.projects.each do |project| %>
+		<% h[:L] += [project] unless (h[:L].include?(project)) %>
 	<% end %>
 <% end %>
 <% h[:L].each do |project| %>
 	<% if project.project_pages.any? %>
+		<% h[:max][1] = project.updated_at %>
 		<% project.project_pages.each do |page| %>
-			<% if project.updated_at > page.updated_at %>
-				<%  h[:i]+= [[project,"Main",project.updated_at]] %>
-			<% else %>
-				<% h[:i]+= [[project,page.title.titleize,page.updated_at]] %>
+			<% if page.updated_at > h[:max][1] %>
+				<% h[:max] = [page.title,page.updated_at] %>
 			<% end %>
 		<% end %>
+		<% h[:i]+= [[project,h[:max][0],h[:max][1]]] %>
 	<% else %>
 		<% h[:i] += [[project,"Main",project.updated_at]] %>
 	<% end %>
