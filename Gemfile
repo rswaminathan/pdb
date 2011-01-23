@@ -9,6 +9,7 @@ gem 'aws-s3'
 gem 'mongrel', '1.2.0.pre2'
 gem 'acts-as-taggable-on'
 gem 'texticle'
+gem 'jquery-rails'
 group :development do
     gem 'rspec-rails', '2.0.1'
 end 

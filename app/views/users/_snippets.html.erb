@@ -1,37 +1,17 @@
 <% list.each do |u| %>
 	<% if u[0].photo.exists? %>
-		<div id="project_list" style="margin-top:0em, padding:0em" >
-			<div id="user_projects_photo" class="span-3"><%logo = image_tag u[0].photo.url(:thumb) %>    <%= link_to logo, u[0] %></div>
-			<div style="min-height:60px"> 
-				<div id="project_name_div"><%= link_to u[0].name, u[0] %><%= " - Page #{u[1]} Updated On: #{u[2].strftime("%A, %B %d - %I:%M %p")}" %></div>
-				<div id="project_description_div">
-					<% if u[0].abstract.nil? || u[0].abstract.empty? %>
-						<%= truncate(u[0].description, :length => 310) %>
-					<% else %>
-						<%= truncate(u[0].abstract, :length => 310) %>
-					<% end %>
-				</div>
-				<div class="user_info_2">
-					<% u[0].kind_list.each do |t| %>
-						<div id="project_kind"><%= link_to t, search_path(:q => t) %></div>    
-					<% end %> 
+		<div id="project_list" style="margin-top:0em, padding:0em; min-height:50px;  font-size:1em" >
+			<div id="user_projects_photo" class="span-3" style="width:45px"><%logo = image_tag u[0].photo.url(:tiny) %>    <%= link_to logo, u[0] %></div>
+			<div style="min-height:50px"> 
+				<div id="project_name_div"><%= link_to u[0].name, u[0] %><%= " - Page: #{u[1]}"%>
+					<div style="font-size: 0.8em"><%=" Updated #{u[2].strftime("%A at %I:%M %p")}" %></div>
 				</div>
 			</div>
 		</div>
 	<% else%> 
-		<div id="project_list" style="padding: 0.3em 0em 2em 0em; min-height:0">								
-			<div id="project_name_div"><%= link_to u[0].name, u[0] %><%= " - Page #{u[1]} Updated On: #{u[2].strftime("%A, %B %d - %I:%M %p")}" %></div>
-			<div id="project_description_div" style="min-height:12px">
-				<% if u[0].abstract.nil? || u[0].abstract.empty? %>
-					<%= truncate(u[0].description, :length => 310) %>
-				<% else %>
-					<%= truncate(u[0].abstract, :length => 310) %>
-				<% end %>
-			</div>
-			<div class="user_info_2" style="padding:0">
-				<% u[0].kind_list.each do |t| %>
-					<div id="project_kind"><%= link_to t, search_path(:q => t) %></div>    
-				<% end %> 
+		<div id="project_list" style="padding: 0.3em 0em 0.2em 0em; min-height:4em; font-size:1em">								
+			<div id="project_name_div"><%= link_to u[0].name, u[0] %><%= " - Page: #{u[1]}"%> 
+				<div style="font-size: 0.8em"><%=" Updated #{u[2].strftime("%A at %I:%M %p")}" %></div>
 			</div>
 		</div>
 	<% end %>

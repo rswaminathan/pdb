@@ -1,22 +1,30 @@
+
 <% if @pages.any?%>
-<div id="project_tabs_background">
+<div id="project_buttons_center">
+		
 		<% @pages.each do |page| %>
-			<div class="project_tabs" <%= "id = 'current'" if page.title == params[:page] %>>
-				<%= link_to page.title.titleize, project_path(@project, :page => page.title) %>
-			</div>
+		<div id="project_buttons" <%= "id = 'current_project_button'" if page.title == params[:page] %>>
+			<%= link_to page.title.titleize, project_path(@project, :page => page.title) %>
+		</div>
 		<% end %>
-		<% if current_project_user? %>
-			<div class="project_tabs" style="background-color:#F06F00">
-				<b><%= link_to "New Page", newpage_project_path %></b>
-			</div>
-		<% end %>
-</div>
-<% else %>
+	
+		<div id="project_buttons" <%= "id = 'current_project_button'" if @page_is_main %>>	
+			<%= link_to "Home", @project %>
+		</div>
+		
 	<% if current_project_user? %>
-		<div id="project_tabs_background">
-			<div class="project_tabs" style="background-color:#F06F00">
-				<b><%= link_to "New Page", newpage_project_path %></b>
-			</div>
+		<div id="project_buttons">
+			<b><%= link_to "New Page", newpage_project_path %></b>
 		</div>
 	<% end %>
+
+	</div>
+<% else %>
+	<% if current_project_user? %>
+		<div class="project_buttons"
+				<b> <%= link_to l.title.titleize, project_path(@project, :page => l.title) %></b>
+		</div>
+	<% end %>
+
 <% end %>
+

@@ -1,1 +1,1 @@
-$("users_list").update("<%= escape_javascript(render :partial => "user", :collection => @users_found) %>");
+$("#users_list").html("<%= escape_javascript(render :partial => "user", :collection => @users_found) %>");

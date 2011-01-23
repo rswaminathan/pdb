@@ -1,20 +1,22 @@
-
-<% if @projects.any? %>
-
-	<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
-		<div id="project_list">		
-			<div id="user_projects_photo" class="span-3">
-				<%=link_to image_tag(src="/images/plus60.png"), new_project_path %>
-			</div>
-			<div style="min-height:60px">
-				<div id="project_name_div" style="padding-top:1em; font-size: 1.5em;" style="padding-top:0.1em"><%=link_to "Add a Project", new_project_path%> </div>
-			</div>
+<% if signed_in? && current_user_page? %>
+	<div id="project_list", style="min-height:60px">		
+		<div id="user_projects_photo" class="span-3">
+			<%=link_to image_tag(src="/images/plus60.png"), new_project_path %>
 		</div>
+		<div style="min-height:60px">
+			<div id="project_name_div" style="padding-top:1em; font-size: 1.5em;" style="padding-top:0.1em"><%=link_to "Add #{@projects.any? ? "A" : "Your First"} Project", new_project_path%> </div>
+		</div>
+	</div>
+<% else %>
+	<% unless @projects.any? %>
+		<div id="no_projects"><%= "#{@user.name} has no projects!" %></div>
 	<% end %>
+<% end %>
+<% if @projects.any? %>
 	<% @projects.each do |u| %>
 		<% if u.photo.exists? %>
 			<div id="project_list" >
-				<div id="user_projects_photo" class="span-3"><%logo = image_tag u.photo.url(:standard) %>    <%= link_to logo, u %></div>
+				<div id="user_projects_photo" class="span-3"><% logo = image_tag u.photo.url(:standard) %><%= link_to logo, u %></div>
 				<div style="min-height:60px"> 
 					<div id="project_name_div"><%= link_to u.name, u %></div>
 					<div id="project_description_div">
@@ -50,16 +52,4 @@
 		<% end %>
 	<% end %>
 	</div> 
-<% else %>
-	<div id="no_projects"><%= "#{User.find_by_id(params[:id]).name} has no projects!" %></div>
-	<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
-		<div id="project_list">		
-			<div id="user_projects_photo" class="span-3">
-				<%=link_to image_tag(src="/images/plus60.png"), new_project_path %>
-			</div>
-			<div style="min-height:60px">
-				<div id="project_name_div" style="padding-top:1em; font-size: 1.5em;" style="padding-top:0.1em"><%=link_to "Add a Project", new_project_path%> </div>
-			</div>
-		</div>
-	<% end %>
 <% end %>

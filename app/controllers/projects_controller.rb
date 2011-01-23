@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 	def new
 		@title = "New Project"
 		@project = current_user.projects.build
+    @tag_string = params[:tags] ? params[:tags].gsub(" ", ", ") : ""
 	end
 
 	def create
@@ -23,6 +24,7 @@ class ProjectsController < ApplicationController
 	def show
 		@project = Project.find_by_id(params[:id])
 		@users = @project.users
+		@collaborators = @users.first(4)
 		@title = "#{@project.name}"
 		@comments = @project.comments
 		@pages = @project.project_pages
@@ -34,6 +36,12 @@ class ProjectsController < ApplicationController
 			@page_is_main = true
 		end
 	end
+
+  def show_all_collaborators
+    @project = Project.find_by_id(params[:id])
+    @users = @project.users
+    @collaborators = @users.drop(4) #the remaining users
+  end
 
 	def destroy
 		@project.destroy #@project is defined in correct_user authenticate

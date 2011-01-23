@@ -1,7 +1,7 @@
 class Profile < ActiveRecord::Base
     has_attached_file :photo, 
                       :styles => {:itsy => "30x30#", :teeny => "40x40#", :tiny=> "50x50#",:thumb=> "60x60#", :small  => "180x600>" },
-                      :default_url => "/images/wally_small.jpg",
+                      :default_url => "/images/wally_profile-tiny.jpg",
                       :storage => :s3,
                       :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
                       :path => "/:style/:filename"    

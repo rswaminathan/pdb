@@ -1,11 +1,24 @@
 <div class="project_sidebar">
+
+
+	
 	<% if @users.count == 1 %>
 		<%= render 'sidebar_triangles', :title => "Creator" %>
 	<% else %>
 		<%= render 'sidebar_triangles', :title => "Creators" %>
 	<% end %>
-	<div style="padding:0.5em">
-	<%= render 'user_list', :users => @users %>
+	<div id="project_sidebar_section">
+    <div id ="project_collaborators_list">
+	    <%= render 'user_list', :users => @collaborators %>
+    </div>
+    <% if @users.count >4 %>
+      <div id="all_members">
+      </div>
+      <div id="view_all_users">
+        <%= link_to "View all #{@users.count} users", show_all_collaborators_project_path, 
+        :remote => true %>
+      </div>
+    <% end %>
 	<% if current_project_user? %>
 		<%= form_tag edit_collaborators_project_path, :method => :get do%>
 			<div class="submit">
@@ -18,25 +31,27 @@
 </div>
 <% if @project.followers.any? %>
 	<%= render 'sidebar_triangles', :title => "Followers" %>
-	<div style="padding:0.5em">
+	<div id="project_sidebar_section">
 		<%= render 'user_list', :users => @project.followers %>
 		<%= render 'follow_form' if (signed_in? && !(current_project_user? && (@users.count==1))) %>
 	</div>
 <% end %>
 <%= render 'sidebar_triangles', :title => "Tags" %>	
 
-<div style="padding:0.5em">
+<div id="project_sidebar_section", style="border: 1px solid #DD515C">
 <% @project.kind_list.each do |t| %>
-	<span id="project_sidebar_kind">
+	<span id="project_sidebar_kind", style="margin-left:0.6em">
 		<%= link_to t, search_path(:q => t) %>
 	</span>      
 <% end %>
 </div>
-<br />
 <%= render 'sidebar_triangles', :title => "Comments" %>
 
-<div style="padding:0.5em">
-<div id="users_list"> 
+<div id="project_sidebar_section", style="border: 1px solid #DD515C">
+<div id="users_list">
+<% @comments.each do |c| %>
+	<%= link_to c.user.name, c.user %> : <%= c.body %><br />
+<% end %> 
 	<% if signed_in? %>
 		<div id ="comment_sumbit">
 			<%= form_for(:comment, :url => create_comment_project_path) do |f| %>

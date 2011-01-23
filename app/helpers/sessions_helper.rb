@@ -13,6 +13,10 @@ module SessionsHelper
         @current_user ||= user_from_remember_token
     end
     
+	def current_user_page?
+		  current_user == @user
+	end
+	
     def signed_in?
         !current_user.nil?	
     end
@@ -23,27 +27,34 @@ module SessionsHelper
     end
     
     def authenticate
-	   deny_access if !signed_in?
+		deny_access if !signed_in?
   	end
   	
   	def correct_project_user
-  	  @project = Project.find_by_id(params[:id])
-  	  @users = @project.users
-	    redirect_to(root_path) unless (signed_in? && @users.exists?(current_user))
+		@project = Project.find_by_id(params[:id])
+		@users = @project.users
+		redirect_to(root_path) unless (signed_in? && @users.exists?(current_user))
   	end
 
     def check_admin_user
-      redirect_to(root_path) unless admin_user?
+		redirect_to(root_path) unless admin_user?
     end
 
     def admin_user?
-      current_user == User.find_by_email("Ozzie_Gooen@hmc.edu") ||
-      current_user == User.find_by_email("rswaminathan@hmc.edu") ||
-      current_user == User.find_by_email("matthew_mcdermott@hmc.edu")
+      if !@admin_user.nil?
+        return @admin_user
+      end
+      return @admin_user = admin_user
+    end
+
+    def admin_user
+		current_user == User.find_by_email("Ozzie_Gooen@hmc.edu") ||
+		current_user == User.find_by_email("rswaminathan@hmc.edu") ||
+		current_user == User.find_by_email("matt_mcdermott@hmc.edu")
     end
   
     def current_project_user?
-  	  signed_in? && @users.exists?(current_user)
+		signed_in? && @users.exists?(current_user)
   	end
   	  	
     def deny_access

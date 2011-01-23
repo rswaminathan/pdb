@@ -1,0 +1,9 @@
+<% if signed_in? && @current_user == User.find_by_id(params[:id])%>
+	<div id="login_special"><%= link_to "Edit Page", user_path(@user, :page => "edit_contact") %></div>
+<% end %>
+<% ["Website","Facebook","Twitter","Other"].each do |s| %>
+	<% if !(eval("@profile.#{s.downcase}")).nil? && !(eval("@profile.#{s.downcase}")).empty? %>
+		<%= link_to s+":", eval("@profile.#{s.downcase}") %><hr />
+		<p><%= eval("@profile.#{s.downcase}") %></p>
+	<% end %>
+<% end %>

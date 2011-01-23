@@ -8,7 +8,7 @@ class RelationshipProjectsController < ApplicationController
 	end
 	
 	def destroy
-		@project = Relationship.find(params[:id]).followed
+		@project = RelationshipProject.find(params[:id]).followed
 		current_user.unfollow_project!(@project)
 		redirect_to current_user
 	end

@@ -1,20 +1,21 @@
 Pdb::Application.routes.draw do
 
 	get 'pages/home'
-	match '/searchusers', :to => 'pages#searchusers'
-	match 'searchprojects', :to => 'pages#searchprojects'
-	match 'search_users', :to => 'pages#search_users'
-	match 'search_projects', :to => 'pages#search_projects'
-	match '/create', :to => 'pages#create'
-	match '/ozzie_gooen', :to => 'users#show', :id => 2
-	match '/about',   :to => 'projects#show', :id => 1
-	match 'signup',	:to => 'pages#create'
-	match '/contact', :to => 'pages#contact'
-	match '/feed', :to => 'pages#feed'	
-	match	'/login',  :to	=> 'sessions#new'
-	match	'/logout', :to	=> 'sessions#destroy'
-	match '/search', :to => 'projects#search', :as => :search
-	root :to => "pages#home"
+	match	'/searchusers',		:to => 'pages#searchusers'
+	match	'searchprojects',	:to => 'pages#searchprojects'
+	match	'search_users',		:to => 'pages#search_users'
+	match	'search_projects',	:to => 'pages#search_projects'
+	match	'/create',			:to => 'pages#create'
+	match	'/ozzie_gooen',		:to => 'users#show', :id => 2
+	match	'/about',			:to => 'projects#show', :id => 1
+	match	'signup',			:to => 'pages#create'
+	match	'/contact',			:to => 'pages#contact'
+	match	'/feed',			:to => 'pages#feed'
+	match	'/login',			:to	=> 'sessions#new'
+	match	'/logout',			:to	=> 'sessions#destroy'
+	match	'/search',			:to => 'projects#search', :as => :search
+	match	'/creators',		:to => 'pages#creators'
+	root 						:to => "pages#home"
 
 	resources :profile
 	resources :users do
@@ -54,6 +55,7 @@ Pdb::Application.routes.draw do
 			get 'edit_page_section'
 			put 'update_page_section'
 			delete 'delete_page_section'
+      get 'show_all_collaborators'
 		end
 	end
   
