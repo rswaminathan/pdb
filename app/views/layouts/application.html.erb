@@ -6,10 +6,7 @@
 		<%= render 'shared/analytics' %>
 	</head>
 	<%= render 'layouts/header' %>
-	<body>
-		
-
-		
+	<body>		
 		<section class ="round">
 			<% flash.each do |key, value| %>
 				<div class = "flash <%= key %>"><%= value %></div>
@@ -18,7 +15,17 @@
 		<div class="home_background_1">
 			<%= yield %>
 		</div>
-	</body>
+    <a href="#" id="feedback_bar"></a>    
+    <div id="feedback_form" title="Feedback">
+     <%= form_tag admin_feedback_path, :method => :post do %>
+      <div class="field">
+        <%= label :feedback, "Tell us what you think" %>
+      </div>
+        <%= text_area_tag :feedback %>
+    		<%= submit_tag "Submit Feedback" %><br />
+      <% end %>
+    </div>	
+  </body>
 	<div id="footer">
 	<%= render 'layouts/footer' %>
 	<%= debug(params) if Rails.env.development? %>

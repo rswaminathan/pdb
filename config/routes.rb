@@ -30,6 +30,7 @@ Pdb::Application.routes.draw do
   namespace :admin do
       get 'email'
       post 'send_email'
+      post 'feedback'
   end 
 
 	resources :sessions, :only => [:new, :create, :destroy]

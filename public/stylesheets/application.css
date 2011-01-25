@@ -922,3 +922,15 @@ a {
 	background:#333;
 	
 }
+
+#feedback_bar {
+     position: fixed;
+     right: 0;
+     top: 400px;
+     display: block;
+     width: 35px;
+     height: 100px;
+     text-indent: -10000px;
+     background-image: url(/images/feedback.png);
+     overflow: hidden;
+}

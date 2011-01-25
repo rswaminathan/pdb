@@ -82,6 +82,9 @@ class ProjectsController < ApplicationController
 	end
 
 	def invite_collaborator
+	  @email = params[:email]
+    project = Project.find(params[:id])
+	  UserMailer.invite_user(@email, current_user, project).deliver
 	end
 
 	def update_collaborators
