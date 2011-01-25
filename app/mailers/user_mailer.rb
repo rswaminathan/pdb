@@ -15,9 +15,8 @@ class UserMailer < ActionMailer::Base
     mail(:to => email, :subject => subject)
   end
 
-  def feedback(text)
+  def feedback(text, email)
     @text = text
-    mail(:to => "rswaminathan@hmc.edu", :subject => "Got feedback")
-    mail(:to => "Ozzie_Gooen@hmc.edu", :subject => "Got feedback")
+    mail(:to => email, :subject => "Got feedback")
   end
 end
