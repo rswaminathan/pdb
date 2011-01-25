@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default :from => "notifications@muddpage.com"
+  default :from => "Muddpage"
   default_url_options[:host] = "muddpage.com"
 
   def custom_email(user, message, subject)
@@ -11,7 +11,7 @@ class UserMailer < ActionMailer::Base
   def invite_user(email, user, project)
     @user = user
     @project = project
-    subject = "#{user.name} has invited you as a collaborator to #{project.name}"
+    subject = "#{@user.name} has invited you as a collaborator to #{@project.name}"
     mail(:to => email, :subject => subject)
   end
 

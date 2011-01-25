@@ -82,9 +82,9 @@ class ProjectsController < ApplicationController
 	end
 
 	def invite_collaborator
-	  @email = params[:email]
-    project = Project.find(params[:id])
-	  UserMailer.invite_user(@email, current_user, project).deliver
+		@email = params[:email]
+		project = Project.find(params[:id])
+		UserMailer.invite_user(@email, current_user, project).deliver
 	end
 
 	def update_collaborators
@@ -169,62 +169,6 @@ class ProjectsController < ApplicationController
 		@page.destroy
 		flash[:success] = "Page Deleted" 
 		redirect_to @project
-	end
-		
-	def new_page_section
-		@project = Project.find_by_id(params[:id])
-		@pages = @project.project_pages
-		@page = @pages.find_by_title(params[:page])
-		@title = "New Section for #{@page.title}"
-		@new_section = true
-		@comments = @project.comments
-		flash[:title]=@page.title
-	end
-	
-	def create_page_section
-		@project = Project.find_by_id(params[:id])
-		@page = @project.project_pages.find_by_title(flash[:title])
-		@section = @page.sections.build(params[:section])
-		if @section.save
-			flash[:success] = "Section Added"
-		else
-			flash[:error] = "Error"
-		end 
-		redirect_to project_path(@project, :page => @page.title)
-	end
-	
-	def edit_page_section
-		@project = Project.find_by_id(params[:id])
-		@pages = @project.project_pages
-		@page = @pages.find_by_title(params[:page])
-		@sections = @page.sections
-		@section = @sections.find_by_title(params[:section])
-		@title = "Edit #{@page.title}, Section : #{@section.title}"
-		flash[:page_title]=@page.title
-		flash[:section_title]=@section.title
-	end
-
-	def update_page_section
-		@project = Project.find_by_id(params[:id])
-		@page = @project.project_pages.find_by_title(flash[:page_title])
-		flash[:page_title]=nil
-		@section = @page.sections.find_by_title(flash[:section_title])
-		flash[:section_title]=nil
-		if @section.update_attributes(params[:section])
-			flash[:success] = "Updated Section Successfully"
-			redirect_to project_path(@project, :page => @page.title)
-		else
-			flash[:error] = "Something went wrong"
-		end
-	end
-	
-	def delete_page_section
-		@project = Project.find_by_id(params[:id])
-		@page = @project.project_pages.find_by_title(params[:page])
-		@section = @page.sections.find_by_title(params[:section])
-		@section.destroy
-		flash[:success] = "Section Deleted" 
-		redirect_to project_path(@project, :page => @page.title)
 	end
 	
 	private
