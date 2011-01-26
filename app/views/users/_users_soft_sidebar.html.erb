@@ -14,12 +14,15 @@
 		<% end %>
 	</div>		
 	<%= render 'follow_form' if (signed_in? && !current_user_page?) %>
-	<div style="padding:0.4em; margin-left:0.3em; color:white; line-height:0.8em; line-height:1.4em">
+	<div style="padding:0.5em;text-align:center; margin-left:0.3em; color:white; font-size: 1.2em; line-height:1.4em">
 		<% unless @profile.nil?%>
-			<%= raw @profile.about %>
+			<%= raw @profile.quote %>
 		<% end %>
 		<br />
 	</div>
+	
+
+	
 	<hr />
 	<div id="following">
 		<div style="font-size: 1.2em;">

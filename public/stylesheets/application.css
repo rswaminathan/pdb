@@ -137,7 +137,6 @@ body{
 
 .sidebar_header {
 	height: 20px;
-	width: 230px;
 }
 
 .triangle1-sidebar {
@@ -328,8 +327,7 @@ a {
 	margin-top: 1em;
 	margin-bottom: 0em;
 	border: 3px solid #F1A66B;
-	text-align:center;
-	
+	text-align:center;	
 }
 
 #login_special a{
@@ -511,9 +509,32 @@ a {
 	-moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
 }
 
+#project_tag_tabs a{
+	float:left;
+	text-align:center;
+	background-color: #A70B00;
+	font-size: 1.3em;
+	line-height: 1em;
+	border-radius: 0em 0em 0.4em 0.4em;
+	-moz-border-radius: 0em 0em 0.4em 0.4em;
+	color: #eee;
+	padding: 0.3em 0.9em 0.4em 0.9em;
+	margin-right: 0.3em;
+}
+
+#project_tag_tabs a:hover {
+	background-color: #830900;
+}
+
+#project_tag_tabs_center{
+	position:relative;
+	margin-right:5px;
+	top: -3px;
+	padding: 0 0 .5em 0;
+	
+}
 
 #project_buttons a{
-
 	float:right;
 	text-align:center;
 	background-color: #A70B00;
@@ -524,11 +545,13 @@ a {
 	color: #eee;
 	padding: 0.3em 0.9em 0.4em 0.9em;
 	margin-right: 0.5em;
+	
 }
 
 #project_buttons a:hover {
 	background-color: #830900;
 }
+
 
 #current_project_button a{
 	font-weight: bold;
@@ -540,6 +563,22 @@ a {
 	position:relative;
 	margin-right:5px;
 	top: -1px;
+}
+
+#standard_button_1 {
+	text-align:center;
+}
+
+#standard_button_1 a {
+	font-weight: bold;
+	color: #fff;	
+	text-align:center;
+	-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	font-size: 1em;
+	padding: 0.3em 0.3em 0.3em 0.3em;
+	border: 2px solid #fff;
 }
 
 #project_sidebar_kind{
@@ -576,6 +615,20 @@ a {
 	margin-right:0.5em;
 	padding: 0 0.3em 0 0.3em;
 	font-weight: bold;	
+}
+
+#add_project_kind_list{
+	float:left;
+	text-align:center;
+	 font-size: 1em;
+	color: #C55100;
+	margin-right:0.5em;;
+	font-weight: bold;	
+}
+
+#add_project a{
+    font-size: 3em;
+    color:  #DF0200;
 }
 
 #project_kind a{
@@ -813,6 +866,14 @@ a {
 	-moz-border-radius: 0em 0.5em 0em 0em;
 }
 
+#add_project_name {
+	font-size: 1.5em;
+	color: #DF0200;
+	
+}
+
+
+
 #project_name_div {
 	font-size: 1.5em;
 	color: #913100;
@@ -828,6 +889,7 @@ a {
 #project_name_div  a:hover {
 	text-decoration: underline;
 	color: #DA2400;
+
 	
 }
 
@@ -852,6 +914,13 @@ a {
 }
 
 #project_description_div {
+	font-size: 1em;
+	line-height: 1em;
+	padding-bottom: 0.2em;
+	margin:0em 0em 0em 0.2em;
+}
+
+#add_project_abstract {
 	font-size: 1em;
 	line-height: 1em;
 	padding-bottom: 0.2em;

@@ -1,10 +1,36 @@
+<% content_for :head do %>
+  <script>
+
+  </script>
+<%end %>
+<% if (1..6).include?(@profile.top_tag_list.size) %>
+	<div id="project_tag_tabs_center" class="span-18-last">
+		<% @profile.top_tag_list.each do |l| %>
+			<div id="project_tag_tabs" <%= "id = 'current_project_button'" if l == params[:tag] %> style="line-height: 1.9em; ">	
+				<%= link_to l.titleize, user_path(@user, :page => :projects, :tag => l) %>
+			</div>
+		<% end %>
+		<% if @user==current_user %>
+			<div id="project_tag_tabs" style="background-color:#F06F00">
+				<b><%= link_to "Add Tab", edit_profile_user_path %></b>
+			</div>
+		<% end %>
+		<% if @user.projects.count > 6 %>
+			<div style="text-align:right" class="span-6-last">
+				<% form_tag(user_path, :method => :get) do %>
+					<b><%= link_to "Clear Filters", user_path(@user, :page=> :projects) %> | Filter by:</b> <%= text_field_tag :tag %>  <%= submit_tag "View" %>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+<% end %>
 <% if signed_in? && current_user_page? %>
 	<div id="project_list", style="min-height:60px">		
 		<div id="user_projects_photo" class="span-3">
-			<%=link_to image_tag(src="/images/plus60.png"), new_project_path %>
+			<%=link_to image_tag(src="/images/plus60.png"), new_project_path, :remote => true %>
 		</div>
 		<div style="min-height:60px">
-			<div id="project_name_div" style="padding-top:1em; font-size: 1.5em;" style="padding-top:0.1em"><%=link_to "Add #{@projects.any? ? "A" : "Your First"} Project", new_project_path%> </div>
+			<div id="add_project""><%=link_to "Add #{@projects.any? ? "A" : "Your First"} Project", new_project_path, :remote => true %></div>
 		</div>
 	</div>
 <% else %>

@@ -1,0 +1,18 @@
+<%= form_for(@project) do |f| %>
+			<%= render	'shared/error_messages', :object => f.object %>
+			<div class="field">
+				<%= f.text_field :name, :value => "Project name", :id => "add_project_name" %>
+			</div>
+			<div class="field">
+				<%= f.text_field :abstract, :value => "A short description", 
+                         :id => "add_project_abstract" %>
+			</div>
+			<div class="field">
+				<%= f.text_field :kind_list, :value => "Enter tags(comma separated)", 
+                         :id =>"add_project_kind_list" %>
+			</div>
+
+			<div class="submit">
+				<%= f.submit "Next" %><br />
+			</div>
+<% end %>

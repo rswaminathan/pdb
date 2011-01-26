@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 	before_filter :authenticate, :only => [:edit, :destroy]
 	before_filter :correct_user, :only => [:edit, :update, :edit_profile, :update_profile]
-  before_filter :check_admin_user,   :only => [:destroy]
+	before_filter :check_admin_user,   :only => [:destroy]
 	sidebar_type=["user_info","project_list"]
 
 	def new
@@ -17,7 +17,11 @@ class UsersController < ApplicationController
 		if !params[:tag].nil?
 			@projects = @projects.tagged_with params[:tag]
 		end
-		@sidebar_page = params[:page]
+		if !params[:page].nil?
+			@sidebar_page = params[:page]
+		else 
+			@sidebar_page = "projects"
+		end
 		@profile = @user.profile
 	end
 

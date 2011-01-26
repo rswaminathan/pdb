@@ -1,8 +1,5 @@
-<div id="project" class="span-16 colborder">
-		
 <h1>Edit Project</h1>
-
-
+<div class="yui-skin-sam">
 <%= form_for @project, :html => { :multipart => true } do |f| %>
 	<%= render	'shared/error_messages', :object => f.object %>
 	<div class="field">
@@ -29,3 +26,4 @@
 		<%= f.submit "Edit Project" %><br />
 	</div>
 <% end %>
+</div>

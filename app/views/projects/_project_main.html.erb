@@ -22,13 +22,11 @@
 		<% end %>
 		<% if current_project_user? %> 
 			<div id="login_special">
-				<h3><%= link_to "Edit Page", edit_project_path%></h3>
+				<h3><%= link_to "Edit Page", edit_project_path, :remote => true%></h3>
 			</div>
 		<% end%>
 		<div id="project_info">
-			<div id="project_description" class="prepend-top">
 				<p><%= raw @project.description %></p>
-			</div>
 		</div>
 	<% else %>
 

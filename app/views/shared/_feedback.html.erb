@@ -1,0 +1,11 @@
+<a href="#" id="feedback_bar"></a>    
+<div id="feedback_form" title="Feedback">
+  <%= form_tag admin_feedback_path, :method => :post do %>
+    <div class="field">
+      <%= label :feedback, "Tell us what you think" %>
+    </div>
+    <%= text_area_tag :feedback %>
+  	<%= submit_tag "Submit Feedback" %><br />
+  <% end %>
+</div>	
+

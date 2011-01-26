@@ -11,15 +11,15 @@
 	</div>
 	<div class="field">
 		<%= f.label 'Department' %><br />
-		<%= select( "profile", "department", ["Engineering", "Computer Science", "Biology", "Chemistry", "Math", "Physics" ]) %>
+		<%= select( "profile", "department", [ "Biology", "Biology/Chemistry", "Chemistry", "Computer Science", "Engineering", "Mathematics", "Mathematics/Computer Science", "Mathematical Biology", "Physics", "Independent", "Undecided", "Off-Campus" ]) %>
 	</div>
 	<div class="field">
 		<%= f.label 'Graduation Year' %><br />
 		<%= f.text_field :year %>
 	</div>
 	<div class="field">
-		<%= f.label :about %><br />
-		<%= f.text_area :about %>
+		<%= f.label :quote %><br />
+		<%= f.text_field :quote %>
 	</div>
  	<div class="field">
 		<%= f.label :photo %><br />
