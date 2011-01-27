@@ -34,7 +34,7 @@ class PagesController < ApplicationController
 
 	def search_projects
 		@title = "Search Projects"
-		@projects_found = Project.search_by_name(params[:search])
+		@projects_found = Project.search_by_name(params[:search]) if params[:search]
 	end
 
 
