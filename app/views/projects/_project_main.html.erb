@@ -1,3 +1,13 @@
+<% if current_project_user? %>
+  <% content_for :head do %>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.2r1/build/fonts/fonts-min.css" /> 
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.2r1/build/editor/assets/skins/sam/simpleeditor.css" /> 
+    <script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/yahoo-dom-event/yahoo-dom-event.js"></script> 
+    <script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/element/element-min.js"></script> 
+    <script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/container/container_core-min.js"></script> 
+    <script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/editor/simpleeditor-min.js"></script> 
+  <% end %>
+<% end %>
 <div id="project_name_background">
 
 <%= render 'projects/projects_header' %>

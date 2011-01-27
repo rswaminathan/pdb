@@ -10,11 +10,11 @@
 			</div>
 		</div>
 		<div class="span-10 last" id="header_menu">
-			<%= link_to "Search", search_projects_path %> |  
+			<%= link_to "Search", search_projects_path %> | <%= link_to "Random Project", random_projects_path %> | 
 			<% if signed_in? %>
-        <% if admin_user? %>
-          <%= link_to "Admin", admin_email_path %> |
-        <% end %>
+				<% if admin_user? %>
+					<%= link_to "Admin", admin_email_path %> |
+				<% end %>
 				<%=link_to "My Profile", user_path(current_user) %> | <%= link_to "Settings", edit_user_path(current_user)  %> | <%= link_to "Log Out", logout_path %>
 			<% else %>
 				<%= link_to "Sign In", login_path %> | <%= link_to "Sign Up", signup_path %>

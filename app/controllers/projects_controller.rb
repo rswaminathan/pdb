@@ -171,5 +171,9 @@ class ProjectsController < ApplicationController
 		redirect_to @project
 	end
 	
+  def random
+    redirect_to Project.random
+  end
+
 	private
 end

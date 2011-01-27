@@ -1,1 +1,19 @@
 $("#project_info").html("<%= escape_javascript(render "projects/project_edit") %>");
+
+(function() {
+    var Dom = YAHOO.util.Dom,
+        Event = YAHOO.util.Event;
+    
+    var myConfig = {
+        height: '300px',
+        width: '600px',
+        dompath: true,
+        handleSubmit: true,
+        focusAtStart: true
+    };
+ 
+    YAHOO.log('Create the Editor..', 'info', 'example');
+    var myEditor = new YAHOO.widget.SimpleEditor('project_description', myConfig);
+    myEditor.render();
+ 
+})()

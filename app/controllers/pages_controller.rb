@@ -18,14 +18,6 @@ class PagesController < ApplicationController
 		@user = User.new
 	end
 
-	def searchprojects
-		@projects= Project.all
-	end
-
-	def searchusers
-		@users= User.all
-	end
-
 	def search    
 		session[:query] = params[:query].strip if params[:query]
 		if session[:query] and request.xhr?

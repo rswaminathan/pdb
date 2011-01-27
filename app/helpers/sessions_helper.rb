@@ -4,7 +4,11 @@ module SessionsHelper
         cookies.permanent.signed[:remember_token] =  [user.id, user.salt]	
         current_user = user
     end
-    
+	
+	def rand_project
+		Project.search_by_name("")
+    end
+	
     def current_user=(user)
         @current_user = user
     end

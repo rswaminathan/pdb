@@ -27,9 +27,18 @@ class Project < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :kind
   
+  def to_param
+    "#{id}-#{name.gsub(/[^a-z0-9]+/i, '-')}"      
+  end
+
   class << self
+
     def search_by_name(query)
-     where("name like ?", "%#{query}%")
+     where("name like ?", "%#{query}%") | tagged_with("#{query}")
+    end
+    
+    def random
+      all[rand(Project.count)] 
     end
    end
      

@@ -41,7 +41,7 @@
 <div id="project_sidebar_section", style="border: 1px solid #DD515C">
 <% @project.kind_list.each do |t| %>
 	<span id="project_sidebar_kind", style="margin-left:0.6em">
-		<%= link_to t, search_path(:q => t) %>
+		<%= link_to t, search_projects_path(:search => t) %>
 	</span>      
 <% end %>
 </div>
