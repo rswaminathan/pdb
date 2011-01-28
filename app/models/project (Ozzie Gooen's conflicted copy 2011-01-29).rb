@@ -22,7 +22,7 @@ class Project < ActiveRecord::Base
                      
   validates :name,        :presence   => true
   
-  scope :by_count, :order => 'projects.count DESC'
+  default_scope :order => 'projects.created_at DESC'
   
   acts_as_taggable
   acts_as_taggable_on :kind
@@ -34,13 +34,14 @@ class Project < ActiveRecord::Base
   class << self
 
     def search_by_name(query)
-     where("name like ?", "%#{query}% ").by_count | tagged_with("#{query}").by_count
+     where("name like ?", "%#{query}%") | tagged_with("#{query}")
     end
     
     def random
+  
       all[rand(Project.count)] 
     end
-  end
+   end
      
 end
 

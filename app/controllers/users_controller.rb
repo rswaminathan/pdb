@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		@title = @user.name
-		@projects = @user.projects
+		@projects = @user.projects.sort! {|a,b| -(a.count <=> b.count) }
 		if !params[:tag].nil?
 			@projects = @projects.tagged_with params[:tag]
 		end

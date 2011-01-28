@@ -12,12 +12,12 @@
 						<%= truncate(u.abstract, :length => 310) %>
 					<% end %>
 				</div>
-			
+			</div>
 			<div class="user_info_2">
 				<% u.kind_list.each do |t| %>
-					<div id="project_kind"><%= link_to t, search_path(:q => t) %></div>    
+					<div id="project_kind"><%= link_to t, search_projects_path(:search => t) %></div>    
 				<% end %> 
-			</div>
+			
 			</div>
 		</div>
 			<% else%> 
@@ -32,7 +32,7 @@
 					</div>
 					<div class="user_info_2" style="padding:0">
 						<% u.kind_list.each do |t| %>
-							<div id="project_kind"><%= link_to t, search_path(:q => t) %></div>    
+							<div id="project_kind"><%= link_to t, search_projects_path(:q => t) %> </div>    
 						<% end %> 
 					</div>
 				</div>

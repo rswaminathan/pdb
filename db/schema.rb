@@ -10,7 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110102224227) do
+ActiveRecord::Schema.define(:version => 20110128210211) do
+
+  create_table "admins", :force => true do |t|
+    t.text     "email_list"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", :force => true do |t|
     t.string    "body"
@@ -39,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20110102224227) do
     t.integer   "photo_file_size"
     t.string    "department"
     t.string    "top_tags"
+    t.text      "quote"
   end
 
   create_table "project_pages", :force => true do |t|
@@ -59,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20110102224227) do
     t.string    "photo_content_type"
     t.integer   "photo_file_size"
     t.string    "abstract"
+    t.integer   "count"
   end
 
   create_table "projects_users", :id => false, :force => true do |t|
@@ -67,10 +75,10 @@ ActiveRecord::Schema.define(:version => 20110102224227) do
   end
 
   create_table "relationship_projects", :force => true do |t|
-    t.integer  "follower_id"
-    t.integer  "followed_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "follower_id"
+    t.integer   "followed_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   add_index "relationship_projects", ["followed_id"], :name => "index_relationship_projects_on_followed_id"
@@ -78,10 +86,10 @@ ActiveRecord::Schema.define(:version => 20110102224227) do
   add_index "relationship_projects", ["follower_id"], :name => "index_relationship_projects_on_follower_id"
 
   create_table "relationship_users", :force => true do |t|
-    t.integer  "follower_id"
-    t.integer  "followed_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "follower_id"
+    t.integer   "followed_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   add_index "relationship_users", ["followed_id"], :name => "index_relationship_users_on_followed_id"
@@ -89,14 +97,14 @@ ActiveRecord::Schema.define(:version => 20110102224227) do
   add_index "relationship_users", ["follower_id"], :name => "index_relationship_users_on_follower_id"
 
   create_table "sections", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "project_page_id"
+    t.string    "title"
+    t.text      "content"
+    t.string    "photo_file_name"
+    t.string    "photo_content_type"
+    t.integer   "photo_file_size"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "project_page_id"
   end
 
   add_index "sections", ["project_page_id"], :name => "index_sections_on_project_page_id"
@@ -119,12 +127,12 @@ ActiveRecord::Schema.define(:version => 20110102224227) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "encrypted_password"
-    t.string   "salt"
+    t.string    "name"
+    t.string    "email"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.string    "encrypted_password"
+    t.string    "salt"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

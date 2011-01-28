@@ -1,21 +1,32 @@
-<div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px">
+<div class="container" style="padding-top:10px; padding-bottom:20px; min-height: 550px">
+
+
 
 	<div class="search_top">
-		<div id="search_names" style="margin-left: 10em">
-				<%=link_to "Search Projects", search_projects_path%>
+		<div style="float:left; color:white; font-size:2em; position:relative; line-height:0; top:13px">
+			<%= "Search" %>
 		</div>
 		
-		<div id="search_names_chosen" style="margin-left: 21em">
-				<%=link_to "Search Users", search_users_path%>
-		</div>
-		
+			
 		<%= form_tag search_users_path, :method => :get, :remote => true do %>
-			<div class="field" style="padding: 5em 0em 0em 30em">
-				<%= text_field_tag :search, params[:search] %>
-				<%= submit_tag "Search Users" %><br />
-			</div>
+				<div class="submit", style="float:right; margin-top:0.4em">
+					<%= submit_tag "Search Users" %><br />
+				</div>
+				<div class="field" style="float:right; margin-right:0.5em;">
+					<%= text_field :search, params[:search], 
+	                         :id => "main_search_box" %> 
+				</div>
 		<% end %>
-	</div>	
+		
+		<div id="search_names_chosen" style="float:right; margin-top:0.2em;margin-right:2em;">		
+			<%=link_to "Users", search_users_path%>
+		</div>
+		<div id="search_names" style="float:right;  margin-top:0.2em">
+			<%=link_to "Projects", search_projects_path%>
+		</div>	
+	</div>
+	
+
 
 			<div class="search_bottom">
 				<br />

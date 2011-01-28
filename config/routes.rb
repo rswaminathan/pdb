@@ -3,6 +3,8 @@ Pdb::Application.routes.draw do
 	get 'pages/home'
 	match	'search_users',		:to => 'pages#search_users'
 	match	'search_projects',	:to => 'pages#search_projects'
+	
+  match 'searchprojects', :to => 'pages#searchprojects'
   
 	match	'/create',			:to => 'pages#create'
 	match	'/ozzie_gooen',		:to => 'users#show', :id => 2
@@ -58,6 +60,7 @@ Pdb::Application.routes.draw do
 			put 'update_page_section'
 			delete 'delete_page_section'
 			get 'show_all_collaborators'
+			get 'edit_main_page'
 		end
     collection do
       get 'random'

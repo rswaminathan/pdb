@@ -1,16 +1,21 @@
 <div id='header'>
 	<div class="container">
-		<div class="span-14">
-			<div id="header_title" style="font-weight: bold">
+		<div class="span-8">
+			<div id="header_title">
 				<% if signed_in? %>
-					<%=link_to "MuddPage", user_path(current_user)%>
+					<%= link_to "Holono", random_projects_path  %>
 				<% else %>
-					<%=link_to "MuddPage", root_url%>
+					<%=link_to "Holono", root_url%>
 				<% end %>
 			</div>
 		</div>
-		<div class="span-10 last" id="header_menu">
-			<%= link_to "Search", search_projects_path %> | <%= link_to "Random Project", random_projects_path %> | 
+		
+		
+		
+		<div class="span-16 last", style="margin-top:3px">
+
+			<div id="header_menu", style="float:right">
+			<%= link_to "Search", search_projects_path %> | 
 			<% if signed_in? %>
 				<% if admin_user? %>
 					<%= link_to "Admin", admin_email_path %> |
@@ -19,6 +24,8 @@
 			<% else %>
 				<%= link_to "Sign In", login_path %> | <%= link_to "Sign Up", signup_path %>
 			<% end %>
+			</div>
+			
 		</div>
 	</div>
 </div>

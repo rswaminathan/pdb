@@ -1,13 +1,3 @@
-<% if current_project_user? %>
-  <% content_for :head do %>
-    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.2r1/build/fonts/fonts-min.css" /> 
-    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.2r1/build/editor/assets/skins/sam/simpleeditor.css" /> 
-    <script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/yahoo-dom-event/yahoo-dom-event.js"></script> 
-    <script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/element/element-min.js"></script> 
-    <script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/container/container_core-min.js"></script> 
-    <script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/editor/simpleeditor-min.js"></script> 
-  <% end %>
-<% end %>
 <div id="project_name_background">
 
 <%= render 'projects/projects_header' %>
@@ -15,9 +5,9 @@
 	<div id="project_name_header">
 		
 		<% if !@pages.any? %>
-			<div style="text-align:center"><%= @project.name %></div></div>
-		<% else %>
-			<%= @project.name %></div>
+			<div style="text-align:center"><%= link_to @project.name, @project %></div></div>
+			<% else %>
+			<%= link_to @project.name, @project %>
 		<% end %>
 		
 	</div>
@@ -30,9 +20,10 @@
 				<%= image_tag @project.photo.url(:small) %>
 			</div>
 		<% end %>
+		
 		<% if current_project_user? %> 
-			<div id="login_special">
-				<h3><%= link_to "Edit Page", edit_project_path, :remote => true%></h3>
+		<div id="login_special"style="margin-right:1em; text-align:right">
+				<%= link_to "Edit Page Content", edit_main_page_project_path%>
 			</div>
 		<% end%>
 		<div id="project_info">
@@ -41,8 +32,9 @@
 	<% else %>
 
 		<% if current_project_user? %> 
-			<div id="login_special">
-				<h3><%= link_to "Edit Page", edit_page_project_path(@project, :page => params[:page]) %> | <%=link_to "Delete Page", delete_page_project_path(@project, :page => @page.title), :confirm => "Are you sure?", :method => :delete %></h3>
+			<div id="login_special"style="margin-right:1em; text-align:right">
+				<%= link_to "Edit Page", edit_page_project_path(@project, :page => params[:page]) %> 
+				| <%=link_to "Delete Page", delete_page_project_path(@project, :page => @page.title), :confirm => "Are you sure?", :method => :delete %>
 			</div>
 		<% end%>
 		<%= render "projects/project_content" %>

@@ -1,6 +1,7 @@
 <% if @user.users_following.count != 0 %> 
 	<div style="font-size:2em"> Following <%= "#{@user.users_following.count} #{@user.users_following.count==1 ? 'User' : 'Users'}" %></div>
-	<hr>
+	<hr style="margin-bottom:0.5em; height:1px" />
+	
 	<div id="users_list", style="margin-left:18em">
 		<% @user.users_following.each do |u| %>
 			<div class="user" >
@@ -16,7 +17,7 @@
 <% end%>
 <% if @user.projects_following.count != 0 %> 
 	<div style="font-size:2em; margin-top:0.6em"> Following <%= "#{@user.projects_following.count} #{@user.projects_following.count==1 ? 'Project' : 'Projects'}" %></div>
-	<hr style="margin-bottom:0.5em; height:2px" />
+	<hr style="margin-bottom:0.5em; height:1px" />
 	<% @user.projects_following.each do |u| %>
 		<% if u.photo.exists? %>
 			<div id="project_list" >

@@ -10,8 +10,9 @@
 		</div>
 	<% end %>
 	<% if current_project_user? %>
-		<div <%= @pages.any? ? "id=" : "class=" %>"project_buttons">
-			<b><%= link_to "New Page", newpage_project_path %></b>
+		<% #<div <%= @pages.any? ? "id=" : "class=" % >"project_buttons">%>
+			<div id="project_buttons_new" style="background-color: #52DC0D">
+			<%= link_to "New Page", newpage_project_path %>
 		</div>
 	<% end %>
 </div>

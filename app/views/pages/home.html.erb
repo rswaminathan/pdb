@@ -6,7 +6,7 @@
 		<div class="home_1"> 
 			<% i = User.find_by_name("Professor Paul") %>
 			<% if !i.nil? %>
-				<%logo = image_tag "examplepage600.png" %><%= link_to logo, i %>
+				<% logo = image_tag "examplepage600.png" %><%= link_to logo, i %>
 			<% else %>
 				<img src="/images/examplepage600.png"/>
 			<% end %>

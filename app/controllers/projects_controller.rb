@@ -28,6 +28,8 @@ class ProjectsController < ApplicationController
 		@title = "#{@project.name}"
 		@comments = @project.comments
 		@pages = @project.project_pages
+    @project.count += 1
+    @project.save
 		if !params[:page].nil?
 			@page = @project.project_pages.find_by_title(params[:page])
 			@sections = @page.sections
@@ -65,6 +67,23 @@ class ProjectsController < ApplicationController
 		@project_page = @project.project_pages
 	end
 
+  def edit_main_page
+		@project = Project.find_by_id(params[:id])
+		@title = "#{@project.name}"
+		@users = @project.users
+		@collaborators = @users.first(4)
+		@title = "#{@project.name}"
+		@comments = @project.comments
+		@pages = @project.project_pages
+		if !params[:page].nil?
+			@page = @project.project_pages.find_by_title(params[:page])
+			@sections = @page.sections
+			@section = @sections.find_by_title(params[:section]) if !params[:section].nil?
+		else
+			@page_is_main = true
+		end
+  	end
+  	
 	def update(redirect=nil)
 		if @project.update_attributes(params[:project])
 			flash[:success] = "Project updated!"
@@ -152,6 +171,7 @@ class ProjectsController < ApplicationController
 		flash[:title]=@page.title
 	end
 
+
 	def update_page
 		@page = @project.project_pages.find_by_title(flash[:title])
 		flash[:title]=nil
@@ -172,7 +192,11 @@ class ProjectsController < ApplicationController
 	end
 	
   def random
+    if (rand(5)!=1)
     redirect_to Project.random
+    else
+    redirect_to Project.find_by_id([1])
+    end
   end
 
 	private

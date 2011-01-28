@@ -4,25 +4,23 @@
   </script>
 <%end %>
 <% if (1..6).include?(@profile.top_tag_list.size) %>
-	<div id="project_tag_tabs_center" class="span-18-last">
-		<% @profile.top_tag_list.each do |l| %>
-			<div id="project_tag_tabs" <%= "id = 'current_project_button'" if l == params[:tag] %> style="line-height: 1.9em; ">	
-				<%= link_to l.titleize, user_path(@user, :page => :projects, :tag => l) %>
-			</div>
-		<% end %>
-		<% if @user==current_user %>
-			<div id="project_tag_tabs" style="background-color:#F06F00">
-				<b><%= link_to "Add Tab", edit_profile_user_path %></b>
-			</div>
-		<% end %>
-		<% if @user.projects.count > 6 %>
+
+		<div style="min-height:5px; margin-top:0.5em;  width: 100%">
+		<% @profile.top_tag_list.each do |u| %>
+		<div id="popular_tags" style="background-color: #F6F6F6; font-size:1.3em; float:right"><%= link_to u.titleize, user_path(@user, :page => :projects, :tag => u) %> <%="[ #{(@user.projects.tagged_with [u]).count} ]"%> </div>
+		<%end%>
+		</div>
+		
+		
+		<% if @user.projects.count > 20 %>
 			<div style="text-align:right" class="span-6-last">
 				<% form_tag(user_path, :method => :get) do %>
-					<b><%= link_to "Clear Filters", user_path(@user, :page=> :projects) %> | Filter by:</b> <%= text_field_tag :tag %>  <%= submit_tag "View" %>
+					<b><%= link_to "Clear Filters", user_path(@user, :page=> :projects) %> | Filter by Tag:</b> <%= text_field_tag :tag %>  <%= submit_tag "View" %>
 				<% end %>
 			</div>
 		<% end %>
-	</div><br />
+	<br />
+
 <% end %>
 <% if signed_in? && current_user_page? %>
 	<div id="project_list", style="min-height:60px">		
@@ -55,7 +53,7 @@
 				</div>
 				<div class="user_info_2">
 					<% u.kind_list.each do |t| %>
-						<div id="project_kind"><%= link_to t, user_path(@user, :tag => t) %></div>    
+						<div id="project_kind"><%= link_to t, search_projects_path(:search => t)%></div>    
 					<% end %> 
 				</div>
 			</div>
@@ -71,7 +69,7 @@
 				</div>
 				<div class="user_info_2" style="padding:0">
 					<% u.kind_list.each do |t| %>
-						<div id="project_kind"><%= link_to t, user_path(@user, :tag => t) %></div>    
+						<div id="project_kind"><%= link_to t, search_projects_path(:search => t)%></div>    
 					<% end %> 
 				</div>
 			</div>

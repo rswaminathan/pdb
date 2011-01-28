@@ -1,7 +1,9 @@
 <div class="project_sidebar">
-
-
-	
+	<% if current_project_user? %> 
+	<div id="login_special", style="text-align:center">
+			<%= link_to "Edit Project Info", edit_project_path, :remote => true%>
+		</div>
+	<% end%>
 	<% if @users.count == 1 %>
 		<%= render 'sidebar_triangles', :title => "Creator" %>
 	<% else %>
@@ -36,15 +38,16 @@
 		<%= render 'follow_form' if (signed_in? && !(current_project_user? && (@users.count==1))) %>
 	</div>
 <% end %>
+<% if @project.kind_list.any? %>
 <%= render 'sidebar_triangles', :title => "Tags" %>	
-
-<div id="project_sidebar_section", style="border: 1px solid #DD515C">
-<% @project.kind_list.each do |t| %>
-	<span id="project_sidebar_kind", style="margin-left:0.6em">
-		<%= link_to t, search_projects_path(:search => t) %>
-	</span>      
+	<div id="project_sidebar_section", style="border: 1px solid #DD515C">
+	<% @project.kind_list.each do |t| %>
+		<span id="project_sidebar_kind", style="margin-left:0.6em">
+			<%= link_to t, search_projects_path(:search => t) %>
+		</span>      
+	<% end %>
+	</div>
 <% end %>
-</div>
 <%= render 'sidebar_triangles', :title => "Comments" %>
 
 <div id="project_sidebar_section", style="border: 1px solid #DD515C">

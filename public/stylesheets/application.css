@@ -61,9 +61,10 @@ body{
 	-khtml-box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 	-webkit-box-shadow: 2px 2px 4px rgba(0,0,0,0.4);  
 	border-radius: 0.4em 0.4em 0em 0em;
-	padding: 0.5em 1em 1.5em 1em;
+	padding: 0.4em 1em 1.7em 1em;
 	-moz-border-radius: 0.4em 0.4em 0.4em 0.4em;
 	border-bottom: 3px solid #8B1725;
+	min-height:13px;
 	
 }
 
@@ -80,43 +81,68 @@ body{
 	min-height: 10em;
 }
 
+#main_search_box{
+	font-size: 1.4em;
+	margin-top:0.2em;
+}
 #search_names {
-	margin-top: 0.5em;
 	margin-bottom: 1em;
 	float:left;
 }
 
 #search_names a{
-		font-size: 2em;
+		font-size: 1.4em;
 		font-color: white;
 		color: white;
-		padding:0.3em 0.3em 0.3em 0.3em;
+		padding:0.1em 0.2em 0.1em 0.2em;
 		border-radius: 0.3em 0.3em 0.3em 0.3em;
+		margin-left:0.5em;
+		border: 2px solid #C31310;
+		
 	}
 	
 #search_names a:hover {
+		background-color: #FF3900;
 		border: 2px solid white;
-		background-color: #FF0009;
-		
-}
-
-#search_names_chosen {
-	margin-top: 0.5em;
-	margin-bottom: 1em;
-	float:left;	
 }
 
 #search_names_chosen a{
-		font-size: 2em;
+		font-size: 1.4em;
 		font-color: white;
 		color: white;
-		padding:0.3em 0.3em 0.3em 0.3em;
+		padding:0.1em 0.2em 0.1em 0.2em;
 		border-radius: 0.3em 0.3em 0.3em 0.3em;
 		border: 2px solid white;
+		margin-left:0.5em;
 	}
 	
 #search_names_chosen a:hover {
-		background-color: #F60;
+		background-color: #FF3900;
+}
+
+#popular_tags{
+	float:left;
+	text-align:center;
+	padding-top:0.7em;
+	color: #BC1100;
+	background-color:white;
+	font-size:1.1em;
+	line-height:18px;
+	padding: 0.2em 0.4em 0.2em 0.4em;
+	-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	margin-left:0.6em;
+	font-weight: bold;
+}
+
+#popular_tags a{
+	font-weight: bold;
+	
+	color: #000;
+}
+#popular_tags a:hover{
+	border-bottom: 2px solid #000;
 }
 
 #following{
@@ -165,7 +191,42 @@ body{
 
 .container #header_title a{
 	color: #EE000B;
-	
+	font-size:1.7em;
+	font-weight: bold;
+	position:relative;
+	top:-1px;
+}
+
+.container #header_title a:hover{
+	color: #EE000B;
+	font-size:1.7em;
+	font-weight: bold;
+	position:relative;
+	top:-1px;
+}
+
+#random_project{
+}
+
+#random_project a{
+	color: #ccc;
+	text-align:center;	
+	font-size: 1em;
+	padding: 0.1em 0.4em 0.1em 0.4em;
+	text-align:center;
+	border-radius:3px;
+	border: 1px solid #ccc;
+	margin-right:20px;	
+}
+#random_project a:hover{
+	background-color: #EB2900;
+	color: #fff;
+	text-align:center;	
+	font-size: 1em;
+	padding: 0.1em 0.4em 0.1em 0.4em;
+	text-align:center;
+	border-radius:3px;
+	border: 1px solid #fff;
 }
 
 .search_field{
@@ -292,23 +353,31 @@ a {
 	background: inherit;
 }
 
+#project_delete{	
+	margin-top: 0.7em;
+	margin-bottom: 1em;
+}
+
 #project_delete a{
-	color: white;
-	font-size: 2.8em;
-	float:right;
-	position: relative;
-	margin-right: 4px;
-	margin-top: 3px;
-	border: 2px solid #fff;
-	background: #B51411;
-	padding: 0.1em 0.3em 0.1em 0.3em;
-	border-radius: 0.5em 0.5em 0.5em 0.5em;
-	-moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
+	color: #fff;
+	background-color: #E4002D;
+	text-align:center;	
+	font-size: 1.4em;
+	padding: 0.2em 0.8em 0.2em 0.8em;
+	border: 3px solid #630009;
+	text-align:center;
+	border-radius:5px;
 }
 #project_delete a:hover{
-	background: #E70002;
-	
+	color: #fff;
+	background-color: #FF6C00;
+	text-align:center;	
+	font-size: 1.4em;
+	padding: 0.2em 0.8em 0.2em 0.8em;
+	border: 3px solid #630009;
+	text-align:center;
 }
+
 
 
 #project_list{
@@ -320,20 +389,29 @@ a {
 	
 }
 
-#login_special{
-	color: #775;
-	background-color:rgba(255, 230, 150, 0.5);
-	font-size: 1.3em;
-	margin-top: 1em;
-	margin-bottom: 0em;
-	border: 3px solid #F1A66B;
-	text-align:center;	
+#login_special{	
+	margin-top: 0.7em;
+	margin-bottom: 1em;
 }
 
 #login_special a{
-	color: #000;
+	color: #fff;
+	background-color: #52DC0D;
+	text-align:center;	
+	font-size: 1.4em;
+	padding: 0.2em 0.8em 0.2em 0.8em;
+	border: 3px solid #17852A;
 	text-align:center;
-	
+	border-radius:5px;
+}
+#login_special a:hover{
+	color: #fff;
+	background-color: #ADF403;
+	text-align:center;	
+	font-size: 1.4em;
+	padding: 0.2em 0.8em 0.2em 0.8em;
+	border: 3px solid #1A962F;
+	text-align:center;
 }
 
 #user_projects {
@@ -449,7 +527,7 @@ a {
 }
 
 .header_tabs a:hover {
-	background-color: #830900;
+	background-color: #830900;	
 }
 
 #current_tab a{
@@ -524,6 +602,8 @@ a {
 
 #project_tag_tabs a:hover {
 	background-color: #830900;
+	padding: 0.5em 0.9em 0.4em 0.9em;
+	
 }
 
 #project_tag_tabs_center{
@@ -550,8 +630,35 @@ a {
 
 #project_buttons a:hover {
 	background-color: #830900;
+	padding: 0.5em 0.9em 0.4em 0.9em;
+		
 }
 
+
+#project_buttons_new a{
+	float:right;
+	text-align:center;
+	background-color: #52DC0D;
+	font-size: 1.3em;
+	line-height: 1em;
+	border-radius: 0em 0em 0.4em 0.4em;
+	-moz-border-radius: 0em 0em 0.4em 0.4em;
+	color: #eee;
+	padding: 0.3em 0.5em 0.2em 0.5em;
+	margin-right: 0.5em;
+	border-left: 3px solid #17852A;
+	border-right: 3px solid #17852A;
+	border-bottom: 3px solid #17852A;
+	
+}
+
+#project_buttons_new a:hover {
+	background-color:#ADF403;
+	padding: 0.5em 0.5em 0.2em 0.5em;
+	border-left: 3px solid #17852A;
+	border-right: 3px solid #17852A;
+	border-bottom: 3px solid #17852A;
+}
 
 #current_project_button a{
 	font-weight: bold;
@@ -815,27 +922,29 @@ a {
 }
 
 #project_name_header a{
-	position:relative;
-	top:3px;
-	margin-top: 6.3em;
-	font-size: 2.2em;
-	color: white;
-	line-height: 1.5em;
-}
-
-#project_name_header {
 	margin-top: 0.2em;
-	font-size: 2.5em;
+	font-size: 2.2em;
 	color: #DF0200;
 	font-weight: bold;	line-height: 1em;
 	margin-left:0.5em;
 	margin-bottom:0.2em;
-	text-align: left;	
-	
+	text-align: left;
+}
+
+#project_name_header {
+	margin-top: 0.2em;
+	font-size: 1em;
+	color: #DF0200;
+	font-weight: bold;	line-height: 1em;
+	margin-left:0.5em;
+	margin-bottom:0.2em;
+	text-align: left;
+	min-height:40px;
+		
 }
 
 #project_name_header a:hover{
-	border-bottom: 2px solid #B51411	
+	color: #C10200;
 }
 
 
@@ -918,6 +1027,8 @@ a {
 	line-height: 1em;
 	padding-bottom: 0.2em;
 	margin:0em 0em 0em 0.2em;
+	color:black;
+	
 }
 
 #add_project_abstract {
@@ -935,16 +1046,12 @@ a {
 
 #header{
 	background-color: #222;
-	color: #ffffff;
 	font-size: 1.1em;
-	height: 20px;
+	height: 25px;
+	border-bottom: 1px solid #333;
 	
 }
 
-#header a{
-	color: #ffffff;
-	
-}
 
 #footer{
 	align: center;
@@ -962,10 +1069,19 @@ a {
 }
 
 #header_menu{
+	color:#aaa;
 	text-align:right;
-	
+	margin-top:1px;
+}
+#header_menu a{
+	color: #ccc;
 }
 
+#header_menu a:hover{
+	color: #fff;
+	border-bottom: 1px solid #fff;
+	
+}
 #add_collaborator{
 	text-align: right;
 	

@@ -1,7 +1,7 @@
 <%if users.any? %>  
 	<div id="users_list">
 		<% users.each do |u| %>
-			<div class="user" >
+			<div class="user", style="width:208px" >
 				<div class="user_pic"><% logo = image_tag u.profile.photo.url(:tiny)%> <%= link_to logo, u, :class => "left"  %></div>    
 				<div class="user_name"><%= link_to u.name, u %></div>
 				<div class="user_info">
@@ -11,3 +11,4 @@
 		<% end%>
 	</div>
 <% end %> 
+

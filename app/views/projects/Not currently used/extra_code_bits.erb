@@ -1,0 +1,19 @@
+
+<div id="random_project" style="float:right" >
+<%= link_to "Random", random_projects_path %> 
+</div>
+
+
+<div id="project_tag_tabs_center" class="span-18-last">
+	<% @profile.top_tag_list.each do |l| %>
+		<div id="project_tag_tabs" <%= "id = 'current_project_button'" if l == params[:tag] %> style="line-height: 1.9em; ">	
+			<%= link_to l.titleize, user_path(@user, :page => :projects, :tag => l) %>
+			<%= (@user.projects.tagged_with [l]).count %>
+		</div>
+	<% end %>
+
+	<% if @user==current_user %>
+		<div id="project_tag_tabs" style="background-color:#F06F00">
+			<b><%= link_to "Add Tab", edit_profile_user_path %></b>
+		</div>
+	<% end %>

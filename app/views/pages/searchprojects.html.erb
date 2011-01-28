@@ -2,22 +2,8 @@
 	<div id="user_background" class="span-24">
 	<div id ="user_sidebar_pages" class="yui-skin-sam">
 		
-		<div id="user_background" class="span-24">
-			<div id="user_header_background" class="span-24">
-				<div id="user_header" class="span-24">
-					<div id="user_header_search" class="span-24">
-						<h1><%= form_tag(search_path, :method => :get) do %></h1>
-							<div class="search_field">
-								<%= text_field_tag :q, params[:q] %>
-								<%= submit_tag "Search" %>
-							</div>
-						<% end %>
-					</div>
-				</div>
-			</div>
-		</div>
-		
 	
+		
 <% @projects.each do |u| %>
 	<% if u.photo.exists? %>
 		<div id="project_list" >

@@ -7,14 +7,13 @@
 		
 			
 		<%= form_tag search_projects_path, :method => :get, :remote => true do %>
- 				<div class="submit", style="float:right; margin-top:0.4em">
+				<div class="submit", style="float:right; margin-top:0.4em">
 					<%= submit_tag "Search Projects" %><br />
 				</div>
 				<div class="field" style="float:right; margin-right:0.5em;">
-					<%= text_field_tag :search, params[:search], 
+					<%= text_field :search, :value => params[:search], 
 	                         :id => "main_search_box" %> 
 				</div>
-
 		<% end %>
 		
 		<div id="search_names" style="float:right; margin-top:0.2em;margin-right:2em;">		
