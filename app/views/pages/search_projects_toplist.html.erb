@@ -27,19 +27,13 @@
 	
 
 
-	<div class="search_bottom">
-		
-		
-		<div class="search_options_box">
-			<div id="project_lists", style="height:28px;margin-right:15em">	
-			<%= link_to "Recently Created", search_projects_path(:page=> "sort_by_creation")%>
-			<%= link_to "Recently Updated", search_projects_path(:page=> "sort_by_update")%>
-			<%= link_to "Most Popular", search_projects_path(:page=> "sort_by_views")%>
-			</div>
+	<div class="search_bottom", style="padding-top:0.5em">
+		<div style="min-height:60px">
 		<% @links.each do |u| %>
 		<div id="popular_tags"><%= link_to u[0], search_projects_path(:search => u[0]) %> <%="[ #{u[1]} ]"%> </div>
 		<%end%>
 		</div>
+
 		
 		<div id="users_list"></div>
     <%= render :partial => "project", :collection => @projects_found %>
@@ -48,4 +42,3 @@
 	</div>
 	
 	</div>
-	

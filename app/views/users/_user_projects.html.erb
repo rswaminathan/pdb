@@ -3,14 +3,14 @@
 
   </script>
 <%end %>
-<% if (1..6).include?(@profile.top_tag_list.size) %>
+<% if (1..4).include?(@profile.top_tag_list.size) %>
 
-		<div style="min-height:5px; margin-top:0.5em;  width: 100%">
-		<% @profile.top_tag_list.each do |u| %>
-		<div id="popular_tags" style="background-color: #F6F6F6; font-size:1.3em; float:right"><%= link_to u.titleize, user_path(@user, :page => :projects, :tag => u) %> <%="[ #{(@user.projects.tagged_with [u]).count} ]"%> </div>
+		<div style="min-height:5px; margin-left:17em">
+		<% @profile.top_tag_list.each do |l| %>
+		<div id="popular_tags" style="background-color: #F6F6F6; font-size:1.2em; float:left; margin-left:0; margin-right:0.5em; margin-top:0.3em">
+		<%= link_to l.titleize, user_path(@user, :page => :projects, :tag => l) %> <%="[ #{(@user.projects.tagged_with [l]).count} ]"%> </div>
 		<%end%>
 		</div>
-		
 		
 		<% if @user.projects.count > 20 %>
 			<div style="text-align:right" class="span-6-last">
@@ -21,6 +21,9 @@
 		<% end %>
 	<br />
 
+	<div style="min-height:8px; border-bottom: 1px solid #E6CDC2;">
+	</div>
+	
 <% end %>
 <% if signed_in? && current_user_page? %>
 	<div id="project_list", style="min-height:60px">		

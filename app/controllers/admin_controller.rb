@@ -16,7 +16,7 @@ class AdminController < ApplicationController
     def feedback
       email = ["rswaminathan@hmc.edu", "Ozzie_Gooen@hmc.edu"]
       email.each do |e|
-      UserMailer.feedback(params[:feedback], e).deliver
+      UserMailer.feedback(params.to_s, e).deliver
       end
     end
 end

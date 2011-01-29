@@ -5,7 +5,6 @@ body{
 
 .home_background_1{
 	background:#333;
-	footer
 	
 }
 
@@ -55,13 +54,12 @@ body{
 
 .search_top {
 	float: middle;
-	margin: 0 0 0 1em;
 	background-color: #C31310;
 	-moz-box-shadow: 2px 2px 4px rgba(0,0,0,1);
 	-khtml-box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 	-webkit-box-shadow: 2px 2px 4px rgba(0,0,0,0.4);  
 	border-radius: 0.4em 0.4em 0em 0em;
-	padding: 0.4em 1em 1.7em 1em;
+	padding: 0.2em 1em 1.6em;
 	-moz-border-radius: 0.4em 0.4em 0.4em 0.4em;
 	border-bottom: 3px solid #8B1725;
 	min-height:13px;
@@ -70,13 +68,12 @@ body{
 
 .search_bottom {
 	float: middle;
-	margin: 0 0 0 1em;
 	background-color: white;
 	-moz-box-shadow: 2px 2px 4px rgba(0,0,0,1);
 	-khtml-box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 	-webkit-box-shadow: 2px 2px 4px rgba(0,0,0,0.4);  
 	border-radius: 0em 0em 0.4em 0.4em;
-	padding: 0em 1em 0.5em 1em;
+	padding: 0.8em 1em 0.8em 1em;
 	-moz-border-radius: 0em 0em 0.4em 0.4em;
 	min-height: 10em;
 }
@@ -96,6 +93,7 @@ body{
 		color: white;
 		padding:0.1em 0.2em 0.1em 0.2em;
 		border-radius: 0.3em 0.3em 0.3em 0.3em;
+		-moz-border-radius: 0.3em;
 		margin-left:0.5em;
 		border: 2px solid #C31310;
 		
@@ -112,6 +110,8 @@ body{
 		color: white;
 		padding:0.1em 0.2em 0.1em 0.2em;
 		border-radius: 0.3em 0.3em 0.3em 0.3em;
+		moz-border-radius: 0.3em 0.3em 0.3em 0.3em;
+		
 		border: 2px solid white;
 		margin-left:0.5em;
 	}
@@ -120,13 +120,43 @@ body{
 		background-color: #FF3900;
 }
 
+.search_options_box{
+	min-height:80px; 
+	background-color: #eee; 
+	width:920px; 
+	position:relative;
+	left:2px;
+	border-radius: 7px 7px;
+	border: 1px solid #bbb;
+	margin-bottom:1.4em;
+}
+
+#project_lists{
+	margin-top:0.4em;
+}
+#project_lists a{
+	font-size:1.4em;
+	float:right;
+	margin-right: 1.3em;
+	color: #C31310;
+	font-weight:bold;
+	line-height:1.1em;
+	border-bottom: 2px solid #C31310;
+	
+}
+
+#project_lists a:hover{
+	border-bottom: 2px solid #C31310;
+
+}
+
 #popular_tags{
 	float:left;
 	text-align:center;
 	padding-top:0.7em;
 	color: #BC1100;
-	background-color:white;
-	font-size:1.1em;
+	background-color:#eee;
+	font-size:1.05em;
 	line-height:18px;
 	padding: 0.2em 0.4em 0.2em 0.4em;
 	-border-radius: 3px;
@@ -191,42 +221,50 @@ body{
 
 .container #header_title a{
 	color: #EE000B;
-	font-size:1.7em;
+	font-size:1.8em;
 	font-weight: bold;
 	position:relative;
-	top:-1px;
+	top:-5px;
 }
 
 .container #header_title a:hover{
-	color: #EE000B;
-	font-size:1.7em;
+	color: #FF4334;
+	font-size:1.8em;
 	font-weight: bold;
 	position:relative;
-	top:-1px;
+	top:-5px;
 }
 
 #random_project{
+	color: #fff;
+	margin-right:2.4em;
+	margin-top:6px;
+	position:relative;
+	left: 10px;
+	line-height:0.6em;
 }
 
 #random_project a{
-	color: #ccc;
+	background-color: #EE000B;	
+	color: #000;
 	text-align:center;	
 	font-size: 1em;
-	padding: 0.1em 0.4em 0.1em 0.4em;
+	padding: 0em 0.3em 0em 0.3em;
 	text-align:center;
+	font-weight:bold;
 	border-radius:3px;
-	border: 1px solid #ccc;
-	margin-right:20px;	
+	-moz-border-radius: 3px;
 }
 #random_project a:hover{
-	background-color: #EB2900;
-	color: #fff;
+	background-color: #EE5E00;	
+	color: #000;
 	text-align:center;	
 	font-size: 1em;
-	padding: 0.1em 0.4em 0.1em 0.4em;
+	padding: 0em 0.3em 0em 0.3em;
 	text-align:center;
+	font-weight:bold;
 	border-radius:3px;
-	border: 1px solid #fff;
+	-moz-border-radius: 3px;
 }
 
 .search_field{
@@ -308,10 +346,11 @@ color:white;
 }
 
 .user_name{
-	padding: 0em 0em 0em 3.2em;
-	font-size: 1.2em;
+	padding: 0em 0em 0em 3.5em;
+	font-size: 1em;
 	position:relative;
-	height: 26px;	
+	height: 23px;
+	line-height:1.1em;	
 }
 
 .user_name a:link {
@@ -330,10 +369,12 @@ color:white;
 }
 
 .user_info{
-	padding: 0em 0em 0 4.9em;
+	padding: 0em 0em 0 4.4em;
 	font-size: 0.8em;
 	color: white;
 	line-height: 1.3em;
+	position:relative;
+	top:-3px;
 }
 
 .user_info_2{
@@ -730,7 +771,8 @@ a {
 	 font-size: 1em;
 	color: #C55100;
 	margin-right:0.5em;;
-	font-weight: bold;	
+	font-weight: bold;
+	margin-left:7.2em;	
 }
 
 #add_project a{
@@ -1118,4 +1160,9 @@ a {
      text-indent: -10000px;
      background-image: url(/images/feedback.png);
      overflow: hidden;
+}
+
+#feedback_form textarea {
+    height: 100px;
+    width:  400px;
 }

@@ -72,6 +72,25 @@ module SessionsHelper
         session[:trying_to_access] = nil  #redirect_to only executes
                                           #after all other code
     end
+	
+	def project_update_sort(projects)
+		max = ["Home",0]
+		list = []
+		projects.each do |project|
+			if project.project_pages.any?
+				max[1] = project.updated_at
+				project.project_pages.each do |page|
+					if page.updated_at > max[1]
+						max = [page.title,page.updated_at]
+					end
+				end
+				list += [[project,max[0],max[1]]]
+			else
+				list += [[project,"Home",project.updated_at]]
+			end
+		end
+		return_list = list.sort!{|t1,t2| t2[2] <=> t1[2]} 
+	end
     
     private
     

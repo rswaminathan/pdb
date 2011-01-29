@@ -7,13 +7,14 @@
 		
 			
 		<%= form_tag search_projects_path, :method => :get, :remote => true do %>
-				<div class="submit", style="float:right; margin-top:0.4em">
+ 				<div class="submit", style="float:right; margin-top:0.4em">
 					<%= submit_tag "Search Projects" %><br />
 				</div>
 				<div class="field" style="float:right; margin-right:0.5em;">
-					<%= text_field :search, :value => params[:search], 
+					<%= text_field_tag :search, params[:search], 
 	                         :id => "main_search_box" %> 
 				</div>
+
 		<% end %>
 		
 		<div id="search_names" style="float:right; margin-top:0.2em;margin-right:2em;">		
@@ -26,13 +27,24 @@
 	
 
 
-	<div class="search_bottom", style="padding-top:0.5em">
-		<div style="min-height:60px">
+	<div class="search_bottom">
+		
+		<% if params[:page].nil? %>
+		
+		<div class="search_options_box">
 		<% @links.each do |u| %>
 		<div id="popular_tags"><%= link_to u[0], search_projects_path(:search => u[0]) %> <%="[ #{u[1]} ]"%> </div>
 		<%end%>
 		</div>
-
+		
+		<% else %>
+		<div class="search_options_box">
+			<%= link_to "Most Viewed", search_projects_path(:page=> "sort_by_views")%>
+			<%= link_to "Recently Created", search_projects_path(:page=> "sort_by_creation")%>
+			<%= link_to "Recently Updated", search_projects_path(:page=> "sort_by_update")%>
+		
+		</div>
+		<% end %>
 		
 		<div id="users_list"></div>
     <%= render :partial => "project", :collection => @projects_found %>

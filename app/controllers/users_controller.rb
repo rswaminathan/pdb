@@ -13,9 +13,9 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		@title = @user.name
-		@projects = @user.projects.sort! {|a,b| -(a.count <=> b.count) }
+		@projects = @user.projects
 		if !params[:tag].nil?
-			@projects = @projects.tagged_with params[:tag]
+			@projects = (@projects.tagged_with params[:tag]).sort! {|a,b| -(a.count <=> b.count) }
 		end
 		if !params[:page].nil?
 			@sidebar_page = params[:page]
