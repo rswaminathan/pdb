@@ -10,7 +10,7 @@
   <% end %>
 
 <div class="user" >
-	<div class="user_pic" style="float:left;"><%= image_tag user.profile.photo.url(:small)%>  </div> 
+	<div class="user_pic" style="float:left;"><%= image_tag user.profile.photo.url(:tiny)%>  </div> 
 	<div class="user_name"><%= link_to user.name, user %></div>
 	<div class="user_info">
 		<% @profile = user.profile %><%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %><br />

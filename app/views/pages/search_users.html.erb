@@ -46,9 +46,11 @@
 		<div id="invite_user"></div>
 		<br />
 		
+		<% if !params[:page].nil?%>
 			<div id="users_list"></div>
 	    <%= render :partial => "user", :collection => @users_found %>
 			<div id="invite_user"></div>
+			<% end%>
 			
 	</div>
 	</div>
