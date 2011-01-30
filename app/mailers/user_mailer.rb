@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default :from => "Muddpage"
+  default :from => "Holono"
   default_url_options[:host] = "muddpage.com"
 
   def custom_email(user, message, subject)
