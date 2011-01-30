@@ -61,7 +61,6 @@ body{
 	border-radius: 0.4em 0.4em 0em 0em;
 	padding: 0.2em 1em 1.6em;
 	-moz-border-radius: 0.4em 0.4em 0.4em 0.4em;
-	border-bottom: 3px solid #8B1725;
 	min-height:13px;
 	
 }
@@ -225,6 +224,7 @@ body{
 	font-weight: bold;
 	position:relative;
 	top:-5px;
+	margin-bottom:0px;
 }
 
 .container #header_title a:hover{
@@ -233,6 +233,8 @@ body{
 	font-weight: bold;
 	position:relative;
 	top:-5px;
+	margin-bottom:0px;
+	
 }
 
 #random_project{
@@ -578,7 +580,7 @@ a {
  	border-top: 2px solid #eee;
  	border-right: 2px solid #eee;
 	text-align:center;
-	margin-right:auto;
+	margin-right:auto;s
 	background-color: #A70B00;
 	font-size: 1.2em;
 	line-height: 1.5em;
@@ -988,25 +990,24 @@ a {
 }
 
 #project_name_header a{
-	margin-top: 0.2em;
+	margin-top: 0.7em;
 	font-size: 2.2em;
 	color: #DF0200;
 	font-weight: bold;	line-height: 1em;
 	margin-left:0.5em;
-	margin-bottom:0.2em;
+	margin-bottom:1em;
 	text-align: left;
 }
 
 #project_name_header {
-	margin-top: 0.2em;
+	margin-top: 0.7em;
 	font-size: 1em;
+	line-height:1em;
 	color: #DF0200;
 	font-weight: bold;	line-height: 1em;
 	margin-left:0.5em;
-	margin-bottom:0.2em;
-	text-align: left;
-	min-height:40px;
-		
+	margin-bottom:1em;
+	text-align: left;		
 }
 
 #project_name_header a:hover{

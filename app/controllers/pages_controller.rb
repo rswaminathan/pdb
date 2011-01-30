@@ -128,7 +128,10 @@ class PagesController < ApplicationController
 			@users.delete(user_to_delete)
 			flash[:success] = "Removed Collaborator"
 			redirect_to @project
-		end   
-	end
-  	
+		end 
+  end  
+  
+  def error
+    @message = "Something went wrong. We have been notified(really), and we'll fix it as soon as possible.<br /> In the meantime, feel free to show your anger at us by using the feedback button to the right ----->"
+  end  	
 end

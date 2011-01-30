@@ -3,7 +3,7 @@ Pdb::Application.routes.draw do
 	get 'pages/home'
 	match	'search_users',		:to => 'pages#search_users'
 	match	'search_projects',	:to => 'pages#search_projects'
-	
+  match 'error',  :to => 'pages#error'
   match 'searchprojects', :to => 'pages#searchprojects'
   
 	match	'/create',			:to => 'pages#create'
