@@ -10,7 +10,7 @@
 	<% end %>
 	<div align="center">
 		<% if @profile.photo.exists? %>
-			<%= image_tag @profile.photo.url(:small) %>
+			<%= image_tag @profile.photo.url(:medium) %>
 		<% end %>
 	</div>		
 	<%= render 'follow_form' if (signed_in? && !current_user_page?) %>
@@ -21,6 +21,7 @@
 		<br />
 	</div>
 	
+	<%= link_to "about", user_path(@user, :page => "about")  %>
 
 	
 	<hr />

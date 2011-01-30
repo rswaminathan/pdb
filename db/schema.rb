@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110128210211) do
+ActiveRecord::Schema.define(:version => 20110130055513) do
 
   create_table "admins", :force => true do |t|
     t.text     "email_list"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(:version => 20110128210211) do
     t.integer   "project_id"
     t.timestamp "created_at"
     t.timestamp "updated_at"
+  end
+
+  create_table "pre_users", :force => true do |t|
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pre_users_projects", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "pre_user_id"
   end
 
   create_table "profiles", :force => true do |t|

@@ -2,6 +2,13 @@
 
 	<% if u.photo.exists? %>
 		<div id="project_list" style="margin-top:0em, padding:0em" >
+			
+			<div class="float:right;margin-right:25em">
+			<% u.users.each do |p| %>
+			<div style="float:right; max-height:40px;border: margin-right:5px;"> <% logo = image_tag p.profile.photo.url(:teeny)%> <%= link_to logo, p, :class => "left"  %> </div>
+			<% end %>
+			</div>
+			
 			<div id="user_projects_photo" class="span-3"><%logo = image_tag u.photo.url(:standard) %>    <%= link_to logo, u %></div>
 			<div style="min-height:60px"> 
 				<div id="project_name_div"><%= link_to u.name, u %></div>

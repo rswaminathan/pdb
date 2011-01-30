@@ -13,7 +13,7 @@ class Project < ActiveRecord::Base
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
                     :path => "/:style/:filename"   
 
-  
+  has_and_belongs_to_many :pre_users
   has_and_belongs_to_many :users
   has_many :comments
   has_many :project_pages

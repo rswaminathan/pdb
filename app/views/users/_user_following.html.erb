@@ -2,14 +2,14 @@
 	<div style="font-size:2em"> Following <%= "#{@user.users_following.count} #{@user.users_following.count==1 ? 'User' : 'Users'}" %></div>
 	<hr style="margin-bottom:0.5em; height:1px" />
 	
-	<div id="users_list", style="margin-left:18em">
+	<div id="users_list", style="margin-left:0em">
 		<% @user.users_following.each do |u| %>
 			<div class="user" >
 				<div class="user_pic"><% logo = image_tag u.profile.photo.url(:tiny)%> <%= link_to logo, u, :class => "left"  %></div>    
 				<div class="user_name"><%= link_to u.name, u %></div>
 				<div class="user_info">
 					<% @profile = u.profile %><%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %><br />
-					<%= "#{u.projects.count} #{u.projects.count == 1 ? 'Project' : 'Projects'} | #{u.followers.count} #{u.followers.count == 1 ? 'Follower' : 'Followers'}" %>
+					<%= link_to "#{u.projects.count} #{u.projects.count == 1 ? 'Project' : 'Projects'}", user_path(u) %> | <%= link_to "#{u.followers.count} #{u.followers.count == 1 ? 'Follower' : 'Followers'}", user_path(u, :page => "followers") %>
 				</div>
 			</div>
 		<% end%>

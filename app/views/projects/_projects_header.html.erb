@@ -1,17 +1,17 @@
 <div id="project_buttons_center">
 	<% if @pages.any?%>
 		<% @pages.each do |page| %>
-			<div id="project_buttons" <%= "id = 'current_project_button'" if page.title == params[:page] %>>
+			<div class="header_tabs" <%= "id = 'current_project_button'" if page.title == params[:page] %>>
 				<%= link_to page.title.titleize, project_path(@project, :page => page.title) %>
 			</div>
 		<% end %>
-		<div id="project_buttons" <%= "id = 'current_project_button'" if @page_is_main %>>	
+		<div class="header_tabs" <%= "id = 'current_project_button'" if @page_is_main %>>	
 			<%= link_to "Home", @project %>
 		</div>
 	<% end %>
 	<% if current_project_user? %>
 		<% #<div <%= @pages.any? ? "id=" : "class=" % >"project_buttons">%>
-			<div id="project_buttons_new" style="background-color: #52DC0D">
+			<div class="header_tabs" style="background-color: #52DC0D">
 			<%= link_to "New Page", newpage_project_path %>
 		</div>
 	<% end %>

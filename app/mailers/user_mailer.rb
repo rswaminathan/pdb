@@ -11,6 +11,7 @@ class UserMailer < ActionMailer::Base
   def invite_user(email, user, project)
     @user = user
     @project = project
+    @email = email
     subject = "#{@user.name} has invited you as a collaborator to #{@project.name}"
     mail(:to => email, :subject => subject)
   end

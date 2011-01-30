@@ -28,8 +28,8 @@ class ProjectsController < ApplicationController
 		@title = "#{@project.name}"
 		@comments = @project.comments
 		@pages = @project.project_pages
-    @project.count += 1
-    @project.save
+		@project.count += 1
+		@project.save
 		if !params[:page].nil?
 			@page = @project.project_pages.find_by_title(params[:page])
 			@sections = @page.sections
@@ -39,11 +39,11 @@ class ProjectsController < ApplicationController
 		end
 	end
 
-  def show_all_collaborators
-    @project = Project.find_by_id(params[:id])
-    @users = @project.users
-    @collaborators = @users.drop(4) #the remaining users
-  end
+	def show_all_collaborators
+		@project = Project.find_by_id(params[:id])
+		@users = @project.users
+		@collaborators = @users.drop(4) #the remaining users
+	end
 
 	def destroy
 		@project.destroy #@project is defined in correct_user authenticate
@@ -103,7 +103,11 @@ class ProjectsController < ApplicationController
 	def invite_collaborator
 		@email = params[:email]
 		project = Project.find(params[:id])
-		UserMailer.invite_user(@email, current_user, project).deliver
+    @preuser = PreUser.find_or_create_by_email(:email => @email)
+    if @preuser.save
+      @preuser.projects << project
+		  UserMailer.invite_user(@email, current_user, project).deliver
+    end
 	end
 
 	def update_collaborators

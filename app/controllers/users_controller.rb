@@ -23,6 +23,33 @@ class UsersController < ApplicationController
 			@sidebar_page = "projects"
 		end
 		@profile = @user.profile
+		
+		
+		
+		
+		p_list = Array.new
+    @user.projects.all.each do |project|
+    p_list += project.kind_list
+    end
+
+    p_count=Hash.new
+    p_list.each do |s|
+      p_count[s] = 0
+      end
+
+    p_count.each do |w|
+      p_list.each do |s|
+    	if (w[0]==s && w[0] != "Enter tags(comma separated)")
+    	p_count[s] +=1
+    	end
+      end
+      end
+
+    @links= p_count.sort {|a,b| -(a[1]<=>b[1])}[0,5]
+    
+    
+    
+    
 	end
 
 	def create
@@ -30,6 +57,10 @@ class UsersController < ApplicationController
 		if @user.save
 			@user.create_profile
 			sign_in @user
+      @preuser = PreUser.find_by_email(params[:user][:email])
+      if @preuser
+        @user.projects = @preuser.projects
+      end
 			redirect_to edit_profile_user_path(@user)
 		else
 			@title = "Sign Up"

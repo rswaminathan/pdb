@@ -1,11 +1,4 @@
 <div class="container" style="padding-top:8px; padding-bottom:20px; min-height: 350px">
-	<div class="span-14-last", style="margin-right:1em; min-height:20px">
-		<% ["about","feed","projects"].each do |l| %>
-			<div class="header_tabs" <%="id = 'current_tab'" if l == @sidebar_page%>  >
-				<%= link_to l.titleize, user_path(@user, :page => l)  %>
-			</div>
-		<% end %>
-	</div>
 	<div id="user_background" class="span-24">	
 		<table cellspaceing="0" style="margin:0">
 			<tbody>

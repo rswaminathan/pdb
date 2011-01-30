@@ -1,3 +1,3 @@
-<a href="<%= user_url(@user) %>"><%= @user.name %></a> has invited you as a collaborator to <a href ="<%= project_url(@project) %>"><%= @project.name %></a>.
+<a href="<%= user_url(@user) %>"><%= @user.name %></a> has invited you as a collaborator to <a href ="<%= project_url(@project) %>"><%= @project.name %></a> on Holono.<br />
 
-<a href="http://muddpage.com/">Click here to register</a>
+<a href="http://muddpage.com/signup?email=<%= @email %>">Click here to accept</a>

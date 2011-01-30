@@ -1,7 +1,5 @@
 <div id="project_name_background">
 
-<%= render 'projects/projects_header' %>
-
 	<div id="project_name_header">
 		
 		<% if !@pages.any? %>
@@ -17,7 +15,7 @@
 		<% if @project.photo.exists? %>
 			<div id="project_picture", align="center">
 				
-				<%= image_tag @project.photo.url(:small) %>
+				<%= image_tag @project.photo.url(:huge) %>
 			</div>
 		<% end %>
 		
