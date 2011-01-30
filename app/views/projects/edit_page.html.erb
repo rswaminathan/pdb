@@ -1,5 +1,10 @@
-<div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px">
-	<div class="home_register span-12" style="float:center; margin-left: 16em">
+<% if current_project_user? %>
+  <% content_for :head do %>
+<%= render 'projects/yui_dependencies' %>
+  <% end %>
+<% end %>
+<div class="container">
+	<div class="home_register span-16 yui-skin-sam" style="margin-left: 16em">
 		<%= form_for( @page, :url => update_page_project_path) do |f| %>
 			<div class="field">
 				<%= f.label :title %><br />
@@ -15,3 +20,4 @@
 		<% end %>
 	</div>
 </div>
+<%= render 'projects/yui_script', :editor => "project_page_content" %>

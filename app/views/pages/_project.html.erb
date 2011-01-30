@@ -13,7 +13,7 @@
 			<div id="user_projects_photo" class="span-3"><%logo = image_tag u.photo.url(:standard) %>    <%= link_to logo, u %></div>
 			<div style="min-height:60px"> 
 				<div id="project_name_div"><%= link_to u.name, u %></div>
-				<div id="project_description_div", style="margin-right:20em">
+				<div id="project_description_div", style="margin-right:13em">
 					<% if u.abstract.nil? || u.abstract.empty? %>
 						<%= truncate(u.description, :length => 310) %>
 					<% else %>
@@ -38,7 +38,7 @@
 					</div>
 					
 					<div id="project_name_div"><%= link_to u.name, u %> </div>
-					<div id="project_description_div", style="min-height:12px; margin-right:20em">
+					<div id="project_description_div", style="min-height:12px; margin-right:13em">
 						<% if u.abstract.nil? || u.abstract.empty? %>
 							<%= truncate(u.description, :length => 310) %>
 						<% else %>

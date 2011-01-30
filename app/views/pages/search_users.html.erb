@@ -1,4 +1,4 @@
-<div class="container" style="padding-top:10px; padding-bottom:20px; min-height: 550px">
+<div class="container" style="padding-bottom:20px; min-height: 550px">
 
 
 
@@ -39,18 +39,19 @@
 					</div>
 
 				</div>
-				
-				
 				<br />
-		<div id="users_list"></div>
-		<div id="invite_user"></div>
-		<br />
-		
+				
 		<% if !params[:page].nil?%>
 			<div id="users_list"></div>
 	    <%= render :partial => "user", :collection => @users_found %>
 			<div id="invite_user"></div>
-			<% end%>
+		<% else%>
+		
+		<div id="users_list"></div>
+		<div id="invite_user"></div>
+		<br />
+		
+		<% end%>
 			
 	</div>
 	</div>

@@ -1,27 +1,14 @@
 
 <div class="container" style="padding-top:8px; padding-bottom:20px; min-height: 550px; clear:none">		
 
-		<div id="project_background" class="span-24">	
-			<table cellspaceing="0" style="margin:0">
-				<tbody>
-					<tr>
-
-						<td id="project_sidebar"><%= render 'projects/projects_sidebar' %></td>
-						<td>
-						<%= render 'projects/projects_header' %>
 
 
 <% if current_project_user? %>
   <% content_for :head do %>
-    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.2r1/build/fonts/fonts-min.css" /> 
-    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.2r1/build/editor/assets/skins/sam/simpleeditor.css" /> 
-    <script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/yahoo-dom-event/yahoo-dom-event.js"></script> 
-    <script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/element/element-min.js"></script> 
-    <script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/container/container_core-min.js"></script> 
-    <script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/editor/simpleeditor-min.js"></script> 
+<%= render 'projects/yui_dependencies' %>
   <% end %>
 <% end %>
-<div class="yui-skin-sam">
+<div class="yui-skin-sam home_register">
 <h1>Edit Project</h1>
 <%= form_for @project, :html => { :multipart => true } do |f| %>
 	<%= render	'shared/error_messages', :object => f.object %>
@@ -42,32 +29,7 @@
 	</div>
 <% end %>
 </div>
-<script>
-(function() {
-    var Dom = YAHOO.util.Dom,
-        Event = YAHOO.util.Event;
-    
-    var myConfig = {
-        height: '300px',
-        width: '600px',
-        dompath: true,
-        handleSubmit: true,
-        focusAtStart: true
-    };
- 
-    YAHOO.log('Create the Editor..', 'info', 'example');
-    var myEditor = new YAHOO.widget.SimpleEditor('project_description', myConfig);
-    myEditor.render();
- 
-})()
-</script>
+<%= render 'projects/yui_script', :editor => "project_description" %>
 
-						</td>
-						
-					</tr>
-					
-				</tbody>
-			</table>
-		</div>
 		
 </div>
