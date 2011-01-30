@@ -21,7 +21,7 @@
 
 
 	<div class="margin-left:30em">
-	<% user.projects.each do |p| %>
+	<% user.projects[0,7].each do |p| %>
 	<% if p.photo.exists?%>
 		<div style="max-height:60px;margin-right:5px; float:right; position:relative; top:-49px; border-left: 2px solid #ddd; border-top: 2px solid #ddd; border-right: 2px solid #ddd; border-bottom: 2px solid #ddd"> 
 		<% logo = image_tag p.photo.url(:thumb)%> <%= link_to logo, p %> </div>

@@ -34,7 +34,7 @@ class Project < ActiveRecord::Base
   class << self
 
     def search_by_name(query)
-     where("name like ?", "%#{query}% ").by_count | tagged_with("#{query}").by_count
+     where("name like ?", "%#{query}%").by_count | tagged_with("#{query}").by_count
     end
     
     def random
