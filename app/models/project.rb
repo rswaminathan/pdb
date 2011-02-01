@@ -1,10 +1,4 @@
 class Project < ActiveRecord::Base
-  index do
-    name
-    description
-    kind
-    abstract
-  end
 
   has_attached_file :photo, 
                     :styles => {:itsy => "30x30#", :teeny => "40x40#", :tiny=> "50x50#", :thumb => "60x60#", :standard=> "80x80#", :small=> "100x100#", :medium  => "140x180#", :huge  => "640x480>" },   
