@@ -1,12 +1,10 @@
 Pdb::Application.routes.draw do
 
-	get 'pages/home'
 	match	'search_users',		:to => 'pages#search_users'
 	match	'search_projects',	:to => 'pages#search_projects'
-  match 'error',  :to => 'pages#error'
-  match 'searchprojects', :to => 'pages#searchprojects'
-  
-	match	'/create',			:to => 'pages#create'
+	match 	'error',  			:to => 'pages#error'
+	match 'searchprojects', 	:to => 'pages#searchprojects'
+	match	'/create',			:to => 'pages#home'
 	match	'/ozzie_gooen',		:to => 'users#show', :id => 2
 	match	'/about',			:to => 'projects#show', :id => 1
 	match	'signup',			:to => 'pages#create'
@@ -17,6 +15,7 @@ Pdb::Application.routes.draw do
 	match	'/search',			:to => 'projects#search', :as => :search
 	match	'/creators',		:to => 'pages#creators'
 	root 						:to => "pages#home"
+	match '/home',						:to => "pages#home"
 
 	resources :profile
 	resources :users do

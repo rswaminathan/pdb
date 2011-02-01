@@ -1,0 +1,158 @@
+<% content_for :head do %>
+<%= javascript_include_tag 'jquery.nivo.slider.pack.js' %>
+<%= stylesheet_link_tag 'nivo-slider', :media => "screen" %>
+<%= stylesheet_link_tag 'home' %>
+<style type="text/css">
+#slider {
+    position:relative;
+    width:600px; /* Change this to your images width */
+    height:200px; /* Change this to your images height */
+    background:url(images/loading.gif) no-repeat 50% 50%;
+}
+#slider img {
+    position:absolute;
+    top:0px;
+    left:0px;
+    display:none;
+}
+#slider a {
+    border:0;
+    display:block;
+}
+
+/*============================*/
+/*=== Custom Slider Styles ===*/
+/*============================*/
+#slider-wrapper {
+    background:url(images/slider.png) no-repeat;
+    width:998px;
+    height:392px;
+    margin:0 auto;
+    padding-top:74px;
+    margin-top:50px;
+}
+
+#slider {
+	position:relative;
+    width:600px;
+    height:300px;
+    margin-left: 24px;
+	background:url(images/loading.gif) no-repeat 50% 50%;
+}
+#slider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+#slider a {
+	border:0;
+	display:block;
+}
+
+.nivo-controlNav {
+	position:absolute;
+	left:220px;
+	bottom:-32px;
+}
+.nivo-controlNav a {
+	display:block;
+	width:22px;
+	height:22px;
+	background:url(images/bullets.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+	margin-right:3px;
+	float:left;
+}
+.nivo-controlNav a.active {
+	background-position:0 -22px;
+}
+
+.nivo-directionNav a {
+	display:block;
+	width:30px;
+	height:30px;
+	background:url(images/arrows.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+}
+a.nivo-nextNav {
+	background-position:-30px 0;
+	right:5px;
+}
+a.nivo-prevNav {
+	left:5px;
+}
+
+.nivo-caption {
+    text-shadow:none;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.nivo-caption a { 
+    color:#efe9d1;
+    text-decoration:underline;
+}
+
+</style>
+<script>
+$(window).load(function() {
+    $('#slider').nivoSlider({
+      pauseTime: 7000
+    });
+});
+</script>
+<script>
+$(document).ready(function() {
+  $("#home_info").hide();
+
+  $('#home_info_toggle').click(function() {
+    $('#home_info').slideDown('slow');
+  });
+
+});
+
+
+
+</script>
+<% end %>
+
+	<div id="home">
+		<%= render 'pages/main_info' %>
+	</div>
+	
+	<div style="background-color: grey; border-top: 2px solid #C01426; padding-bottom:1em;">
+		<div class="container" >
+			<div  class="span-14" >
+				<div id="home_bottom_box_top" style a="position:relative; top:-10px; margin-right: 13em">
+					<div style a=" border-bottom:0px; font-size:2.4em; line-height:0.9em">	
+						<%= link_to "New Projects", search_projects_path(:page=> "sort_by_creation")%>
+					</div>
+				</div>
+				<div id="home_bottom_box">	
+				    <%= render :partial => "pages/project", :collection => @projects_new %>
+				</div>
+			</div>	
+			<div class="span-9" >
+				<div id="home_bottom_box_top", style=" margin-left:.8em; margin-right:.3em; ">
+					<div style a=" border-bottom:0px; font-size:2.4em; line-height:0.3em; margin-left:1.6em; margin-right:1.4em;">	
+						<%= link_to "New Users", search_users_path(:page=> "sort_by_creation")%>
+					</div>
+				</div>
+				<div id="home_bottom_box",  style="background-color:white; padding-top:0.2em; padding:0.3em">
+					<div id="users_list", style="margin-left:0em">
+						<% @users_new.each do |u| %>
+							<div class="user" ">
+								<div class="user_pic"><% logo = image_tag u.profile.photo.url(:tiny)%> <%= link_to logo, u, :class => "left"  %></div>    
+								<div class="user_name"><%= link_to u.name, u %></div>
+								<div class="user_info">
+									<% @profile = u.profile %><%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %><br />
+									<%= link_to "#{u.projects.count} #{u.projects.count == 1 ? 'Project' : 'Projects'}", user_path(u) %> | <%= link_to "#{u.followers.count} #{u.followers.count == 1 ? 'Follower' : 'Followers'}", user_path(u, :page => "followers") %>
+								</div>
+							</div>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

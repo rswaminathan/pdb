@@ -102,7 +102,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def invite_collaborator
-		@email = params[:email]
+		@email = params[:email].downcase
 		project = Project.find(params[:id])
     @preuser = PreUser.find_or_create_by_email(:email => @email)
     if @preuser.save
@@ -118,6 +118,7 @@ class ProjectsController < ApplicationController
 		else
 			@project.users << user_to_add
 			@project.save
+			UserMailer.added_user(user_to_add, current_user, @project).deliver
 			flash.now[:success] = "Added collaborator"
 		end   
 		render 'edit_collaborators'

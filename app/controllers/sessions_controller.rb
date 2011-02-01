@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-   user = User.authenticate(params[:session][:email], 
+   user = User.authenticate(params[:session][:email].downcase, 
     						             params[:session][:password])						
 	  if user.nil?
        flash.now[:error] = "Check your detailz"

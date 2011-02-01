@@ -1,0 +1,168 @@
+#home_background {
+	background: rgba(250,250,250,0.9);
+	height: 340px;
+	overflow: hidden;
+	position: relative;
+}
+
+#letter{
+	color:white;
+	font-size:1.3em;
+}
+
+#letter a:hover{
+	color:red;
+}
+
+#team{
+	margin-left: 4em;
+	margin-top:1em;
+}
+
+
+
+#home_sample_projects tbody tr:nth-child(even) td, tbody tr.even td {
+	background:#333;
+	
+}
+
+#home_projects_photo {
+	margin-left:1.7em;
+	margin-right:1.7em;
+	float:left;
+}
+
+#home_project_box{
+	height:350px;
+	padding:0.5em 0 0 0;
+	border-radius: 0.5em 0.5em 0.5em 0.5em;
+	-moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
+    
+}
+
+#home_top_container{
+    background: #222;
+	height: 340px;
+	border-radius: 1em 1em 1em 1em;
+	-moz-border-radius: 0.2em 0.5em 0.5em 0.5em;
+}
+
+#registration_box{
+    color: #fff;
+}
+
+#registration_box h2 {
+    color: #dd0000;
+    margin: 0.5em 0 0.2em 0;
+	font-size:1.55em;
+	width:500px;
+}
+
+#registration_box #register_button{
+    background: #dd0000;
+    color:  #ffffff;
+    margin: 0.5em 0 0 3.5em;
+    padding: 0.7em 1.2em 0.7em 1.2em;
+    border: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+	border-radius: 0.2em 0.2em 0.2em 0.2em;
+	-moz-border-radius: 0.2em 0.2em 0.2em 0.2em;
+
+}
+
+#registration_box #register_button:hover{
+    box-shadow: 0 0 6px rgba(255, 0, 0, 1);
+    -webkit-box-shadow: 0 0 6px rgba(255, 0, 0, 1); 
+    -moz-box-shadow: 0 0 6px rgba(255, 0, 0, 1);
+	
+}
+
+#registration_box .field input{
+    outline: none;
+    font-size: 1.3em;
+    width: 267px;
+    margin: 0 0 0.5em 0;
+	
+}
+
+#registration_box .field input:focus{
+    box-shadow: 0 0 6px rgba(255, 0, 0, 1);
+    -webkit-box-shadow: 0 0 6px rgba(255, 0, 0, 1); 
+    -moz-box-shadow: 0 0 6px rgba(255, 0, 0, 1);
+}
+
+#registration_box .field label{
+    font-size: 1.2em;
+    padding: 0 0 0 0;
+	
+}
+
+#home_explanation_box{
+	width:300px;
+	background-color:#9B1613;
+	color:white;
+	float:left;
+	margin-left:1em;
+	margin-right:1em;
+	padding:1em;
+	border-radius: 0.5em 0.5em 0.5em 0.5em;
+	-moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
+	
+}
+
+
+#home_bottom_box{
+	margin-left:0.8em;
+	margin-right:0.3em;
+	padding:1em;
+	border-radius: 0em 0em 0.5em 0.5em;
+	-moz-border-radius: 0em 0em 0.5em 0.5em;
+	background-color:white; 
+	border: 1px solid #E6CDC2;
+	border-top: 4px solid #9B1613;
+	
+	
+}
+
+#home_bottom_box_top{
+	margin-left:0.8em;
+	margin-right:0.3em;
+	padding:1em;
+	border-radius: 0.5em 0.5em 0em 0em;
+	-moz-border-radius: 0.5em 0.5em 0em 0em;
+	background-color:white; 
+	margin-top:1em;
+	height:16px;
+}
+
+#log_in{
+    width: 35px; 
+    float: right; 
+    padding: 1.5em 0 0 1em; 
+}
+
+#log_in a, #new_account a{
+    color: #aa0000;
+}
+
+#new_account{
+    width: 85px;
+    float: right;
+    padding: 1.5em 0 0 1em;
+}
+
+#home_info_toggle{
+	padding:0.3em 0.5em 0.3em 0.5em;
+	border-radius: 0.4em;
+	-moz-border-radius: 0.4em;
+	background-color:#white; 
+    background: #dd0000;
+    color:  #ffffff;
+    border: 3px solid #FF3D09;
+	font-size:2.3em;
+	text-align:center;
+	margin-right:13em;
+	margin-bottom:0.5em;
+}
+

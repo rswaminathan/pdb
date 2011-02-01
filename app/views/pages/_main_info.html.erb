@@ -1,17 +1,22 @@
-<h1>Holono: Showcase What You Do</h1><br />
-<h2>
-	Showcase your best<br />
-	projects, research,<br />
-	events, and pranks
-</h2><br />
-<h2>
-	Search through an <br />
-	organized and connected <br />
-	project database 
-</h2><br />
-<h2>
-	Follow fellow Mudders<br />
-	and keep in touch <br /> 
-	with the things that<br /> 
-	they do
-</h2>
+<div class="container">
+	<div id="header_title">
+    <h1>It's what <b>you</b> do</h1>
+	</div>
+	<div id="home_top_container">		
+		<div id="home_project_box" class="span-16">
+			<div id="slider", style="margin-left:8px">
+				<% @slider_projects.each do |p| %>
+					<a href="<%= project_url(p) %>"><img src="<%= "frontpage/#{p.id}.jpg"%>" title="<%= "#title_#{p.id}" %>"/></a>
+				<% end %>
+			</div>
+		</div>
+		<div id="registration_box" class="span-7"><%= render 'pages/signup' %></div>
+	</div>
+
+	<% @slider_projects.each do |p| %>
+		<div id="title_<%= p.id %>" class="nivo-html-caption">
+		<strong><%= "#{p.name}" %>: </strong> <%= "#{p.abstract}" %>
+		</div>
+	<% end %>
+	<%render 'pages/main_bottom' %>
+</div>

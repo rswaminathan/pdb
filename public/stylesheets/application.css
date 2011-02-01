@@ -3,10 +3,6 @@ body{
 	
 }
 
-.home_background_1{
-	background:#333;
-	
-}
 
 .home_1{
 	visibility: visible;
@@ -14,6 +10,17 @@ body{
 	cursor: pointer;
 	margin-left: 292px;
 	margin-top: -422px;
+	
+}
+
+#home_info a{
+	color: white;
+	
+}
+
+#home_info a:hover{
+	color: white;
+	text-decoration: underline;
 	
 }
 
@@ -40,14 +47,6 @@ body{
 	border-radius: 0.4em 0.4em 0.4em 0.4em;
 	padding: 1em 1em 0.5em 1em;
 	-moz-border-radius: 0.4em 0.4em 0.4em 0.4em;
-	
-}
-
-#home_background {
-	background: rgba(250,250,250,0.9);
-	height: 340px;
-	overflow: hidden;
-	position: relative;
 	
 }
 
@@ -281,18 +280,22 @@ body{
 	
 }
 
+.user_pic{
+	height:50px;
+	width:50px;
+	margin-right:5px;
+	float:left;
+}
 #home h1{
  color: #EE000B;
 	font-size: 2.8em;
-	padding-left:1em;
+	padding-left:0.5em;
 	
 }
 
 #home h2{
-	color: #eee;
-	font-size: 1.4em;
-	padding-left:4em;
-	
+	color: #fff;
+	font-size: 1.5em;
 }
 
 #home_button{
@@ -302,7 +305,6 @@ body{
 
 .user{
 	font-size: 1.2em; 
-	height: 50px;
 	padding-bottom: 0.5em;
 	margin:0;
 	padding:0.4em;
@@ -310,7 +312,6 @@ body{
 	border-radius: 0.4em;
 	-moz-border-radius: 0.4em;
 	margin-bottom:0.3em;
-	width: 300px;	
 }
 
 .user_huge{
@@ -362,7 +363,6 @@ color:white;
 }
 
 .user_name{
-	padding: 0em 0em 0em 3.5em;
 	font-size: 1em;
 	position:relative;
 	height: 23px;
@@ -384,7 +384,6 @@ color:white;
 }
 
 .user_info{
-	padding: 0em 0em 0 4.4em;
 	font-size: 0.8em;
 	color: white;
 	line-height: 1.3em;
@@ -508,6 +507,11 @@ a {
 	margin-bottom: 0em;
 	margin-top:0em;
 	padding: 0em 0.5em 0em 0.5em;
+}
+
+#project_description a{
+    text-decoration: underline;
+    color: #06C;
 }
 
 #project_picture img{
@@ -1124,8 +1128,7 @@ a {
 	align: center;
 	color: #fff;
 	font-size: 0.8em;   
-	margin-top: 3em;
-	margin-bottom: 3em;
+	padding-top: 1em;
 	font-weight: bold;
 	
 }
@@ -1170,24 +1173,21 @@ a {
 	
 }
 
-#home_sample_projects tbody tr:nth-child(even) td, tbody tr.even td {
-	background:#333;
-	
-}
-
 #feedback_bar {
      position: fixed;
-     right: 0;
+     right: 0px;
      top: 400px;
      display: block;
-     width: 35px;
+     width: 30px;
      height: 100px;
      text-indent: -10000px;
-     background-image: url(/images/feedback.png);
+     background-image: url(/images/feedback.jpg);
      overflow: hidden;
 }
 
 #feedback_form textarea {
-    height: 100px;
+    height: 40px;
     width:  400px;
 }
+
+

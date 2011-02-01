@@ -2,6 +2,15 @@ class PagesController < ApplicationController
 	def home
 		@title = "Home"
 		@user = User.new
+		@slider_projects = slider_projects
+		if params[:page]
+			@home_page = params[:page]
+		end
+		if (params[:page]== "new")
+			@projects_new =Project.all.sort! {|a,b| -(a.created_at <=> b.created_at)}[0,4]
+			@users_new = User.all.sort! {|a,b| -(a.created_at <=> b.created_at)}[0,5]
+			@title = "Home - See What's New"
+		end
 	end
 
 	def contact
@@ -11,6 +20,11 @@ class PagesController < ApplicationController
 	def create
 		@title = "Home"
 		@user = User.new
+    @slider_projects = slider_projects
+    respond_to do |format|
+      format.html { render 'home' }
+      format.js  
+    end
 	end
 
 	def create2
@@ -31,12 +45,12 @@ class PagesController < ApplicationController
 		@title = "Search User"
 		
 		if (params[:page]== "sort_by_project_count")
-      @users_found= User.all.sort! {|a,b| -(a.projects.count <=> b.projects.count)}[0,9]
+      @users_found= User.all.sort! {|a,b| -(a.projects.count <=> b.projects.count)}[0,10]
     elsif (params[:page]== "sort_by_creation")
-      @users_found = User.all.sort! {|a,b| -(a.created_at <=> b.created_at)}[1,9]
+      @users_found = User.all.sort! {|a,b| -(a.created_at <=> b.created_at)}[0,10]
     elsif
       (params[:page]== "sort_by_followers")
-      @users_found = User.all.sort! {|a,b| -(a.followers.count  <=> b.followers.count )}[1,9]
+      @users_found = User.all.sort! {|a,b| -(a.followers.count  <=> b.followers.count )}[0,10]
 		else
 	    @users_found = User.search_by_name(params[:search])
   	 end
@@ -49,10 +63,10 @@ class PagesController < ApplicationController
 		if (params[:page]== "sort_by_views")
       @projects_found= Project.all.sort! {|a,b| -(a.count <=> b.count)}[0,9]
     elsif (params[:page]== "sort_by_creation")
-      @projects_found =Project.all.sort! {|a,b| -(a.created_at <=> b.created_at)}[1,9]
+      @projects_found =Project.all.sort! {|a,b| -(a.created_at <=> b.created_at)}[0,10]
     elsif
       (params[:page]== "sort_by_update")
-      @projects_found =Project.all.sort! {|a,b| -(a.updated_at <=> b.updated_at)}[1,9]
+      @projects_found =Project.all.sort! {|a,b| -(a.updated_at <=> b.updated_at)}[0,10]
 		else
 		  @projects_found = Project.search_by_name(params[:search]) if params[:search]
 	  end

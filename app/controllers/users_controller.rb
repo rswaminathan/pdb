@@ -52,21 +52,23 @@ class UsersController < ApplicationController
     
 	end
 
-	def create
-		@user = User.new(params[:user])
-		if @user.save
-			@user.create_profile
-			sign_in @user
-      @preuser = PreUser.find_by_email(params[:user][:email])
-      if @preuser
-        @user.projects = @preuser.projects
-      end
-			redirect_to edit_profile_user_path(@user)
-		else
-			@title = "Sign Up"
-			render 'new'
+def create
+	@user = User.new(params[:user])
+	@user.email = @user.email.downcase
+	if @user.save
+		@user.create_profile
+		sign_in @user
+		@preuser = PreUser.find_by_email(params[:user][:email].downcase)
+		if @preuser
+			@user.projects = @preuser.projects
 		end
-	end  
+		redirect_to edit_profile_user_path(@user)
+	else
+		@title = "Sign Up"
+		@slider_projects = slider_projects
+		render 'pages/home'
+	end
+end  
   
   def destroy
     @user = User.find(params[:id])

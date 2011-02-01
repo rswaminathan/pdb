@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
   default :from => "Holono"
-  default_url_options[:host] = "muddpage.com"
+  default_url_options[:host] = "holono.com"
 
   def custom_email(user, message, subject)
     @user = user
@@ -20,4 +20,13 @@ class UserMailer < ActionMailer::Base
     @text = text
     mail(:to => email, :subject => "Got feedback")
   end
+  
+  def added_user(user_to, user_from, project)
+	@user_to = user_to
+	@user = user_from
+	@project = project
+	subject = "#{@user.name} has added you as a collaborator to #{@project.name}"
+	mail(:to => @user_to.email, :subject => subject)
+  end
+	
 end

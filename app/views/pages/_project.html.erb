@@ -4,9 +4,10 @@
 		<div id="project_list" style="margin-top:0em, padding:0em" >
 			
 			<div class="float:right;margin-right:25em">
-			<% u.users[0,10].each do |p| %>
-			
-			<div style="float:right; max-height:40px;border: margin-right:5px;"> <% logo = image_tag p.profile.photo.url(:teeny)%> <%= link_to logo, p, :class => "left"  %> </div>
+			<% u.users.each do |p| %>
+			<% if p.profile.photo.exists? %>
+			<div style="float:right; max-height:40px;margin-bottom: 3.8em; border: margin-right:5px;"> <% logo = image_tag p.profile.photo.url(:teeny)%> <%= link_to logo, p, :class => "left"  %> </div>
+			<% end %>
 			<% end %>
 			</div>
 			
@@ -33,7 +34,7 @@
 					
 					<div class="float:right;margin-right:25em">
 					<% u.users[0,10].each do |p| %>
-					<div style="float:right; max-height:40px;border: margin-right:5px;"> <% logo = image_tag p.profile.photo.url(:teeny)%> <%= link_to logo, p, :class => "left"  %> </div>
+					<div style="float:right; max-height:40px; border: margin-right:5px;"> <% logo = image_tag p.profile.photo.url(:teeny)%> <%= link_to logo, p, :class => "left"  %> </div>
 					<% end %>
 					</div>
 					
