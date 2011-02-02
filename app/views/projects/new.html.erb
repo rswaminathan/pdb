@@ -1,41 +1,68 @@
+  <% content_for :head do %>
+<%= render 'projects/yui_dependencies' %>
+  <% end %>
 <div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px">
-	<div class="home_register span-12" style="float:center; margin-left: 16em">
+	<div class="home_register span-20 yui-skin-sam" style="float:center; margin-left: 3em">
 		<h2>Add new Project</h2>
 		<%= form_for(@project) do |f| %>
 			<%= render	'shared/error_messages', :object => f.object %>
 			<div class="field", id="project_message">
 				<h3> Name </h3>
 				<%= f.text_field :name %>
-			</div></br>
+			</div>
+			</br>
+			<hr style="background:#333;" />
 			<div class="field", id="project_message">
 				 <h3>Tags </h3> (Separate With Commas)
 				<br />
 				
 				<%= f.text_field :kind_list, :value => @tag_string %></br>
-				"Common tags categories include type, 
+				<h4>Some common tag categories include:</h4>
 				<br />
-				(project / final project/ research / prank /fun), department (Biology/Engineering...), and class (CS60, E80, etc).
+				Type (project, final project, research, prank, competition, event, fun)
+				<br />
+				Space / Time (Harvey Mudd College, High School, Childhood, California, Work)
+				<br />
+				Department (Biology, Computer Science, Engineering, etc.)
+				<br />
+				Class (CS60, E80, etc)
+				<br />
+				<h4> Please list tags in these formats for consistency. </h4>
 				<br />
 			</div>
+			
 			<div class="field", id="project_message">
 				</br>
+				<hr style="background:#333;" />
 				<h3>Abstract </h3>(Optional.  This text is shown in Project Search results.  300 character maximum.) <br />
 				
-				<div style="height:60px"><%= f.text_area :abstract %></div>
+			 	<%= f.text_area :abstract, :rows=>2, :cols=>4  %>
 			</div>
 			</br>
+			<hr style="background:#333;" />
 			<div class="field", id="project_message">
 				<h3> "Main Page Description </h3> (full HTML provided)" <br />
-				<%= f.text_area :description %>
+				<%= f.text_area :description, :rows=>5, :cols=>40 %>
 			</div>
+			</br>
+			<hr style="background:#333;" />
 			<div class="field", id="project_message">
-				<h3> project_photo %></h3><br />
+				<h3> Project Photo</h3> 
+				This picture both acts as the Thumb Tag for the project and also goes on the project home page
+				<br />
 				<%= f.file_field :photo %>
 			</div>
+			
+			
+			<%= render 'projects/yui_script', :editor => "project_description" %>
+
+			
 			</br></br>
 			<div class="submit", id="project_message">
-				<%= f.submit "Add Project!!" %><br />
+				<%= f.submit "Add Project" %><br />
 			</div>
 		<% end %>
 	</div>
 </div>
+
+

@@ -40,7 +40,7 @@ body{
 .home_register {
 	float: left;
 	margin: 0 0 0 1em;
-	background: url("/images/bg-gradient-large.png") repeat-x scroll 0 -50px #E71C16;
+	background: url("/images/bg-gradient-large.png") repeat-x scroll 0 -50px #F14744;
 	-moz-box-shadow: 2px 2px 4px rgba(0,0,0,1);
 	-khtml-box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 	-webkit-box-shadow: 2px 2px 4px rgba(0,0,0,0.4);  
@@ -1019,19 +1019,18 @@ a {
 }
 
 #project_message{
-	color:#444;
+	color:#333;
 	font-size:1em;
 }
 
-#project_message h3{
-	color:black;
-	font-size:1.3em;
-	line-height:1em;
-	margin-bottom:0em;
-	font-weight:bold;
-	
-}
 
+#project_message h4{
+	color:black;
+	font-size:1.2em;
+	line-height:1em;
+	margin-bottom:-0.55em;
+	margin-top:0.5em;
+}
 
 #project_name_sidebar {	
 	font-size:1.8em; 
