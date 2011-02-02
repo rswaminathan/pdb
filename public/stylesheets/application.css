@@ -1018,6 +1018,19 @@ a {
 	color: #C10200;
 }
 
+#project_message{
+	color:#444;
+	font-size:1em;
+}
+
+#project_message h3{
+	color:black;
+	font-size:1.3em;
+	line-height:1em;
+	margin-bottom:0em;
+	font-weight:bold;
+	
+}
 
 
 #project_name_sidebar {	
@@ -1126,17 +1139,26 @@ a {
 
 #footer{
 	align: center;
-	color: #fff;
-	font-size: 0.8em;   
+	background:#111;
+	font-size: 1.1em;   
 	padding-top: 1em;
-	font-weight: bold;
+	font-weight: normal;
+	padding-bottom:0.1em;
+	color:#c89843;
 	
 }
 
+
 #footer a{
-	color: inherit;
+	color: #ccc;
+}
+
+#footer a:hover{
+	color: #fff;
+	border-bottom: 1px solid #fff;
 	
 }
+
 
 #header_menu{
 	color:#aaa;

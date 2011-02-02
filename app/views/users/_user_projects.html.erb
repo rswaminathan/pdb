@@ -41,10 +41,10 @@
 <% if signed_in? && current_user_page? %>
 	<div id="project_list", style="min-height:60px">		
 		<div id="user_projects_photo" class="span-3">
-			<%=link_to image_tag(src="/images/plus60.png"), new_project_path, :remote => true %>
+			<%=link_to image_tag(src="/images/plus60.png"), new_project_path %>
 		</div>
 		<div style="min-height:60px">
-			<div id="add_project""><%=link_to "Add #{@projects.any? ? "A" : "Your First"} Project", new_project_path, :remote => true %></div>
+			<div id="add_project""><%=link_to "Add #{@projects.any? ? "A" : "Your First"} Project", new_project_path %></div>
 		</div>
 	</div>
 <% else %>

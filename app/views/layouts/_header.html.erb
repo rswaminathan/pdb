@@ -14,7 +14,7 @@
 				<% end %>
 				<%=link_to "My Profile", user_path(current_user) %> | <%= link_to "My Feed", user_path(current_user, :page => "feed") %> | <%= link_to "Settings", edit_user_path(current_user)  %> | <%= link_to "Log Out", logout_path %>
 			<% else %>
-				<%= link_to "Sign In", login_path, :remote => true %> | <%= link_to "Sign Up", signup_path, :remote => true %>
+				<%= link_to "Sign In", login_path %> | <%= link_to "Sign Up", signup_path %>
 			<% end %>
 			</div>
 			<div id="random_project" style="float:right" >

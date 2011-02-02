@@ -1,31 +1,40 @@
 <div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px">
 	<div class="home_register span-12" style="float:center; margin-left: 16em">
-		<h1>Add new Project</h1>
+		<h2>Add new Project</h2>
 		<%= form_for(@project) do |f| %>
 			<%= render	'shared/error_messages', :object => f.object %>
-			<div class="field">
-				<%= f.label :name %><br />
+			<div class="field", id="project_message">
+				<h3> Name </h3>
 				<%= f.text_field :name %>
+			</div></br>
+			<div class="field", id="project_message">
+				 <h3>Tags </h3> (Separate With Commas)
+				<br />
+				
+				<%= f.text_field :kind_list, :value => @tag_string %></br>
+				"Common tags categories include type, 
+				<br />
+				(project / final project/ research / prank /fun), department (Biology/Engineering...), and class (CS60, E80, etc).
+				<br />
 			</div>
-			<div class="field">
-				<%= f.label :tags %><br />
-				<%= f.text_field :kind_list, :value => @tag_string %>
+			<div class="field", id="project_message">
+				</br>
+				<h3>Abstract </h3>(Optional.  This text is shown in Project Search results.  300 character maximum.) <br />
+				
+				<div style="height:60px"><%= f.text_area :abstract %></div>
 			</div>
-			<div class="field">
-				<%= f.label "Abstract (Optional.  This text is shown in Project Search results.  300 character maximum.)" %><br />
-				<%= f.text_area :abstract %>
-			</div>
-			<div class="field">
-				<%= f.label "Main Page Description (full HTML provided)" %><br />
+			</br>
+			<div class="field", id="project_message">
+				<h3> "Main Page Description </h3> (full HTML provided)" <br />
 				<%= f.text_area :description %>
 			</div>
-			<div class="field">
-				<%= f.label :project_photo %><br />
+			<div class="field", id="project_message">
+				<h3> project_photo %></h3><br />
 				<%= f.file_field :photo %>
 			</div>
 			</br></br>
-			<div class="submit">
-				<%= f.submit "Add Project" %><br />
+			<div class="submit", id="project_message">
+				<%= f.submit "Add Project!!" %><br />
 			</div>
 		<% end %>
 	</div>
