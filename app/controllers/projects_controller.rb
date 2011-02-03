@@ -104,7 +104,7 @@ class ProjectsController < ApplicationController
 	def invite_collaborator
 		@email = params[:email].downcase
 		project = Project.find(params[:id])
-    @preuser = PreUser.find_or_create_by_email(:email => @email)
+    @preuser = PreUser.find_or_create_by_email(@email)
     if @preuser.save
       @preuser.projects << project
 		  UserMailer.invite_user(@email, current_user, project).deliver

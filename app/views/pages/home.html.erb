@@ -1,5 +1,6 @@
 <% content_for :head do %>
 <%= javascript_include_tag 'jquery.nivo.slider.pack.js' %>
+
 <%= stylesheet_link_tag 'nivo-slider', :media => "screen" %>
 <%= stylesheet_link_tag 'home' %>
 <style type="text/css">
@@ -101,19 +102,6 @@ $(window).load(function() {
       pauseTime: 7000
     });
 });
-</script>
-<script>
-$(document).ready(function() {
-  $("#home_info").hide();
-
-  $('#home_info_toggle').click(function() {
-    $('#home_info').slideDown('slow');
-  });
-
-});
-
-
-
 </script>
 <%= render 'shared/facebook_graph' %>
 <% end %>

@@ -52,7 +52,7 @@ module SessionsHelper
     end
 
     def admin_user
-		current_user == User.find_by_email("Ozzie_Gooen@hmc.edu") ||
+		current_user == User.find_by_email("ozzie_gooen@hmc.edu") ||
 		current_user == User.find_by_email("rswaminathan@hmc.edu") ||
 		current_user == User.find_by_email("matt_mcdermott@hmc.edu")
     end
