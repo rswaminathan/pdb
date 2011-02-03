@@ -21,9 +21,11 @@
 		<br />
 	</div>
 	
+	<% if !@profile.photo.nil? %>
 	<div id="project_delete", style="text_align:center">
-	<%= link_to "about", user_path(@user, :page => "about")  %>
+	<%= link_to "About", user_path(@user, :page => "about")  %>
 	</div>
+	<% end %>
 	
 	<hr />
 	<div id="following">

@@ -421,6 +421,7 @@ a {
 #project_delete{	
 	margin-top: 0.7em;
 	margin-bottom: 1em;
+	text-align:center;
 }
 
 #project_delete a{
