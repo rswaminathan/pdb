@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 			@sidebar_page = "projects"
 		end
 		@profile = @user.profile
+		@project = Project.new
 		
 		
 		

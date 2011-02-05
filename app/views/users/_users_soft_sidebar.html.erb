@@ -21,7 +21,7 @@
 		<br />
 	</div>
 	
-	<% if !@profile.photo.nil? %>
+	<% if !@profile.about.nil? || (signed_in? && current_user_page?) %>
 	<div id="project_delete", style="text_align:center">
 	<%= link_to "About", user_path(@user, :page => "about")  %>
 	</div>

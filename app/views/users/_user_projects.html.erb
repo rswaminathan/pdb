@@ -39,17 +39,10 @@
 <%end%>
 
 <% if signed_in? && current_user_page? %>
-	<div id="project_list", style="min-height:60px">		
-		<div id="user_projects_photo" class="span-3">
-			<%=link_to image_tag(src="/images/plus60.png"), new_project_path %>
-		</div>
-		<div style="min-height:60px">
-			<div id="add_project""><%=link_to "Add #{@projects.any? ? "A" : "Your First"} Project", new_project_path %></div>
-		</div>
-	</div>
+<%= render 'users/user_quick_project' %>
 <% else %>
 	<% unless @projects.any? %>
-		<div id="no_projects"><%= "#{@user.name} has no projects!" %></div>
+		<div id="no_projects"><%= "#{@user.name} has not posted any projects." %></div>
 	<% end %>
 <% end %>
 <% if @projects.any? %>
