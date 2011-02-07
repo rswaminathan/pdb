@@ -19,10 +19,10 @@
 
   <div id="details_spacing">
 		<div style="margin-bottom:1em">
-		<h3>You</h3>
-    	<h3>Deserve Recognition</h3>
+		<h3>Holono</h3>
+    	<h3>Beats Resumes</h3>
 		</div>
-    <% recognition = image_tag "example_2a.png", :size => "200x100" %><%= link_to recognition, search_users_path(:page => "sort_by_project_count") %>
+    <% recognition = image_tag "example_2a.png", :size => "200x100" %><%= link_to recognition, User.find(2)  %>
     <p>  You've built cool things that you can't show on a resume. You've done great activities that few others know about. Holono has user pages to organize and show all of it.</p>
   </div>
  

@@ -139,6 +139,9 @@ end
 		render 'feed'
 	end
 	
+  def search
+  end
+
 	private
 
 	def correct_user

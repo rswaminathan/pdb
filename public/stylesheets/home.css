@@ -42,6 +42,39 @@
 	float:left;
 }
 
+#facebook-center{
+	position:relative; 
+	top:-64px; 
+	width:0px; 
+	left:840px; 
+	height:50px; 
+	float:left;
+	color:white;
+}
+
+#project-week{
+	color:#EE000B; 
+	font-size:1.1em; 
+	display:inline;
+
+}
+#facebook-description{
+	color:#ddd;
+	margin-right:9.6em;
+	float:right;
+	font-size:1.1em;
+	position:relative;
+	top:-25px;
+	line-height:1.4em;
+}
+#facebook-description h3{
+	color:#EE000B;
+	display:inline;
+	margin:0;
+	font-size:1.2em;
+}
+
+
 #home_project_box{
 	height:370px;
 	padding:1em 0 0 0.4em;
@@ -63,8 +96,14 @@
 
 #registration_box h2 {
     color: #dd0000;
-    margin: 0.5em 0 0.2em 0;
-	font-size:1.55em;
+    margin: 0 0 0.2em 0;
+	font-size:1.9em;
+	width:500px;
+}
+
+#registration_box h4 {
+    color: #A00;
+    margin: -0.2em 0 0.2em 0;
 	width:500px;
 }
 
@@ -161,7 +200,7 @@
 #log_in{
     width: 35px; 
     float: right; 
-    padding: 1.5em 0 0 1em; 
+    padding: 0.5em 0 0 1em; 
 }
 
 #log_in a, #new_account a{
@@ -237,7 +276,7 @@
 }
 
 #header_title h1{
-    padding-left: 2.7em;
+    padding-left: 1.5em;
     font-size: 4.1em;
 	margin-bottom:0px;
 	position:relative;

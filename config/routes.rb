@@ -3,7 +3,6 @@ Pdb::Application.routes.draw do
 	match	'search_users',		:to => 'pages#search_users'
 	match	'search_projects',	:to => 'pages#search_projects'
 	match 	'error',  			:to => 'pages#error'
-	match 'searchprojects', 	:to => 'pages#searchprojects'
 	match	'/create',			:to => 'pages#home'
 	match	'/ozzie_gooen',		:to => 'users#show', :id => 2
 	match	'/about',			:to => 'projects#show', :id => 1
@@ -15,7 +14,7 @@ Pdb::Application.routes.draw do
 	match	'/search',			:to => 'pages#error'
 	match	'/creators',		:to => 'pages#creators'
 	root 						:to => "pages#home"
-	match '/home',						:to => "pages#home"
+	match '/home',				:to => "pages#home"
 
 	resources :profile
 	resources :users do
@@ -27,13 +26,14 @@ Pdb::Application.routes.draw do
 			get :about
 			get 'edit_about'
 		end  
+
 	end
-  
-  namespace :admin do
-      get 'email'
-      post 'send_email'
-      post 'feedback'
-  end 
+
+	namespace :admin do
+		get 'email'
+		post 'send_email'
+		post 'feedback'
+	end 
 
 	resources :sessions, :only => [:new, :create, :destroy]
 	resources :relationship_users, :only => [:create, :destroy]
@@ -61,9 +61,9 @@ Pdb::Application.routes.draw do
 			get 'show_all_collaborators'
 			get 'edit_main_page'
 		end
-    collection do
-      get 'random'
-    end
+		collection do
+			get 'random'
+		end
 	end
   
 # The priority is based upon order of creation:

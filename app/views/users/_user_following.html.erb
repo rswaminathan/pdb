@@ -1,5 +1,5 @@
 <% if @user.users_following.count != 0 %> 
-	<div style="font-size:2em"> Following <%= "#{@user.users_following.count} #{@user.users_following.count==1 ? 'User' : 'Users'}" %></div>
+	<div style="font-size:2em"> Following <%= "#{@user.followers.count} #{@user.users_following.count==1 ? 'User' : 'Users'}" %></div>
 	<hr style="margin-bottom:0.5em; height:1px" />
 	
 	<div id="users_list", style="margin-left:0em">

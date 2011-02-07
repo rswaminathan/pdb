@@ -5,11 +5,11 @@
 			<%= link_to "Edit Project Info", edit_project_path, :remote => true%>
 		</div>
 	<% end%>
-	
+
 	<% if @users.count == 1 %>
 		<%= render 'sidebar_triangles', :title => "Creator" %>
 	<% else %>
-		<%= render 'sidebar_triangles', :title => "Creators" %>
+		<%= render 'sidebar_triangles', :title => "The Team" %>
 	<% end %>
 	<div id="project_sidebar_section">
     <div id ="project_collaborators_list">
@@ -30,16 +30,9 @@
 			</div>
 		<% end %>  
 	<% end%>
-	<%= render 'follow_form' if (signed_in? && @project.followers.empty? && !(current_project_user? && (@users.count==1))) %>
 	</div>
 </div>
-<% if @project.followers.any? %>
-	<%= render 'sidebar_triangles', :title => "Followers" %>
-	<div id="project_sidebar_section">
-		<%= render 'user_list', :users => @project.followers %>
-		<%= render 'follow_form' if (signed_in? && !(current_project_user? && (@users.count==1))) %>
-	</div>
-<% end %>
+
 <% if @project.kind_list.any? %>
 <%= render 'sidebar_triangles', :title => "Tags" %>	
 	<div id="project_sidebar_section", style="border: 1px solid #DD515C">
@@ -52,31 +45,41 @@
 <% end %>
 
 <% if (!@comments.count==0) || signed_in?%>
-<%= render 'sidebar_triangles', :title => "Comments" %>
-
-<div id="project_sidebar_section", style="border: 1px solid #DD515C">
-<div id="users_list">
-<% @comments.each do |c| %>
-	<%= link_to c.user.name, c.user %> : <%= c.body %><br />
-<% end %> 
-	<% if signed_in? %>
-		<div id ="comment_sumbit">
-			<%= form_for(:comment, :url => create_comment_project_path) do |f| %>
-				<div class="field">
-					<%= f.label :comment %><br />
-					<%= f.text_field :body , :size => 25%>
-				</div>
-				<div class="submit">
-					<%= f.submit "Add Comment" %><br />
+	<%= render 'sidebar_triangles', :title => "Comments" %>
+	<div id="project_sidebar_section", style="border: 1px solid #DD515C">
+		<div id="users_list">
+			<% @comments.each do |c| %>
+				<%= link_to c.user.name, c.user %> : <%= c.body %><br />
+			<% end %> 
+	
+			<% if signed_in? %>
+				<div id ="comment_sumbit">
+					<%= form_for(:comment, :url => create_comment_project_path) do |f| %>
+						<div class="field">
+							<%= f.label :comment %><br />
+							<%= f.text_field :body , :size => 25%>
+						</div>
+						<div class="submit">
+							<%= f.submit "Add Comment" %><br />
+						</div>
+					<% end %>
 				</div>
 			<% end %>
 		</div>
-	<% end %>
-	</div>
-	<% end %>
+	</div>	
+<% end %>
 
-	<div style=" margin-top:15px; margin-left:2px; height:60px">
+<% if signed_in? %>
+	<div style=" margin-top:15px; margin-left:10px; height:60px">
 		<iframe src="http://www.facebook.com/plugins/like.php?href=<%= project_url(@project)%>&amp;layout=standard&amp;show_faces=true&amp;width=220&amp;action=like&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:210px; height:60px;" allowTransparency="true"></iframe>    
 	</div>
+
+<% else %>
+	<div style=" float:right; margin-top:15px; margin-right:10px">
+		<iframe src="http://www.facebook.com/plugins/like.php?href=<%= project_url(@project)%>&amp;layout=button_count&amp;show_faces=true&amp;width=220&amp;action=like&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:60px;" allowTransparency="true"></iframe>    
+	</div>
+<% end %>
+	
 </div>
 
+	

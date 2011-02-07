@@ -1,15 +1,17 @@
-<div id="add_collaborator" style="float: right; margin-right:10em">
-	<%= form_tag update_collaborators_project_path(:user_to_add => collaborator.id), :method => :post do %>
-		<div class="submit">
-			<%= submit_tag "Add User" %><br />
-		</div>
-	<% end %>
-</div>
-<div class="user" >
-	<div class="user_pic" style="float:left;"><%= image_tag collaborator.profile.photo.url(:tiny)%></div>    
-	<div class="user_name"><%= link_to collaborator.name, collaborator %></div>
-	<div class="user_info">
-		<% @profile = collaborator.profile %><%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %><br />
-		<%= "#{collaborator.projects.count} #{collaborator.projects.count == 1 ? 'Project' : 'Projects'} | #{collaborator.followers.count} #{collaborator.followers.count == 1 ? 'Follower' : 'Followers'}"  %>
-	</div>
+<div class="span-11 last">
+  <div class="span-7 user" >
+	  <div class="user_pic" style="float:left;"><%= image_tag collaborator.profile.photo.url(:tiny)%></div>    
+	  <div class="user_name"><%= link_to collaborator.name, collaborator %></div>
+	  <div class="user_info">
+		  <% @profile = collaborator.profile %><%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %><br />
+	  </div>
+  </div>
+
+  <div class="span-4 last" id="add_collaborator">
+	  <%= form_tag update_collaborators_project_path(:user_to_add => collaborator.id), :method => :post do %>
+		  <div class="submit">
+			  <%= submit_tag "Add User" %><br />
+		  </div>
+	  <% end %>
+  </div>
 </div>
