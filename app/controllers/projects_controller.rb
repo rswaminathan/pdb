@@ -7,13 +7,16 @@ class ProjectsController < ApplicationController
 	def new
 		@title = "New Project"
 		@project = current_user.projects.build
-    @tag_string = params[:tags] ? params[:tags].gsub(" ", ", ") : ""
+		@tag_string = params[:tags] ? params[:tags].gsub(" ", ", ") : ""
 	end
 
 	def create
 		@project = current_user.projects.build(params[:project])
-    @project.count = 0
+		@project.count = 0
 		if @project.save
+			if (@project.description.nil? || @project.description.empty?)
+				@project.update_attributes(:description => @project.abstract)
+			end
 			current_user.projects << @project
 			flash[:success] = "Project added!"
 			redirect_to @project
@@ -23,9 +26,10 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
+    
 		@project = Project.find_by_id(params[:id])
 		@users = @project.users
-		@collaborators = @users.first(4)
+		@collaborators = @users.first(4) 
 		@title = "#{@project.name}"
 		@comments = @project.comments
 		@pages = @project.project_pages

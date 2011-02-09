@@ -15,6 +15,7 @@ Pdb::Application.routes.draw do
 	match	'/creators',		:to => 'pages#creators'
 	root 						:to => "pages#home"
 	match '/home',				:to => "pages#home"
+	match '/home1',				:to => "pages#home1"
 
 	resources :profile
 	resources :users do

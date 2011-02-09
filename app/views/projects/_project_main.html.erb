@@ -25,7 +25,7 @@
 			</div>
 		<% end%>
 		<div id="project_info">
-				<p><%= raw(@project.description.nil? ? @project.abstract : @project.description) %></p>
+				<p><%= raw((@project.description.nil? || @project.description.empty?) ? @project.abstract : @project.description) %></p>
 		</div>
 	<% else %>
 

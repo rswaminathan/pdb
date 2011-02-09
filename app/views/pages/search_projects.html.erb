@@ -26,7 +26,6 @@
 	</div>	
 	
 
-
 	<div class="search_bottom">
 		
 		
@@ -43,7 +42,11 @@
 		
 		<div id="users_list"></div>
     <%= render :partial => "project", :collection => @projects_found %>
+
+<% if params[:search]%>
+<% end%>
 		<div id="invite_user"></div>
+		
 		<br />
 	</div>
 	

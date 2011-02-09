@@ -13,6 +13,17 @@ class PagesController < ApplicationController
 		end
 	end
 
+
+	def home1
+		@title = "Home"
+		@user = User.new
+		@slider_projects = slider_projects
+		if params[:page]
+			@home_page = params[:page]
+		end
+		@projects =Project.all.sort! {|a,b| -(a.created_at <=> b.created_at)}.paginate :page => params[:page], :per_page => 5
+	end
+	
 	def contact
 		@title = "Contact"
 	end
