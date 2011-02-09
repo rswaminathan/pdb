@@ -6,30 +6,33 @@
 
 		
 		
-		<div id="home-project-name-div" class="span-12" style="font-size:2em; margin-bottom:0.2em"><%= link_to u.name, u %> <%=  %>
+		<div id="home-project-name-div" class="span-12"><%= link_to u.name, u %> <%=  %>
 			
 			<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<%= project_url(u)%>" layout="button_count" show_faces="true" ref="holono.com" width="40px"></fb:like>
 			
 			</div>
 		
 		
-		<div class="span-17">
-			<div id="home-user-projects-photo" ><%logo = image_tag u.photo.url(:huge), :size => "450x300" %>    <%= link_to logo, u %></div>
+		<div style=" width:681px; margin-right:0">
+			<div id="home-user-projects-photo" ><%logo = image_tag u.photo.url(:feed) %>    <%= link_to logo, u %></div>
 			<div class="user_info_2" class="span-13 last">
 				<%= render 'pages/home/user_list', :users => u.users.first(4) %>
 				</br>
-				Posted <%= u.created_at %>
+				 <%=u.created_at.strftime("posted: %I:%M %p, %B %d %Y")%>
 				</br>
 				<% u.kind_list.each do |t| %>
 					<div id="project_kind"><%= link_to t, search_projects_path(:search => t) %></div>    
 				<% end %> 
-		
-
 
 			</div>
 		
 			<div id="project-description-div", style="margin-right:13em", class="span-17">
-			<%= raw((u.description.nil? || u.description.empty?) ? u.abstract : u.description) %>
+				<%= raw(truncate(u.description, :length => 1600)) %>
+				<% if (u.description.length >= 1600) %>
+					<div id="more-projects">
+						<%= link_to "more", u %>
+					</div>
+				<% end%>
 			</div>
 		 </div>
 		
@@ -38,9 +41,9 @@
 			<div id="home-project-list" style="padding: 0.3em 0em 2em 0em; min-height:0">								
 				
 				<div class="float:right;margin-right:25em">
-				<% u.users[0,10].each do |p| %>
-				<div style="float:right; max-height:40px; border: margin-right:5px;"> <% logo = image_tag p.profile.photo.url(:teeny)%> <%= link_to logo, p, :class => "left"  %> </div>
-				<% end %>
+					<% u.users[0,10].each do |p| %>
+					<div style="float:right; max-height:40px; border: margin-right:5px;"> <% logo = image_tag p.profile.photo.url(:teeny)%> <%= link_to logo, p, :class => "left"  %> </div>
+					<% end %>
 				</div>
 				
 				<div id="home-project-name-div"><%= link_to u.name, u %> </div>

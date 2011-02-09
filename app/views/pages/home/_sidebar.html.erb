@@ -1,3 +1,8 @@
-<div style="background-color:#FFD9D9; width:206px; margin-left:13px; margin-top:5em">
-<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:recommendations site="holono.com" width="207" height="300" header="false" border_color="#9B1613"></fb:recommendations>
-</div>
+Holono is a place to share projects and experiences.
+Features
+
+<div class="hr"><hr /></div>
+
+<% @links.each do |u| %>
+<div id="home-popular-tags"><%="[ #{u[1]} ] "%><%= link_to u[0], search_projects_path(:search => u[0]) %>  </div>
+<%end%>

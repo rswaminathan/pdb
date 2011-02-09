@@ -1,4 +1,13 @@
-.user{
+div.hr {
+  height: 1px;
+  background:#DD515C  no-repeat scroll center;
+  margin-bottom: 2em;
+  margin-top:2em;
+}
+div.hr hr {
+  display: none;
+}
+.home-user{
 	font-size: 1.2em; 
 	padding-bottom: 0.5em;
 	margin:0;
@@ -7,7 +16,79 @@
 	border-radius: 0.4em;
 	-moz-border-radius: 0.4em;
 	margin-bottom:0.3em;
+	width:208px;
 }
+
+#more-projects a{
+	color: #C55100;
+	text-decoration: underline;
+}
+
+#more-projects a:hover{
+	color:black;
+}
+
+.home-user-info a {
+	color: #white;
+	font-size:1em;
+}
+
+.home-user-info a:hover {
+	text-decoration: underline;	
+}
+
+.home-user-name{
+	font-size: 1.3em;
+	position:relative;
+	height: 23px;
+	line-height:1.1em;	
+}
+
+.home-user-name a:link {
+	color: #fff;	
+}
+
+.home-user-name a:hover {
+	border-bottom: 1px solid #fff;
+}
+
+.home-user-pic-name{
+	margin-left: 1.5em;
+	
+}
+
+.home-user-pic{
+	height:40px;
+	width:40px;
+	margin-right:5px;
+	float:left;
+}
+
+
+
+
+
+#home-popular-tags{
+	margin-left:0.3em;
+	color: #eee;
+	font-size:01em;
+	line-height:16px;
+	padding: 0.2em 0.4em 0.2em 0.4em;
+	font-weight: bold;
+	
+}
+
+#home-popular-tags a{
+	font-weight: normal;
+	color: #eee;
+	margin-left: 0.5em;
+}
+#home-popular-tags a:hover{
+	color:black;
+	text-decoration: underline;
+	
+}
+
 
 #home-user-projects {
 	padding: 0;
@@ -21,23 +102,23 @@
 }
 
 #home-project-list{
-	min-height:400px;
 	float:left;
-	padding-bottom:0.3em;
-	padding-top:0.4em;
+	padding-bottom:0.8em;
+	padding-top:1.4em;
 	border-bottom: 1px solid #E6CDC2;
 	min-width:680px;
 
 }
 
 #home-project-name-div {
-	font-size: 1.8em;
+	font-size: 1.5em;
 	color: #913100;
+	margin-bottom:0.2em;
 }
 
 #home-project-name-div  a{
 	font-weight: bold;
-	color: #DF0200;
+	color: #CE0200;
 	
 }
 

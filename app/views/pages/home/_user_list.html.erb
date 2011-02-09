@@ -1,10 +1,10 @@
 <%if users.any? %>  
 	<div id="users_list" style="float:right">
 		<% users.each do |u| %>
-			<div class="user", style="width:195px; height:40px" >
-				<div class="user_pic"><% logo = image_tag u.profile.photo.url(:teeny)%> <%= link_to logo, u, :class => "left"  %></div>    
-				<div class="user_name"><%= link_to u.name, u %></div>
-				<div class="user_info">
+			<div class="home-user" >
+				<div class="home-user-pic"><% logo = image_tag u.profile.photo.url(:teeny)%> <%= link_to logo, u, :class => "left"  %></div>    
+				<div class="home-user-name"><%= link_to u.name, u %></div>
+				<div class="home-user-info">
 					<% @profile = u.profile %><%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %><br />
 				</div>
 			</div>
