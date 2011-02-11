@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
     has_one                 :profile
     has_and_belongs_to_many :projects
     has_many                :comments
+    has_many                :likes
 	has_many				:relationship_projects,			:foreign_key => :follower_id,
 															:dependent => :destroy
 	has_many				:relationship_users,			:foreign_key => :follower_id,

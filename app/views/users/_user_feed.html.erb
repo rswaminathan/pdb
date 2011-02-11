@@ -8,11 +8,11 @@ Project Feed </div>
 		<% h[:L] += [project] unless (h[:L].include?(project)) %>
 	<% end %>
 <% end %>
-<% list=project_update_sort(@user.projects_following) %>
+<% list=project_update_sort(h[:L]) %>
 <%= render 'snippets', :list => list %>
 </div>
 </div>
 
 <div class="span-8 last" style="float:right; margin-right:14px">
-<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:activity site="holono.com" ref=<%= user_url(@user)%> width="320" height="500" header="true" border_color="#DDD" recommendations="true"></fb:activity>
+<%= render 'updates' %>
 </div>

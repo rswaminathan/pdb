@@ -73,6 +73,18 @@ module SessionsHelper
                                           #after all other code
     end
 	
+	def likes_project?(user, project,type)
+		user.likes.each do |like|
+			if like.project == project
+				return true if like.like == type
+				like.delete
+				return false
+			end
+		end
+		
+		return false
+	end
+	
 	def project_update_sort(projects)
 		max = ["Home",0]
 		list = []

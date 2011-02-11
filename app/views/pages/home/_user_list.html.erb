@@ -1,5 +1,5 @@
 <%if users.any? %>  
-	<div id="users_list" style="float:right">
+	<div id="home-users-list" style="float:right">
 		<% users.each do |u| %>
 			<div class="home-user" >
 				<div class="home-user-pic"><% logo = image_tag u.profile.photo.url(:teeny)%> <%= link_to logo, u, :class => "left"  %></div>    

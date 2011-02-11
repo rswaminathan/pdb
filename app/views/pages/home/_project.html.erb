@@ -6,59 +6,87 @@
 
 		
 		
-		<div id="home-project-name-div" class="span-12"><%= link_to u.name, u %> <%=  %>
-			
+		<div id="home-project-name-div" class="span-11"><%= link_to u.name, u %> 
+			<div style="top:-2px; display:inline; position:relative">
 			<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<%= project_url(u)%>" layout="button_count" show_faces="true" ref="holono.com" width="40px"></fb:like>
-			
 			</div>
-		
-		
+			<div id="time-posted"><%=u.created_at.strftime("Posted: %I:%M %p, %B %d %Y")%></div>
+		</div>
+				<div class="project-feedback-button-bottom" style= "background-color: #428FCF">
+				 	<%= link_to "Awesome", project_likes_path(u, :like => 'awesome'), :method => :post %><br />
+					<%= pluralize(u.likes.awesome.count, "person") %> find this awesome!
+				</div>
+				<div class="project-feedback-button-bottom" style="background-color:#2AB153">
+					<%= link_to "Interesting", project_likes_path(u, :like => 'interesting'), :method => :post %><br />
+					<%= pluralize(u.likes.interesting.count, "person") %> find this awesome!
+				</div>		
 		<div style=" width:681px; margin-right:0">
 			<div id="home-user-projects-photo" ><%logo = image_tag u.photo.url(:feed) %>    <%= link_to logo, u %></div>
-			<div class="user_info_2" class="span-13 last">
+			<div class="home-user-info-2" class="span-13 last">					
 				<%= render 'pages/home/user_list', :users => u.users.first(4) %>
-				</br>
-				 <%=u.created_at.strftime("posted: %I:%M %p, %B %d %Y")%>
-				</br>
-				<% u.kind_list.each do |t| %>
-					<div id="project_kind"><%= link_to t, search_projects_path(:search => t) %></div>    
-				<% end %> 
-
-			</div>
-		
-			<div id="project-description-div", style="margin-right:13em", class="span-17">
-				<%= raw(truncate(u.description, :length => 1600)) %>
-				<% if (u.description.length >= 1600) %>
+			</div>	
+			<div id="project-description-div", style="margin-right:13em", class="span-17">	
+				<% if (u.description == nil) %>
+				<%= raw(u.abstract) %>
+				<% else %>
+				<%= raw(truncate(u.description, :length => 1000)) %>
+				<% if (u.description.length >= 1000) %>
 					<div id="more-projects">
 						<%= link_to "more", u %>
 					</div>
 				<% end%>
+				<% end%>
+				
+				<% u.project_pages.each do |page| %>
+					<div id="more-projects" %>
+						<%= link_to page.title.titleize, project_path(u, :page => page.title) %>
+					</div>
+				<% end %>
+			
 			</div>
 		 </div>
 		
 	</div>
-		<% else%> 
-			<div id="home-project-list" style="padding: 0.3em 0em 2em 0em; min-height:0">								
-				
-				<div class="float:right;margin-right:25em">
-					<% u.users[0,10].each do |p| %>
-					<div style="float:right; max-height:40px; border: margin-right:5px;"> <% logo = image_tag p.profile.photo.url(:teeny)%> <%= link_to logo, p, :class => "left"  %> </div>
-					<% end %>
-				</div>
-				
-				<div id="home-project-name-div"><%= link_to u.name, u %> </div>
-				<div id="project-description-div", style="min-height:12px; margin-right:13em">
-					<% if u.abstract.nil? || u.abstract.empty? %>
-						<%= truncate(u.description, :length => 310) %>
-					<% else %>
-						<%= truncate(u.abstract, :length => 310) %>
-					<% end %>
-				</div>
-				<div class="user_info_2" style="padding:0">
-					<% u.kind_list.each do |t| %>
-						<div id="project_kind"><%= link_to t, search_projects_path(:q => t) %> </div>    
-					<% end %> 
-				</div>
+		<% else%> 		
+		<div id="home-project-list">
+		<div id="home-project-name-div" class="span-11">
+		<%= link_to u.name, u %> 
+			<div style="top:-2px; display:inline; position:relative">
+			<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<%= project_url(u)%>" layout="button_count" show_faces="true" ref="holono.com" width="40px"></fb:like>
 			</div>
+			<div id="time-posted"><%=u.created_at.strftime("Posted: %I:%M %p, %B %d %Y")%></div>
+		</div>
+				<div class="project-feedback-button-bottom" style= "background-color: #428FCF">
+				 	Awesome
+				</div>
+				<div class="project-feedback-button-bottom" style="background-color:#2AB153">
+					Interesting
+				</div>		
+		<div style=" width:681px; margin-right:0">
+				<div id="project-description-div", style="margin-top:0.5em; float:left; width:450px">	
+					<% if (u.description == nil) %>
+					<%= raw(u.abstract) %>
+					<% else %>
+					<%= raw(truncate(u.description, :length => 1000)) %>
+					<% if (u.description.length >= 1000) %>
+						<div id="more-projects">
+							<%= link_to "more", u %>
+						</div>
+					<% end%>
+					<% end%>
+				
+			</div>
+			<div class="home-user-info-2" class="span-13 last">					
+				<%= render 'pages/home/user_list', :users => u.users.first(4) %>
+			</div>	
+			
+			<% u.project_pages.each do |page| %>
+				<div id="more-projects" %>
+					<%= link_to page.title.titleize, project_path(u, :page => page.title) %>
+				</div>
+			<% end %>
+			
+		 </div>
+		</div>
 		<% end %>
 	

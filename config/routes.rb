@@ -41,6 +41,7 @@ Pdb::Application.routes.draw do
 	resources :relationship_projects, :only => [:create, :destroy]
 	resources :comments
 	resources :projects do
+		resources :likes
 		member do
 			get 'edit_collaborators'
 			post 'update_collaborators'
@@ -66,6 +67,8 @@ Pdb::Application.routes.draw do
 			get 'random'
 		end
 	end
+	
+
   
 # The priority is based upon order of creation:
 # first created -> highest priority.

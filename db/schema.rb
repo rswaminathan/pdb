@@ -10,12 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110130055513) do
+ActiveRecord::Schema.define(:version => 20110210192233) do
 
   create_table "admins", :force => true do |t|
-    t.text     "email_list"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.text      "email_list"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "comments", :force => true do |t|
@@ -26,10 +26,18 @@ ActiveRecord::Schema.define(:version => 20110130055513) do
     t.timestamp "updated_at"
   end
 
-  create_table "pre_users", :force => true do |t|
-    t.string   "email"
+  create_table "likes", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.string   "like"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "pre_users", :force => true do |t|
+    t.string    "email"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "pre_users_projects", :id => false, :force => true do |t|

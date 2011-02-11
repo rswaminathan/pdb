@@ -16,16 +16,19 @@ class PagesController < ApplicationController
 
 	def home1
 		@title = "Home"
-		@user = User.new
+		@user = (current_user || User.new)
 		@slider_projects = slider_projects
 		if params[:page]
 			@home_page = params[:page]
 		end
-		@projects =Project.all.sort! {|a,b| -(a.created_at <=> b.created_at)}.paginate :page => params[:page], :per_page => 5
-	
+		if params[:search]
+		  @projects= Project.search_by_name(params[:search]).sort! {|a,b| -(a.created_at <=> b.created_at)}.paginate :page => params[:page], :per_page => 5
+		else
+		  @projects=Project.all.sort! {|a,b| -(a.created_at <=> b.created_at)}.paginate :page => params[:page], :per_page => 5
+		end
 		p_list = Array.new
-    Project.all.each do |project|
-    p_list += project.kind_list
+		Project.all.each do |project|
+		p_list += project.kind_list
     end
 
     p_count=Hash.new

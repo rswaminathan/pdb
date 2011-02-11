@@ -14,7 +14,7 @@ class Project < ActiveRecord::Base
   has_many :project_pages
   has_many :relationship_projects, :foreign_key => :followed_id
   has_many :followers, :through => :relationship_projects
-                     
+  has_many :likes
   validates :name,        :presence   => true
   
   scope :by_count, :order => 'projects.count DESC'
