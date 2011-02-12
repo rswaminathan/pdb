@@ -74,8 +74,8 @@ module SessionsHelper
     end
 	
 	def likes_project?(user, project,type)
-		user.likes.each do |like|
-			if like.project == project
+		project.likes.each do |like|
+			if like.user == user
 				return true if like.description == type
 			end
             return false

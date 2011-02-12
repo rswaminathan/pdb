@@ -6,9 +6,7 @@
 	<%= link_to "Interesting", project_likes_path(project, :description => 'interesting'), :method => :post, :remote => true %><br />
 </div>		
 
-
-
-
+<%= project.likes.count%>
 <div class="home-user-info-2" class="span-13 last">					
 	<%= render 'pages/home/project/user_list', :users => project.users.first(4) %>
 </div>
