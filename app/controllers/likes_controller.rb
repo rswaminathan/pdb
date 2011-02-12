@@ -8,7 +8,7 @@ class LikesController < ApplicationController
 		@like.project = @project
 		@like.user = current_user
 		if @like.save
-		  if @like.like = "know_more"
+		  if @like.description = "know_more"
 		    flash[:success] = "Saved"
             # send an email to the project owner
             @project.users.each do |user|
