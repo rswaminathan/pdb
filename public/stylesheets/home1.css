@@ -163,7 +163,7 @@ color:white;
 
 
 
-#home-popular-tags{
+.home-popular-tags{
 	margin-left:0.3em;
 	color: #eee;
 	font-size:01em;
@@ -173,12 +173,12 @@ color:white;
 	
 }
 
-#home-popular-tags a{
+.home-popular-tags a{
 	font-weight: normal;
 	color: #eee;
 	margin-left: 0.5em;
 }
-#home-popular-tags a:hover{
+.home-popular-tags a:hover{
 	color:black;
 	text-decoration: underline;
 	
