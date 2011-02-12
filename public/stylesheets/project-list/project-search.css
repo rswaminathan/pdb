@@ -1,0 +1,18 @@
+#project_lists{
+	margin-top:0.4em;
+}
+#project_lists a{
+	font-size:1.4em;
+	float:right;
+	margin-right: 1.3em;
+	color: #C31310;
+	font-weight:bold;
+	line-height:1.1em;
+	border-bottom: 2px solid #C31310;
+	
+}
+
+#project_lists a:hover{
+	border-bottom: 2px solid #C31310;
+
+}

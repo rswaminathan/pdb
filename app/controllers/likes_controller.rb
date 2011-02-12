@@ -2,7 +2,7 @@ class LikesController < ApplicationController
   
   def create
     @project = Project.find(params[:project_id])
-	unless likes_project?(current_user, @project, params[:description])
+	if !likes_project?(current_user, @project, params[:description])
 		@like = Like.new
 		@like.description = params[:description]
 		@like.project = @project
@@ -13,6 +13,9 @@ class LikesController < ApplicationController
             # send an email to the project owner
             @project.users.each do |user|
               UserMailer.know_more(user, current_user, @project).deliver
+              render :js => "alert('Thank you. Users have been notified
+                                    that you would like to know more 
+                                    about #{@project.name}');"
             end
           end
 		else

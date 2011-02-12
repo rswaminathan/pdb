@@ -129,24 +129,7 @@ body{
 	margin-bottom:1.4em;
 }
 
-#project_lists{
-	margin-top:0.4em;
-}
-#project_lists a{
-	font-size:1.4em;
-	float:right;
-	margin-right: 1.3em;
-	color: #C31310;
-	font-weight:bold;
-	line-height:1.1em;
-	border-bottom: 2px solid #C31310;
-	
-}
 
-#project_lists a:hover{
-	border-bottom: 2px solid #C31310;
-
-}
 
 #popular_tags{
 	float:left;
@@ -408,17 +391,6 @@ a {
 	text-align:center;
 }
 
-#user_projects {
-	padding: 0;
-	width: 720px;
-	vertical-align: top;	
-}
-
-#user_projects_photo {
-	margin-right:1.1em;
-	max-width:80px;
-	max-height:80px;
-}
 
 #user_sidebar_pages{
 	padding: 0.3em 0.7em 0 0.7em;	
@@ -961,86 +933,6 @@ a {
 	margin-top:0.5em;
 }
 
-#project_name_sidebar {	
-	font-size:1.8em; 
-	color:white; 
-	padding:0.4em 0.4em 0.7em 0.4em;
-	border-bottom: 1px solid #fff;
-	text-align: center;
-	line-height: 1.4em;	
-	border-radius: 0.5em 0em 0em 0em;
-	-moz-border-radius: 0.5em 0em 0em 0em;
-	
-}
-#project_name_sidebar a{
-	color:white; 	
-}
-#project_name_sidebar a:hover{
-	border-bottom: 2px solid #fff
-	
-}
-
-#project_name_background{
-	padding:1px 0.5em 0.5em 0.5em;
-	margin-bottom: 5px;
-	border-radius: 0em 0.5em 0em 0em;
-	-moz-border-radius: 0em 0.5em 0em 0em;
-}
-
-#add_project_name {
-	font-size: 1.5em;
-	color: #DF0200;
-	
-}
-
-
-
-#project_name_div {
-	font-size: 1.5em;
-	color: #913100;
-}
-
-#project_name_div  a{
-	font-weight: bold;
-	color: #DF0200;
-	
-}
-
-#project_name_div  a:hover {
-	text-decoration: underline;
-	color: #DA2400;
-
-	
-}
-
-#sample_project_name_div a{
-	font-size: 1.1em;
-	font-weight: bold;
-	color: #EE000B;
-	
-}
-
-#project_edit_name {
-	color: #eef;
-	font-size: 1em;
-	
-}
-
-#project_name_div_edit a{
-	font-size: 2.3em;
-	font-weight: bold;
-	color: #C30F01;
-	
-}
-
-#project_description_div {
-	font-size: 1em;
-	line-height: 1em;
-	padding-bottom: 0.2em;
-	margin:0em 0em 0em 0.2em;
-	color:black;
-	
-}
 
 #add_project_abstract {
 	font-size: 1em;
