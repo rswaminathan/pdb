@@ -275,17 +275,7 @@ body{
 	
 }
 
-.user_pic_name{
-	margin-left: 1.5em;
-	
-}
 
-.user_pic{
-	height:50px;
-	width:50px;
-	margin-right:5px;
-	float:left;
-}
 #home h1{
  color: #EE000B;
 	font-size: 2.8em;
@@ -303,16 +293,6 @@ body{
 	
 }
 
-.user{
-	font-size: 1.2em; 
-	padding-bottom: 0.5em;
-	margin:0;
-	padding:0.4em;
-	background-color: #9B1613;
-	border-radius: 0.4em;
-	-moz-border-radius: 0.4em;
-	margin-bottom:0.3em;
-}
 
 .user_huge{
 	font-size: 1.2em; 
@@ -328,17 +308,6 @@ body{
 }
 
 
-#users_list {
-color:white;
-}
-
-#users_list a{
-color:white;
-}
-
-#users_list a:hover{
-color:white;
-}
 
 #user_user_name h1{
 	font-size: 2.1em;
@@ -362,60 +331,6 @@ color:white;
 	margin-left:0.9em;
 }
 
-.user_name{
-	font-size: 1em;
-	position:relative;
-	height: 23px;
-	line-height:1.1em;	
-}
-
-.user_name a:link {
-	color: #fff;	
-}
-
-.user_name a:visited {
-	color: white;
-	
-}
-
-.user_name a:hover {
-	border-bottom: 1px solid #fff;
-}
-
-.user_name_definition{
-	font-size: 1em;
-	height: 23px;
-	line-height:1.1em;	
-	margin-left:4em; 
-	text-align: left; 
-	margin-top:0.4em; 
-}
-
-.user_name_definition a{
-	color:#C01426;	
-}
-
-.user_name_definition a:hover {
-	border-bottom: 1px solid #C01426;
-}
-
-.user_info{
-	font-size: 0.8em;
-	color: white;
-	line-height: 1.3em;
-	position:relative;
-	top:-3px;
-}
-
-.user_info a {
-	color: #white;
-	
-}
-
-.user_info a:hover {
-	text-decoration: underline;
-	
-}
 
 .user_info_2{
 	padding: 0em 0em 0em 5.4em;
