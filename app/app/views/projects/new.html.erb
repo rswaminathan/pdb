@@ -1,0 +1,61 @@
+  <% content_for :head do %>
+<%= render 'projects/yui_dependencies' %>
+<%= stylesheet_link_tag 'project' %>
+  <% end %>
+
+<% if !signed_in? %>
+  <p> Create an account </p>
+<% end %>
+
+<div class="container yui-skin-sam" id="project_new">
+	<%= form_for(@project) do |f| %>
+   	<%= render	'shared/error_messages', :object => f.object %>
+    <div class="span-7" id="project_new_left">  
+		  <div class="field">
+        <%= f.label :name %>
+			  <%= f.text_field :name %>
+		  </div>
+		
+		  <div class="field">			
+        <%= f.label :short_description %>		
+       	<%= f.text_area :abstract, :rows=>2, :cols=>4  %>
+		  </div>
+
+		  <div class="field">
+        <%= f.label :tags %>
+			  <%= f.text_field :kind_list, :value => @tag_string %></br>
+		  </div>
+    
+      <div class= "span-6 last" id="common_tags">
+        <h3>Common tags include: </h3>
+        <p>
+        <% Project.kind_counts.first(10).each do |k| %>
+          <%= k[:name] %>, 
+        <% end %>
+        </p>
+      </div>
+      
+      <div class="span-7 last" id="include_collaborotars">
+        <h3> Add collaborators: </h3>
+      </div>
+    </div>
+
+    <div class="span-16 last" id="project_new_right">
+      <div class="field">
+          <%= f.label :project_description %><br />
+			    <%= f.text_area :description, :rows=>5, :cols=>40 %>
+	    </div>
+	
+      <div class="field">
+          <%= f.label :add_project_picture %>
+			    <%= f.file_field :photo %>
+	    </div>
+
+		  <div class="submit">
+			  <%= f.submit "Create Project" %><br />
+		  </div>
+    </div>
+  <% end %>
+	<%= render 'projects/yui_script', :editor => "project_description" %>
+</div>
+

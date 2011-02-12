@@ -1,0 +1,45 @@
+<div id="project_name_background">
+
+	<div id="project_name_header">
+		
+		<% if !@pages.any? %>
+			<div style="text-align:center"><%= link_to @project.name, @project %></div></div>
+			<% else %>
+			<%= link_to @project.name, @project %>
+		<% end %>
+		
+	</div>
+	
+	<% if @page_is_main %>
+	
+		<% if @project.photo.exists? %>
+			<div id="project_picture", align="center">
+				
+				<%= image_tag @project.photo.url(:huge) %>
+			</div>
+		<% end %>
+		
+		<% if current_project_user? %> 
+		<div id="login_special"style="margin-right:1em; text-align:right">
+				<%= link_to "Edit Page Content", edit_main_page_project_path%>
+			</div>
+		<% end%>
+		<div id="project_info">
+				<p><%= raw((@project.description.nil? || @project.description.empty?) ? @project.abstract : @project.description) %></p>
+		</div>
+	<% else %>
+
+		<% if current_project_user? %> 
+			<div id="login_special"style="margin-right:1em; text-align:right">
+				<%= link_to "Edit Page", edit_page_project_path(@project, :page => params[:page]) %> 
+				| <%=link_to "Delete Page", delete_page_project_path(@project, :page => @page.title), :confirm => "Are you sure?", :method => :delete %>
+			</div>
+		<% end%>
+		<%= render "projects/project_content" %>
+	<% end %>
+	<div>
+      <%= link_to "Know more", project_likes_path(@project, :description => "know_more"), 
+                              :remote => true, :method => :post %>
+		
+	</div>
+</div>

@@ -1,0 +1,9 @@
+Email sent successfully <br />
+
+Subject: <%= @subject %> <br />
+Message: <%= raw @message %><br /><br />
+
+Sent to:
+<% @users.each do |user| %>
+	<%= user.name %>, <%= user.email %> <br />
+<% end %>

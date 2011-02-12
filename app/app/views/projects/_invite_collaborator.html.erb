@@ -1,0 +1,7 @@
+<%= form_tag invite_collaborator_project_path, :method => :post, :remote => true do %>
+	<div class="field">
+		<%= label :invite_user, "Can't find who you're looking for? Enter their email" %>
+	</div>
+	<%= text_field_tag :email %>
+	<%= submit_tag "Invite " + params[:search] %><br />
+<% end %>

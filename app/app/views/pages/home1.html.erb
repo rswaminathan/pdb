@@ -1,0 +1,28 @@
+<% content_for :head do %>
+<%= javascript_include_tag 'jquery.nivo.slider.pack.js' %>
+<%= stylesheet_link_tag 'home1' %>
+<%= render 'shared/facebook_graph' %>
+<% end %>
+<div id="home">
+	<%= render 'pages/home/main_info' %>
+</div>
+<div class="container" style="padding-top:8px; padding-bottom:20px; min-height: 350px">
+	<div id="user_background" class="span-24">	
+		<table cellspaceing="0" style="margin:0">
+			<tbody>
+				<tr>
+					<td id="profile_div" class="span-6">
+						<%= render 'pages/home/sidebar' %>
+					</td>
+					<td style="padding-left:20px; padding-right:20px; vertical-align:top">
+						<div class="span-17">
+						<%= render 'pages/home/feed' %>
+						</div>
+						<%= will_paginate @projects %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+

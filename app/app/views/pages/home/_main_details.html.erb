@@ -1,0 +1,47 @@
+
+
+<div class="container" id="benefits">
+		
+		
+	<hr style="margin-bottom:0;"/>
+	<div id="reasons">
+	4 Reasons to Use Holono
+	</div>
+	
+  <div id="details_spacing">
+	<div style="margin-bottom:1em">
+    <h3>Harvey Mudd</h3>
+    <h3>Deserves Recognition</h3>
+	</div>
+    <% mudd = image_tag "example_1a.png", :size => "200x100" %><%= link_to mudd, Project.find(56) %>
+    <p> Let's create an open database of all the amazing things done by the Harvey Mudd Community. That's something Caltech and MIT have never had. </p>
+  </div>
+
+  <div id="details_spacing">
+		<div style="margin-bottom:1em">
+		<h3>Holono</h3>
+    	<h3>Beats Resumes</h3>
+		</div>
+    <% recognition = image_tag "example_2a.png", :size => "200x100" %><%= link_to recognition, User.find(2)  %>
+    <p>  You've built cool things that you can't show on a resume. You've done great activities that few others know about. Holono has user pages to organize and show all of it.</p>
+  </div>
+ 
+  <div id="details_spacing">
+	<div style="margin-bottom:1em">
+    	<h3>You've Missed Some</h3>
+    	<h3>Awesome Events</h3>
+	</div>
+    <% awesome = image_tag "example_3a.png", :size => "200x100" %><%= link_to awesome, Project.find(50) %>
+    <p>You probably missed the awesome things competition. Same for the E4 presentations, or the last amazing DOS Muchachos event. This is a way to see what happened.</p>
+  </div>
+
+  <div id="details_spacing">
+	<div style="margin-bottom:1em">
+    <h3>If You Are Considering</h3>
+    <h3>Applying Here </h3>
+
+	</div>
+    <% apply = image_tag "example_3.png", :size => "200x100" %><%= link_to apply, search_projects_path(:page => "sort_by_views") %>
+    <p> If you are still looking at colleges, you may be curious about if you will fit in at Mudd.  Holono has substantial browsing features to see what the community is like.  </p>
+  </div>
+</div>

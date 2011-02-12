@@ -1,0 +1,16 @@
+<div id="projects">
+	<table border="0" cellspacing="5" cellpadding="5">
+		<% if !@projects.nil? %>
+			<% @projects.each do |p| %>
+				<tr>
+					<td width="80px;"><%logo = image_tag p.photo.url(:thumb) %><%= link_to logo, p %></td>
+					<td>
+						<div id="project_name_div"><%= link_to p.name, p %></div> 
+						<div id="project_description_div"><%= truncate(p.description, :length => 300) %></div>
+						<div id="project_kind"><%= p.kind%></div>
+					</td>
+				</tr>
+			<% end %>
+		<% end %>
+	</table>
+</div>

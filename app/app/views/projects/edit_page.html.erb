@@ -1,0 +1,23 @@
+<% if current_project_user? %>
+  <% content_for :head do %>
+<%= render 'projects/yui_dependencies' %>
+  <% end %>
+<% end %>
+<div class="container">
+	<div class="home_register span-16 yui-skin-sam" style="margin-left: 16em">
+		<%= form_for( @page, :url => update_page_project_path) do |f| %>
+			<div class="field">
+				<%= f.label :title %><br />
+				<%= f.text_field :title%>
+			</div>
+			<div class="field">
+				<%= f.label :content %><br />
+				<%= f.text_area :content%>
+			</div>
+			<div class="submit">
+				<%= f.submit "Save Page" %><br />
+			</div>
+		<% end %>
+	</div>
+</div>
+<%= render 'projects/yui_script', :editor => "project_page_content" %>

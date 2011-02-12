@@ -1,0 +1,29 @@
+<h1>Edit Project</h1>
+<div class="yui-skin-sam">
+<%= form_for @project, :html => { :multipart => true } do |f| %>
+	<%= render	'shared/error_messages', :object => f.object %>
+	
+	<div id="project_delete" style="float:right; position: relative; top:-60px"><%= (link_to "Delete Project", @project , :confirm => "Are you sure?", :method => :delete) if current_project_user? %></div>
+	
+	<div class="field">
+		<%= f.label :name %><br />
+		<div id="project_edit_name"><%= f.text_field :name %></div>
+	</div>
+	<div class="field">
+		<%= f.label :tags %><br />
+		<%= f.text_field :kind_list %>
+	</div>
+	<div class="field">
+		<%= f.label :Abstract %><br />
+		<%= f.text_area :abstract %>
+	</div>
+	<div class="field">
+		<%= f.label "Project Photo" %><br />
+		<%= "Note: This is shown on the home page and also acts as the project tag" %><br />
+		<%= f.file_field :photo %>
+	</div>
+	<div class="submit">
+		<%= f.submit "Save" %><br />
+	</div>
+<% end %>
+</div>

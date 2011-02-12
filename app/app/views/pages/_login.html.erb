@@ -1,0 +1,21 @@
+<div class="span-4" style="color:#EE000B"><h2>Log In</h2></div>
+<div id="new_account"> <%= link_to 'New Account', signup_path, :remote => true  %></div>
+<hr />
+<%= form_for(:session, :url => sessions_path) do |f| %>
+
+    <div class="field">
+        <%= f.label :email %><br />
+        <%= f.text_field :email %>
+    </div>
+    <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password %>
+    </div>
+
+    <div class="submit">
+        <%= f.submit "Login", :id => "register_button" %><br />
+    </div>
+<% end %>
+<br />
+<hr />
+

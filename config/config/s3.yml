@@ -1,0 +1,14 @@
+development:
+  bucket: muddfish_images
+  access_key_id: AKIAIHIV7PLDAZTTWJKQ
+  secret_access_key: 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
+
+test:
+  bucket: muddfish_images
+  access_key_id: AKIAIHIV7PLDAZTTWJKQ
+  secret_access_key: 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
+
+production:
+  bucket: muddfish_images
+  access_key_id: AKIAIHIV7PLDAZTTWJKQ
+  secret_access_key: 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

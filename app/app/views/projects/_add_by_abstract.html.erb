@@ -1,0 +1,28 @@
+<div style="min-height:120px">
+
+<%= form_for(@project) do |f| %>
+			<%= render	'shared/error_messages', :object => f.object %>
+			<div class="field">
+				<%= f.text_field :name, :value => "Project name", :id => "add_project_name" %>
+			</div>
+			<div class="field">
+				<%= f.text_field :abstract, :value => "A short description", 
+                         :id => "add_project_abstract" %> 
+			</div>
+			<div class="field">
+				<%= f.text_field :kind_list, :value => "Enter tags(comma separated)", 
+                         :id =>"add_project_kind_list" %>
+			</div>
+			<div style="position:relative; top:-16px; margin-left:31em">
+			<div class="field">
+				<%= f.label "project_photo (optional)" %><br />
+				<%= f.file_field :photo %>
+			</div>
+			</div>
+			<div class="submit", style="margin-left:8em">
+				<%= f.submit "Next" %><br />
+			</div>
+			
+<% end %>
+
+</div>

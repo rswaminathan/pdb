@@ -1,0 +1,18 @@
+<div style="color:#EE000B"><h1 style="color:#EE000B">Log In</h1>
+<%= form_for(:session, :url => sessions_path) do |f| %>
+
+    <div class="field">
+        <%= f.label :email %><br />
+        <%= f.text_field :email %>
+    </div>
+    <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password %>
+    </div>
+
+    <div class="submit">
+        <%= f.submit "Login", :id => "register_button" %><br />
+    </div>
+<% end %>
+</div>
+

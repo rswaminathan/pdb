@@ -1,0 +1,18 @@
+<div class="span-9" style="margin-left:10px">
+<div style="font-size:2em; color: #913100"> 
+Project Feed </div>
+<hr>
+<% h = { :L => @user.projects_following } %>
+<% @user.users_following.each do |user| %>
+	<% user.projects.each do |project| %>
+		<% h[:L] += [project] unless (h[:L].include?(project)) %>
+	<% end %>
+<% end %>
+<% list=project_update_sort(h[:L]) %>
+<%= render 'snippets', :list => list %>
+</div>
+</div>
+
+<div class="span-8 last" style="float:right; margin-right:14px">
+<%= render 'updates' %>
+</div>

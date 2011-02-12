@@ -1,0 +1,11 @@
+<h1>Edit About Page</h1>
+<%= form_for @profile, :url => update_profile_user_path do |f| %>
+	<%= render	'shared/error_messages', :object => f.object %>
+	<div class="field">
+		<%= f.label :about %><br />
+		<%= f.text_area :about %>
+	</div>
+	<div class="submit">
+		<%= f.submit "Update Contact Page" %><br />
+	</div>
+<% end %>

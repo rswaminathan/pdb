@@ -1,0 +1,30 @@
+<div id="projects" class="span-18">
+	<table border="0" cellspacing="5" cellpadding="5">
+		<% if signed_in? && @current_user == User.find_by_id(params[:id]) %>
+			<tr>		
+				<td><%=link_to image_tag(src="/images/plus80.png"), new_project_path %></td>
+				<td>
+					<div id="project_name_div_edit"><%=link_to "Add a Project", new_project_path %></div>
+				</td>
+			</tr>
+		<% end %>
+		<% if !@projects.nil? %>
+			<% @projects.each do |p| %>
+				<tr>
+					<td width="80px;"><%logo = image_tag p.photo.url(:thumb) %>   <%= link_to logo, p %></td>
+					<td>
+						<div id="project_name_div"><%= link_to p.name, p %></div> 
+						<% if p.abstract.nil? || p.abstract.empty? %>
+							<div id="project_description_div"><%= truncate(p.description, :length => 300) %></div>
+						<% else %>
+							<div id="project_description_div"><%= truncate(p.abstract, :length => 300) %></div>
+						<% end %>
+						<% p.kind_list.each do |t| %>
+							<div id="project_kind"><%= link_to t, user_path(@user, :tag => t) %> </div>    
+						<% end %>
+					</td>
+				</tr>
+			<% end %>
+		<% end %>
+	</table>
+</div>

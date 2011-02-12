@@ -1,0 +1,19 @@
+<div class="container" style="min-height: 550px">
+	<div id="user_background" class="span-24">
+		<div id="user_header_background" class="span-24">
+			<div id="user_header" class="span-24">
+				<div id="user_header_search" class="span-24">
+					<h1><%= form_tag(search_path, :method => :get) do %></h1>
+						<div class="search_field">
+							<%= text_field_tag :q, params[:q] %>
+							<%= submit_tag "Search" %>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="search_display">
+		<%= render 'users/projectlist' %>
+	</div>
+</div>

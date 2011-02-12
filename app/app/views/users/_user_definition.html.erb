@@ -1,0 +1,51 @@
+<% if signed_in? && current_user_page? %>
+<%= render 'users/user_quick_project' %>
+<% end %>
+
+
+	<h2> Nonsense. </h2>
+	You are a Mudder, it runs in your blood.</br> On Holono, the term "Project" is extremely open ended.
+
+<div style="text-align: center">
+	<hr/>
+	<div id="team" class="span-5" style="width:180px">
+		<% [Project.find(47),Project.find(30),Project.find(62)].each do |user| %>
+			<div class="user", style="width:180px; margin-bottom:0.3em; height:55px; padding:0.15em; background-color:#f6f6f6" >
+				<div class="user" style="float:left; height:40px; width:50px; padding:0.15em; background-color:#f6f6f6"><%= image_tag user.photo.url(:tiny)%></div> 
+				<div class="user_name_definition"> <%= link_to user.name, user %> </div>
+			</div>
+		<% end %>
+	</div>
+
+	<div class="span-8", style="margin-right:13px">
+		<h3>Holono "Projects" Include</h3>
+		<h4>Class Projects </br>
+			Pranks </br>
+			Adventures (Study Abroad, Road Trips) </br>
+			Academic Research </br>
+			Events (Competitions, conferences, parties) </br>
+			Artwork </br>
+			Performances </br>
+			Groups</h4>
+	</div>
+
+	<div id="team" class="span-5 last">
+			<% [Project.find(32),Project.find(46),Project.find(63)].each do |user| %>
+				<div class="user", style="width:180px; margin-bottom:0.3em; height:55px; padding:0.15em; background-color: #f6f6f6" >
+					<div class="user" style="float:left; height:40px; width:50px; padding:0.15em; background-color:#f6f6f6"><%= image_tag user.photo.url(:tiny)%></div> 
+					<div class="user_name_definition"> <%= link_to user.name, user %> </div>
+
+				</div>
+			<% end %>
+	</div>
+
+	<hr/>			
+</div>
+
+	In short, a "Project" is any one item/event you have finished or are still working on.  We encourage you to post everything that anyone in the community could find interesting.  It doesn't have to be impressive at all, it just has to exist.
+
+</br></br>
+	<h3> So go on and post something.</h3>
+
+	We believe in you, and the Community will be better off for it.
+

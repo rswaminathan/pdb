@@ -1,0 +1,47 @@
+<div id="user_user_name">
+	<h1><%= link_to @user.name, @user %></h1>
+	<h2><%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %></h2>
+</div>
+<div id="projects", style="float:center">
+	<% if signed_in? && current_user_page? %>
+		<div id="login_special", align="center">
+			<%= link_to "Edit Your Profile!", user_path(@user, :page => "edit_profile") %>
+		</div>
+	<% end %>
+	<div align="center">
+		<% if @profile.photo.exists? %>
+			<%= image_tag @profile.photo.url(:medium) %>
+		<% end %>
+	</div>		
+	<%= render 'follow_form' if (signed_in? && !current_user_page?) %>
+	<div style="padding:0.5em;text-align:center; margin-left:0.3em; color:white; font-size: 1.2em; line-height:1.4em">
+		<% unless @profile.nil?%>
+			<%= raw @profile.quote %>
+		<% end %>
+		<br />
+	</div>
+	
+	<% if !@profile.about.nil? || (signed_in? && current_user_page?) %>
+	<div id="project_delete", style="text_align:center">
+	<%= link_to "About", user_path(@user, :page => "about")  %>
+	</div>
+	<% end %>
+	
+	<hr />
+	<div id="following">
+		<div style="font-size: 1.2em;">
+			<%= link_to "Following", user_path(@user, :page => "following") %>
+		</div>
+		<div style="color:#C6ECFF; font-size: 1em;">
+			<%= @user.users_following.count %> Users<br />
+		</div>
+	</div>
+	<div id="following">
+		<div style="font-size: 1.2em;">
+			<%= link_to "Followers", user_path(@user, :page => "followers") %>
+		</div>
+		<div style="color:#BFF8FF; font-size: 1em;">
+			<%= @user.followers.count %> Users
+		</div>
+	</div>
+</div>
