@@ -1,0 +1,6 @@
+<%if users.any? %>  
+		<% users.each do |u| %>
+				<div class="home-user-name"><%= link_to u.name, u %></div>
+		<% end%>
+<% end %> 
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110212062720) do
+ActiveRecord::Schema.define(:version => 20110212180838) do
 
   create_table "admins", :force => true do |t|
     t.text      "email_list"
@@ -65,6 +65,12 @@ ActiveRecord::Schema.define(:version => 20110212062720) do
     t.string    "department"
     t.string    "top_tags"
     t.text      "quote"
+    t.string    "interesting_photo_file_name"
+    t.string    "interesting_photo_content_type"
+    t.integer   "interesting_photo_file_size"
+    t.string    "awesome_photo_file_name"
+    t.string    "awesome_photo_content_type"
+    t.integer   "awesome_photo_file_size"
   end
 
   create_table "project_pages", :force => true do |t|

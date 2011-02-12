@@ -1,0 +1,5 @@
+<% a= like.user%>
+<%= a.name %>
+<%= "thinks this is"%> 
+<%= like.description%>
+<div class="home-user-pic"><% logo = image_tag a.profile.photo.url(:teeny)%> <%= link_to logo, a, :class => "left"  %></div>    

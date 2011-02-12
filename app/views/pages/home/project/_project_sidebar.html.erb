@@ -1,12 +1,23 @@
 <div class="project-feedback-button-bottom" style= "background-color: #428FCF">
 	<%= link_to "Awesome", project_likes_path(project, :description => 'awesome'), :method => :post, :remote => true %><br />
+<%= project.likes.awesome.count%>
 </div>
 
 <div class="project-feedback-button-bottom" style="background-color:#2AB153">
 	<%= link_to "Interesting", project_likes_path(project, :description => 'interesting'), :method => :post, :remote => true %><br />
+	<%= project.likes.interesting.count%>
 </div>		
+<%= @message %>
+<% project.likes.awesome.each do |like| %>
+	<div class="span-6 last">
+		<%= render 'pages/home/project/project_fans', :like => like %>
+	</div>
 
-<%= project.likes.count%>
-<div class="home-user-info-2" class="span-13 last">					
-	<%= render 'pages/home/project/user_list', :users => project.users.first(4) %>
-</div>
+<% end %>
+	
+<% project.likes.interesting.each do |like| %>
+	<div class="span-6 last">
+		<%= render 'pages/home/project/project_fans', :like => like %>
+	</div>	
+	
+<% end %>

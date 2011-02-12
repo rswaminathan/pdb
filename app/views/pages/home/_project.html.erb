@@ -1,12 +1,10 @@
 <% u = project %>
 
 	<div id="home-project-list" >		
+		
+		<div class="span-12">
+		<div style = "padding-left:1em">
 			<%= render 'pages/home/project/project_heading', :project => project %>
-		  <div id="home_sidebar_<%= project.id %>">
-				<%= render 'pages/home/project/project_sidebar', :project => project %>
-		  </div>
-
-      <div style=" width:681px; margin-right:0">
 				<% if u.photo.exists? %>	
 				  <%= render 'pages/home/project/project_wpic', :project => project %>
 				<% else %>
@@ -17,5 +15,10 @@
 						<%= link_to page.title.titleize, project_path(u, :page => page.title) %>
 					</div>
 				<% end %>
+				</div>
 			</div>
+	  <div id="home_sidebar_<%= project.id %>" class="span-6 last">
+			<%= render 'pages/home/project/project_sidebar', :project => project %>
+	  </div>
+
 	</div>

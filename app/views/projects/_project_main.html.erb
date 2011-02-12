@@ -38,7 +38,8 @@
 		<%= render "projects/project_content" %>
 	<% end %>
 	<div>
-      <%= link_to "Know more", project_likes_path(@project, :description => "know_more"), :method => :post, :remote => true%>
-		
+		<% unless current_project_user? %>
+			<%= render 'tell_me_more' %>
+		<% end %>
 	</div>
 </div>

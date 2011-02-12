@@ -1,3 +1,6 @@
+<%= stylesheet_link_tag 'project-list/project-search' %>
+<%= stylesheet_link_tag 'project-list/project-regular' %>
+
 <div class="container" style="padding-bottom:20px; min-height: 550px">
 
 	<div class="search_top">
@@ -45,7 +48,7 @@
     <%= render :partial => "project", :collection => @projects_found %>
 
 <% if params[:search]%>
-<% end%>
+<% end %>
 		<div id="invite_user"></div>
 		
 		<br />

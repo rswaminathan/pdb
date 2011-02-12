@@ -1,18 +1,18 @@
-		<div id="home-user-projects-photo" >
-			<%logo = image_tag project.photo.url(:feed) %>
-			<%= link_to logo, project %>
-		</div>
+<div id="home-user-projects-photo" >
+	<%logo = image_tag project.photo.url(:feed) %>
+	<%= link_to logo, project %>
+</div>
 
-		
-		<div id="project-description-div", style="margin-right:13em", class="span-17">	
-			<% if (project.description == nil) %>
-			<%= raw(project.abstract) %>
-			<% else %>
-			<%= raw(truncate(project.description, :length => 1000)) %>
-			<% if (project.description.length >= 1000) %>
-				<div id="more-projects">
-					<%= link_to "more", project %>
-				</div>
-			<% end%>
-			<% end%>
+
+<div id="project-description-div">	
+	<% if (project.description == nil) %>
+	<%= raw(project.abstract) %>
+	<% else %>
+	<%= raw(truncate(project.description, :length => 1000)) %>
+	<% if (project.description.length >= 1000) %>
+		<div id="more-projects">
+			<%= link_to "more", project %>
 		</div>
+	<% end%>
+	<% end%>
+</div>

@@ -74,9 +74,9 @@ module SessionsHelper
     end
 	
 
-	def likes_project?(user, project)
+	def likes_project?(user, project,type)
 		project.likes.each do |like|
-			if like.user == user 
+			if like.user == user && like.description == type
 				return true
 			end
     end
@@ -92,24 +92,28 @@ module SessionsHelper
 		return false
   end
 	
-def like_options(user, project, type)
-	if user.nil?
-		return "new_user"
-	elsif likes_project?(user, project)
-		project.likes.each do |like|	  	  
-			if like.user == user && like.description == type
-				return "it's the same"	
-			elsif like.user == user
-				if (like.description == "awesome") || (like.description == "interesting")
-					@like_to_change = like
-					return "change"    
-				end		
+	def like_options(user, project, type)
+		if user.nil?
+			return "new_user"
+		elsif likes_project?(user, project)
+			project.likes.each do |like|	  	  
+				if like.user == user && like.description == type
+					return "it's the same"	
+				elsif like.user == user && like.description != type
+					if (like.description == "awesome") || (like.description == "interesting")
+						@like_to_change = like
+						return "change"    
+					else
+					
+					end
+				else
+					return "it's different"			
+				end
 			end
+		else
+			return false
 		end
-	else
-		return false
 	end
-end
 	
 	def project_update_sort(projects)
 		max = ["Home",0]
@@ -140,6 +144,3 @@ end
             cookies.signed[:remember_token] || [nil, nil]
         end
 end
-
-
-

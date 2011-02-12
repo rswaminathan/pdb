@@ -1,26 +1,33 @@
 class LikesController < ApplicationController
   
-  def create
-    @project = Project.find(params[:project_id])
-	if !likes_project?(current_user, @project, params[:description])
-		@like = Like.new
-		@like.description = params[:description]
-		@like.project = @project
-		@like.user = current_user
-		if @like.save
-		  if @like.description = "know_more"
-		    flash[:success] = "Saved"
-            # send an email to the project owner
-            @project.users.each do |user|
-              UserMailer.know_more(user, current_user, @project).deliver
-              render :js => "alert('Thank you. Users have been notified
-                                    that you would like to know more 
-                                    about #{@project.name}');"
-            end
-          end
+	def create
+		@project = Project.find(params[:project_id])
+		@like_changing = like_options(current_user, @project, params[:description])
+		if @like_changing == "change"
+			@like_to_change.description = params[:description]
+			@like_to_change.save
+		elsif @like_changing == "it's the same"
+			@message = "You are passionate about this, but we can't allow multiple votes.  Otherwise we would get too many integer overflows."
+		elsif @like_changing == "new_user"
+			@message = "You need to create an account first.  But Registration is really, really easy, we promise."
 		else
-		  flash[:error] = "Error"
+			@like = Like.new
+			@like.description = params[:description]
+			@like.project = @project
+			@like.user = current_user
+			if @like.save
+				if @like.description = "know_more"
+					# send an email to the project owner
+					@project.users.each do |user|
+						UserMailer.know_more(user, current_user, @project).deliver
+					end
+					flash.now[:success] = "Saved"
+				end
+			else
+				flash.now[:error] = "Error"
+			end
 		end
+	else
 	end
-  end
+  
 end
