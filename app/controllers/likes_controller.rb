@@ -12,7 +12,7 @@ class LikesController < ApplicationController
 		    flash[:success] = "Saved"
             # send an email to the project owner
             @project.users.each do |user|
-              UserMailer.know_more(current_user, user, @project).deliver
+              UserMailer.know_more(user, current_user, @project).deliver
             end
           end
 		else
