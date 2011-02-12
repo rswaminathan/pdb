@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110210192233) do
+ActiveRecord::Schema.define(:version => 20110212062720) do
 
   create_table "admins", :force => true do |t|
     t.text      "email_list"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20110210192233) do
   create_table "likes", :force => true do |t|
     t.integer  "project_id"
     t.integer  "user_id"
-    t.string   "like"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

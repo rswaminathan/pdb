@@ -37,4 +37,8 @@
 		<% end%>
 		<%= render "projects/project_content" %>
 	<% end %>
+	<div>
+      <%= link_to "Know more", project_like_path(@project, :description => "know_more"), :remote => true %>
+		
+	</div>
 </div>

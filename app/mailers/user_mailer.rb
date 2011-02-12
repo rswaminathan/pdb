@@ -22,11 +22,15 @@ class UserMailer < ActionMailer::Base
   end
   
   def added_user(user_to, user_from, project)
-	@user_to = user_to
-	@user = user_from
-	@project = project
-	subject = "#{@user.name} has added you as a collaborator to #{@project.name}"
-	mail(:to => @user_to.email, :subject => subject)
+  	@user_to = user_to  
+	  @user = user_from
+	  @project = project
+	  subject = "#{@user.name} has added you as a collaborator to #{@project.name}"
+	  mail(:to => @user_to.email, :subject => subject)
   end
-	
+
+  def know_more(user_to, user_from, project)
+    subject = "#{user_from.name} wants to know more about your project #{project.name}"
+    mail(:to => @user_to.email, :subject => subject)
+  end
 end

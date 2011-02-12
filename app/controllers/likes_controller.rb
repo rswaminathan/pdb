@@ -1,19 +1,23 @@
 class LikesController < ApplicationController
   
   def create
-    @user = current_user
     @project = Project.find(params[:project_id])
-	unless likes_project?(@user, @project, params[:like])
+	unless likes_project?(current_user, @project, params[:description])
 		@like = Like.new
-		@like.like = params[:like]
+		@like.description = params[:description]
 		@like.project = @project
-		@like.user = @user
+		@like.user = current_user
 		if @like.save
-		  flash[:success] = "Saved"
+		  if @like.like = "know more"
+		    flash[:success] = "Saved"
+            # send an email to the project owner
+            @project.users.each do |user|
+              UserMailer.know_more(user, current_user, @project)
+            end
+          end
 		else
 		  flash[:error] = "Error"
 		end
 	end
-	redirect_to(root_path, :search => params[:search])
   end
 end

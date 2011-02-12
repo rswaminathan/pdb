@@ -6,11 +6,11 @@
 		</div>
 	<% end%>
 
-	<% if @users.count == 1 %>
-		<%= render 'sidebar_triangles', :title => "Creator" %>
-	<% else %>
-		<%= render 'sidebar_triangles', :title => "The Team" %>
-	<% end %>
+<%= render 'sidebar_triangles', 
+  :title =>  if @users.count == 1 
+             then "Creator" 
+             else "The Team"  end%>
+
 	<div id="project_sidebar_section">
     <div id ="project_collaborators_list">
 	    <%= render 'user_list', :users => @collaborators %>

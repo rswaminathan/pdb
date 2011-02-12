@@ -11,12 +11,12 @@ div.hr hr {
 #Holono-description{
 	color:white;
 	margin:0.5em 0 0 0.8em;
-	font-size:1.1em;
+	font-size:1.2em;
 }
 
 #Holono-description a{
 	color:white;
-	margin:0.5em 0 0 0.8em;
+	margin:0.5em 0 0 0;
 	font-size:1.3em;
 	text-decoration: underline;
 	
