@@ -1,9 +1,0 @@
-<% unless @current_user == User.find_by_id(params[:id]) %>
-	<div id="follow_form">
-		<% if current_user.following_project?(@project) %>
-			<%= render 'unfollow' %>
-		<% else %>
-			<%= render 'follow' %>
-		<% end %>
-	</div>
-<% end %>

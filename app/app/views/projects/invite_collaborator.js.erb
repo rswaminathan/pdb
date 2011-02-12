@@ -1,5 +1,0 @@
-<% if @preuser.errors.any? %>
-$("#invite_user").append("Something went wrong :( Please check the e-mail you entered and try again.");
-<% else %>
-$("#invite_user").append("Successfully invited <%= @email %> <br />");
-<% end %>
