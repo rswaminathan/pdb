@@ -303,11 +303,8 @@ color:white;
 
 #facebook-center{
 	position:relative; 
-	top:-38px; 
 	width:0px; 
-	left:840px; 
-	height:50px; 
-	float:left;
+	float:right;
 	color:white;
 }
 
@@ -319,7 +316,7 @@ color:white;
 }
 #facebook-description{
 	color:#ddd;
-	margin-right:9.6em;
+	margin-right:1.2em;
 	float:right;
 	font-size:1.1em;
 	position:relative;
@@ -447,23 +444,6 @@ color:white;
 	
 }
 
-#facebook-center{
-	position:relative; 
-	width:0px; 
-	float:left;
-	color:white;
-	
-}
-
-#facebook-description{
-	color:#ddd;
-/*	margin-right:9.6em; */
-	float:left;
-	font-size:1.1em;
-	position:relative;
-	line-height:1.4em;
-	
-}
 
 #facebook-description h3{
 	color:#EE000B;
@@ -562,8 +542,9 @@ color:white;
 
 #header_title h1{
     padding-left: 0.7em;
-    font-size: 2.8em;
+    font-size: 3em;
 	margin-bottom:0px;
 	position:relative;
 	top:6px;
+	line-height: 0.5em;
 }

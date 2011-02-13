@@ -14,7 +14,7 @@ class PagesController < ApplicationController
 	end
 
 
-	def home1
+	def stage
 		@title = "Home"
 		@user = (current_user || User.new)
 		if params[:page]

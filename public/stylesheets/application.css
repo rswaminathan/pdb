@@ -205,19 +205,17 @@ body{
 
 .container #header_title a{
 	color: #EE000B;
-	font-size:1.8em;
-	font-weight: bold;
+	font-size:1.5em;
 	position:relative;
-	top:-5px;
+	top:-2px;
 	margin-bottom:0px;
 }
 
 .container #header_title a:hover{
 	color: #FF4334;
-	font-size:1.8em;
-	font-weight: bold;
+	font-size:1.5em;
 	position:relative;
-	top:-5px;
+	top:-2px;
 	margin-bottom:0px;
 	
 }

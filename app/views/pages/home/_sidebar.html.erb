@@ -15,6 +15,6 @@
 <div>
 <% links_generator %>
 <% @links.each do |u| %>
-<div class="home-popular-tags"><%="[ #{u[1]} ] "%><%= link_to u[0], home1_path(:search => u[0]) %>  </div>
+<div class="home-popular-tags"><%="[ #{u[1]} ] "%><%= link_to u[0], stage_path(:search => u[0]) %>  </div>
 <%end%>
 </div>

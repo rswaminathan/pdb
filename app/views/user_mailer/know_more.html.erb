@@ -1,6 +1,4 @@
 Hello,
 
-<%= @user_from.name%> would like to know more about your project, <%= @project.name %>
-
--- Holono
-
+<a href="<%= user_url(@user) %>"><%= @user.name %></a>  would like to know more about your project, <a href ="<%= project_url(@project) %>"><%= @project.name %></a>. <a href ="<%= edit_
+project_url(@project) %>"> Click here</a> if you wish to add more information to your project.
