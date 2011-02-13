@@ -1,7 +1,7 @@
 $("#home_sidebar_<%=@project.id %>").html("<%= escape_javascript(render 'pages/home/project/project_sidebar', :project => @project) %>");
 <% flash.each do |key, value| %>
   $("#freeow").freeow("Holono", "<%= value %>", {
-    classes: ["gray", "<%= key %>-icon"],
+    classes: ["smokey", "<%= key %>-icon"],
     autoHideDelay: 5000
   });
 <% end %>

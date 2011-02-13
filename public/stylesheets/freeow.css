@@ -100,10 +100,10 @@ member of the options object when calling freeow().
     -moz-border-radius: 12px;
 	border-radius: 12px;
     background: #000;
-    opacity: .65;
-    -moz-box-shadow: 2px 2px 3px #888;
-    -webkit-box-shadow: 2px 2px 3px #888;
-    box-shadow: 2px 2px 3px #888;
+    opacity: .8;
+    -moz-box-shadow: 2px 2px 3px #f00;
+    -webkit-box-shadow: 2px 2px 3px #f00;
+    box-shadow: 2px 2px 3px #f00;
 }
 .freeow .smokey:hover .background {
     border-color: #fff;
@@ -113,17 +113,18 @@ member of the options object when calling freeow().
 }
 .freeow .smokey h2 {
     font-family: "Lucida Grande", Helvetica, arial, sans-serif;
-    font-weight: normal;
-    font-size: 1.5em;
-    line-height: 16px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 18px;
     color: #ffffff;
 }
 .freeow .smokey p {
     padding-top: 8px;
     font-family: Helvetica, arial, sans-serif;
     font-weight: normal;
-    font-size: 1em;
-    line-height: 16px;
+    font-size: 14px;
+    line-height: 18px;
+    color: white;
 }
 
 /* Gray */
@@ -138,7 +139,7 @@ member of the options object when calling freeow().
     -moz-box-shadow: 2px 2px 3px #888;
     -webkit-box-shadow: 2px 2px 3px #888;
     box-shadow: 2px 2px 3px #888;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 .freeow .gray:hover .background {
     border-color: #009bc5;
