@@ -105,7 +105,7 @@ module SessionsHelper
 						return "it's different"
 					end
 				else
-					return "it's different"			
+		
 				end
 			end
 		elsif user.nil?

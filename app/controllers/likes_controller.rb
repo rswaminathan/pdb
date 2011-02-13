@@ -22,7 +22,6 @@ class LikesController < ApplicationController
 					end
                 end
 					flash.now[:success] = "Saved"
-				end
 			else
 				flash.now[:error] = "Error"
 			end
