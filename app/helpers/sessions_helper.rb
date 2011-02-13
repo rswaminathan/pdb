@@ -73,15 +73,14 @@ module SessionsHelper
                                           #after all other code
     end
 	
-	
-	def like_different_parameter?(user, project, type)
-		project.likes.each do |like|
-			if like.user == user && like.description != type
-				return true
-			end
+  	def like_different_parameter?(user, project, type)
+  		project.likes.each do |like|
+  			if like.user == user && like.description != type
+  				return true
+  			end
+      end
+  		return false
     end
-		return false
-  end
 
 
 	def likes_project?(user, project)
@@ -115,7 +114,8 @@ module SessionsHelper
 			return false
 		end
 	end
-
+	
+	
 	def project_update_sort(projects)
 		max = ["Home",0]
 		list = []
@@ -145,6 +145,3 @@ module SessionsHelper
             cookies.signed[:remember_token] || [nil, nil]
         end
 end
-
-
-
