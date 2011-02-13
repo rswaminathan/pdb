@@ -1,5 +1,5 @@
 body{
-
+	background-color:#333;
 	background: url("/images/curtains.jpg") no-repeat center center fixed;
 	        -webkit-background-size: cover;
 	        -moz-background-size: cover;
@@ -961,12 +961,13 @@ a {
 
 #footer{
 	align: center;
-	background:#111;
+	background:#161616;
 	font-size: 1.1em;   
 	padding-top: 1em;
 	font-weight: normal;
 	padding-bottom:0.1em;
 	color:#c89843;
+	border-top: 1px solid #333;
 	
 }
 

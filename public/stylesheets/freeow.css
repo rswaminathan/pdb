@@ -85,7 +85,9 @@ member of the options object when calling freeow().
 /* Icons */
 .freeow .slide .icon   { background-image: url(images/slide.png); }
 .freeow .pushpin .icon { background-image: url(images/pushpin.png); }
-
+.freeow .success-icon .icon { background-image: url(images/success-icon.png); }
+.freeow .warning-icon .icon { background-image: url(images/notice.png); }
+.freeow .error-icon .icon { background-image: url(images/error-icon.png); }
 
 /* Specific Styles ---------------------------------------------------------- */
 
@@ -136,6 +138,7 @@ member of the options object when calling freeow().
     -moz-box-shadow: 2px 2px 3px #888;
     -webkit-box-shadow: 2px 2px 3px #888;
     box-shadow: 2px 2px 3px #888;
+    opacity: 0.6;
 }
 .freeow .gray:hover .background {
     border-color: #009bc5;
@@ -153,7 +156,7 @@ member of the options object when calling freeow().
     padding-top: 8px;
     font-family: Helvetica, arial, sans-serif;
     font-weight: normal;
-    font-size: 11px;
+    font-size: 12px;
     line-height: 16px;
 }
 

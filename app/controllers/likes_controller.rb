@@ -6,10 +6,11 @@ class LikesController < ApplicationController
 		if @like_changing == "change"
 			@like_to_change.description = params[:description]
 			@like_to_change.save
+      flash.now[:success] = "Your vote has changed to #{params[:description].titleize}"
 		elsif @like_changing == "it's the same"
-		  @message = "We wish you could vote unlimited times."
+		  flash.now[:error] = "We wish you could vote unlimited times."
 		elsif @like_changing == "new_user"
-			@message = "You need to create an account first.  But Registration is really, really easy, we promise."
+			flash.now[:warning] = "You need to create an account first.  Registration is really, really easy, we promise."
 		else
 			@like = Like.new
 			@like.description = params[:description]
@@ -21,7 +22,7 @@ class LikesController < ApplicationController
 						UserMailer.know_more(user, current_user, @project).deliver
 					end
                 end
-					flash.now[:success] = "Saved"
+					flash.now[:success] = "Thanks. Your vote for #{@project.name} has been recorded."
 			else
 				flash.now[:error] = "Error"
 			end

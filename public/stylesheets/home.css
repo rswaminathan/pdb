@@ -244,14 +244,12 @@
 
 #reasons{
 	color:white;
-	background:#333;
-	background:#333;
 	margin-left:13em;
 	font-size:2em;
 	text-align:center;
-	top:-19px;
 	width: 310px;
 	position:relative;
+	margin-bottom:1em;
 }
 #details_name{
 	float:left;
@@ -273,51 +271,66 @@
 }
 
 #benefits p{
-    color: #97A3AB;
+    color: #C3C3C8;
 }
 
 #blurb  {
-	position:relative;
-	margin-bottom:0px;
-	
+	margin-bottom:2em;
+	padding-top:1em;
 }
 
-#blurb  h3{
-	color: #EE000B;
-	font-size:2.3em;
-	line-height:1em;
+#blurb a{
+	color: #000;
+	background-color: #EE000B;
+	text-align:center;	
+	font-size: 1.8em;
+	padding: 0.1em 0.4em 0.1em 0.4em;
+	border: 2px solid #black;
+	text-align:center;
+	border-radius:5px;
+	float:right;
+	margin-right:3.5em;
+	position:relative;
+	top:3px;
 	
+	-moz-box-shadow: 4px 4px 4px rgba(0,0,0,1);
+	-khtml-box-shadow: 4px 4px 10px rgba(0,0,0,1);
+	-webkit-box-shadow: 4px 4px 10px rgba(0,0,0,1);
+	
+}
+#blurb a:hover{
+	color: #000;
+	background-color: #FF6C00;
+	text-align:center;	
+	font-size: 1.8em;
+	padding: 0.1em 0.4em 0.1em 0.4em;
+	border: 2px solid #black;
+	text-align:center;
+	border-radius:5px;
+	float:right;
+	margin-right:3.5em;
+	position:relative;
+	top:3px;
+	
+	-moz-box-shadow: 4px 4px 4px rgba(100,0,0,1);
+	-khtml-box-shadow: 4px 4px 10px rgba(100,0,0,1);
+	-webkit-box-shadow: 4px 4px 10px rgba(100,0,0,1);
+
+}
+
+
+#blurb  h3{
 }
 
 #blurb  h1{
 	color: #EE000B;
-	font-size:2.5em;
+	font-size:3.4em;
 	line-height:1em;
-	
-}
-
-#blurb  h2{
-	color: #EE000B;
-	font-size:2.4em;
-	
-}
-
-#blurb  td{
-	width:70%;
-	
-}
-
-#blurb  a{
-  	color: #EE000B;
-	position:relative;
-	margin-bottom:0px;
-	
-}
-
-#blurb a:hover{
-	color: #FF4334;
+	display:inline;
 
 }
+
+
 
 #header_title h1{
     padding-left: 1.5em;

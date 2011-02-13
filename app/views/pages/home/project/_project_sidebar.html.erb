@@ -6,20 +6,17 @@
 	<%= link_to "Interesting", project_likes_path(project, :description => 'interesting'), :method => :post, :remote => true %><br />
 </div>		
 
+
 <% if project.likes.interesting.count != 0 %>
 
 	<div class="like-box" style="border: 1px solid #BDE7AE" >	
 	
 		<% project.likes.interesting.each do |like| %>
-			<div class="span-6 last">
 				<%= render 'pages/home/project/project_fan_pictures', :like => like %>
-			</div>		
 		<% end %>
 
 		<% project.likes.interesting.each do |like| %>
-			<div class="span-6 last">
 				<%= render 'pages/home/project/project_fan_names', :like => like %>
-			</div>		
 		<% end %>
 
 	</div>
