@@ -38,8 +38,6 @@
 		<%= render "projects/project_content" %>
 	<% end %>
 	<div>
-		<% unless current_project_user? %>
-			<%= render 'tell_me_more' %>
-		<% end %>
+			<%= render 'tell_me_more' unless current_project_user? %>
 	</div>
 </div>

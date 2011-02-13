@@ -74,14 +74,6 @@ module SessionsHelper
     end
 	
 
-	def likes_project?(user, project,type)
-		project.likes.each do |like|
-			if like.user == user && like.description == type
-				return true
-			end
-    end
-		return false
-	end
 	
 	def like_different_parameter?(user, project, type)
 		project.likes.each do |like|
@@ -92,10 +84,18 @@ module SessionsHelper
 		return false
   end
 	
+
+	def likes_project?(user, project)
+		project.likes.each do |like|
+			if like.user == user
+				return true
+			end
+    end
+		return false
+	end
+	
 	def like_options(user, project, type)
-		if user.nil?
-			return "new_user"
-		elsif likes_project?(user, project)
+		if likes_project?(user, project)
 			project.likes.each do |like|	  	  
 				if like.user == user && like.description == type
 					return "it's the same"	
@@ -104,12 +104,14 @@ module SessionsHelper
 						@like_to_change = like
 						return "change"    
 					else
-					
+						return "it's different"
 					end
 				else
 					return "it's different"			
 				end
 			end
+		elsif user.nil?
+			return "new_user"
 		else
 			return false
 		end
