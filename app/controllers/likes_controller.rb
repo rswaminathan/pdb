@@ -16,7 +16,7 @@ class LikesController < ApplicationController
 			@like.project = @project
 			@like.user = current_user
 			if @like.save
-				if @like.description = "know_more"
+				if @like.description == "know_more"
 					@project.users.each do |user|
 						UserMailer.know_more(user, current_user, @project).deliver
 					end
