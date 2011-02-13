@@ -35,3 +35,10 @@
 		<% end %>
 	</div>
 <% end %>
+
+<% if @needs_picture == true%>
+	<div style="font-size:1.3em; padding:0.5em; ">
+Add a special '<%= @like.description%>'  photo in your <%=link_to "User Profile", user_path(current_user, :page=> "edit_profile")%>
+	</div>
+<%end%>
+

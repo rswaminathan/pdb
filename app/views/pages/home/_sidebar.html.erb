@@ -1,15 +1,25 @@
 
 <div id="Holono-description">
-	Holono is a place to showcase and share projects. </br></br>
 	<% unless signed_in? %>
 		<div style="font-size:0.85em">
 		<%= link_to "Create an Account", Project.find(56) %> to</br>
-		- Post Projects and Groups</br>
+		- Post Projects and Activities</br>
 		- Follow and promote other Projects</br>
 		- Create a portfolio of your work</br>
 		</div>
 	<% end %>
 </div>
+
+<% if signed_in? %>
+
+<div id="Holono-description" style="margin-top:2em">
+	Post a Project on Your Profile
+</div>
+
+<div id="project_delete", style="text-align:center">
+	<%=link_to "My Profile", user_path(current_user) %>
+</div>
+<% end%>
 
 <div class="hr"><hr /></div>
 

@@ -22,7 +22,10 @@ class LikesController < ApplicationController
 						UserMailer.know_more(user, current_user, @project).deliver
 					end
                 end
-					flash.now[:success] = "Thanks. Your vote for #{@project.name} has been recorded."
+                
+					if !current_user.profile.interesting_photo.exists? || !current_user.profile.interesting_photo.exists?
+					  @needs_picture = true
+					end
 			else
 				flash.now[:error] = "Error"
 			end

@@ -271,7 +271,13 @@
 }
 
 #benefits p{
-    color: #C3C3C8;
+    color: black;
+	background-color:#ccc;
+	opacity: 0.8;
+	padding:0.5em;
+	border-radius: 0.3em;
+	-moz-border-radius: 0.3em;
+	height:104px;
 }
 
 #blurb  {

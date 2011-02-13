@@ -1,0 +1,19 @@
+<div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px">
+	<div class="home_register span-12" style="float:center; margin-left: 16em">
+		<h1>Create Profile</h1>
+		<%= form_for @profile, :url => update_profile_user_path, :html => { :multipart => true } do |f| %>
+			<%= render	'shared/error_messages', :object => f.object %>
+			<div class="field">
+				<%= f.label :interesting_photo %><br />
+				<%= f.file_field :interesting_photo %>
+			</div>
+			<div class="field">
+				<%= f.label :awesome_photo %><br />
+				<%= f.file_field :awesome_photo %>
+			</div>
+			<div class="submit">
+				<%= f.submit "Finish" %><br />
+			</div>
+		<% end %>
+	</div>
+</div>
