@@ -42,36 +42,37 @@
 	float:left;
 }
 
-#facebook-center{
-	position:relative; 
-	top:-64px; 
-	width:0px; 
-	left:840px; 
-	height:50px; 
-	float:left;
-	color:white;
-}
-
 #project-week{
 	color:#EE000B; 
 	font-size:1.1em; 
 	display:inline;
 
 }
+
+#facebook-center{
+	position:relative; 
+	width:0px; 
+	float:left;
+	color:white;
+	
+}
+
 #facebook-description{
 	color:#ddd;
-	margin-right:9.6em;
-	float:right;
+/*	margin-right:9.6em; */
+	float:left;
 	font-size:1.1em;
 	position:relative;
-	top:-25px;
 	line-height:1.4em;
+	
 }
+
 #facebook-description h3{
 	color:#EE000B;
 	display:inline;
 	margin:0;
 	font-size:1.2em;
+	
 }
 
 
@@ -85,7 +86,7 @@
 
 #home_top_container{
     background: #222;
-	height: 350px;
+	height: 363px;
 	border-radius: 1em 1em 1em 1em;
 	-moz-border-radius: 0.2em 0.5em 0.5em 0.5em;
 }
@@ -273,6 +274,42 @@
 
 #benefits p{
     color: #97A3AB;
+}
+
+#blurb  {
+	position:relative;
+	margin-bottom:0px;
+	
+}
+
+#blurb  h3{
+	color: #EE000B;
+	font-size:2.3em;
+	line-height:1em;
+	
+}
+
+#blurb  h2{
+	color: #EE000B;
+	font-size:2.4em;
+	
+}
+
+#blurb  td{
+	width:70%;
+	
+}
+
+#blurb  a{
+  	color: #EE000B;
+	position:relative;
+	margin-bottom:0px;
+	
+}
+
+#blurb a:hover{
+	color: #FF4334;
+
 }
 
 #header_title h1{

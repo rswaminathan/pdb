@@ -1,8 +1,11 @@
 body{
-	background: #333;
-	
-}
 
+	background: url("/images/curtains.jpg") no-repeat center center fixed;
+	        -webkit-background-size: cover;
+	        -moz-background-size: cover;
+	        -o-background-size: cover;
+	        background-size: cover;
+	}
 
 .home_1{
 	visibility: visible;
