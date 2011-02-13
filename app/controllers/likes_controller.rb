@@ -7,6 +7,7 @@ class LikesController < ApplicationController
 			@like_to_change.description = params[:description]
 			@like_to_change.save
 		elsif @like_changing == "it's the same"
+		  @message = "We wish you could vote unlimited times."
 		elsif @like_changing == "new_user"
 			@message = "You need to create an account first.  But Registration is really, really easy, we promise."
 		else

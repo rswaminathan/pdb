@@ -447,6 +447,32 @@ color:white;
 	
 }
 
+#facebook-center{
+	position:relative; 
+	width:0px; 
+	float:left;
+	color:white;
+	
+}
+
+#facebook-description{
+	color:#ddd;
+/*	margin-right:9.6em; */
+	float:left;
+	font-size:1.1em;
+	position:relative;
+	line-height:1.4em;
+	
+}
+
+#facebook-description h3{
+	color:#EE000B;
+	display:inline;
+	margin:0;
+	font-size:1.2em;
+	
+}
+
 #home_bottom_box_top a{
 	font-size:1.4em;
 	color: #C31310;
