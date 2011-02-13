@@ -6,9 +6,9 @@
 
 <div id="project-description-div">	
 	<% if (project.description == nil) %>
-	<%= raw(project.abstract) %>
+	<%= strip_tags(project.abstract) %>
 	<% else %>
-	<%= raw(truncate(project.description, :length => 1000)) %>
+	<%= strip_tags(truncate(project.description, :length => 1000)) %>
 	<% if (project.description.length >= 1000) %>
 		<div id="more-projects">
 			<%= link_to "more", project %>

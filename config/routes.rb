@@ -34,6 +34,8 @@ Pdb::Application.routes.draw do
 		get 'email'
 		post 'send_email'
 		post 'feedback'
+    get 'email_one'
+    post 'email_one'
 	end 
 
 	resources :sessions, :only => [:new, :create, :destroy]

@@ -1,0 +1,22 @@
+<div align="center" id ="project_info" class="container">
+<%= form_for :email, :url => admin_email_one_path do |f| %>
+  		<div class="field">
+				<%= f.label :id %><br />
+				<%= f.text_field :id %>
+			</div>
+
+  		<div class="field">
+				<%= f.label :subject %><br />
+				<%= f.text_field :subject %>
+			</div>
+
+			<div class="field">
+				<%= f.label :message %><br />
+				<%= f.text_area :message %>
+			</div>
+    
+			<div class="submit">
+			<%= f.submit "Send Email to User" %><br />
+			</div>
+<% end %>
+</div>

@@ -21,9 +21,9 @@ class PagesController < ApplicationController
 			@home_page = params[:page]
 		end
 		if params[:search]
-		  @projects= Project.search_by_name(params[:search]).sort! {|a,b| -(a.created_at <=> b.created_at)}.paginate :page => params[:page], :per_page => 8
+		  @projects= Project.search_by_name(params[:search]).sort! {|a,b| -(a.created_at <=> b.created_at)}.paginate :page => params[:page], :per_page => 5
 		else
-		  @projects=Project.all.sort! {|a,b| -(a.created_at <=> b.created_at)}.paginate :page => params[:page], :per_page => 8
+		  @projects=Project.all.sort! {|a,b| -(a.created_at <=> b.created_at)}.paginate :page => params[:page], :per_page => 5
 		end
 
 	end

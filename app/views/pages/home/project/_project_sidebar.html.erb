@@ -5,8 +5,6 @@
 <div class="project-feedback-button-bottom" style="background-color:#2AB153">
 	<%= link_to "Interesting", project_likes_path(project, :description => 'interesting'), :method => :post, :remote => true %><br />
 </div>		
-<%= @message %>
-
 
 <% if project.likes.interesting.count != 0 %>
 
