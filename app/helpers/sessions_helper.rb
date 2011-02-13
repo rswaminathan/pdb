@@ -104,8 +104,7 @@ module SessionsHelper
 					else
 						return "it's different"
 					end
-				else
-		
+				else		
 				end
 			end
 		elsif user.nil?
