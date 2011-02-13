@@ -15,10 +15,9 @@
 						<%= link_to page.title.titleize, project_path(u, :page => page.title) %>
 					</div>
 				<% end %>
-				</div>
-			</div>
-	  <div id="home_sidebar_<%= project.id %>" class="span-6 last">
+		</div>
+		</div>
+	  	<div id="home_sidebar_<%= project.id %>" class="span-6 last">
 			<%= render 'pages/home/project/project_sidebar', :project => project %>
-	  </div>
-
+		</div>
 	</div>

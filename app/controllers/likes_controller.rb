@@ -17,17 +17,15 @@ class LikesController < ApplicationController
 			@like.user = current_user
 			if @like.save
 				if @like.description = "know_more"
-					# send an email to the project owner
 					@project.users.each do |user|
 						UserMailer.know_more(user, current_user, @project).deliver
 					end
+                end
 					flash.now[:success] = "Saved"
 				end
 			else
 				flash.now[:error] = "Error"
 			end
 		end
-	else
 	end
-  
 end
