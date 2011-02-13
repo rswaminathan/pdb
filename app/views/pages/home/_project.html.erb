@@ -5,16 +5,17 @@
 		<div class="span-12">
 		<div style = "padding-left:1em">
 			<%= render 'pages/home/project/project_heading', :project => project %>
-				<% if u.photo.exists? %>	
-				  <%= render 'pages/home/project/project_wpic', :project => project %>
-				<% else %>
-				  <%= render 'pages/home/project/project_woutpic', :project => project %>
+			<% if u.photo.exists? %>	
+				<%= render 'pages/home/project/project_wpic', :project => project %>
+			<% else %>
+				<%= render 'pages/home/project/project_woutpic', :project => project %>
+			<% end %>
+			<div class="more-projects" %>
+				<% for i in 0..(u.project_pages.count-1) %>
+					<% page = u.project_pages[i] %>
+					<%= link_to page.title.titleize, project_path(u, :page => page.title) %><%= u.project_pages[i+1].nil? ? "" : " | " %>
 				<% end %>
-				<% u.project_pages.each do |page| %>
-					<div class="more-projects" %>
-						<%= link_to page.title.titleize, project_path(u, :page => page.title) %>
-					</div>
-				<% end %>
+			</div>
 		</div>
 		</div>
 	  	<div id="home_sidebar_<%= project.id %>" class="span-6 last">

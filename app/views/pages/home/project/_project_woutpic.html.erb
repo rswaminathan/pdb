@@ -5,7 +5,7 @@
 	<%= strip_tags(truncate(project.description, :length => 1000)) %>
 	<% if (project.description.length >= 1000) %>
 		<div id="more-projects">
-			<%= link_to "more", project %>
+			<%= link_to "more", project %><br />
 		</div>
 	<% end%>
 	<% end%>
