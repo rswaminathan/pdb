@@ -1,7 +1,8 @@
-  <% content_for :head do %>
-<%= render 'projects/yui_dependencies' %>
-<%= stylesheet_link_tag 'project' %>
-  <% end %>
+<% content_for :head do %>
+  <%= render 'projects/yui_dependencies' %>
+  <%= stylesheet_link_tag 'project' %>
+  <%= stylesheet_link_tag 'user-list/user-regular' %>
+<% end %>
 
 <% if !signed_in? %>
   <p> Create an account </p>
@@ -36,8 +37,10 @@
       </div>
       
       <div class="span-7 last" id="include_collaborotars">
-        <h3> Add collaborators: </h3>
+        <%= f.label :collaborators %><br />
+        <%= autocomplete_field_tag 'collaborotors', '', autocomplete_user_name_projects_path, :size => 26, :id_element => '#cids' %>
       </div>
+      <%= hidden_field_tag 'cids' %>
     </div>
 
     <div class="span-16 last" id="project_new_right">
@@ -50,7 +53,11 @@
           <%= f.label :add_project_picture %>
 			    <%= f.file_field :photo %>
 	    </div>
-
+		<div class="field">
+			<%= f.label "File to Upload" %><br />
+			<%= f.file_field :mainfile %>
+		</div>
+		
 		  <div class="submit">
 			  <%= f.submit "Create Project" %><br />
 		  </div>
@@ -58,4 +65,27 @@
   <% end %>
 	<%= render 'projects/yui_script', :editor => "project_description" %>
 </div>
+<%= javascript_tag do %>
+  function monkeyPatchAutocomplete() {
+
+      // don't really need this, but in case I did, I could store it and chain
+      var oldFn = $.ui.autocomplete.prototype._renderItem;
+
+      $.ui.autocomplete.prototype._renderItem = function( ul, item) {
+          var re = new RegExp("^" + this.term, "i") ;
+          var t = item.label.replace(re,"<span style='font-weight:bold;color:white;'>" + 
+                  this.term + 
+                  "</span>");
+          var userpic = "<div class='user_pic'><img src=" + item.img + "></div>";
+          var userinfo = "<div class='user_info'>" + item.info + "<br></div>";
+          var userdiv = "<div class='user' style='width:208px; height:50px;'>" + userpic + t + userinfo + "</div>";
+          return $( "<li></li>" )
+              .data( "item.autocomplete", item )
+              .append( "<a>" + userdiv + "</a>" )
+              .appendTo( ul );
+      };
+  }
+  monkeyPatchAutocomplete();
+<% end %>
+
 

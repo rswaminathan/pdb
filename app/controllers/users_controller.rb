@@ -62,6 +62,7 @@ def create
 		@preuser = PreUser.find_by_email(params[:user][:email].downcase)
 		if @preuser
 			@user.projects = @preuser.projects
+      @preuser.destroy
 		end
 		redirect_to edit_profile_user_path(@user)
 	else

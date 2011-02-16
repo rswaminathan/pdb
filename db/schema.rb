@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110212180838) do
+ActiveRecord::Schema.define(:version => 20110216025739) do
 
   create_table "admins", :force => true do |t|
     t.text      "email_list"
@@ -27,11 +27,11 @@ ActiveRecord::Schema.define(:version => 20110212180838) do
   end
 
   create_table "likes", :force => true do |t|
-    t.integer  "project_id"
-    t.integer  "user_id"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "project_id"
+    t.integer   "user_id"
+    t.string    "description"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "pre_users", :force => true do |t|
@@ -92,6 +92,9 @@ ActiveRecord::Schema.define(:version => 20110212180838) do
     t.integer   "photo_file_size"
     t.string    "abstract"
     t.integer   "count"
+    t.string    "mainfile_file_name"
+    t.string    "mainfile_content_type"
+    t.integer   "mainfile_file_size"
   end
 
   create_table "projects_users", :id => false, :force => true do |t|

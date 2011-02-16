@@ -3,7 +3,15 @@ class ProjectsController < ApplicationController
 	before_filter :authenticate, 			:only => [:new, :create]
 	#before_filter :correct_project_user,	:only => [:edit, :update, :destroy]
 	before_filter :correct_project_user,	:only => [:edit_collaborators, :update_collaborators, :delete_collaborators, :new_page, :edit_page, :update_page, :edit, :update, :destroy]
-	
+	autocomplete :user, :name
+
+  def json_for_autocomplete(items, method)
+    items.collect {|item| {"id" => item.id, "label" => item.send(method), "value" => item.send(method),
+                           "img" => item.profile.photo.url(:tiny),
+                           "info" => "#{item.profile.department} #{item.profile.occupation} #{item.profile.year}"
+                           }}
+  end
+
 	def new
 		@title = "New Project"
 		@project = current_user.projects.build

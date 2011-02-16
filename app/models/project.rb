@@ -8,6 +8,12 @@ class Project < ActiveRecord::Base
                     :s3_credentials => "#{::Rails.root.to_s}/config/s3.yml", 
                     :path => "/:style/:filename"   
 
+  has_attached_file :mainfile, 
+                     :storage => :s3,
+                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
+                     :path => "/:style/:filename"    
+
+
   has_and_belongs_to_many :pre_users
   has_and_belongs_to_many :users
   has_many :comments
@@ -40,29 +46,21 @@ class Project < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: projects
 #
-#  id                 :integer         not null, primary key
+#  id                 :integer         primary key
 #  name               :string(255)
 #  description        :text
 #  kind               :string(255)
-#  created_at         :datetime
-#  updated_at         :datetime
+#  created_at         :timestamp
+#  updated_at         :timestamp
 #  photo_file_name    :string(255)
 #  photo_content_type :string(255)
 #  photo_file_size    :integer
 #  abstract           :string(255)
-#  short              :text
-#  progress           :text
-#  press              :text
-#  similar_projects   :text
-#  page_1_name        :string(255)
-#  page_1_content     :text
-#  page_2_name        :string(255)
-#  page_2_content     :text
-#  page_3_name        :string(255)
-#  page_3_content     :text
+#  count              :integer
 #
 

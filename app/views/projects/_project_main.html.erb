@@ -12,7 +12,14 @@
 	
 	<% if @page_is_main %>
 	
-		<% if @project.photo.exists? %>
+	<% if @project.mainfile.exists? %>
+	
+		<div id="project_picture", align="right">
+			<%= send_data @project.mainfile.url %>
+		</div>
+	<% end %>
+	
+			<% if @project.photo.exists? %>
 			<div id="project_picture", align="center">
 				
 				<%= image_tag @project.photo.url(:huge) %>

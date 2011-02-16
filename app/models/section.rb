@@ -10,3 +10,18 @@ class Section < ActiveRecord::Base
 						:path => "/:style/:filename"   
 
 end
+# == Schema Information
+#
+# Table name: sections
+#
+#  id                 :integer         primary key
+#  title              :string(255)
+#  content            :text
+#  photo_file_name    :string(255)
+#  photo_content_type :string(255)
+#  photo_file_size    :integer
+#  created_at         :timestamp
+#  updated_at         :timestamp
+#  project_page_id    :integer
+#
+

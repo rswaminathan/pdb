@@ -1,121 +1,111 @@
 <% content_for :head do %>
-<%= javascript_include_tag 'jquery.nivo.slider.pack.js' %>
+	<%= javascript_include_tag 'jquery.nivo.slider.pack.js' %>
+	<%= stylesheet_link_tag 'nivo-slider', :media => "screen" %>
+	<%= stylesheet_link_tag 'home' %>
+	<style type="text/css">
+		#slider {
+			position:relative;
+			width:600px; /* Change this to your images width */
+			height:200px; /* Change this to your images height */
+			background:url(images/loading.gif) no-repeat 50% 50%;
+		}
+		#slider img {
+			position:absolute;
+			top:0px;
+			left:0px;
+			display:none;
+		}
+		#slider a {
+			border:0;
+			display:block;
+		}
 
-<%= stylesheet_link_tag 'nivo-slider', :media => "screen" %>
-<%= stylesheet_link_tag 'home' %>
-<style type="text/css">
-#slider {
-    position:relative;
-    width:600px; /* Change this to your images width */
-    height:200px; /* Change this to your images height */
-    background:url(images/loading.gif) no-repeat 50% 50%;
-}
-#slider img {
-    position:absolute;
-    top:0px;
-    left:0px;
-    display:none;
-}
-#slider a {
-    border:0;
-    display:block;
-}
+		/*============================*/
+		/*=== Custom Slider Styles ===*/
+		/*============================*/
+		#slider-wrapper {
+			background:url(images/slider.png) no-repeat;
+			width:998px;
+			height:392px;
+			margin:0 auto;
+			padding-top:74px;
+			margin-top:50px;
+		}
 
-/*============================*/
-/*=== Custom Slider Styles ===*/
-/*============================*/
-#slider-wrapper {
-    background:url(images/slider.png) no-repeat;
-    width:998px;
-    height:392px;
-    margin:0 auto;
-    padding-top:74px;
-    margin-top:50px;
-}
+		#slider {
+			position:relative;
+			width:600px;
+			height:300px;
+			margin-left: 24px;
+			background:url(images/loading.gif) no-repeat 50% 50%;
+		}
+		#slider img {
+			position:absolute;
+			top:0px;
+			left:0px;
+			display:none;
+		}
+		#slider a {
+			border:0;
+			display:block;
+		}
 
-#slider {
-	position:relative;
-    width:600px;
-    height:300px;
-    margin-left: 24px;
-	background:url(images/loading.gif) no-repeat 50% 50%;
-}
-#slider img {
-	position:absolute;
-	top:0px;
-	left:0px;
-	display:none;
-}
-#slider a {
-	border:0;
-	display:block;
-}
+		.nivo-controlNav {
+			position:absolute;
+			left:220px;
+			bottom:-36px;
+		}
+		.nivo-controlNav a {
+			display:block;
+			width:22px;
+			height:22px;
+			background:url(images/bullets.png) no-repeat;
+			text-indent:-9999px;
+			border:0;
+			margin-right:3px;
+			float:left;
+		}
+		.nivo-controlNav a.active {
+			background-position:0 -22px;
+		}
 
-.nivo-controlNav {
-	position:absolute;
-	left:220px;
-	bottom:-36px;
-}
-.nivo-controlNav a {
-	display:block;
-	width:22px;
-	height:22px;
-	background:url(images/bullets.png) no-repeat;
-	text-indent:-9999px;
-	border:0;
-	margin-right:3px;
-	float:left;
-}
-.nivo-controlNav a.active {
-	background-position:0 -22px;
-}
+		.nivo-directionNav a {
+			display:block;
+			width:30px;
+			height:30px;
+			background:url(images/arrows.png) no-repeat;
+			text-indent:-9999px;
+			border:0;
+		}
+		a.nivo-nextNav {
+			background-position:-30px 0;
+			right:5px;
+		}
+		a.nivo-prevNav {
+			left:5px;
+		}
 
-.nivo-directionNav a {
-	display:block;
-	width:30px;
-	height:30px;
-	background:url(images/arrows.png) no-repeat;
-	text-indent:-9999px;
-	border:0;
-}
-a.nivo-nextNav {
-	background-position:-30px 0;
-	right:5px;
-}
-a.nivo-prevNav {
-	left:5px;
-}
-
-.nivo-caption {
-    text-shadow:none;
-    font-family: Helvetica, Arial, sans-serif;
-}
-.nivo-caption a { 
-    color:#efe9d1;
-    text-decoration:underline;
-}
-
-</style>
-<script>
-$(window).load(function() {
-    $('#slider').nivoSlider({
-      pauseTime: 7000
-    });
-});
-</script>
-<%= render 'shared/facebook_graph' %>
+		.nivo-caption {
+			text-shadow:none;
+			font-family: Helvetica, Arial, sans-serif;
+		}
+		.nivo-caption a { 
+			color:#efe9d1;
+			text-decoration:underline;
+		}
+	</style>
+	<script>
+		$(window).load(function() {
+			$('#slider').nivoSlider({
+			  pauseTime: 7000
+			});
+		});
+	</script>
+	<%= render 'shared/facebook_graph' %>
 <% end %>
-
-	<div id="home">
-		<%= render 'pages/main_info' %>
-	</div>
-
-  <%= render 'pages/main_details' %>
-<!---	
-<div style="background-color: white; height:4px; border-bottom: 2px solid #222;">
-	</div>
---->
-	
-	
-	
-	</div>
+<div id="home">
+	<%= render 'pages/main_info' %>
+</div>
+<%= render 'pages/main_details' %>
+<!---<div style="background-color: white; height:4px; border-bottom: 2px solid #222;"></div>--->
+</div>

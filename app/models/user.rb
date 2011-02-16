@@ -118,25 +118,17 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: users
 #
-#  id                 :integer         not null, primary key
+#  id                 :integer         primary key
 #  name               :string(255)
 #  email              :string(255)
-#  created_at         :datetime
-#  updated_at         :datetime
+#  created_at         :timestamp
+#  updated_at         :timestamp
 #  encrypted_password :string(255)
 #  salt               :string(255)
-#  photo_file_name    :string(255)
-#  photo_content_type :string(255)
-#  photo_file_size    :integer
-#  institution        :string(255)
-#  occupation         :string(255)
-#  year               :string(255)
-#  about              :
-#  skills             :text
-#  contact            :text
 #
 

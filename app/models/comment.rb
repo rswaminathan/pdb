@@ -6,15 +6,16 @@ class Comment < ActiveRecord::Base
   
 end
 
+
 # == Schema Information
 #
 # Table name: comments
 #
-#  id         :integer         not null, primary key
+#  id         :integer         primary key
 #  body       :string(255)
 #  user_id    :integer
 #  project_id :integer
-#  created_at :datetime
-#  updated_at :datetime
+#  created_at :timestamp
+#  updated_at :timestamp
 #
 

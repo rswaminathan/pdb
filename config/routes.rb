@@ -67,6 +67,7 @@ Pdb::Application.routes.draw do
 		end
 		collection do
 			get 'random'
+      get :autocomplete_user_name
 		end
 	end
 	

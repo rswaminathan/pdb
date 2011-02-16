@@ -10,6 +10,7 @@ gem 'will_paginate'
 gem 'mongrel', '1.2.0.pre2'
 gem 'acts-as-taggable-on'
 gem 'jquery-rails'
+gem 'rails3-jquery-autocomplete'
 group :development do
     gem 'rspec-rails', '2.0.1'
 end 

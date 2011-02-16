@@ -23,6 +23,10 @@
 		<%= "Note: This is shown on the home page and also acts as the project tag" %><br />
 		<%= f.file_field :photo %>
 	</div>
+	<div class="field">
+		<%= f.label "File to Upload" %><br />
+		<%= f.file_field :mainfile %>
+	</div>
 	</br>
 	<div class="submit">
 		<%= f.submit "Save" %><br />
