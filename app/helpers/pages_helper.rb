@@ -49,6 +49,19 @@ end
 		    u_list += profile.department.to_a
 		  end
 		  
+		  [profile.occupation, profile.year, profile.institution, profile.department].each do |x|
+		    if !profile.x.nil?
+		  u_list += profile.x.to_a    
+	  end
+  end
+  
+  	  [profile.occupation, profile.year, profile.institution, profile.department].each do |x|
+		    if !profile.x.nil?
+		  u_list += profile.x.to_a    
+	      end
+        end
+  
+  
     end
 
     p_count=Hash.new
