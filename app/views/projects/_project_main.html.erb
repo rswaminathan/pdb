@@ -1,7 +1,16 @@
 <div id="project_name_background">
 
+
+	<% if @page_is_main && @project.mainfile.exists? %>
+			<div class="standard-link1", style="float:right; margin-top:0.5em; font-size:1.2em">
+				<%= link_to @project.mainfile_file_name, @project.mainfile.url %>
+			</div>
+		<% end %>
+
+
+
 	<div id="project_name_header">
-		
+				
 		<% if !@pages.any? %>
 			<div style="text-align:center"><%= link_to @project.name, @project %></div></div>
 			<% else %>
@@ -11,15 +20,8 @@
 	</div>
 	
 	<% if @page_is_main %>
-	
-	<% if @project.mainfile.exists? %>
-	
-		<div id="project_picture", align="right">
-			<%= send_data @project.mainfile.url %>
-		</div>
-	<% end %>
-	
-			<% if @project.photo.exists? %>
+
+		<% if @project.photo.exists? %>
 			<div id="project_picture", align="center">
 				
 				<%= image_tag @project.photo.url(:huge) %>

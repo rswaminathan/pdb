@@ -322,6 +322,18 @@ body{
 	text-align: bottom;
 }
 
+.standard-link1 a{
+	color: #C53107;
+	text-decoration: underline;
+	float:left;
+	margin-right: 1em;
+}
+
+.standard-link1 a:hover{
+	color:black;
+}
+
+
 a {
 	color: #333;
 	text-decoration: none;
