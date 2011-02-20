@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  
+  :before_filter :make_new_user?, :only => :create 
 	def new
 		@title = "Log In"
 	end
@@ -11,9 +11,8 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		auth = request.env["omniauth.auth"]
-		if !auth.nil?
-			user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
+		if !@auth.nil?
+			user = User.find_by_provider_and_uid(@auth["provider"], @auth["uid"])
 			sign_in(user)
 			redirect_to root_url
 		else
@@ -29,4 +28,13 @@ class SessionsController < ApplicationController
 		end
 	end 
   
+  def make_new_user?
+    @auth = request.env["omniauth.auth"]
+    if !@auth.nil? && !User.find_by_provider_and_uid(@auth["provider"], @auth["uid"])
+      User.create_with_omniauth(auth)
+      sign_in(user)
+      redirect_to edit_profile_user_path(user)
+    end
+  end
+
 end
