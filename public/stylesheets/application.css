@@ -204,7 +204,7 @@ body{
 	position:relative;
 	top:-4px;
 	margin-bottom:0px;
-    text-shadow: 2px 1px 1px #000;
+    text-shadow: 1px 1px 8px #000;
 }
 
 .container #header_title a:hover{
