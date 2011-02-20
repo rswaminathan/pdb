@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
   def make_new_user?
     @auth = request.env["omniauth.auth"]
     if !@auth.nil? && !User.find_by_provider_and_uid(@auth["provider"], @auth["uid"])
-      User.create_with_omniauth(@auth)
+      user = User.create_with_omniauth(@auth)
       sign_in(user)
       redirect_to edit_profile_user_path(user)
     end
