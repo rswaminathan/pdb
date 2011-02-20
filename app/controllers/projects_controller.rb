@@ -21,6 +21,10 @@ class ProjectsController < ApplicationController
 	def create
 		@project = current_user.projects.build(params[:project])
 		@project.count = 0
+    if params[:cids]
+      @users = params[:cids].split(",").map{ |u| User.find(u) }
+      @project.users = @project.users | @users
+    end
 		if @project.save
 			if (@project.description.nil? || @project.description.empty?)
 				@project.update_attributes(:description => @project.abstract)

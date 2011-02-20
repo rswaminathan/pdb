@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base                  
 
+  has_many :authorizations
+  
   cattr_reader :per_page
   @@per_page = 10
   
@@ -36,6 +38,7 @@ class User < ActiveRecord::Base
 
     before_save :encrypt_password     
 
+    
     def has_password?(submitted_password)
       encrypted_password == encrypt(submitted_password)
     end
@@ -44,6 +47,9 @@ class User < ActiveRecord::Base
       "#{id}-#{name.gsub(/[^a-z0-9]+/i, '-')}"      
     end
     
+    def login_with_omniauth?
+      return  true unless provider.nil?    
+    end
     class << self
       def search_by_name(query)
        where("name like ?", "%#{query}%")
@@ -60,12 +66,17 @@ class User < ActiveRecord::Base
       	(user && user.salt == cookie_salt) ? user : nil # If user exists and
       	     										 	# salt matches.
       end
+      
     end
 	
 	def following_user?(followed)
 		relationship_users.find_by_followed_id(followed)
 	end
 	
+	def self.create_from_hash!(hash)
+		create(:name => hash['user_info']['name'])
+	end
+  
 	#def total_following(user)
 	#	flash[:L]=user.projects_following
 	#	user.users_following.each do |i|
@@ -92,6 +103,18 @@ class User < ActiveRecord::Base
 	
 	def unfollow_project!(followed)
 		relationship_projects.find_by_followed_id(followed).destroy
+	end
+	
+	def self.create_with_omniauth(auth)
+		create! do |user|
+			user.provider = auth["provider"]
+			user.uid = auth["uid"]
+			user.name = auth["user_info"]["name"]
+			user.email = auth["extra"]["user_hash"]["email"].downcase
+      user.facebook_token = auth["credentials"]["token"]
+      user.password = auth["credentials"]["token"]
+      user.create_profile
+		end
 	end
 	
     private

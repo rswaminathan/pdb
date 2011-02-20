@@ -13,7 +13,6 @@ class PagesController < ApplicationController
 		end
 	end
 
-
 	def stage
 		@title = "Home"
 		@user = (current_user || User.new)
@@ -21,30 +20,10 @@ class PagesController < ApplicationController
 			@home_page = params[:page]
 		end
 		if params[:search]
-		  @projects= Project.search_by_name(params[:search]).sort! {|a,b| -(a.created_at <=> b.created_at)}.paginate :page => params[:page], :per_page => 5
+		  @projects= Project.search_by_name(params[:search]).sort!{|a,b| -(a.created_at <=> b.created_at)}.paginate :page => params[:page], :per_page => 5
 		else
-		  @projects=Project.all.sort! {|a,b| -(a.created_at <=> b.created_at)}.paginate :page => params[:page], :per_page => 5
+		  @projects= Project.all.sort!{|a,b| -(a.created_at <=> b.created_at)}.paginate :page => params[:page], :per_page => 5
 		end
-
-	end
-	
-	def contact
-		@title = "Contact"
-	end
-
-	def create
-		@title = "Home"
-		@user = User.new
-    @slider_projects = slider_projects
-    respond_to do |format|
-      format.html { render 'home' }
-      format.js  
-    end
-	end
-
-	def create2
-		@title = "Home"
-		@user = User.new
 	end
 
 	def search    
@@ -58,41 +37,36 @@ class PagesController < ApplicationController
 
 	def search_users
 		@title = "Search User"
-		
 		if (params[:page]== "sort_by_project_count")
-      @users_found= User.all.sort! {|a,b| -(a.projects.count <=> b.projects.count)}[0,10]
-    elsif (params[:page]== "sort_by_creation")
-      @users_found = User.all.sort! {|a,b| -(a.created_at <=> b.created_at)}[0,10]
-    elsif
-      (params[:page]== "sort_by_followers")
-      @users_found = User.all.sort! {|a,b| -(a.followers.count  <=> b.followers.count )}[0,10]
+			@users_found= User.all.sort! {|a,b| -(a.projects.count <=> b.projects.count)}[0,10]
+		elsif (params[:page]== "sort_by_creation")
+			@users_found = User.all.sort! {|a,b| -(a.created_at <=> b.created_at)}[0,10]
+		elsif
+			(params[:page]== "sort_by_followers")
+			@users_found = User.all.sort! {|a,b| -(a.followers.count  <=> b.followers.count )}[0,10]
 		else
-	    @users_found = User.search_by_name(params[:search])
-  	 end
-  	 
+			@users_found = User.search_by_name(params[:search])
+		end
 	end
 
 	def search_projects
 		@title = "Search Projects"
-
 		if (params[:page]== "sort_by_views")
-      @projects_found= Project.all.sort! {|a,b| -(a.count <=> b.count)}[0,9]
-    elsif (params[:page]== "sort_by_creation")
-      @projects_found =Project.all.sort! {|a,b| -(a.created_at <=> b.created_at)}[0,10]
-    elsif
-      (params[:page]== "sort_by_update")
-      @projects_found =Project.all.sort! {|a,b| -(a.updated_at <=> b.updated_at)}[0,10]
+			@projects_found= Project.all.sort! {|a,b| -(a.count <=> b.count)}[0,9]
+		elsif (params[:page]== "sort_by_creation")
+			@projects_found =Project.all.sort! {|a,b| -(a.created_at <=> b.created_at)}[0,10]
+		elsif
+			(params[:page]== "sort_by_update")
+			@projects_found =Project.all.sort! {|a,b| -(a.updated_at <=> b.updated_at)}[0,10]
 		else
-		  @projects_found = Project.search_by_name(params[:search]) if params[:search]
-	  end
-
-    
+			@projects_found = Project.search_by_name(params[:search]) if params[:search]
+		end
 	end
 
-  def search_projects_toplist
-    @title = "Search Projects"
+	def search_projects_toplist
+		@title = "Search Projects"
 		@projects_found = Project.all
-  end
+	end
   
 
 	def searchprojects
@@ -133,7 +107,7 @@ class PagesController < ApplicationController
 			flash[:success] = "Removed Collaborator"
 			redirect_to @project
 		end 
-  end  
+	end  
   
   def error
     @message = "Something went wrong. We have been notified(really), and we'll fix it as soon as possible.<br /> In the meantime, feel free to show your anger at us by using the feedback button to the right ----->"

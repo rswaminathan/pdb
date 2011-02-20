@@ -10,12 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110216025739) do
+ActiveRecord::Schema.define(:version => 20110220020309) do
 
   create_table "admins", :force => true do |t|
     t.text      "email_list"
     t.timestamp "created_at"
     t.timestamp "updated_at"
+  end
+
+  create_table "authorizations", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "comments", :force => true do |t|
@@ -161,6 +169,9 @@ ActiveRecord::Schema.define(:version => 20110216025739) do
     t.timestamp "updated_at"
     t.string    "encrypted_password"
     t.string    "salt"
+    t.string    "facebook_token"
+    t.string    "uid"
+    t.string    "provider"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

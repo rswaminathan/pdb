@@ -1,7 +1,5 @@
 <% content_for :head do %>
-  <%= render 'projects/yui_dependencies' %>
-  <%= stylesheet_link_tag 'project' %>
-  <%= stylesheet_link_tag 'user-list/user-regular' %>
+  <%= render 'projects/yui_dependencies' %> <%= stylesheet_link_tag 'project' %> <%= stylesheet_link_tag 'user-list/user-regular' %>
 <% end %>
 
 <% if !signed_in? %>
@@ -13,33 +11,40 @@
    	<%= render	'shared/error_messages', :object => f.object %>
     <div class="span-7" id="project_new_left">  
 		  <div class="field">
-        <%= f.label :name %>
+        <%= f.label :project_name %>
 			  <%= f.text_field :name %>
 		  </div>
 		
 		  <div class="field">			
         <%= f.label :short_description %>		
        	<%= f.text_area :abstract, :rows=>2, :cols=>4  %>
-		  </div>
+		 </div> 
 
 		  <div class="field">
-        <%= f.label :tags %>
+			  <%= f.label :tags %>
 			  <%= f.text_field :kind_list, :value => @tag_string %></br>
 		  </div>
     
       <div class= "span-6 last" id="common_tags">
-        <h3>Common tags include: </h3>
+        <h3>Some common tags include: </h3>
         <p>
         <% Project.kind_counts.first(10).each do |k| %>
           <%= k[:name] %>, 
         <% end %>
         </p>
       </div>
-      
+
       <div class="span-7 last" id="include_collaborotars">
         <%= f.label :collaborators %><br />
-        <%= autocomplete_field_tag 'collaborotors', '', autocomplete_user_name_projects_path, :size => 26, :id_element => '#cids' %>
+        <div id="added_collaborators">
+			<% if signed_in? %>			
+				<%= render 'user_list', :users => [current_user]  %>
+			<% end %>
+        </div>        
+		<%= autocomplete_field_tag 'collaborotors', '', autocomplete_user_name_projects_path, :placeholder => "Search collaborators to add" %>
+		<%= text_field_tag 'add_by_email','',:placeholder => "...or add by emails(comma separated)" %>
       </div>
+
       <%= hidden_field_tag 'cids' %>
     </div>
 
@@ -54,7 +59,7 @@
 			    <%= f.file_field :photo %>
 	    </div>
 		<div class="field">
-			<%= f.label "File to Upload" %><br />
+			<%= f.label :add_attachment %><br />
 			<%= f.file_field :mainfile %>
 		</div>
 		
@@ -85,7 +90,18 @@
               .appendTo( ul );
       };
   }
+
   monkeyPatchAutocomplete();
+      $( "input[data-autocomplete]" ).bind( "autocompleteselect", function(event, ui) {
+        var userpic = "<div class='user_pic'><img src=" + ui.item.img + "></div>";
+        var userinfo = "<div class='user_info'>" + ui.item.info + "<br></div>";
+        var userdiv = "<div class='user' style='width:208px; color: white; height:50px; float: left;'>" + userpic + ui.item.label +  userinfo + "</div>";
+        $("#added_collaborators").append(userdiv);
+        $('#cids').val(function(index, value) {
+          return value + ui.item.id + ',';
+        });
+      });
+
 <% end %>
 
 

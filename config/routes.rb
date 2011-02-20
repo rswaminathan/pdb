@@ -1,21 +1,21 @@
 Pdb::Application.routes.draw do
 
-	match	'search_users',		:to => 'pages#search_users'
-	match	'search_projects',	:to => 'pages#search_projects'
-	match 	'error',  			:to => 'pages#error'
-	match	'/create',			:to => 'pages#home'
-	match	'/ozzie_gooen',		:to => 'users#show', :id => 2
-	match	'/about',			:to => 'projects#show', :id => 1
-	match	'signup',			:to => 'pages#create'
-	match	'/contact',			:to => 'pages#contact'
-	match	'/feed',			:to => 'pages#feed'
-	match	'/login',			:to	=> 'sessions#new'
-	match	'/logout',			:to	=> 'sessions#destroy'
-	match	'/search',			:to => 'pages#error'
-	match	'/creators',		:to => 'pages#creators'
-	root 						:to => "pages#home"
-	match '/home',				:to => "pages#home"
-	match '/stage',				:to => "pages#stage"
+	match	'search_users',				:to => 'pages#search_users'
+	match	'search_projects',			:to => 'pages#search_projects'
+	match 	'error',  					:to => 'pages#error'
+	match	'/create',					:to => 'pages#home'
+	match	'/ozzie_gooen',				:to => 'users#show', :id => 2
+	match	'/about',					:to => 'projects#show', :id => 1
+	match	'signup',					:to => 'pages#home'
+	match	'/feed',					:to => 'pages#feed'
+	match	'/login',					:to	=> 'sessions#new'
+	match	'/logout',					:to	=> 'sessions#destroy'
+	match	'/search',					:to => 'pages#error'
+	root 								:to => "pages#home"
+	match 	'/home',					:to => "pages#home"
+	match 	'/stage',					:to => "pages#stage"
+	match 	"/auth/:provider/callback",	:to => "sessions#create"
+#	match 	"/signout", 				:to => "sessions#destroy", :as => :signout
 
 	resources :profile
 	resources :users do
@@ -67,7 +67,7 @@ Pdb::Application.routes.draw do
 		end
 		collection do
 			get 'random'
-      get :autocomplete_user_name
+			get :autocomplete_user_name
 		end
 	end
 	

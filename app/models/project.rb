@@ -37,7 +37,8 @@ class Project < ActiveRecord::Base
     def search_by_name(query)
      where("name like ?", "%#{query}%").by_count | tagged_with("#{query}").by_count unless query.empty?
     end
-    
+
+		
     def random
       all[rand(Project.count)] 
     end
@@ -47,20 +48,24 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: projects
 #
-#  id                 :integer         primary key
-#  name               :string(255)
-#  description        :text
-#  kind               :string(255)
-#  created_at         :timestamp
-#  updated_at         :timestamp
-#  photo_file_name    :string(255)
-#  photo_content_type :string(255)
-#  photo_file_size    :integer
-#  abstract           :string(255)
-#  count              :integer
+#  id                    :integer         primary key
+#  name                  :string(255)
+#  description           :text
+#  kind                  :string(255)
+#  created_at            :timestamp
+#  updated_at            :timestamp
+#  photo_file_name       :string(255)
+#  photo_content_type    :string(255)
+#  photo_file_size       :integer
+#  abstract              :string(255)
+#  count                 :integer
+#  mainfile_file_name    :string(255)
+#  mainfile_content_type :string(255)
+#  mainfile_file_size    :integer
 #
 

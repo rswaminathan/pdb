@@ -1,11 +1,6 @@
 body{
 	background-color:#333;
-	background: url("/images/curtains.jpg") no-repeat center center fixed;
-	        -webkit-background-size: cover;
-	        -moz-background-size: cover;
-	        -o-background-size: cover;
-	        background-size: cover;
-	}
+}
 
 .home_1{
 	visibility: visible;
@@ -213,11 +208,6 @@ body{
 
 .container #header_title a:hover{
 	color: #FF4334;
-	font-size:1.5em;
-	position:relative;
-	top:-2px;
-	margin-bottom:0px;
-	
 }
 
 #random_project{
@@ -960,22 +950,24 @@ a {
 	
 }
 
+
 #header{
-	background-color: #222;
-	font-size: 1.1em;
-	height: 25px;
-	border-bottom: 1px solid #333;
+	background: transparent url(/images/header-bkg.png) repeat-x scroll -50% 0px;
+    font-size: 1.2em;
+	height: 47px;
+    padding: 10px 0 0 0;
 	
 }
 
 
 #footer{
 	align: center;
-	background:#161616;
+	background: url(/images/darker-bkg.png);
 	font-size: 1.1em;   
 	padding-top: 1em;
 	font-weight: normal;
 	padding-bottom:0.1em;
+    height: 150px;
 	color:#c89843;
 	border-top: 1px solid #333;
 	

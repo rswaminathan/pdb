@@ -133,6 +133,19 @@ module SessionsHelper
 		end
 		return_list = list.sort!{|t1,t2| t2[2] <=> t1[2]} 
 	end
+	
+	def users_of_category(page,category,cat_response,num)
+		c=0
+		User.all.each do |user|
+			if c>page*num
+				return return_array
+			elsif eval("user.profile.#{category}")==cat_response && c<= (page+1)*num
+				return_array += user
+			end
+			c+=1
+		end
+		return return_array
+	end
     
     private
     

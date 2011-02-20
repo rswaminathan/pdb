@@ -6,17 +6,19 @@
 		<%= render 'shared/analytics' %>
     <%= yield :head %>
 	</head>
-	<%= render 'layouts/header' %>
-	<body>		
-    <div id="freeow" class="freeow freeow-top-right"></div>
-		<section class ="container prepend-top">
-			<% flash.each do |key, value| %>
-				<div class = "flash <%= key %>"><%= value %></div>
-			<% end %>
-		</section>
-		<div class="home_background_1">
-			<%= yield %>
-		</div>
+	<%= render 'layouts/header' %>	
+	<body>
+    <div id="wrap">		
+      <div id="freeow" class="freeow freeow-top-right"></div>
+		  <section class ="container prepend-top">
+			  <% flash.each do |key, value| %>
+				  <div class = "flash <%= key %>"><%= value %></div>
+			  <% end %>
+		  </section>
+		  <div id="main">
+			  <%= yield %>
+		  </div>
+    </div>
 	  <div id="footer">
 	  <%= render 'layouts/footer' %>
 	  <%= debug(params) if Rails.env.development? %>

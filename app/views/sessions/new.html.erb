@@ -1,7 +1,8 @@
 <div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 350px">
 	<div class="home_register span-12" style="float:center; margin-left: 16em">
 
-		<div style="color:black"><h1 style="color:#black">Log In</h1>
+		<div style="color:black"><h1 style="color:#black">Log In</h1><br />
+		Or, <%= link_to "Log in with Facebook", "/auth/facebook" %><br />
 		<%= form_for(:session, :url => sessions_path) do |f| %>
 
 		    <div class="field">

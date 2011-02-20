@@ -29,7 +29,7 @@
 		<br />
 		<% unless params[:page].nil? %>
 			<div id="users_list"></div>
-			<%= render "user", :collection => @users_found %>
+			<%= render :partial => "user", :collection => @users_found %>
 			<div id="invite_user"></div>
 		<% else %>
 			<div id="users_list"></div>

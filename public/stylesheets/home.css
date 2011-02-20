@@ -85,8 +85,8 @@
 }
 
 #home_top_container{
-    background: #222;
-	height: 363px;
+  	background: url(/images/darker-bkg.png);
+    height: 363px;
 	border-radius: 1em 1em 1em 1em;
 	-moz-border-radius: 0.2em 0.5em 0.5em 0.5em;
 }
@@ -108,6 +108,9 @@
 	width:500px;
 }
 
+#facebook_signup {
+    margin: 0 0 0 4.5em;
+}
 #registration_box #register_button{
     background: #dd0000;
     color:  #ffffff;
