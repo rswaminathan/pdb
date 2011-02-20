@@ -24,6 +24,8 @@
 	</div>
 <% end %>
 <hr style="margin-bottom:0.5em; background:#666; margin-top:1em"/>
-<div id="facebook_signup">
-  <%= link_to image_tag('facebook-login.png'),  "/auth/facebook"%>
-</div>
+<% unless signed_in? %>
+	<div id="facebook_signup">
+	  <%= link_to image_tag('facebook-login.png'),  "/auth/facebook"%>
+	</div>
+<% end %>

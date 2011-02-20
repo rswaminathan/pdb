@@ -106,13 +106,15 @@ class User < ActiveRecord::Base
 	end
 	
 	def self.create_with_omniauth(auth)
-		create! do |user|
+	  #TODO: implement all other providers soon
+		u = create! do |user|
 			user.provider = auth["provider"]
 			user.uid = auth["uid"]
 			user.name = auth["user_info"]["name"]
 			user.email = auth["extra"]["user_hash"]["email"].downcase
       user.facebook_token = auth["credentials"]["token"]
-      user.password = auth["credentials"]["token"]
+      user.password = auth["credentials"]["token"] #password is token for fb users
+      # initially, but can be changed later
       user.create_profile
 		end
 	end

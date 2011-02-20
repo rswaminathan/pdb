@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
 	def create
 		if !@auth.nil?
-			user = User.find_by_provider_and_uid(@auth["provider"], @auth["uid"])
+			user = User.find_by_provider_and_uid(@auth["provider"], @auth["uid"]) || User.find_by_email(@auth["extra"]["user_hash"]["email"].downcase
 			sign_in(user)
 			redirect_to root_url
 		else

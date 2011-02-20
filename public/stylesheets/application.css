@@ -200,10 +200,11 @@ body{
 
 .container #header_title a{
 	color: #EE000B;
-	font-size:1.5em;
+	font-size:1.8em;
 	position:relative;
-	top:-2px;
+	top:-4px;
 	margin-bottom:0px;
+    text-shadow: 2px 1px 1px #000;
 }
 
 .container #header_title a:hover{
