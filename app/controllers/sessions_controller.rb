@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  :before_filter :make_new_user?, :only => :create 
+  before_filter :make_new_user?, :only => :create 
 	def new
 		@title = "Log In"
 	end
