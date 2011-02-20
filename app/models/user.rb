@@ -110,7 +110,7 @@ class User < ActiveRecord::Base
 	  if existing_user #merge fb/existing account
 	    existing_user.provider = auth["provider"]
 	    existing_user.facebook_token = auth["credentials"]["token"]
-      exception_user.uid = auth["uid"]
+      existing_user.uid = auth["uid"]
       existing_user.save
       return existing_user
     end  
