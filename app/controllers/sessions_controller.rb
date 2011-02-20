@@ -28,12 +28,13 @@ class SessionsController < ApplicationController
 	end 
   
   def make_new_user?
-    @auth = request.env["omniauth.auth"]
-    @facebook_user = User.find_by_provider_and_uid(@auth["provider"], @auth["uid"])
-    if !@auth.nil? && !@facebook_user
-      user = User.create_with_omniauth(@auth)
-      sign_in(user)
-      redirect_to edit_profile_user_path(user)
+    if @auth = request.env["omniauth.auth"]
+      @facebook_user = User.find_by_provider_and_uid(@auth["provider"], @auth["uid"])
+      if !@facebook_user
+        user = User.create_with_omniauth(@auth)
+        sign_in(user)
+        redirect_to edit_profile_user_path(user)
+      end
     end
   end
 

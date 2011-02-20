@@ -993,6 +993,7 @@ a {
 }
 #header_menu a{
 	color: #ccc;
+    text-shadow: 1px 1px 5px #000;
 }
 
 #header_menu a:hover{
