@@ -108,11 +108,13 @@ class User < ActiveRecord::Base
 	def self.create_with_omniauth(auth)
 	  existing_user = User.find_by_email(auth["extra"]["user_hash"]["email"].downcase)
 	  if existing_user #merge fb/existing account
+	    existing_user.provider = auth["provider"]
 	    existing_user.facebook_token = auth["credentials"]["token"]
       exception_user.uid = auth["uid"]
       existing_user.save
       return existing_user
     end  
+
 	  #TODO: implement all other providers soon
 		u = create! do |user|
 			user.provider = auth["provider"]
