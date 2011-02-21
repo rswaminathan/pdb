@@ -7,13 +7,17 @@
 #user_projects {
 	padding: 0;
 	width: 720px;
-	vertical-align: top;	
+	vertical-align: top;
+	background-color: white;
+	border-radius: 0.5em 0.5em 0.5em 0.5em;
+	-moz-border-radius: 0.5em 0em 0.5em 0.5em;	
 }
 
 #user_projects_photo {
 	margin-right:1.1em;
 	max-width:80px;
 	max-height:80px;
+	margin-left: 0.7em;
 }
 
 #project_name_sidebar {	

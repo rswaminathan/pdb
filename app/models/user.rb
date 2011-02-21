@@ -50,6 +50,7 @@ class User < ActiveRecord::Base
     def login_with_omniauth?
       return  true unless provider.nil?    
     end
+	
     class << self
       def search_by_name(query)
        where("name like ?", "%#{query}%")
@@ -106,14 +107,14 @@ class User < ActiveRecord::Base
 	end
 	
 	def self.create_with_omniauth(auth)
-	  existing_user = User.find_by_email(auth["extra"]["user_hash"]["email"].downcase)
+	  existing_user = current_user || User.find_by_email(auth["extra"]["user_hash"]["email"].downcase) 
 	  if existing_user #merge fb/existing account
 	    existing_user.provider = auth["provider"]
 	    existing_user.facebook_token = auth["credentials"]["token"]
-      existing_user.uid = auth["uid"]
-      existing_user.save
-      return existing_user
-    end  
+        existing_user.uid = auth["uid"]
+        existing_user.save
+        return existing_user
+      end  
 
 	  #TODO: implement all other providers soon
 		u = create! do |user|

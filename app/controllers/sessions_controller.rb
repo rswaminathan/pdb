@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 			if user.nil?
 				flash.now[:error] = "Check your detailz"
 				render 'new' 
-			else 
+      else 
 				flash[:success] = "You signed in!"
 				sign_in(user)   
 				redirect_to_page_trying(user)              
@@ -29,8 +29,7 @@ class SessionsController < ApplicationController
   
   def make_new_user?
     if @auth = request.env["omniauth.auth"]
-      @facebook_user = User.find_by_provider_and_uid(@auth["provider"], @auth["uid"])
-      if !@facebook_user
+      if !@facebook_user = User.find_by_provider_and_uid(@auth["provider"], @auth["uid"])
         user = User.create_with_omniauth(@auth)
         sign_in(user)
         redirect_to edit_profile_user_path(user)

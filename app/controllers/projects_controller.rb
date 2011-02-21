@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
 	before_filter :correct_project_user,	:only => [:edit_collaborators, :update_collaborators, :delete_collaborators, :new_page, :edit_page, :update_page, :edit, :update, :destroy]
 	autocomplete :user, :name
 
+  #for the autocomplote in projects/new - send all the data
   def json_for_autocomplete(items, method)
     items.collect {|item| {"id" => item.id, "label" => item.send(method), "value" => item.send(method),
                            "img" => item.profile.photo.url(:tiny),

@@ -25,32 +25,16 @@ class UsersController < ApplicationController
 		@profile = @user.profile
 		@project = Project.new
 		
-		
-		
-		
 		p_list = Array.new
-    @user.projects.all.each do |project|
-    p_list += project.kind_list
-    end
-
-    p_count=Hash.new
-    p_list.each do |s|
-      p_count[s] = 0
-      end
-
-    p_count.each do |w|
-      p_list.each do |s|
-    	if (w[0]==s && w[0] != "Enter tags(comma separated)")
-    	p_count[s] +=1
-    	end
-      end
-      end
-
-    @links= p_count.sort {|a,b| -(a[1]<=>b[1])}[0,5]
-    
-    
-    
-    
+		@user.projects.each do |project|
+			p_list += project.kind_list.select{|a| a!= "Enter tags(comma separated)"}
+		end
+		p_count=Hash.new
+		p_list.each do |tag|
+			p_count[tag] = (p_count.has_key?(tag) ? p_count[tag]+1 : 1)
+		end
+		p_sorted= p_count.sort {|a,b| -(a[1]<=>b[1])}
+		@links = p_sorted[0,5]
 	end
 
   def create
@@ -61,8 +45,8 @@ class UsersController < ApplicationController
 		  sign_in @user
 		  @preuser = PreUser.find_by_email(params[:user][:email].downcase)
 		  if @preuser
-			  @user.projects = @preuser.projects
-        @preuser.destroy
+			@user.projects = @preuser.projects
+			@preuser.destroy
 		  end
 		  redirect_to edit_profile_user_path(@user)
 	  else
@@ -77,6 +61,7 @@ class UsersController < ApplicationController
     flash[:success] = "Deleted user"
     redirect_to(search_users_path)
   end
+  
 	def edit
 		@user = User.find_by_id(params[:id])
 		@title = "Edit #{@user.name}'s Account"

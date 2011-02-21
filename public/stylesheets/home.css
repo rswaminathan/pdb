@@ -85,10 +85,8 @@
 }
 
 #home_top_container{
-  	background: url(/images/darker-bkg.png);
     height: 363px;
-	border-radius: 1em 1em 1em 1em;
-	-moz-border-radius: 0.2em 0.5em 0.5em 0.5em;
+    margin-bottom: 1em;
 }
 
 #registration_box{

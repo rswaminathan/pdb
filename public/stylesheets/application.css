@@ -1,7 +1,11 @@
 body{
 	background-color:#333;
+    background: url("/images/pattern.jpg") repeat scroll #999;
 }
 
+#main h1{
+    color: #fff;
+}
 .home_1{
 	visibility: visible;
 	position: relative;
@@ -36,17 +40,18 @@ body{
 }
 
 .home_register {
-	float: left;
-	margin: 0 0 0 1em;
-	background: url("/images/bg-gradient-large.png") repeat-x scroll 0 -50px #F14744;
-	-moz-box-shadow: 2px 2px 4px rgba(0,0,0,1);
-	-khtml-box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-	-webkit-box-shadow: 2px 2px 4px rgba(0,0,0,0.4);  
-	border-radius: 0.4em 0.4em 0.4em 0.4em;
-	padding: 1em 1em 0.5em 1em;
-	-moz-border-radius: 0.4em 0.4em 0.4em 0.4em;
-	
+border-radius: 7px;
+-moz-border-radius: 7px;
+-webkit-border-radius: 7px;
+background: none repeat scroll 0 0 rgba(20, 20, 20, 0.5);
+border-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.2) rgba(255, 255, 255, 0.1);
+border-style: solid;border-width: 1px;
+color: #919191;padding: 2px 10px 9px;
+text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+float:left;
+    
 }
+
 
 
 .search_top {
@@ -199,12 +204,13 @@ body{
 }
 
 .container #header_title a{
-	color: #EE000B;
-	font-size:1.8em;
+	color: #D30009;
+	font-size:1.2em;
 	position:relative;
 	top:-4px;
 	margin-bottom:0px;
     text-shadow: 1px 1px 8px #000;
+	font-weight:bold;
 }
 
 .container #header_title a:hover{
@@ -365,9 +371,9 @@ a {
 
 #project_list{
 	min-height:82px;
-	padding-bottom:0.3em;
-	padding-top:0.4em;
-	border-bottom: 1px solid #E6CDC2;
+	padding-bottom:0.6em;
+	padding-top:0.7em;
+	border-bottom: 1px solid #F6E7DB;
 }
 
 #login_special{	
@@ -397,7 +403,7 @@ a {
 
 
 #user_sidebar_pages{
-	padding: 0.3em 0.7em 0 0.7em;	
+	padding: 0.3em 0.7em 0.5em 0.6em;	
 }
 
 #project_background{
@@ -436,9 +442,6 @@ a {
 	
 }
 #user_background{
-	background: #f6f6f6;
-	border-radius: 0.5em 0.5em 0.5em 0.5em;
-	-moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
 }
 
 #user_header{
@@ -528,11 +531,19 @@ a {
 
 #profile_div{
 	padding: 0.5em 0 0.5em 0 ;
-	background-color: #C01426;
 	border-radius: 0.5em 0 0 0.5em;
 	-moz-border-radius: 0.5em 0 0 0.5em;
-	vertical-align: top;	
+	vertical-align: top;
 	
+}
+
+#profile_info{
+	padding: 0.5em 0 0.5em 0 ;
+	border-radius: 0.5em 0 0 0.5em;
+	-moz-border-radius: 0.5em 0 0 0.5em;
+	vertical-align: top;
+	background: rgba(0, 0, 0, 0.5);
+
 }
 
 #project_sidebar{
@@ -955,11 +966,9 @@ a {
 #header{
 	background: transparent url(/images/header-bkg.png) repeat-x scroll -50% 0px;
     font-size: 1.2em;
-	height: 47px;
     padding: 10px 0 0 0;
 	
 }
-
 
 #footer{
 	align: center;

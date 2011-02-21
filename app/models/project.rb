@@ -35,9 +35,8 @@ class Project < ActiveRecord::Base
   class << self
 
     def search_by_name(query)
-     where("name like ?", "%#{query}%").by_count | tagged_with("#{query}").by_count unless query.empty?
+     Project.search(:name_contains => query).all | tagged_with("#{query}").by_count unless query.empty?
     end
-
 		
     def random
       all[rand(Project.count)] 

@@ -1,10 +1,7 @@
 <div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 350px">
-	<div class="home_register span-12" style="float:center; margin-left: 16em">
-
-		<div style="color:black"><h1 style="color:#black">Log In</h1><br />
-		Or, <%= link_to "Log in with Facebook", "/auth/facebook" %><br />
+	<div class="home_register span-12">
+		<div class="span-8"><h1 style="color:#fff">Log In</h1>
 		<%= form_for(:session, :url => sessions_path) do |f| %>
-
 		    <div class="field">
 		        <%= f.label :email %><br />
 		        <%= f.text_field :email %>
@@ -19,6 +16,8 @@
 		    </div>
 		<% end %>
 		</div>
-
+    <div id="alternate_login" class="span-4 last" style="padding: 60px; margin-top: 10px; border-left: 1px solid #222;">
+	    <%= link_to image_tag('facebook-login.png'),  "/auth/facebook"%>
+    </div>
 	</div>
 </div>

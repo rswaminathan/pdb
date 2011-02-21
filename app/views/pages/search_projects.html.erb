@@ -27,8 +27,7 @@
 				<%= link_to "Recently Updated", search_projects_path(:page=> "sort_by_update") %>
 				<%= link_to "Most Popular", search_projects_path(:page=> "sort_by_views") %>
 			</div>
-			<% links_generator %>
-			<% @links[1,15].each do |u| %>
+			<% @links.each do |u| %>
 				<div id="popular_tags"><%= link_to u[0], search_projects_path(:search => u[0]) %> <%="[ #{u[1]} ]" %> </div>
 			<% end %>
 		</div>

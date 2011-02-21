@@ -1,3 +1,26 @@
+#user_page_name{
+	position: relative; 
+	width:210px; 
+	left:1px; 
+	text-align:left; 
+	background-color: rgba(120,4,4,0.7);
+	padding: 0.4em 0 0.4em 0;
+}
+
+#big-user-pic-regular{
+	border-radius: 0.8em 0.2em 0.8em 0.2em;
+	position: relative;
+	left: 1px;
+}
+
+#big-user-pic-part{
+	border-radius: 0.8em 0.2em 0.2em 0.2em;
+	position: relative;
+	left: 1px;
+    -webkit-box-shadow: #8C0000 0px 0px 2px 1px;
+    box-shadow: #8C0000 0px 0px 2px 1px;
+    -moz-box-shadow: #8C0000 0px 0px 2px 1px;
+}
 
 #form_back{
 	background: #DCF5DC; 
@@ -9,6 +32,7 @@
 	-moz-border-radius:0.6em;
 	border: 2px solid #67BC56;
 	color: #70BE67;	
+	
 }
 
 #form_back textarea{

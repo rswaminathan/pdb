@@ -5,10 +5,6 @@ module SessionsHelper
         current_user = user
     end
 	
-	def rand_project
-		Project.search_by_name("")
-    end
-	
     def current_user=(user)
         @current_user = user
     end
@@ -113,40 +109,7 @@ module SessionsHelper
 			return false
 		end
 	end
-	
-	
-	def project_update_sort(projects)
-		max = ["Home",0]
-		list = []
-		projects.each do |project|
-			if project.project_pages.any?
-				max[1] = project.updated_at
-				project.project_pages.each do |page|
-					if page.updated_at > max[1]
-						max = [page.title,page.updated_at]
-					end
-				end
-				list += [[project,max[0],max[1]]]
-			else
-				list += [[project,"Home",project.updated_at]]
-			end
-		end
-		return_list = list.sort!{|t1,t2| t2[2] <=> t1[2]} 
-	end
-	
-	def users_of_category(page,category,cat_response,num)
-		c=0
-		User.all.each do |user|
-			if c>page*num
-				return return_array
-			elsif eval("user.profile.#{category}")==cat_response && c<= (page+1)*num
-				return_array += user
-			end
-			c+=1
-		end
-		return return_array
-	end
-    
+		
     private
     
         def user_from_remember_token
