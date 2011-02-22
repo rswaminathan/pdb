@@ -17,9 +17,7 @@
 	border-radius: 0.8em 0.2em 0.2em 0.2em;
 	position: relative;
 	left: 1px;
-    -webkit-box-shadow: #8C0000 0px 0px 2px 1px;
-    box-shadow: #8C0000 0px 0px 2px 1px;
-    -moz-box-shadow: #8C0000 0px 0px 2px 1px;
+
 }
 
 #form_back{

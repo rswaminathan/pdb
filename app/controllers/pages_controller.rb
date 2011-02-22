@@ -24,6 +24,7 @@ class PagesController < ApplicationController
 		else
 		  @projects= Project.all.sort!{|a,b| -(a.created_at <=> b.created_at)}.paginate :page => params[:page], :per_page => 5
 		end
+		
 	end
 
 	def search    
@@ -60,17 +61,6 @@ class PagesController < ApplicationController
 		else
 			@projects_found = Project.search_by_name(params[:search]) if params[:search]
 		end
-		
-		p_list = Array.new
-		Project.all.each do |project|
-			p_list += project.kind_list.select{|a| a!= "Enter tags(comma separated)"}
-		end
-		p_count=Hash.new
-		p_list.each do |tag|
-			p_count[tag] = (p_count.has_key?(tag) ? p_count[tag]+1 : 1)
-		end
-		p_sorted= p_count.sort {|a,b| -(a[1]<=>b[1])}
-		@links = p_sorted[1,15]
 	end
 
 	def search_projects_toplist

@@ -1,3 +1,4 @@
+<% link_generator(@user.projects,0,5) %>
 <%= stylesheet_link_tag 'project-list/project-regular' %>
 
 <%= stylesheet_link_tag 'user' %>
@@ -8,9 +9,9 @@
 			<tbody>
 				<tr>
 					<td id="profile_div">
-              <div id="profile_info">
-							  <%= render 'users/users_soft_sidebar' %>
-              </div>
+					  <div id="profile_info">
+									  <%= render 'users/users_soft_sidebar' %>
+					  </div>
 					</td>
 					<td id="user_projects"><%= render 'users/users_sidebar' %></td>
 				</tr>

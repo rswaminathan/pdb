@@ -24,7 +24,7 @@
 <div class="hr"><hr /></div>
 
 <div>
-<% links_generator %>
+<% link_generator(Project.all,0,30) %>
 <% @links.each do |u| %>
 <div class="home-popular-tags"><%="[ #{u[1]} ] "%><%= link_to u[0], stage_path(:search => u[0]) %>  </div>
 <%end%>

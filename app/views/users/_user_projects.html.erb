@@ -1,34 +1,37 @@
 <% content_for :head do %>
 	<script>
 	</script>
-<%end %>
-<% if (1..4).include?(@profile.top_tag_list.size) %>
-		<div style="min-height:5px; margin-left:11em">
-		<% @profile.top_tag_list.each do |l| %>
-			<div id="popular_tags" style="background-color: #F6F6F6; font-size:1.2em; float:left; margin-left:0; margin-right:0.5em; margin-top:0.3em">
-			<%= link_to l.titleize, user_path(@user, :page => :projects, :tag => l) %> <%="[ #{(@user.projects.tagged_with [l]).count} ]"%> </div>
-		<%end%>
-		</div>
-		<div style="float:right;"><b><%= link_to "Clear Filters", user_path(@user) %></b></div>
-		<% if @user.projects.count > 20 %>
-			<div style="text-align:right" class="span-6-last">
-				<% form_tag(user_path, :method => :get) do %>
-					<b> | Filter by Tag:</b> <%= text_field_tag :tag %>  <%= submit_tag "View" %>
+<% end %>
+
+<% if (1==2) %>
+		<% if (1..4).include?(@profile.top_tag_list.size) %>
+				<div style="min-height:5px; margin-left:11em">
+				<% @profile.top_tag_list.each do |l| %>
+					<div id="popular_tags" style="background-color: #F6F6F6; font-size:1.2em; float:left; margin-left:0; margin-right:0.5em; margin-top:0.3em">
+					<%= link_to l.titleize, user_path(@user, :page => :projects, :tag => l) %> <%="[ #{(@user.projects.tagged_with [l]).count} ]"%> </div>
+				<%end%>
+				</div>
+				<div style="float:right;"><b><%= link_to "Clear Filters", user_path(@user) %></b></div>
+				<% if @user.projects.count > 20 %>
+					<div style="text-align:right" class="span-6-last">
+						<% form_tag(user_path, :method => :get) do %>
+							<b> | Filter by Tag:</b> <%= text_field_tag :tag %>  <%= submit_tag "View" %>
+						<% end %>
+					</div>
 				<% end %>
+			<br />
+			<div style="min-height:8px; border-bottom: 1px solid #E6CDC2;">
+			</div>
+		<% elsif @user.projects.count > 7 %>
+			<div class="search_options_box", style="min-height:26px; width:700px; margin-top:0.6em; margin-bottom:10px">
+				<% @links.each do |u| %>
+					<div id="popular_tags", style=" font-size:1.2em; float:left; margin-left:0; margin-right:0.5em; margin-top:0.1em">
+						<%= link_to u[0], user_path(@user, :page => :projects, :tag => u[0]) %> <%="[ #{u[1]} ]"%>
+					</div>
+				<%end%>
+				<div style="float:right; font-size: .9em;"><b><%= link_to "Clear Filters", user_path(@user) %></b></div>
 			</div>
 		<% end %>
-	<br />
-	<div style="min-height:8px; border-bottom: 1px solid #E6CDC2;">
-	</div>
-<% elsif @user.projects.count > 7 %>
-	<div class="search_options_box", style="min-height:26px; width:700px; margin-top:0.6em; margin-bottom:10px">
-		<% @links.each do |u| %>
-			<div id="popular_tags", style=" font-size:1.2em; float:left; margin-left:0; margin-right:0.5em; margin-top:0.1em">
-				<%= link_to u[0], user_path(@user, :page => :projects, :tag => u[0]) %> <%="[ #{u[1]} ]"%>
-			</div>
-		<%end%>
-		<div style="float:right; font-size: .9em;"><b><%= link_to "Clear Filters", user_path(@user) %></b></div>
-	</div>
 <%end%>
 
 <% if signed_in? && current_user_page? %>
