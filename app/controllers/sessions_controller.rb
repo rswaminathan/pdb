@@ -13,7 +13,8 @@ class SessionsController < ApplicationController
 	def create
 		if @facebook_user
 		  #refresh token, then sign in
-      @facebook_user.update_attributes!(:facebook_token => @auth["credentials"]["token"])
+      user = @facebook_user
+      user.update_attributes!(:facebook_token => @auth["credentials"]["token"])
 			sign_in(@facebook_user)
 		else
 			user = User.authenticate(params[:session][:email].downcase, params[:session][:password])						
