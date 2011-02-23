@@ -3,13 +3,13 @@
 	
 	<div id="blurb">
 
-	<h1>Showcase What You Do</h1>
+	<h1>Portfolios for Innovators</h1>
 	
 	<%= link_to "See The Stage", 'stage'%>
 
 </div>
 	<div id="home_top_container" class="home_register">	
-		<div id="home_project_box" class="span-16">
+		<div id="home_project_box" class="span-16 last">
 			<div id="slider", style="margin-left:8px">
 				<% @slider_projects.each do |p| %>
 					<a href="<%= project_url(p) %>"><img src="<%= "frontpage/#{p.id}.jpg"%>" title="<%= "#title_#{p.id}" %>"/></a>

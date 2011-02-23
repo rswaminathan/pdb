@@ -1,0 +1,31 @@
+<div class="span-4" style="color:#EE000B"><h2>Register</h2></div>
+<hr />
+
+<hr style="margin-bottom:0.5em; background:#666"/>
+<%= form_for @user do |f| %>
+	<%= render	'shared/error_messages', :object => f.object %>
+	<div class="field">
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+	<div class="field">
+		<%= f.label :email %>
+		<%= f.text_field :email, :value => params[:email] %>
+	</div>
+	<div class="field">
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+	</div>
+	<div class="field">
+		<%= f.label :password_confirmation, "Confirm password" %>
+		<%= f.password_field :password_confirmation %>
+	</div>
+	<div class="submit">
+		<%= f.submit "Create My Account", :id => "register_button" %><br />
+	</div>
+<% end %>
+<hr style="margin-bottom:0.5em; background:#666; margin-top:1em"/>
+
+<br />
+<hr />
+

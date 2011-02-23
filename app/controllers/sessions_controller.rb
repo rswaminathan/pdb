@@ -15,7 +15,6 @@ class SessionsController < ApplicationController
 		  #refresh token, then sign in
       @facebook_user.update_attributes!(:facebook_token => @auth["credentials"]["token"])
 			sign_in(@facebook_user)
-			redirect_to root_url
 		else
 			user = User.authenticate(params[:session][:email].downcase, params[:session][:password])						
 			if user.nil?
@@ -24,9 +23,9 @@ class SessionsController < ApplicationController
       else 
 				flash[:success] = "You signed in!"
 				sign_in(user)   
-				redirect_to_page_trying(user)              
 			end
 		end
+      redirect_to_page_trying(user)              
 	end 
   
   def make_new_user?

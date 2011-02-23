@@ -1,6 +1,10 @@
 body{
 	background-color:#333;
-    background: url("/images/pattern.jpg") repeat scroll #999;
+    background: url("/images/wallpaper-4.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 #main h1{
@@ -531,7 +535,7 @@ a {
 	color: #000;
 	margin-bottom:0.5em;
 	font-size: 1.2em;
-	padding: 0 0.4em 0 0.4em;
+	padding: 0.3em 0.4em 0 0.4em;
 }
 
 #user_info_tabs_containter{
@@ -977,7 +981,7 @@ a {
 
 
 #header{
-	background: transparent url(/images/darker-bkg.png);
+	background: rgba(20, 20, 20, 0.4);
     font-size: 1.2em;
 	height: 23px;
     padding: 2px 0 0 0;

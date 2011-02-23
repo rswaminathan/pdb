@@ -9,6 +9,8 @@ Pdb::Application.routes.draw do
 	match	'signup',					:to => 'pages#home'
 	match	'/feed',					:to => 'pages#feed'
 	match	'/login',					:to	=> 'sessions#new'
+	match	'/register',					:to	=> 'sessions#new'
+	
 	match	'/logout',					:to	=> 'sessions#destroy'
 	match	'/search',					:to => 'pages#error'
 	root 								:to => "pages#home"

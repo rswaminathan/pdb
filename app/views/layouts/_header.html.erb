@@ -6,15 +6,20 @@
 			</div>
 		</div>
 		<div class="span-21 last">
+			
+			<% if !facebook_user? %>
+			<%= link_to image_tag('facebook-connect.gif', :style=>"height:18px; width:66px; float:right; position:relative; top: 2px; margin-right:2px; margin-left:10px"),  "/auth/facebook"%>
+			<% end %>
+			
 			<div id="header_menu", style="float:right">
-			<%= link_to "The Stage", stage_path %> | <%= link_to "Search", search_projects_path %> | 
+			<%= link_to "Stage", stage_path %> | <%= link_to "Search", search_projects_path %> | 
 			<% if signed_in? %>
 				<% if admin_user? %>
 					<%= link_to "Admin", admin_email_path %> |
 				<% end %>
 				  <%=link_to "My Profile", user_path(current_user) %> | <%= link_to "Settings", edit_user_path(current_user)  %> | <%= link_to "Log Out", logout_path %>
 			<% else %>
-				   <%= link_to "Sign In", login_path %> | <%= link_to "Sign Up", signup_path %>
+				   <%= link_to "Sign In", login_path %>
 			<% end %>
 			</div>
 			
@@ -23,7 +28,9 @@
 					<%= link_to "Random", random_projects_path %> 
 				</div>	
 			<% end %>
+					
 			
 		</div>
 	</div>
 </div>
+

@@ -1,3 +1,4 @@
+
 #home_background {
 	background: rgba(250,250,250,0.9);
 	height: 340px;
@@ -85,7 +86,7 @@
 }
 
 #home_top_container{
-    height: 363px;
+    height: 343px;
     margin-bottom: 1em;
 }
 
@@ -95,9 +96,10 @@
 
 #registration_box h2 {
     color: #dd0000;
-    margin: 0 0 0.2em 0;
-	font-size:1.9em;
+    margin: -0.3em 0 0.6em 0;
+	font-size:2em;
 	width:500px;
+	font-weight:bold;
 }
 
 #registration_box h4 {
@@ -107,8 +109,31 @@
 }
 
 #facebook_signup {
-    margin: 0 0 0 4.5em;
+    margin: 3.2em 0 0 -0.6em;
+	height: 82px;
 }
+
+
+
+#register_without_facebook{
+    color:  #CE0000;
+    margin: 0.5em 0 0 0.6em;
+    border: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+	border-bottom: 1px solid #CE0000;
+}
+
+#register_without_facebook:hover{
+   color:  #FFFFFF;
+    cursor: pointer;
+	border-bottom: 1px solid #FFFFFF;
+
+	
+}
+
+
+
 #registration_box #register_button{
     background: #dd0000;
     color:  #ffffff;
@@ -202,7 +227,7 @@
 #log_in{
     width: 35px; 
     float: right; 
-    padding: 0.5em 0 0 1em; 
+    padding: 0.7em 0 0 1em; 
 }
 
 #log_in a, #new_account a{
@@ -330,11 +355,12 @@
 }
 
 #blurb  h1{
-	color: #EE000B;
-	font-size:3.4em;
+	color: #fff;
+	font-size:4.5em;
 	line-height:1em;
 	display:inline;
-
+	text-shadow: 1px 1px 5px rgba(150, 0, 0, 0.7);
+	font-weight:bold;
 }
 
 

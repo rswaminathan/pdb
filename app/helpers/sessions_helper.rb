@@ -20,10 +20,17 @@ module SessionsHelper
     def signed_in?
         !current_user.nil?	
     end
-    
+
     def sign_out
         cookies.delete(:remember_token)
         current_user = nil
+    end
+    
+    def facebook_user?
+        if signed_in?
+           !current_user.facebook_token.nil?
+        else false
+        end
     end
     
     def authenticate
