@@ -1,5 +1,5 @@
 <div id="home-user-projects-photo" >
-	<%logo = image_tag project.photo.url(:feed) %>
+	<%logo = image_tag project.photo.url(:feed), :class => "big-picture" %>
 	<%= link_to logo, project %>
 </div>
 

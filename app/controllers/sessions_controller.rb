@@ -12,6 +12,8 @@ class SessionsController < ApplicationController
 
 	def create
 		if @facebook_user
+		  #refresh token, then sign in
+      @facebook_user.update_attributes!(:facebook_token => @auth["credentials"]["token"])
 			sign_in(@facebook_user)
 			redirect_to root_url
 		else
@@ -30,7 +32,12 @@ class SessionsController < ApplicationController
   def make_new_user?
     if @auth = request.env["omniauth.auth"]
       if !@facebook_user = User.find_by_provider_and_uid(@auth["provider"], @auth["uid"])
-        user = User.create_with_omniauth(@auth)
+        if signed_in?
+          user = User.create_with_omniauth(@auth, current_user)
+        else
+          user = User.create_with_omniauth(@auth, nil)
+          build_profile_from_facebook(user)
+        end
         sign_in(user)
         redirect_to edit_profile_user_path(user)
       end

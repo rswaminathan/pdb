@@ -13,6 +13,32 @@ class PagesController < ApplicationController
 		end
 	end
 
+  def facebookinfo
+    @user = current_user
+    @fbuser = FbGraph::User.me(@user.facebook_token).fetch
+    image_url = "http://images.free-extras.com/pics/g/grass-603.jpg"
+    file = open image_url
+    @user.profile.photo = file
+    @user.profile.save
+  end
+
+  def facebook_user
+    	@user = current_user
+  		@title = @user.name
+  		@projects = @user.projects
+  		if !params[:tag].nil?
+  			@projects = (@projects.tagged_with params[:tag]).sort! {|a,b| -(a.count <=> b.count) }
+  		end
+  		if !params[:page].nil?
+  			@sidebar_page = params[:page]
+  		else 
+  			@sidebar_page = "projects"
+  		end
+  		@profile = @user.profile
+  		@project = Project.new
+  end
+
+
 	def stage
 		@title = "Home"
 		@user = (current_user || User.new)

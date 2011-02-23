@@ -106,8 +106,7 @@ class User < ActiveRecord::Base
 		relationship_projects.find_by_followed_id(followed).destroy
 	end
 	
-	def self.create_with_omniauth(auth)
-	  existing_user = current_user || User.find_by_email(auth["extra"]["user_hash"]["email"].downcase) 
+	def self.create_with_omniauth(auth, existing_user=nil)
 	  if existing_user #merge fb/existing account
 	    existing_user.provider = auth["provider"]
 	    existing_user.facebook_token = auth["credentials"]["token"]
@@ -130,6 +129,7 @@ class User < ActiveRecord::Base
     return u
 	end
 	
+   		
     private
        
       def encrypt(string)

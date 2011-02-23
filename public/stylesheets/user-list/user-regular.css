@@ -12,17 +12,21 @@ color:white;
 }
 
 
+.user_description_box{
+	font-size: 1.2em; 
+	margin:0;
+	background-color: rgba(40, 40, 40, 0.4);
+	border-radius: 0.2em 0.2em 0.2em 0.2em;
+	-moz-border-radius: 0.2em 0.2em 0.2em 0.2em;
+	float:left;
+	width:160px;
+	height:100%;
+}
 
 .user{
-	font-size: 1.2em; 
-	padding-bottom: 0.5em;
 	margin:0;
-	padding:0.4em;
-	background-color: #9B1613;
-	border-radius: 0.4em;
-	-moz-border-radius: 0.4em;
-	margin-bottom:0.3em;
-	width:208px;
+	margin-bottom:0.6em;
+	
 }
 
 

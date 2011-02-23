@@ -1,67 +1,62 @@
-<div id="user_user_name" style="margin-bottom: 1em;">
+
+<div id="user_user_name" style="margin-bottom: 0.3em;">
 	
 	<div align="center">
 		<div id="container", style="width:210px;">
 			
-		<% if @profile.photo.exists? && (@user.name.length < 16) && (@profile.department.length < 13)%>
+			<% if @profile.photo.exists? %>
+				<%= image_tag @profile.photo.url(:large), :id => "big-user-pic-part" %>
+				<div id="user_page_name"  style="top:1px; border-radius: 0.1em 0.1em 0.8em 0.3em;" >	
 		
-			<%= image_tag @profile.photo.url(:large), :id => "big-user-pic-regular" %>
-			<div id="user_page_name" style="top: -59px; border-radius: 0em 0em 0.8em 0.2em; padding:0.1px 0 0em 0; margin-left:8px; " >
-				
-		<% elsif @profile.photo.exists? %>
+			<% else %>
+				<div id="user_page_name" style=" top: 1px; border-radius: 0.6em 0.2em 0.6em 0.2em;" >
+			<% end %>
 
-			<%= image_tag @profile.photo.url(:large), :id => "big-user-pic-part" %>
-			<div id="user_page_name"  style="top:1px; border-radius: 0.2em 0.2em 0.6em 0.2em;" >	
-
-		<% else %>
-
-		<div id="user_page_name" style=" top: 1px; border-radius: 0.6em 0.2em 0.6em 0.2em;" >
-
-		<% end %>
+			<span style="font-weight: bold; color: #fff;">		
+				<h1><%= link_to @user.name, @user %></h1>
+				<h2><%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %></h2>
+			</span>
 		
-		<span style="font-weight: bold; color: #fff;">
-			
-	<h1><%= link_to @user.name, @user %></h1>
-	<h2><%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %></h2>
-	</span>
-	</div>
+				</div>
 	
-	</div>
+		</div>
 	</div>
 </div>
+
+	
+<% if signed_in? && current_user_page? %>	
+	<div id="projects", style="float:center">		
+			<div id="login_special", align="center">
+				<%= link_to "Edit Your Profile!", user_path(@user, :page => "edit_profile") %>
+			</div>
+	</div>
+<% end %>
+
+<% if signed_in? %>	
+		<div style="padding:0.5em;text-align:center; margin-left:0.3em; color:#ccc; font-size: 1.3em; line-height:1.4em">
+			<% unless @profile.nil?%>		
+				<%= raw @profile.quote %>
+				<br />
+			<%= render 'follow_form' if (signed_in? && !current_user_page?) %>
+				<% end %>
+		</div>
+<% end %>
 	<% if signed_in? %>
-	<div id="following">
-		<div style="font-size: 1.2em;">
-			<%= link_to "Following", user_path(@user, :page => "following") %>
+		<div id="following">
+			<div style="font-size: 1.2em;">
+				<%= link_to "Following", user_path(@user, :page => "following") %>
+			</div>
+			<div style="color:#C6ECFF; font-size: 1em;">
+				<%= @user.users_following.count %> Users<br />
+			</div>
 		</div>
-		<div style="color:#C6ECFF; font-size: 1em;">
-			<%= @user.users_following.count %> Users<br />
+		<div id="following">
+			<div style="font-size: 1.2em;">
+				<%= link_to "Followers", user_path(@user, :page => "followers") %>
+			</div>
+			<div style="color:#BFF8FF; font-size: 1em;">
+				<%= @user.followers.count %> Users
+			</div>
 		</div>
-	</div>
-	<div id="following">
-		<div style="font-size: 1.2em;">
-			<%= link_to "Followers", user_path(@user, :page => "followers") %>
-		</div>
-		<div style="color:#BFF8FF; font-size: 1em;">
-			<%= @user.followers.count %> Users
-		</div>
-	</div>
 
-<div id="projects", style="float:center">
-	<% if signed_in? && current_user_page? %>
-		<div id="login_special", align="center">
-			<%= link_to "Edit Your Profile!", user_path(@user, :page => "edit_profile") %>
-		</div>
-	<% end %>
-
-	<div style="padding:0.5em;text-align:center; margin-left:0.3em; color:#ccc; font-size: 1.3em; line-height:1.4em">
-		<br /><br />
-		<% unless @profile.nil?%>
-			<%= raw @profile.quote %>
-		<% end %>
-		<br /><br />
-		<%= render 'follow_form' if (signed_in? && !current_user_page?) %>
-	</div>
-	
-	<%end%>	
-</div>
+<%end%>

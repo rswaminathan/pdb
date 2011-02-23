@@ -26,6 +26,7 @@ class UsersController < ApplicationController
 		@project = Project.new
 	end
 
+
   def create
 	  @user = User.new(params[:user])
 	  @user.email = @user.email.downcase
@@ -67,6 +68,23 @@ class UsersController < ApplicationController
 		end 
 	end
 
+  def edit_facebook_profile
+        @user = current_user
+        @fbuser = FbGraph::User.me(@user.facebook_token).fetch
+      @message="help"
+      
+      @schools = facebook_schools(@fbuser)
+      @years = facebook_years(@fbuser)
+      @concentrations = facebook_concentrations(@fbuser)
+      
+    if !@user.profile.nil?
+			@profile = @user.profile
+		else
+			@profile = @user.build_profile
+			@profile.save
+		end
+  end  
+    
 	def update_profile
 		if (@user.profile.update_attributes(params[:profile]))
 			flash[:success] = "Updated Profile"

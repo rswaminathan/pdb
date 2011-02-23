@@ -1,6 +1,12 @@
+require 'open-uri'
+require 'net/http'
+
 class Profile < ActiveRecord::Base
+
+  
+  
     has_attached_file :photo, 
-                      :styles => {:itsy => "30x30#", :teeny => "40x40#", :tiny=> "50x50#",:thumb=> "60x60#", :standard=> "80x80#", :small=> "100x100#", :medium  => "140x180#", :large => "210x400", :huge  => "640x480>" },
+                      :styles => {:itsy => "30x30#", :teeny => "40x40#", :tiny=> "50x50#",:thumb=> "60x60#", :standard=> "80x80#", :small=> "100x100#", :medium  => "450x215#", :large => "210x400", :huge  => "640x480>" },
                       :default_url => "/images/wally_profile-tiny.jpg",
                       :storage => :s3,
                       :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
@@ -25,6 +31,12 @@ class Profile < ActiveRecord::Base
 
     acts_as_taggable_on :top_tags
 
+    #Get the picture from a given url.
+      
+    def picture_from_url(url)  
+        self.photo = open(url)  
+    end
+    
 end
 
 

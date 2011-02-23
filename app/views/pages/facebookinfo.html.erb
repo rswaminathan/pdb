@@ -1,0 +1,113 @@
+
+<div id="fb-root"></div>
+<script src="http://connect.facebook.net/en_US/all.js">
+</script>
+<script>
+   FB.init({ 
+      appId:102495643164607, cookie:true, 
+      status:true, xfbml:true 
+   });
+
+   FB.ui({ method: 'feed', 
+      message: 'Facebook for Websites is super-cool'});
+</script>
+
+
+
+<section class="profile" style="color:white;">
+  <h2>User Profile</h2>
+  <%= image_tag "#{@fbuser.picture}?type=large" %>
+
+
+
+  <%=image_url = "http://images.free-extras.com/pics/g/grass-603.jpg" %>
+  <% file = open image_url %>
+  <% @user.profile.photo = file %>
+  <% @user.profile.save %>
+  
+  <dl>
+    <dt>Name</dt>
+    <dd><%= @fbuser.name %></dd>
+    <dt>First Name</dt>
+    <dd><%= @fbuser.first_name %></dd>
+    <dt>Last Name</dt>
+    <dd><%= @fbuser.last_name %></dd>
+    <dt>Gender</dt>
+    <dd><%= @fbuser.gender %></dd>
+    <dt>Link</dt>
+    <dd><%= link_to @fbuser.link, @fbuser.link %></dd>
+    <dt>Email</dt>
+    <dd><%= @fbuser.email %></dd>
+    <dt>About</dt>
+    <dd><%= @fbuser.about %></dd>
+    <dt>Birthday</dt>
+    <dd><%= @fbuser.birthday %></dd>
+    <dt>Work</dt>
+    <% @fbuser.work.each do |work| %>
+      <dd>
+        <article>
+          <header>
+            <h3><%= work.employer.name %></h3>
+            <p><%= work.start_date %> - <%= work.end_date || 'Current' %></p>
+          </header>
+          <p><%= work.position.name %></p>
+        </article>
+      </dd>
+    <% end %>
+    <dt>Education</dt>
+    <% @fbuser.education.each do |education| %>
+      <dd>
+        <article>
+          <h3><%= education.school.name %></h3>
+          <p><%= education.type %></p>
+        </article>
+      </dd>
+    <% end %>
+    <dt>Website</dt>
+    <% @fbuser.websites.each do |website| %>
+      <dd><%= link_to website, website %></dd>
+    <% end %>
+    <dt>Hometown</dt>
+    <dd><%= @fbuser.hometown.try(:name) %></dd>
+    <dt>Location</dt>
+    <dd><%= @fbuser.location.try(:name) %></dd>
+    <dt>Bio</dt>
+    <dd><%= @fbuser.bio %></dd>
+    <dt>Quotes</dt>
+    <dd><%= @fbuser.quotes %></dd>
+    <dt>Interested in</dt>
+    <dd><%= @fbuser.interested_in.join(', ') %></dd>
+    <dt>Meeting for</dt>
+    <dd><%= @fbuser.meeting_for.join(', ') %></dd>
+    <dt>Relationship Status</dt>
+    <dd><%= @fbuser.relationship_status %></dd>
+    <dt>Religion</dt>
+    <dd><%= @fbuser.religion %></dd>
+    <dt>Political</dt>
+    <dd><%= @fbuser.political %></dd>
+    <dt>Verified</dt>
+    <dd><%= @fbuser.verified %></dd>
+    <dt>Significant Other</dt>
+    <dd><%= @fbuser.significant_other.try(:name) %></dd>
+    <dt>Timezone</dt>
+    <dd><%= @fbuser.timezone %></dd>
+    <dt>Locale</dt>
+    <dd><%= @fbuser.locale %></dd>
+    <dt>Languages</dt>
+    <dd><%= @fbuser.languages.collect(&:name).join(', ') %></dd>
+    <dt>Sports</dt>
+    <dd><%= @fbuser.sports.collect(&:name).join(', ') %></dd>
+    <dt>Favorite Teams</dt>
+    <dd><%= @fbuser.favorite_teams.collect(&:name).join(', ') %></dd>
+    <dt>Inspirational People</dt>
+    <dd><%= @fbuser.inspirational_people.collect(&:name).join(', ') %></dd>
+    <dt>Update Time</dt>
+    <dd><%= @fbuser.updated_time %></dd>
+    <dt>Third Party ID</dt>
+    <dd><%= @fbuser.third_party_id %></dd>
+    <dt>Pending.. (temporary disabled by facebook)</dt>
+    <% [:address, :mobile_phone].each do |attribute| %>
+      <dd><%= attribute %></dd>
+    <% end %>
+  </dl>
+</section>

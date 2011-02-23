@@ -1,0 +1,52 @@
+<div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px">
+	<div class="home_register span-12" style="float:center; margin-left: 16em">
+		<h1>Create Profile</h1>
+		
+		<section class="profile" style="color:white;">
+
+  <dl>		
+		<dt>Name</dt>
+	    <dd><%= @fbuser.name %></dd>
+	    <dt>First Name</dt>
+	    <dd><%= @fbuser.first_name %></dd>
+	    <dt>Last Name</dt>
+	    <dd><%= @fbuser.last_name %></dd>
+	
+	    <dt>Education</dt>
+	<%= @schools%>
+	<%= @years%>
+	<%= @concentrations%>
+	
+	</dl>
+		<%= form_for @profile, :url => update_profile_user_path, :html => { :multipart => true } do |f| %>
+			<%= render	'shared/error_messages', :object => f.object %>
+			<div class="field">
+				<%= f.label "Institution" %><br />
+				<%= select( "profile", "institution", @schools.reverse+["Harvey Mudd College"]) %>
+			</div>
+			<div class="field">
+				<%= f.label 'Occupation' %><br />
+				<%= select( "profile", "occupation", [ "Student", "Professor", "Alumni", "Staff"]) %>
+			</div>
+			<div class="field">
+				<%= f.label 'Department' %><br />
+				<%= select( "profile", "department", [ "Biology", "Biology/Chemistry", "Chemistry", "Computer Science", "Engineering", "HSA","Mathematics", "Mathematics/Computer Science", "Mathematical Biology", "Physics", "Independent", "Undecided", "Off-Campus" ]) %>
+			</div>
+			<div class="field">
+				<%= f.label 'Graduation Year' %><br />
+				<%= f.text_field :year %>
+			</div>
+			<div class="float:right">
+						  <%= image_tag "#{@fbuser.picture}?type=large" %>
+						</div>
+			<div class="field">
+				<%= f.label :photo %><br />
+				<%= f.file_field :photo %>
+			</div>
+
+			<div class="submit">
+				<%= f.submit "Finish Registration" %><br />
+			</div>
+		<% end %>
+	</div>
+</div>

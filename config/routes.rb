@@ -14,6 +14,8 @@ Pdb::Application.routes.draw do
 	root 								:to => "pages#home"
 	match 	'/home',					:to => "pages#home"
 	match 	'/stage',					:to => "pages#stage"
+	match '/facebookinfo',    :to => 'pages#facebookinfo'
+	
 	match 	"/auth/:provider/callback",	:to => "sessions#create"
 #	match 	"/signout", 				:to => "sessions#destroy", :as => :signout
 
@@ -22,6 +24,7 @@ Pdb::Application.routes.draw do
 		member do
 			put 'update_profile'
 			get 'edit_profile'
+			get 'edit_facebook_profile'
 			get :following, :followers
 			get :feed
 			get :about
