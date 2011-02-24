@@ -16,6 +16,7 @@ gem 'meta_search'
 gem 'meta_where'
 gem 'rails3-jquery-autocomplete'
 gem 'fb_graph'
+gem 'mechanize'
 group :development do
     gem 'rspec-rails', '2.0.1'
 end 

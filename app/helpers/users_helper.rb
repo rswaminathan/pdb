@@ -34,8 +34,12 @@ module UsersHelper
 		end 
     #now update profile from facebook
     @fbuser = FbGraph::User.me(user.facebook_token).fetch
+    redir_url = Mechanize.new.get("#{@fbuser.picture}?type=large").uri
+    image = open redir_url #handles facebook https-http redirect, very retarded way to do it, find
+    # something better.
     @profile.update_attributes(:institution => facebook_schools(@fbuser)[0],
                                :year        => facebook_years(@fbuser)[0],
-                               :occupation  => facebook_concentrations(@fbuser)[0])
+                               :occupation  => facebook_concentrations(@fbuser)[0],
+                               :photo       => image)
   end
 end

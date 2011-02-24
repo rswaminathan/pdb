@@ -32,6 +32,7 @@ class ProjectsController < ApplicationController
 			end
 			current_user.projects << @project
 			flash[:success] = "Project added!"
+			#current_user.facebook.feed!(:message => "Check out my new project #{link_to(@project.name,@project)} at Holono.com", :name => "My New Project" )
 			redirect_to @project
 		else
 			render 'new'
