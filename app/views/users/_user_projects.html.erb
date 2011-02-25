@@ -35,7 +35,7 @@
 <%end%>
 
 <% if signed_in? && current_user_page? %>
-	<div class="span-18 last" style="height:156px"> 
+	<div style="height:156px"> 
 		<%= render 'users/user_quick_project' %>
 	</div>
 <% else %>
@@ -46,7 +46,7 @@
 <% if @projects.any? %>
 	<% @projects.each do |u| %>
 		<% if u.photo.exists? %>
-			<div class = "span-18 last" id="project_list" style="padding;10em 0 0 0;" >
+			<div id="project_list" style="padding;10em 0 0 0;" >
 				<div id="user_projects_photo" class="span-3"><% logo = image_tag u.photo.url(:standard) %><%= link_to logo, u %></div>
 				<div style="min-height:60px"> 
 					<div class="span-15-last" id="project_name_div"><%= link_to u.name, u %></div>

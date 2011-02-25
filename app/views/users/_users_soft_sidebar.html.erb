@@ -1,62 +1,105 @@
+<% if @projects.count > 5 %>
+	<div class="span-6 last" style="position:fixed">
+<% else %>
+	<div class="span-6 last" >
+<% end %>
 
-<div id="user_user_name" style="margin-bottom: 0.3em;">
+		<div id="sidebar_div">
+			<div id="user_user_name" style="margin-bottom: 0.3em;">
 	
-	<div align="center">
-		<div id="container", style="width:210px;">
+				<% # This brings up the "Edit Profile" Button %>
+				<% if signed_in? && current_user_page? %>	
+					<div id="projects", style="float:center">		
+							<div id="login_special", align="center">
+								<%= link_to "Edit Your Profile!", user_path(@user, :page => "edit_profile") %>
+							</div>
+					</div>
+				<% end %>
+	
+	
+				<% # This shows the user picture, name, basic info %>
+				<div align="center">
+					<div id="container", style="width: 100%;">
 			
-			<% if @profile.photo.exists? %>
-				<%= image_tag @profile.photo.url(:large), :id => "big-user-pic-part" %>
-				<div id="user_page_name"  style="top:1px; border-radius: 0.1em 0.1em 0.8em 0.3em;" >	
-		
-			<% else %>
-				<div id="user_page_name" style=" top: 1px; border-radius: 0.6em 0.2em 0.6em 0.2em;" >
-			<% end %>
+							<% if @profile.photo.exists? %>
+								<%= image_tag @profile.photo.url(:large), :id => "big-user-pic-part" %>
+								<div id="user_page_name"  style="top:1px; border-radius: 0.1em 0.1em 0.8em 0.3em;" >	
+							<% else %>
+								<div id="user_page_name" style=" top: 1px; border-radius: 0.6em 0.2em 0.6em 0.2em;" >
+							<% end %>
 
-			<span style="font-weight: bold; color: #fff;">		
-				<h1><%= link_to @user.name, @user %></h1>
-				<h2><%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %></h2>
-			</span>
-		
+							<span style="font-weight: bold; color: #fff;">		
+								<h1><%= link_to @user.name, @user %></h1>
+								<h2><%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %></h2>
+							</span>
+					
+								</div>
+					</div>
 				</div>
 	
-		</div>
-	</div>
-</div>
 
+			<% # This shows the user quote if it exists %>
 	
-<% if signed_in? && current_user_page? %>	
-	<div id="projects", style="float:center">		
-			<div id="login_special", align="center">
-				<%= link_to "Edit Your Profile!", user_path(@user, :page => "edit_profile") %>
+			<% if !@profile.quote.nil? && !@profile.quote.empty? %>
+				<div style="padding:0.5em;text-align:center; margin:0.5em 0.3em 0.5em 0.3em; color:#fff; font-size: 1.3em; line-height:1.4em">		
+						<%=  raw @profile.quote %>
+				</div>		
+			<% end %>
+	
+	
+			<% # This shows the follow form and the followers/following info in the necessary times %>
+
+			<% if signed_in? %>
+			
+				<div style="height:46px">
+						<div id="following">
+							<div style="font-size: 1.2em;">
+								<%= link_to "Following", user_path(@user, :page => "following") %>
+							</div>
+							<div style="color:#C6ECFF; font-size: 1em;">
+								<%= @user.users_following.count %> Users<br />
+							</div>
+						</div>
+						<div id="following">
+							<div style="font-size: 1.2em;">
+								<%= link_to "Followers", user_path(@user, :page => "followers") %>
+							</div>
+							<div style="color:#BFF8FF; font-size: 1em;">
+								<%= @user.followers.count %> Users
+							</div>
+						</div>
+				</div>
+			<%end%>
+				
+
+			<% #This makes the  %>
+
+		</div></div>
+		
+			<div style="text-align:right; margin-right:0.5em; float:right">
+				<div>
+					<%# [@user.profile.facebook, @user.profile.twitter, @user.profile.linked_in].each do |website| %>
+		
+					<% if !@user.profile.facebook.nil? && !@user.profile.facebook.blank?%>
+					<%string = "/images/icons/style3/32/" << "facebook" << ".png" %>
+					<% mudd = image_tag string %><%= link_to mudd, @user.profile.facebook %>
+					<% end %>		
+		
+					<% if !@user.profile.twitter.nil? && !@user.profile.twitter.blank?%>
+					<%string = "/images/icons/style3/32/" << "twitter" << ".png" %>
+					<% mudd = image_tag string %><%= link_to mudd, @user.profile.twitter %>
+					<% end %>
+		
+					<% if !@user.profile.linked_in.nil? && !@user.profile.linked_in.blank?%>
+					<%string = "/images/icons/style3/32/" << "linkedin" << ".png" %>
+					<% mudd = image_tag string %><%= link_to mudd, @user.profile.linked_in %>
+					<% end %>
+		
+		
+				</div>
 			</div>
+			<div style="float:left">
+			<%= render 'follow_form' if !current_user_page? && signed_in?%>
+			</div>
+	
 	</div>
-<% end %>
-
-<% if signed_in? %>	
-		<div style="padding:0.5em;text-align:center; margin-left:0.3em; color:#ccc; font-size: 1.3em; line-height:1.4em">
-			<% unless @profile.nil?%>		
-				<%= raw @profile.quote %>
-				<br />
-			<%= render 'follow_form' if (signed_in? && !current_user_page?) %>
-				<% end %>
-		</div>
-<% end %>
-	<% if signed_in? %>
-		<div id="following">
-			<div style="font-size: 1.2em;">
-				<%= link_to "Following", user_path(@user, :page => "following") %>
-			</div>
-			<div style="color:#C6ECFF; font-size: 1em;">
-				<%= @user.users_following.count %> Users<br />
-			</div>
-		</div>
-		<div id="following">
-			<div style="font-size: 1.2em;">
-				<%= link_to "Followers", user_path(@user, :page => "followers") %>
-			</div>
-			<div style="color:#BFF8FF; font-size: 1em;">
-				<%= @user.followers.count %> Users
-			</div>
-		</div>
-
-<%end%>

@@ -17,17 +17,11 @@
 <section class="profile" style="color:white;">
   <h2>User Profile</h2>
   <%= image_tag "#{@fbuser.picture}?type=large" %>
-
-
-
-  <%=image_url = "http://images.free-extras.com/pics/g/grass-603.jpg" %>
-  <% file = open image_url %>
-  <% @user.profile.photo = file %>
-  <% @user.profile.save %>
-  
   <dl>
     <dt>Name</dt>
     <dd><%= @fbuser.name %></dd>
+	(auao :)
+	(First)
     <dt>First Name</dt>
     <dd><%= @fbuser.first_name %></dd>
     <dt>Last Name</dt>
@@ -41,6 +35,7 @@
     <dt>About</dt>
     <dd><%= @fbuser.about %></dd>
     <dt>Birthday</dt>
+	<oeuaoueoeuaoue>
     <dd><%= @fbuser.birthday %></dd>
     <dt>Work</dt>
     <% @fbuser.work.each do |work| %>
