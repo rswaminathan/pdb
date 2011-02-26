@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
   def json_for_autocomplete(items, method)
     #merge with fb friends
     if signed_in?
-      @fb_json = facebook_friends.collect { |item| {"id" => item.identifier, "label" => item.name, "value" = item.name,
+      @fb_json = facebook_friends.collect { |item| {"id" => item.identifier, "label" => item.name, "value" => item.name,
                                                     "img" => item.picture, "info" => "Facebook Friend"}}
     else
       @fb_json = {}
