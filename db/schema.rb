@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110220173658) do
+ActiveRecord::Schema.define(:version => 20110226074123) do
 
   create_table "admins", :force => true do |t|
     t.text      "email_list"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20110220173658) do
     t.timestamp "created_at"
     t.timestamp "updated_at"
     t.string    "facebook_id"
+    t.string    "facebook"
   end
 
   create_table "pre_users_projects", :id => false, :force => true do |t|
