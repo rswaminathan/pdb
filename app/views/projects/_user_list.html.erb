@@ -3,7 +3,7 @@
 		<% users.each do |u| %>
 			<div class="user", style=" height:50px; width:215px" >
 				<div class="user_pic"><% logo = image_tag u.profile.photo.url(:tiny)%> <%= link_to logo, u, :class => "left"  %></div>    
-				<div class="user_description_box">
+				<div class="user_description_box", style="background-color: rgba(212, 70, 4, 1);">
 					<div style="padding:0.1em 0.3em 0.1em 0.3em">
 						<div class="user_name"><%= link_to u.name, u %></div>
 						<div class="user_info">

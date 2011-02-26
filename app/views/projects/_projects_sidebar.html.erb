@@ -35,7 +35,7 @@
 
 <% if @project.kind_list.any? %>
 <%= render 'sidebar_triangles', :title => "Tags" %>	
-	<div id="project_sidebar_section", style="border: 1px solid rgba(40, 40, 40, 0.4)">
+	<div id="project_sidebar_section", style="border: 1px solid  rgba(212, 70, 4, 1)">
 	<% @project.kind_list.each do |t| %>
 		<span id="project_sidebar_kind", style="margin-left:0.6em">
 			<%= link_to t, search_projects_path(:search => t) %>
@@ -46,7 +46,7 @@
 
 <% if (!@comments.count==0) || signed_in?%>
 	<%= render 'sidebar_triangles', :title => "Comments" %>
-	<div id="project_sidebar_section", style="border: 1px solid rgba(40, 40, 40, 0.4)">
+	<div id="project_sidebar_section", style="border: 1px solid rgba(212, 70, 4, 1)">
 		<div id="users_list">
 			<% @comments.each do |c| %>
 				<%= link_to c.user.name, c.user %> : <%= c.body %><br />

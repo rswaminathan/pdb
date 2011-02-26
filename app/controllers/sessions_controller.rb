@@ -22,7 +22,6 @@ class SessionsController < ApplicationController
 				flash.now[:error] = "Check your detailz"
 				render 'new' 
       else 
-				flash[:success] = "You signed in!"
 				sign_in(user)   
 			end
 		end
