@@ -16,16 +16,17 @@ class SessionsController < ApplicationController
       user = @facebook_user
       user.update_attributes!(:facebook_token => @auth["credentials"]["token"])
 			sign_in(@facebook_user)
+                redirect_to_page_trying(user)              
 		else
 			user = User.authenticate(params[:session][:email].downcase, params[:session][:password])						
 			if user.nil?
 				flash.now[:error] = "Check your detailz"
 				render 'new' 
-      else 
+            else 
 				sign_in(user)   
+                redirect_to_page_trying(user)              
 			end
 		end
-      redirect_to_page_trying(user)              
 	end 
   
   def make_new_user?
