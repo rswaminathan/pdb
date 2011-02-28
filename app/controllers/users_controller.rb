@@ -30,8 +30,8 @@ class UsersController < ApplicationController
   def create
 	  @user = User.new(params[:user])
 	  @user.email = @user.email.downcase
+      @user.build_profile
 	  if @user.save
-		  @user.create_profile
 		  sign_in @user
 		  @preuser = PreUser.find_by_email(params[:user][:email].downcase)
 		  if @preuser

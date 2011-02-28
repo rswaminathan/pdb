@@ -17,8 +17,8 @@
 			<div style="float:right; margin-right:1em; margin-bottom:0.2em">
 				 <% @project.links.each do |thing| %>
 				<div style="width:38px; float:right">
-				  <% string = "/images/icons/style3/16/#{thing.provider.to_s}.png" %>
-				  <% mudd = image_tag( string) %><%= link_to mudd, thing.link %>
+				  <% string = "/images/icons/style3/32/#{thing.provider.to_s}.png" %>
+				  <% mudd = image_tag string, :width => "26px" %><%= link_to mudd, thing.link %>
 				</div>
 				<% end%>
 			</div>
