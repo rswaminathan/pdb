@@ -21,8 +21,8 @@
 		<%= form_for @profile, :url => update_profile_user_path, :html => { :multipart => true } do |f| %>
 			<%= render	'shared/error_messages', :object => f.object %>
 			<div class="field">
-				<%= f.label "Institution" %><br />
-				<%= select( "profile", "institution", @schools.reverse+["Harvey Mudd College"]) %>
+				<%= f.label "Network" %><br />
+				<%= select( "profile", "institution", @schools.reverse+["Harvey Mudd College", "None"]) %>
 			</div>
 			<div class="field">
 				<%= f.label 'Occupation' %><br />

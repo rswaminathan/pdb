@@ -49,6 +49,7 @@ Pdb::Application.routes.draw do
 	resources :comments
 	resources :projects do
 		resources :likes
+        resources :links
 		member do
 			get 'edit_collaborators'
 			post 'update_collaborators'

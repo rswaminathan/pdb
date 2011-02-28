@@ -78,7 +78,7 @@
 
       $.ui.autocomplete.prototype._renderItem = function( ul, item) {
           var re = new RegExp("^" + this.term, "i") ;
-          var t = item.label.replace(re,"<span style='font-weight:bold;color:white;'>" + 
+          var t = item.label.replace(re,"<span style='font-weight:bold;'>" + 
                   this.term + 
                   "</span>");
           var userpic = "<div class='user_pic'><img src=" + item.img + "></div>";
@@ -95,7 +95,7 @@
       $( "input[data-autocomplete]" ).bind( "autocompleteselect", function(event, ui) {
         var userpic = "<div class='user_pic'><img src=" + ui.item.img + "></div>";
         var userinfo = "<div class='user_info'>" + ui.item.info + "<br></div>";
-        var userdiv = "<div class='user' style='width:208px; color: white; height:50px; float: left;'>" + userpic + ui.item.label +  userinfo + "</div>";
+        var userdiv = "<div class='user' style='width:208px; font-weight:bold; height:50px; float: left;'>" + userpic + ui.item.label +  userinfo + "</div>";
         $("#added_collaborators").append(userdiv);
         $('#cids').val(function(index, value) {
           return value + ui.item.id + ',';

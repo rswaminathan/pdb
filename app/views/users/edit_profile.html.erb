@@ -5,7 +5,7 @@
 			<%= render	'shared/error_messages', :object => f.object %>
 			<div class="field">
 				<%= f.label "Institution" %><br />
-				<%= select( "profile", "institution", ["Harvey Mudd College"]) %>
+				<%= f.text_field :institution %>
 			</div>
 			<div class="field">
 				<%= f.label 'Occupation' %><br />
@@ -33,6 +33,9 @@
 			</div>
 			<div class="field">
 				<%= f.label :photo %><br />
+				<% if @profile.photo.exists? %>
+					<%= image_tag @profile.photo.url %>
+				<% end %>
 				<%= f.file_field :photo %>
 			</div>
 			<div class="field">

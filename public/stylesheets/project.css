@@ -1,8 +1,10 @@
 
 
 #project_new{
-    background-color: #999999;
+    background: none repeat scroll 0 0 rgba(20, 20, 20, 0.8);
     padding: 1em 1em 1em 1em;
+	margin-bottom:0.5em;
+	border-radius:0.5em;
 }
 
 #common_tags{

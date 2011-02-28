@@ -15,11 +15,7 @@ class PagesController < ApplicationController
 
   def facebookinfo
     @user = current_user
-    @fbuser = FbGraph::User.me(@user.facebook_token).fetch
-    image_url = "http://images.free-extras.com/pics/g/grass-603.jpg"
-    file = open image_url
-    @user.profile.photo = file
-    @user.profile.save
+
   end
 
   def facebook_user

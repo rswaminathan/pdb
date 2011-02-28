@@ -49,7 +49,18 @@
 			<div id="project_list" style="padding;10em 0 0 0;" >
 				<div id="user_projects_photo" class="span-3"><% logo = image_tag u.photo.url(:standard) %><%= link_to logo, u %></div>
 				<div style="min-height:60px"> 
-					<div class="span-15-last" id="project_name_div"><%= link_to u.name, u %></div>
+					
+					
+							<div style="float:right">
+								 <% u.links.each do |thing| %>
+								 <% string = "/images/icons/style3/16/#{thing.provider.to_s}.png" %>
+								<% mudd = image_tag( string) %><%= link_to mudd, thing.link %>
+								<% end%>
+							</div>
+					
+							
+						<div class="span-15-last" id="project_name_div"><%= link_to u.name, u%></div>
+						
 					<div id="project_description_div">
 						<% if u.abstract.nil? || u.abstract.empty? %>
 							<%= truncate(u.description, :length => 310) %>

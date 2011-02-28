@@ -11,11 +11,17 @@
 
 	<div id="project_name_header">
 				
-		<% if !@pages.any? %>
-			<div style="text-align:center"><%= link_to @project.name, @project %></div></div>
-			<% else %>
+
 			<%= link_to @project.name, @project %>
-		<% end %>
+			
+			<div style="float:right; margin-right:1em; margin-bottom:0.2em">
+				 <% @project.links.each do |thing| %>
+				<div style="width:38px; float:right">
+				  <% string = "/images/icons/style3/16/#{thing.provider.to_s}.png" %>
+				  <% mudd = image_tag( string) %><%= link_to mudd, thing.link %>
+				</div>
+				<% end%>
+			</div>
 		
 	</div>
 	

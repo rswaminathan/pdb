@@ -1,6 +1,6 @@
 module UsersHelper
   def facebook_friends
-      @facebook_friends ||= FbGraph::User.me(current_user.facebook_token).fetch
+      @facebook_friends ||= FbGraph::User.me(current_user.facebook_token).fetch.friends
   end
   	 def facebook_years(fbuser)
      years = Array.new
