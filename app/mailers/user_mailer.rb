@@ -30,7 +30,7 @@ class UserMailer < ActionMailer::Base
   end
 
   def know_more(user_to, user_from, project)
-    @user_from = user_from
+    @user = user_from
     @project = project
     subject = "#{user_from.name} wants to know more about your project #{project.name}"
     mail(:to => user_to.email, :subject => subject)

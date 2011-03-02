@@ -219,8 +219,8 @@ border-bottom-left-radius: 0.5em 0.5em;
 	
 }
 .container #header_title a{
-	color: #D30009;
-	font-size:1.2em;
+	color: #FF4334;
+	font-size:1.5em;
 	position:relative;
 	top:-4px;
 	margin-bottom:0px;
@@ -229,13 +229,13 @@ border-bottom-left-radius: 0.5em 0.5em;
 }
 
 .container #header_title a:hover{
-	color: #FF4334;
+	color: #FF0000;
 }
 
 #random_project{
 	color: #fff;
 	margin-right:2.4em;
-	margin-top:6px;
+	margin-top:9px;
 	position:relative;
 	left: 10px;
 	line-height:0.6em;
@@ -987,7 +987,7 @@ a {
 #header{
 	background: rgba(20, 20, 20, 0.4);
     font-size: 1.2em;
-	height: 23px;
+	height: 30px;
     padding: 2px 0 0 0;
 	border-bottom: 1px solid #222;
 	
@@ -1021,7 +1021,7 @@ a {
 #header_menu{
 	color:#aaa;
 	text-align:right;
-	margin-top:1px;
+	margin-top:4px;
 }
 #header_menu a{
 	color: #ccc;
