@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @title = "Holono | Portfolio for Innovators"
+    @title = "Holono | Your Project Database"
     @user = User.new
     @slider_projects = slider_projects
     if params[:page]

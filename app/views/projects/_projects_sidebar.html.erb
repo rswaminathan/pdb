@@ -1,34 +1,29 @@
 <% javascript_include_tag "mulitselector" %>
 <div class = "span-5 last" %>
-<%= render 'project_pages' %>
+	<%= render 'project_pages' %>
 </div>
-<div class = "span-3 last"></div>
 <% if current_project_user? %> 
-	<div id="login_special", style="text-align:center">
-		<%= link_to "Edit Project Info", edit_project_path %>
-	</div>
-	<div>
-		
-	</div>
-<% end%>
-<div>
-		<%= render 'tell_me_more' unless current_project_user? %>
+<div id="login_special", style="text-align:center">
+	<%= link_to "Edit Project Info", edit_project_path %>
 </div>
 
-
-<% if current_project_user? %>
 <h1>Upload File</h1>
-	<div id ="comment_sumbit">
-		<% form_for :attachment, :url => create_attachment_project_path, :html => { :multipart => true } do |f| %>
-			<%= f.file_field :file %>
-		<div class="submit">
-			<%= f.submit %><br />
-		</div>
-		<% end %>
-		</body>
-
+<div id ="comment_sumbit">
+	<% form_for :attachment, :url => create_attachment_project_path, :html => { :multipart => true } do |f| %>
+	<%= f.file_field :file %>
+	<div class="submit">
+		<%= f.submit %><br />
 	</div>
-<% end %>
+	<% end %>
+</div>
+<% end%>
+
+
+
+<div>
+	<%= render 'tell_me_more' unless current_project_user? %>
+</div>
+
 
 
 

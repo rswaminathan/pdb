@@ -1,4 +1,10 @@
+#know_more{
+  float:left;
+}
 
+#know_more_form textarea{
+  height: 50px;
+}
 
 #project_new{
     background: none repeat scroll 0 0 rgba(20, 20, 20, 0.8);
