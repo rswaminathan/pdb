@@ -1,18 +1,8 @@
 <%if users.any? %>  
-	<div id="users_list">
 		<% users.each do |u| %>
-			<div class="user", style=" height:50px; width:215px" >
+			<div style=" height:50px; float:left" >
 				<div class="user_pic"><% logo = image_tag u.profile.photo.url(:tiny)%> <%= link_to logo, u, :class => "left"  %></div>    
-				<div class="user_description_box", style="background-color: rgba(212, 70, 4, 1);">
-					<div style="padding:0.1em 0.3em 0.1em 0.3em">
-						<div class="user_name"><%= link_to u.name, u %></div>
-						<div class="user_info">
-							<% @profile = u.profile %><%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %><br />
-						</div>
-					</div>
-				</div>
 			</div>
 		<% end%>
-	</div>
 <% end %> 
 

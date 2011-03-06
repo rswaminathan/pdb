@@ -12,7 +12,7 @@ class LikesController < ApplicationController
     if @like.save
       flash.now[:success] = ""
       @project.users.each do |user|
-        UserMailer.know_more(user, current_user, @project).deliver
+        UserMailer.know_more(user, current_user, @project, @custom_message).deliver
       end
     end
   end

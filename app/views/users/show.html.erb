@@ -9,17 +9,15 @@
 			<tbody>
 				<tr>
 					<td id="profile_div" class="span-6 last">
-
-
-						<%= render 'users/users_soft_sidebar' %>
-
-
+<%= render 'users/users_soft_sidebar' %>
 					</td>
-					<td id="user_projects" class="span-18"><%= render 'users/users_sidebar' %></td>
-
-
-
-
+					<td id="user_projects" class="span-18">
+						
+						<div id ="user_sidebar_pages" class="yui-skin-sam">
+							<%= render "users/projectlist/user_projects" %>
+						</div><br/>
+						
+						</td>
 				</tr>
 			</tbody>
 		</table>

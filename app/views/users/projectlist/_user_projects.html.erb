@@ -1,0 +1,87 @@
+<% content_for :head do %>
+	<script>
+	</script>
+<% end %>
+
+
+<% if signed_in? && current_user_page? %>
+	<div style="height:156px"> 
+		<%= render 'users/user_quick_project' %>
+	</div>
+<% else %>
+	<% unless @projects.any? %>
+		<div id="no_projects"><%= "#{@user.name} has not posted any projects." %></div>
+	<% end %>
+<% end %>
+<% if @projects.any? %>
+	<% @projects.each do |u| %>
+	
+	
+				
+			<% if u.photo.exists? %>
+				<div id="project_list" style="min-height:82px">
+				<div id="user_projects_photo" class="span-3"><% logo = image_tag u.photo.url(:standard) %><%= link_to logo, u %></div>
+					
+					<div class="span-12">
+			<%else%>			
+					<div id="project_list" style="min-height:60px; padding-bottom:1em">
+						<div class="span-15">
+			<%end%>
+							<div id="project_name_div"><%= link_to u.name, u%></div>
+					 
+						
+							<% if u.photo.exists? %>
+							
+							<div class="span-12", id="project_description_div">
+								<% if u.abstract.nil? || u.abstract.empty? %>
+									<%= truncate(u.description, :length => 310) %>
+								<% else %>
+									<%= truncate(u.abstract, :length => 310) %>
+								<% end %>
+							</div>
+							
+							<% else %>
+							
+							<div class="span-15", id="project_description_div">
+								<% if u.abstract.nil? || u.abstract.empty? %>
+									<%= truncate(u.description, :length => 360) %>
+								<% else %>
+									<%= truncate(u.abstract, :length => 360) %>
+								<% end %>
+							</div>
+							
+							<%end%>
+							
+							<div class="span-12", style="margin-bottom:0.3em">
+								<% (0..4).each do |i| %>
+									<% if !(u.users[(i+1)..4].nil? || u.users[(i+1)..4].empty?) %>
+									<div class="users_list">
+										<%= link_to (u.users[i].name << ","), p %>
+									</div>
+									<% elsif u.users[i] %>
+										<div class="users_list">
+											<%= link_to (u.users[i].name), p %>
+										</div>
+									<% end %>
+								<% end %>
+							</div>
+						</div>
+							<div class="span-3 last">
+
+									<div style="float:right">
+										 <% u.links.each do |thing| %>
+										 <% string = "/images/icons/used-icons/#{thing.provider.to_s}.png" %>
+										<% unless (thing.provider == "none")%>
+										<% mudd = image_tag string, :width =>"20px", :style => "margin:0.2em 0.2em 0 0"%><%= link_to mudd, thing.link %>
+										<% end %>
+										<% end %>
+									</div>
+				
+							</div>
+					</div>
+					
+			
+			
+	<% end %>
+	</div> 
+<% end %>

@@ -16,6 +16,7 @@ class Project < ActiveRecord::Base
 
   has_and_belongs_to_many :pre_users
   has_and_belongs_to_many :users
+  has_many :attachments
   has_many :comments
   has_many :links
   has_many :project_pages

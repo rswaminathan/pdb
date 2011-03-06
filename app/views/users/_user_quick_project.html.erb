@@ -1,30 +1,30 @@
 <%= form_for @project, :html => { :multipart => true } do |f| %>
-	<%= render	'shared/error_messages', :object => f.object %>
+<%= render	'shared/error_messages', :object => f.object %>
 
-	<div id="form_back" class="span-13">
-	    <div class="span-4" id="add_project">
-			    <h2>Add A Project:</h2>
-	    </div>
+<div id="form_back" class="span-13">
+    <div class="span-4" id="add_project">
+        <h2>Add A Project:</h2>
+    </div>
 
-		<div id="add_project" style="width:315px;">
-			<h3>Name </h3></br>
-			<%= f.text_field :name, :size => 44 %></br> 
-			<h3> Summary</h3> (Max 300 Char): 
-			<%= f.text_area :description, :cols => 1 %></br>	
-		</div>		
+    <div id="add_project" style="width:315px;">
+        <h3>Name </h3></br>
+        <%= f.text_field :name, :size => 44 %></br> 
+        <h3> Summary</h3> (Max 300 Char): 
+        <%= f.text_area :description, :cols => 1 %></br>	
+    </div>		
 
-		<div id="add_project" style="width:170px">
-			<h3> Tags </h3> (Comma Seperated): 
-			<%= f.text_field :kind_list, :value => @tag_string, :size => 23 %><br />
-			<h3>Picture</h3> (optional)
-			<%= f.file_field :photo %>
-			<div class="submit">
-				<%= f.submit "Complete", :id => "submit_button" %><br />
-			</div>
-		</div>		
-	</div>
+    <div id="add_project" style="width:170px">
+        <h3> Tags </h3> (Comma Seperated): 
+        <%= f.text_field :kind_list, :value => @tag_string, :size => 23 %><br />
+        <h3>Picture</h3> (optional)
+        <%= f.file_field :photo %>
+        <div class="submit">
+            <%= f.submit "Complete", :id => "submit_button" %><br />
+        </div>
+    </div>		
+</div>
 
-	<div class="span-5-last" id="nocool_project_button">
-		<%= link_to " \"But I haven't done any awesome projects!\" ", user_path(@user, :page => "definition") %>
-	</div>
+<div class="span-5-last" id="nocool_project_button">
+    <%= link_to " \"But I haven't done any awesome projects!\" ", user_path(@user, :page => "definition") %>
+</div>
 <% end %>

@@ -1,6 +1,3 @@
-require 'open-uri'
-require 'net/http'
-
 class Profile < ActiveRecord::Base
 
   

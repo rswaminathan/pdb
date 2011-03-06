@@ -4,13 +4,14 @@
 
 <% if !signed_in? %>
   <p> Create an account </p>
+
 <% end %>
 
 <div class="container yui-skin-sam" id="project_new">
 	<%= form_for(@project) do |f| %>
    	<%= render	'shared/error_messages', :object => f.object %>
     <div class="span-7" id="project_new_left">  
-		  <div class="field">
+		  <div class="field">jj
         <%= f.label :project_name %>
 			  <%= f.text_field :name %>
 		  </div>

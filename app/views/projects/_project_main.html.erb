@@ -1,50 +1,61 @@
-<div id="project_name_background">
+<div id="project-main-background" class="span-18 last">
 
 
-	<% if @page_is_main && @project.mainfile.exists? %>
-			<div class="standard-link1", style="float:right; margin-top:0.5em; font-size:1.2em">
-				<%= link_to @project.mainfile_file_name, @project.mainfile.url %>
-			</div>
-		<% end %>
-
-
-
-	<div id="project_name_header">
-				
-
-			<%= link_to @project.name, @project %>
-			
-			<div style="float:right; margin-right:1em; margin-bottom:0.2em">
-				 <% @project.links.each do |thing| %>
-				<div style="width:38px; float:right">
-				  <% string = "/images/icons/style3/32/#{thing.provider.to_s}.png" %>
-				  <% mudd = image_tag string, :width => "26px" %><%= link_to mudd, thing.link %>
-				</div>
-				<% end%>
-			</div>
-		
-	</div>
+<div class="span-18">
 	
-	<% if @page_is_main %>
-
-		<% if @project.photo.exists? %>
-			<div id="project_picture", align="center">
-				
-				<%= image_tag @project.photo.url(:huge) %>
-			</div>
-		<% end %>
 		
-		<% if current_project_user? %> 
-		<div id="login_special"style="margin-right:1em; text-align:right">
-				<%= link_to "Edit Page Content", edit_main_page_project_path%>
-			</div>
-		<% end%>
-		<div id="project_info">
-				<p><%= raw((@project.description.nil? || @project.description.empty?) ? @project.abstract : @project.description) %></p>
-		</div>
-	<% else %>
+		
+		<div style="float:right; max-width:260px; margin-top:10px">
+			<% @project.users.each do |p| %>
+			<% unless !p.profile.photo.exists? %>
+			<div style="float:right; margin-left:4px; width:40px; height:40px; margin-bottom:4px"> <% logo = image_tag p.profile.photo.url(:teeny)%> <%= link_to logo, p, :class => "left"  %> </div>
+			<%end%>
+			<% end %>
 
-		<% if current_project_user? %> 
+			</div>
+			
+			
+			<div id="project_name_header" >
+					<%= link_to @project.name, @project %>
+			</div>	
+		
+	
+		<div style="margin-bottom:0.5em; max-width:460px">
+			<% (0..20).each do |i| %>
+				<% if !(@project.users[(i+1)..20].nil? || @project.users[(i+1)..20].empty?) %>
+				<div class="users_list">
+					<%= link_to (@project.users[i].name << ","), @project.users[i] %>
+				</div>
+				<% elsif @project.users[i] %>
+					<div class="users_list">
+						<%= link_to (@project.users[i].name), @project.users[i] %>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+		
+	
+	
+</div>
+
+
+
+<hr style="background:#ccc; margin:1em 0 1.45em 0; border-bottom: 1px solid white">
+
+
+	<% if @page_is_main %>	
+		<%= render "projects/splash/mainsplash" %>
+		
+		<% if (!@project.description.nil? && !@project.description.empty?) %>
+		<div id="project_info" >
+			<div style="padding:0.7em; min-height:2em">
+				<%= raw(@project.description) %>
+			</div>
+		</div>
+		<% end %>
+	<% else %>
+	
+	<% if current_project_user? %> 
 			<div id="login_special"style="margin-right:1em; text-align:right">
 				<%= link_to "Edit Page", edit_page_project_path(@project, :page => params[:page]) %> 
 				| <%=link_to "Delete Page", delete_page_project_path(@project, :page => @page.title), :confirm => "Are you sure?", :method => :delete %>
@@ -52,7 +63,8 @@
 		<% end%>
 		<%= render "projects/project_content" %>
 	<% end %>
-	<div>
-			<%= render 'tell_me_more' unless current_project_user? %>
-	</div>
+		
+	
+	<%= render "projects/splash/bottom" %>
+	
 </div>

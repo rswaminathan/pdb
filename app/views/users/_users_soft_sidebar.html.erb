@@ -21,7 +21,9 @@
 
 								<div style="font-weight: bold; color: #fff;">		
 									<h1><%= link_to @user.name, @user %></h1>
-									<h2><%= @profile.department %> <%= @profile.occupation %> <%= @profile.year %></h2>
+									<% if !@profile.quote.nil? && !@profile.quote.empty? %>
+									<h2><%=  raw @profile.quote %></h2>
+									<%end%>
 								</div>
 
 							</div>
@@ -38,13 +40,7 @@
 					<% end %>
 
 
-					<% # This shows the user quote if it exists %>
 
-					<% if !@profile.quote.nil? && !@profile.quote.empty? %>
-					<div style="padding:0.5em;text-align:center; margin:0.5em 0.3em 0.5em 0.3em; color:#fff; font-size: 1.3em; line-height:1.4em">		
-						<%=  raw @profile.quote %>
-					</div>		
-					<% end %>
 
 
 					<% # This shows the follow form and the followers/following info in the necessary times %>
@@ -57,25 +53,8 @@
 
 			<div style="text-align:right; margin-right:0.5em; float:right">
 				<div>
-					<%# [@user.profile.facebook, @user.profile.twitter, @user.profile.linked_in].each do |website| %>
-
-					<% if !@user.profile.facebook.nil? && !@user.profile.facebook.blank?%>
-					<%string = "/images/icons/style3/32/" << "facebook" << ".png" %>
-					<% mudd = image_tag string %><%= link_to mudd, @user.profile.facebook %>
-					<% end %>		
-
-					<% if !@user.profile.twitter.nil? && !@user.profile.twitter.blank?%>
-					<%string = "/images/icons/style3/32/" << "twitter" << ".png" %>
-					<% mudd = image_tag string %><%= link_to mudd, @user.profile.twitter %>
-					<% end %>
-
-					<% if !@user.profile.linked_in.nil? && !@user.profile.linked_in.blank?%>
-					<%string = "/images/icons/style3/32/" << "linkedin" << ".png" %>
-					<% mudd = image_tag string %><%= link_to mudd, @user.profile.linked_in %>
-					<% end %>
-
-
+					<%= render 'social_links' %>
 				</div>
 			</div>
 
-		</div>
+ 		</div>

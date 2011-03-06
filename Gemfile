@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.1'
-gem "exception_notification", :git => "git://github.com/rails/exception_notification", :require => 'exception_notifier'
+gem 'rails', '3.0.5'
+# gem "exception_notification", :git => "git://github.com/rails/exception_notification", :require => 'exception_notifier'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'annotate'
 gem 'paperclip'
@@ -18,8 +18,14 @@ gem 'rails3-jquery-autocomplete'
 gem 'fb_graph'
 gem 'mechanize'
 group :development do
-    gem 'rspec-rails', '2.0.1'
+  gem 'rspec-rails', '2.0.1'
 end 
+
+group :test do
+  gem 'cucumber-rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+end
 # Use unicorn as the web server
 # gem 'unicorn'
 

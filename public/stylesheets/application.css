@@ -384,13 +384,6 @@ a {
 
 
 
-#project_list{
-	min-height:82px;
-	padding-bottom:0.6em;
-	padding-top:0.7em;
-	border-bottom: 1px solid #F6E7DB;
-}
-
 #login_special{	
 	margin-top: 0.7em;
 	margin-bottom: 1em;
@@ -453,9 +446,10 @@ a {
 	-moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
 	padding: 0em 0 0.5em 0;	
 	vertical-align: top;
-	width: 720px;
-	
+	width: 720px;	
 }
+
+
 #user_background{
 }
 
@@ -501,34 +495,7 @@ a {
 	
 }
 
-.header_tabs a{
-	float:right;
- 	border-left: 2px solid #eee;
- 	border-top: 2px solid #eee;
- 	border-right: 2px solid #eee;
-	text-align:center;
-	margin-right:auto;s
-	background-color: #A70B00;
-	font-size: 1.2em;
-	line-height: 1.5em;
-	border-radius: 0.4em 0.4em 0em 0em;
-	-moz-border-radius: 0.4em 0.4em 0em 0em;
-	margin: 0em 0.3em -0.1em 0em;
-	color: white;
-	padding: 0em 0.7em 0em 0.7em;
-	min-width:55px;
-	
-}
 
-.header_tabs a:hover {
-	background-color: #830900;	
-}
-
-#current_tab a{
-	font-weight: bold;
-	background-color:#F6F6F6;
-	color: #CE2400;
-}
 
 #user_info_tabs{
 	text-align:center;
@@ -560,12 +527,8 @@ a {
 	border-radius: 0.9em 0 0 0.9em;
 	-moz-border-radius: 0.9em 0 0 0.9em;
 	vertical-align: top;
-	background:rgba(30, 30, 30, 0.6);
-	border-right: 1px solid #555;
 	margin-top:0.5em;	
 	margin-bottom:0.5em;
-	margin-left:1.2em;
-
 }
 
 #project_sidebar{
@@ -585,15 +548,7 @@ a {
 	-moz-border-radius: 0.5em 0.5em 0.5em 0.5em;	
 	
 }
-#project_info{
-	float:bottom;
-	background-color: #fff;
-	min-height: 5em;
-	border-radius: 0.5em 0.5em 0.5em 0.5em;
-	margin: 0.5em 0.5em 0.5em 0.5em;
-	padding:0.5em 0.5em 0.5em 0.5em;
-	-moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
-}
+
 
 #project_tag_tabs a{
 	float:left;
@@ -623,7 +578,7 @@ a {
 }
 
 #project_buttons a{
-	float:right;
+	float:left;
 	text-align:center;
 	background-color: #A70B00;
 	font-size: 1.3em;
@@ -644,7 +599,7 @@ a {
 
 
 #project_buttons_new a{
-	float:right;
+	float:left;
 	text-align:center;
 	background-color: #52DC0D;
 	font-size: 1.3em;
@@ -666,6 +621,7 @@ a {
 	border-left: 3px solid #17852A;
 	border-right: 3px solid #17852A;
 	border-bottom: 3px solid #17852A;
+	
 }
 
 #current_project_button a{
@@ -674,11 +630,6 @@ a {
 	color: #CE2400;
 }
 
-#project_buttons_center{
-	position:relative;
-	margin-right:5px;
-	top: -1px;
-}
 
 #standard_button_1 {
 	text-align:center;
@@ -930,30 +881,7 @@ a {
 	padding: 5px 13px;	
 }
 
-#project_name_header a{
-	margin-top: 0.7em;
-	font-size: 2.2em;
-	color: #DF0200;
-	font-weight: bold;	line-height: 1em;
-	margin-left:0.5em;
-	margin-bottom:1em;
-	text-align: left;
-}
 
-#project_name_header {
-	margin-top: 0.7em;
-	font-size: 1em;
-	line-height:1em;
-	color: #DF0200;
-	font-weight: bold;	line-height: 1em;
-	margin-left:0.5em;
-	margin-bottom:1em;
-	text-align: left;		
-}
-
-#project_name_header a:hover{
-	color: #C10200;
-}
 
 #project_message{
 	color:#333;

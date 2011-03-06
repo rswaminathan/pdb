@@ -1,8 +1,8 @@
-<% a= like.user%>
+<% if a = like.user %>
 
 <div class="home-user-pic" style="float:left">
 
-<% if (like.description == "awesome")  && a.profile.awesome_photo.exists? %>
+<% if (like.description == "awesome") && a.profile.awesome_photo.exists? %>
 <% logo = image_tag a.profile.awesome_photo.url(:tiny)%> 
 
 <% elsif (like.description == "interesting")  && a.profile.interesting_photo.exists? %>	
@@ -12,8 +12,10 @@
 <% logo = image_tag a.profile.photo.url(:tiny)%>
 
 <% end %>
+
 <%= link_to logo, a, :class => "left"  %>
 
-</div>    
+</div>
+<% end %>
 
 

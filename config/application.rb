@@ -9,12 +9,6 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 module Pdb
   class Application < Rails::Application
 
-    if !Rails.env.development?
-      config.middleware.use ::ExceptionNotifier,
-        :email_prefix => "Holono-Error: ",
-        :sender_address => %w{holono@holono.com},
-        :exception_recipients => %w{rswaminathan@hmc.edu ogooen@hmc.edu}
-    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

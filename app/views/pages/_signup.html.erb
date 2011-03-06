@@ -1,29 +1,11 @@
 
-
-<div id="log_in"> <%= link_to 'Log In', login_path, :remote => true  %></div>
-
-<div class="span-7"><h2>Use Holono to</h2></div>
-
-</br></br>
-
-		<div style="color:#ddd; font-size:1.3em; line-height: 2em; text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.7);">		
-			- Create a portfolio of your work</br>
-			- Follow friends and communities</br>
-			- Search the database of projects</br>
-
-		</div>
-
+<div class="span-6"><h2>Showcase <br /> what you're doing <br />and what you've made</h2></div>
 <% unless signed_in? %>
-<div id="facebook_signup">
-  <%= link_to image_tag('facebook-register.png', :style=>"width:280px"),  "/auth/facebook"%>
-</div>
-<div style=" color:  #CE0000;
-font-size: 1.5em;
-font-weight: bold;
-float:left;
-margin-left:0.4em">
-Or 
-</div>
-<%= link_to  'Register Normally', register_path, :id => "register_without_facebook", :remote => true  %>
-
+	<div class="span-6 last" id="facebook_signup">
+		<%= link_to image_tag('facebook-register.png', :style=>"width:280px"),  "/auth/facebook"%>
+	</div>
+	</br>
+	<div style=" color: #fff; font-size: 1.5em; font-weight: bold; float:left; margin-left:0.4em;">
+		Or, <%= link_to  'Register Normally', "users/new" %>
+	</div>
 <% end %>

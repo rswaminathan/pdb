@@ -1,0 +1,23 @@
+
+<% if @page_is_main && @project.mainfile.exists? %>
+		<div class="standard-link1", style="float:right; margin-top:0.5em; font-size:1.2em">
+			<%= link_to @project.mainfile_file_name, @project.mainfile.url %>
+		</div>
+	<% end %>
+	
+
+<div class="span-18">
+<% if @project.photo.exists? %>	
+	<div id="home-user-projects-photo" >
+		<%logo = image_tag @project.photo.url(:huge), :class => "big-picture" %>
+		<%= link_to logo, @project %>
+	</div>
+<% end %>
+</div>
+
+
+<% if current_project_user? %> 
+	<div id="login_special"style="margin-right:1em; text-align:right">
+			<%= link_to "Edit Page Content", edit_main_page_project_path%>
+	</div>
+<% end%>

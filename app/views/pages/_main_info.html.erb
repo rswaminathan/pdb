@@ -1,31 +1,12 @@
 
 <div class="container", style="margin-top:1em">
-	
 	<div id="blurb">
-
-	<h1>Portfolios for Innovators</h1>
-	
-	<%= link_to "See The Stage", 'stage'%>
-
-</div>
-	<div id="home_top_container" class="home_register">	
-		<div id="home_project_box" class="span-16 last">
-			<div id="slider", style="margin-left:8px">
-				<% @slider_projects.each do |p| %>
-					<a href="<%= project_url(p) %>"><img src="<%= "frontpage/#{p.id}.jpg"%>" title="<%= "#title_#{p.id}" %>"/></a>
-				<% end %>
-			</div>
-		</div>
-		<div id="registration_box" class="span-7"><%= render 'pages/signup' %></div>
+		<h1>Portfolios for Innovators</h1>
 	</div>
-
-	<% @slider_projects.each do |p| %>
-		<div id="title_<%= p.id %>" class="nivo-html-caption">
-			<strong><%= "#{p.name}" %>: </strong> <%= "#{p.abstract}" %>
-		</div>
-	<% end %>
-	
+	<div id="home_project_box" class="span-17">
+		<%= link_to image_tag 'ozzie-profile.png', :style=>"width:90%; margin-left:30px"%>
+	</div>
+	<div id="registration_box" class="span-6"><%= render 'pages/signup' %></div>
 	<%render 'pages/main_bottom' %>
-
-
 </div>
+

@@ -48,7 +48,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-
     @project = Project.find_by_id(params[:id])
     @users = @project.users
     @collaborators = @users.first(4) 
@@ -115,6 +114,8 @@ class ProjectsController < ApplicationController
   def update(redirect=nil)
     if @project.update_attributes(params[:project])
       flash[:success] = "Project updated!"
+      #get projects again
+      fix_providers(@project.links)
       redirect_to(redirect || @project) 
     else
       #flash[:error] = "Something went wrong, try again"
@@ -172,6 +173,19 @@ class ProjectsController < ApplicationController
       redirect_to @project
     else
       flash[:error] = "Comment not added!"
+      redirect_to @project
+    end
+  end
+
+  def create_attachment # TODO: authenticate user/project
+    @project = Project.find_by_id(params[:id])
+    attachment = @project.attachments.build
+    attachment.project = @project
+    if attachment.save
+      flash[:success] = "File(s) added!"
+      redirect_to @project
+    else
+      flash[:error] = "File(s) not added!"
       redirect_to @project
     end
   end

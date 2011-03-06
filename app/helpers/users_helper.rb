@@ -1,4 +1,7 @@
 module UsersHelper
+  def slider_projects
+    [2, 61, 106, 41].map{|p| User.find(p)}
+  end
   def facebook_friends
     @facebook_friends ||= FbGraph::User.me(current_user.facebook_token).fetch.friends
   end

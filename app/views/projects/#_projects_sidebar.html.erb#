@@ -1,0 +1,68 @@
+
+
+	<% if current_project_user? %> 
+	<div id="login_special", style="text-align:center">
+		<%= link_to "Edit Project Info", edit_project_path %>
+	</div>
+	<% end%>
+
+	<%= render 'sidebar_triangles', 
+	:title =>  if @users.count == 1 
+	then "Creator" 
+	else "The Team"  end%>
+
+	<div id="project_sidebar_section">
+		<div id ="project_collaborators_list">
+			<%= render 'user_list', :users => @collaborators %>
+		</div>
+		<% if @users.count >4 %>
+		<div id="all_members">
+		</div>
+		<div id="view_all_users">
+			<%= link_to "View all #{@users.count} users", show_all_collaborators_project_path, 
+			:remote => true %>
+		</div>
+		<% end %>
+		<% if current_project_user? %>
+		<%= form_tag edit_collaborators_project_path, :method => :get do%>
+		<div class="submit">
+			<%= submit_tag "Add Collaborator" %><br />
+		</div>
+		<% end %>  
+		<% end%>
+	</div>
+</div>
+
+
+
+<div>
+		<%= render 'tell_me_more' unless current_project_user? %>
+</div>
+
+<% if (!@comments.count==0) || signed_in?%>
+<%= render 'sidebar_triangles', :title => "Comments" %>
+<div id="project_sidebar_section", style="border: 1px solid rgba(212, 70, 4, 1)">
+	<div id="users_list">
+		<% @comments.each do |c| %>
+		<%= link_to c.user.name, c.user %> : <%= c.body %><br />
+		<% end %> 
+
+		<% if signed_in? %>
+		<div id ="comment_sumbit">
+			<%= form_for(:comment, :url => create_comment_project_path) do |f| %>
+			<div class="field">
+				<%= f.label :comment %><br />
+				<%= f.text_field :body , :size => 25%>
+			</div>
+			<div class="submit">
+				<%= f.submit "Add Comment" %><br />
+			</div>
+			<% end %>
+		</div>
+		<% end %>
+	</div>
+</div>	
+<% end %>
+
+
+

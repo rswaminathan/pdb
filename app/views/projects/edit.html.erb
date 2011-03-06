@@ -1,54 +1,52 @@
+<% if current_project_user? %>
+<% content_for :head do %>
+<%= render 'projects/yui_dependencies' %>
+<% end %>
+<% end %>
 <div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px">
 
-	<div class="home_register span-12" style="float:center; margin-left: 16em">
+	<div class="home_register span-18" style="float:center; margin-left: 10em">
 		<div id="project_delete" style="font-size:0.5em; text-align:right"><%= (link_to "Delete Project", @project , :confirm => "Are you sure?", :method => :delete) if current_project_user? %></div>
 
 		<h1>Edit Project</h1>
-
-		<%= form_for @project, :html => { :multipart => true } do |f| %>
-		<%= render	'shared/error_messages', :object => f.object %>
-		<div class="field">
-			<%= f.label :name %><br />
-			<div id="project_edit_name"><%= f.text_field :name %></div>
+		<div class="yui-skin-sam">
+			<%= form_for @project, :html => { :multipart => true } do |f| %>
+			<%= render	'shared/error_messages', :object => f.object %>
+			<div class="field">
+				<%= f.label :name %><br />
+				<div id="project_edit_name"><%= f.text_field :name %></div>
+			</div>
+			<div class="field">
+				<%= f.label :tags %><br />
+				<%= f.text_field :kind_list %>
+			</div>
+			<div class="field">
+				<%= f.label :Abstract %><br />
+				<%= f.text_area :abstract %>
+			</div>
+			<div class="field">
+				<%= f.label :description %><br />
+				<%= f.text_area :description %>
+			</div>
+			<div class="field">
+				<%= f.label :project_photo %><br />
+				<%= f.file_field :photo %>
+			</div>
+			<% f.fields_for :links do |l| %>
+			<div class="field">
+				<%= l.label :link %><br />
+				<%= l.text_field :link %>
+			</div>
+			<div class="field">
+				<%= l.label :destroy %><br />
+				<%= l.check_box :_destroy %>
+			</div>
+			<% end %>
+			<div class="submit">
+				<%= f.submit "Save Project" %><br />
+			</div>
+			<% end %>
 		</div>
-		<div class="field">
-			<%= f.label :tags %><br />
-			<%= f.text_field :kind_list %>
-		</div>
-		<div class="field">
-			<%= f.label :Abstract %><br />
-			<%= f.text_area :abstract %>
-		</div>
-		<div class="field">
-			<%= f.label :description %><br />
-			<%= f.text_area :description %>
-		</div>
-		<div class="field">
-			<%= f.label :project_photo %><br />
-			<%= f.file_field :photo %>
-		</div>
-		<div class="field">
-			<%= f.label "File to Upload" %><br />
-			<%= f.file_field :mainfile %>
-		</div>
-		<% f.fields_for :links do |l| %>
-		<div class="field">
-			<%= l.label :provider %><br />
-			<%= l.text_field :provider %>
-		</div>
-		<div class="field">
-			<%= l.label :link %><br />
-			<%= l.text_field :link %>
-		</div>
-		<div class="field">
-			<%= l.label :destroy %><br />
-			<%= l.check_box :_destroy %>
-		</div>
-
-		<% end %>
-		<div class="submit">
-			<%= f.submit "Save Project" %><br />
-		</div>
-		<% end %>
 	</div>
 </div>
+<%= render 'projects/yui_script', :editor => "project_description" %>

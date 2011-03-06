@@ -1,0 +1,31 @@
+<% content_for :head do %>
+	<%= javascript_include_tag 'jquery.nivo.slider.pack.js', 'jquery.freeow.min.js' %>
+	<%= stylesheet_link_tag 'stage' %>
+	<%= stylesheet_link_tag 'freeow' %>
+	<%= render 'shared/facebook_graph' %>
+<% end %>
+<div id="home">
+	<%= render 'pages/home/main_info' %>
+</div>
+<div class="container" style="padding-top:8px; padding-bottom:20px; min-height: 350px">
+	<div id="user_background" class="span-24">	
+		<table cellspaceing="0" style="margin:0">
+			<tbody>
+				<tr>
+					<td id="profile_div" class="span-6">
+						
+						
+						
+						  <div id="profile_div", style="background: rgba(150, 40, 40, 0.7)">
+						<%= render 'pages/home/sidebar' %>
+							</div>
+					</td>
+					<td class="span-18 last" id ="main-page-large",  style="vertical-align:top">
+						<%= render :partial => 'pages/home/project', :collection => @projects %>
+						<%= will_paginate @projects %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -1,5 +1,6 @@
 Pdb::Application.routes.draw do
 
+
   match	'search_users',				:to => 'pages#search_users'
   match	'search_projects',			:to => 'pages#search_projects'
   match 	'error',  					:to => 'pages#error'
@@ -47,6 +48,7 @@ Pdb::Application.routes.draw do
   resources :relationship_users, :only => [:create, :destroy]
   resources :relationship_projects, :only => [:create, :destroy]
   resources :comments
+  resources :attachments
   resources :projects do
     resources :likes do
       collection do
@@ -60,6 +62,7 @@ Pdb::Application.routes.draw do
       post 'search_collaborators'
       delete 'delete_collaborators'
       post 'create_comment'
+      post 'create_attachment'
       get 'new_page'
       get 'new_page_section'
       post 'create_page_section'

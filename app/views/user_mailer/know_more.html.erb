@@ -1,4 +1,12 @@
-Hello,
 
 <a href="<%= user_url(@user) %>"><%= @user.name %></a>  would like to know more about your project,
-<a href ="<%= project_url(@project) %>"><%= @project.name %></a>. <a href ="<%= edit_project_url(@project) %>"> Click here</a> if you wish to add more information to your project.
+<a href ="<%= project_url(@project) %>"><%= @project.name %></a>. 
+<% if @custom_message %>
+<p> <%= @user.name> says: </p><br />
+<p> <%= custom_message %> </p>
+<a href ="<%= edit_project_url(@project) %>"> Click here</a> to add more information to your project.
+
+<p>
+Thanks, <br />
+The Holono Team
+</p>
