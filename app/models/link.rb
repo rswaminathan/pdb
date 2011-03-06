@@ -1,6 +1,6 @@
 class Link < ActiveRecord::Base
 
-  email_regex = /http:\/\/.*\..*/i #TODO: actually find a proper one
+  link_regex = /http:\/\/.*\..*/i #TODO: actually find a proper one
 
   belongs_to :project
 
