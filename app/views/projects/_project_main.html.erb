@@ -1,26 +1,22 @@
-<div id="project-main-background" class="span-18 last">
 
 
-<div class="span-18">
+		
+<div style="float:right; max-width:260px; margin-top:7px; margin-bottom:0.3em">
+	<% @project.users.each do |p| %>
+	<% unless !p.profile.photo.exists? %>
+	<div style="float:right; margin-left:4px; width:40px; height:40px; margin-bottom:4px"> <% logo = image_tag p.profile.photo.url(:teeny)%> <%= link_to logo, p, :class => "left"  %> </div>
+	<%end%>
+	<% end %>
 	
-		
-		
-		<div style="float:right; max-width:260px; margin-top:10px">
-			<% @project.users.each do |p| %>
-			<% unless !p.profile.photo.exists? %>
-			<div style="float:right; margin-left:4px; width:40px; height:40px; margin-bottom:4px"> <% logo = image_tag p.profile.photo.url(:teeny)%> <%= link_to logo, p, :class => "left"  %> </div>
-			<%end%>
-			<% end %>
-
-			</div>
-			
-			
-			<div id="project_name_header" >
-					<%= link_to @project.name, @project %>
-			</div>	
-		
+	</div>
 	
-		<div style="margin-bottom:0.5em; max-width:460px">
+	
+	<div id="project_name_header" >
+			<%= link_to @project.name, @project %>
+	</div>	
+
+
+<div style="margin-bottom:0.5em; width:490px; float:left">
 			<% (0..20).each do |i| %>
 				<% if !(@project.users[(i+1)..20].nil? || @project.users[(i+1)..20].empty?) %>
 				<div class="users_list">
@@ -32,39 +28,36 @@
 					</div>
 				<% end %>
 			<% end %>
+			<div style="float:left">
+				<%= render 'tell_me_more' unless current_project_user? %>
+			</div>
 		</div>
 		
+<div style="min-height:340px">
+		<hr style="background:#ccc; margin:1em 0 1.45em 0; border-bottom: 1px solid white">
+
+
+			<% if @page_is_main %>	
+				<%= render "projects/splash/mainsplash" %>
+		
+				<% if (!@project.description.nil? && !@project.description.empty?) %>
+				<div id="project_info" >
+					<div style="padding:0.7em; min-height:2em">
+						<%= raw(@project.description) %>
+					</div>
+				</div>
+				<% end %>
+			<% else %>
 	
-	
+			<% if current_project_user? %> 
+					<div id="login_special"style="margin-right:1em; text-align:right">
+						<%= link_to "Edit Page", edit_page_project_path(@project, :page => params[:page]) %> 
+						| <%=link_to "Delete Page", delete_page_project_path(@project, :page => @page.title), :confirm => "Are you sure?", :method => :delete %>
+					</div>
+				<% end%>
+				<%= render "projects/project_content" %>
+			<% end %>
+		
 </div>
-
-
-
-<hr style="background:#ccc; margin:1em 0 1.45em 0; border-bottom: 1px solid white">
-
-
-	<% if @page_is_main %>	
-		<%= render "projects/splash/mainsplash" %>
-		
-		<% if (!@project.description.nil? && !@project.description.empty?) %>
-		<div id="project_info" >
-			<div style="padding:0.7em; min-height:2em">
-				<%= raw(@project.description) %>
-			</div>
-		</div>
-		<% end %>
-	<% else %>
-	
-	<% if current_project_user? %> 
-			<div id="login_special"style="margin-right:1em; text-align:right">
-				<%= link_to "Edit Page", edit_page_project_path(@project, :page => params[:page]) %> 
-				| <%=link_to "Delete Page", delete_page_project_path(@project, :page => @page.title), :confirm => "Are you sure?", :method => :delete %>
-			</div>
-		<% end%>
-		<%= render "projects/project_content" %>
-	<% end %>
-		
-	
 	<%= render "projects/splash/bottom" %>
-	
-</div>
+

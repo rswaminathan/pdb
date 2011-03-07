@@ -1,6 +1,20 @@
 #know_more{
-  float:left;
+  	float:left;
+  	text-decoration: underline;
+  	margin-left:0.5em;
+ 	font-size:0.8em;
+	color:#666;
 }
+
+#know_more a{
+	float:left;
+	margin-top:0.2em;
+}
+
+#know_more a:hover{
+  color:red;
+}
+
 
 #know_more_form textarea{
   height: 50px;
@@ -16,6 +30,7 @@
 #project-main-background{
 	background: #f2f2f2;
 	padding:0.5em 1em 1em 1em;
+	float:left;
 }
 
 #project_name_header a{
@@ -63,8 +78,8 @@
 .header_tabs a{
 	float:left;
 	padding-left:0.3em;
-	font-size: 1.25em;
-	line-height: 1.3em;
+	font-size: 1.3em;
+	line-height: 1.4em;
 	color: #333;
 	position:relative;
 	width:100%;
@@ -83,14 +98,14 @@
 	left:0px;
 	text-decoration: underline;
 	color:#000;
+	font-size:1.5em;
 }
 
 
 #project_tabs_left{
-	margin-left:0.5em;
 	float:left;
 	width:100%;
-	margin-bottom:0.5em;
+	margin-bottom:1.5em;
 }
 
 

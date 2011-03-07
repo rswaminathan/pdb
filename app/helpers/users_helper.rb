@@ -1,4 +1,10 @@
 module UsersHelper
+  
+  def random_project(user)
+    user.projects.all[rand(user.projects.count)] 
+  end
+  
+  
   def slider_projects
     [2, 61, 106, 41].map{|p| User.find(p)}
   end

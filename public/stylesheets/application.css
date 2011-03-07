@@ -441,15 +441,6 @@ a {
  	
 }
 
-#project_main_background{
-	background: #e7e7e7;
-	border-radius: 0.5em 0.5em 0.5em 0.5em;
-	-moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
-	padding: 0em 0 0.5em 0;	
-	vertical-align: top;
-	width: 720px;	
-}
-
 
 #user_background{
 }
@@ -530,6 +521,8 @@ a {
 	vertical-align: top;
 	margin-top:0.5em;	
 	margin-bottom:0.5em;
+	background: rgba(0,0,0,0.6);
+	margin-left:1.3em;
 }
 
 #project_sidebar{

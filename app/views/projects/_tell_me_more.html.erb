@@ -1,12 +1,11 @@
 <div id="know_more">
-    <h4><a href="#"><strong>I want to know more about <%= @project.name %>!</strong></a></h4>
+    <h4><a href="#">contact</a></h4>
 </div>
 
-<div id="know_more_form" title="Tell me more about <%= @project.name %>">
+<div id="know_more_form" title="Contact the creators of <%= @project.name %>">
     <%= form_tag know_more_project_likes_path(@project), :method => :post, :remote => true do %>
         <p>
-        Want to know more about <%= @project.name %>? <br />
-        Ask the team for more info.
+        Ask the team for more info about<%= @project.name %> <br />
         </p>
         <div class="field">
             <%= label :extra_comments, "Add any extra comments:" %><br />
@@ -14,7 +13,7 @@
         </div>
 
         <div class="submit">
-            <%= submit_tag "Tell me more about #{@project.name}!" %><br />
+            <%= submit_tag "Contact about #{@project.name}!" %><br />
         </div>
     <% end %>
 </div>

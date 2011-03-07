@@ -5,7 +5,7 @@
 	$(document).ready(function() {
 
 		$("#know_more_form").dialog({
-			height: 500,
+			height: 250,
 			width: 500,
 			modal: true,
 			autoOpen: false
@@ -24,16 +24,12 @@
 <%= render 'shared/open_graph' %>
 <div class="container" style="min-height: 550px; clear:none">		
 
-
-	<div class="span-18" ><%= render 'projects/projects_header' if nil %></div>
-
-	<div id="project_main_background2",  style="margin-bottom:2em", class="span-24">	
-		<table cellspaceing="0", style="margin-bottom:0.2em">
+		<table cellspaceing="0" style="margin-bottom:1em" id="project_main_background2">
 		
 		<tbody>			
 			<tr>				
-				<td class="span-18 last" style="padding:2px"> <%= render 'projects/project_main' %></td>
-				<td class="span-5 last" style="vertical-align: top">
+				<td class="span-19 last" style="padding:2px"> <div id="project-main-background"> <%= render 'projects/project_main' %></div></td> 
+				<td class="span-5 last" style="vertical-align: top; padding:2px 2px 0 0">
 						<%= render 'projects/projects_sidebar' %>
 				</td>				
 			</tr>			

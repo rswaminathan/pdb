@@ -24,7 +24,7 @@
 					
 					<div class="span-12">
 			<%else%>			
-					<div id="project_list" style="min-height:60px; padding-bottom:1em">
+					<div id="project_list" style="min-height:76px; padding-bottom:1em">
 						<div class="span-15">
 			<%end%>
 							<div id="project_name_div"><%= link_to u.name, u%></div>
@@ -34,9 +34,9 @@
 							
 							<div class="span-12", id="project_description_div">
 								<% if u.abstract.nil? || u.abstract.empty? %>
-									<%= truncate(u.description, :length => 310) %>
+									<%= strip_tags(truncate(u.description, :length => 220)) %>
 								<% else %>
-									<%= truncate(u.abstract, :length => 310) %>
+									<%= strip_tags(truncate(u.abstract, :length => 220)) %>
 								<% end %>
 							</div>
 							
@@ -44,9 +44,9 @@
 							
 							<div class="span-15", id="project_description_div">
 								<% if u.abstract.nil? || u.abstract.empty? %>
-									<%= truncate(u.description, :length => 360) %>
+									<%= (truncate(strip_tags(u.description), :length => 260)) %>
 								<% else %>
-									<%= truncate(u.abstract, :length => 360) %>
+									<%= (truncate(strip_tags(u.abstract), :length => 260)) %>
 								<% end %>
 							</div>
 							
@@ -56,11 +56,11 @@
 								<% (0..4).each do |i| %>
 									<% if !(u.users[(i+1)..4].nil? || u.users[(i+1)..4].empty?) %>
 									<div class="users_list">
-										<%= link_to (u.users[i].name << ","), p %>
+										<%= link_to (u.users[i].name << ","), u.users[i] %>
 									</div>
 									<% elsif u.users[i] %>
 										<div class="users_list">
-											<%= link_to (u.users[i].name), p %>
+											<%= link_to (u.users[i].name), u.users[i] %>
 										</div>
 									<% end %>
 								<% end %>
@@ -72,7 +72,7 @@
 										 <% u.links.each do |thing| %>
 										 <% string = "/images/icons/used-icons/#{thing.provider.to_s}.png" %>
 										<% unless (thing.provider == "none")%>
-										<% mudd = image_tag string, :width =>"20px", :style => "margin:0.2em 0.2em 0 0"%><%= link_to mudd, thing.link %>
+										<% mudd = image_tag string, :width =>"20px", :style => "margin:0.2em 0.2em 0 0; float:right"%><%= link_to mudd, thing.link %>
 										<% end %>
 										<% end %>
 									</div>

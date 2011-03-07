@@ -181,6 +181,7 @@ class ProjectsController < ApplicationController
     @project = Project.find_by_id(params[:id])
     attachment = @project.attachments.build
     attachment.project = @project
+    attachment.file = params[:attachment][:file]
     if attachment.save
       flash[:success] = "File(s) added!"
       redirect_to @project

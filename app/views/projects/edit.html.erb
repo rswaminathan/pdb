@@ -32,16 +32,6 @@
 				<%= f.label :project_photo %><br />
 				<%= f.file_field :photo %>
 			</div>
-			<% f.fields_for :links do |l| %>
-			<div class="field">
-				<%= l.label :link %><br />
-				<%= l.text_field :link %>
-			</div>
-			<div class="field">
-				<%= l.label :destroy %><br />
-				<%= l.check_box :_destroy %>
-			</div>
-			<% end %>
 			<div class="submit">
 				<%= f.submit "Save Project" %><br />
 			</div>

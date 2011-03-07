@@ -23,6 +23,11 @@
 			<% end %>
 			</div>
 
+			<% if signed_in? %> 
+				<div id="random_project" style="float:right" >
+					<%= link_to "Random", random_projects_path %> 
+				</div>	
+			<% end %>
 			
 		</div>
 	</div>

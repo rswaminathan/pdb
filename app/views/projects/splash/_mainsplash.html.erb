@@ -8,10 +8,10 @@
 
 <div class="span-18">
 <% if @project.photo.exists? %>	
-	<div id="home-user-projects-photo" >
-		<%logo = image_tag @project.photo.url(:huge), :class => "big-picture" %>
-		<%= link_to logo, @project %>
-	</div>
+		<div id="home-user-projects-photo" style="text-align:center">
+			<%logo = image_tag @project.photo.url(:feed), :class => "big-picture", :style => "border-radius:0.2em" %>
+			<%= link_to logo, @project.photo.url %>
+		</div>
 <% end %>
 </div>
 
