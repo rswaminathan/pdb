@@ -35,7 +35,7 @@
 					<% if signed_in? && current_user_page? %>	
 					<div id="projects", style="float:center">		
 						<div id="login_special", align="center">
-							<%= link_to "Edit Your Profile!", user_path(@user, :page => "edit_profile") %>
+							<%= link_to "Edit Your Profile!", edit_profile_user_path(current_user) %>
 						</div>
 					</div>
 					<% end %>

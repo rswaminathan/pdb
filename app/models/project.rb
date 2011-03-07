@@ -37,6 +37,10 @@ class Project < ActiveRecord::Base
     "#{id}-#{name.gsub(/[^a-z0-9]+/i, '-')}"      
   end
 
+  def similar_projects
+    find_related_on_kind
+  end
+
   class << self
 
     def search_by_name(query)

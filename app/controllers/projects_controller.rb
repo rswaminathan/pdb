@@ -52,6 +52,7 @@ class ProjectsController < ApplicationController
     @users = @project.users
     @collaborators = @users.first(4) 
     @title = "#{@project.name}"
+    @similar_projects = @project.similar_projects.first(8)
     @comments = @project.comments
     @pages = @project.project_pages
     @project.count += 1
