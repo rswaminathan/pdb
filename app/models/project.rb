@@ -38,7 +38,7 @@ class Project < ActiveRecord::Base
   end
 
   def similar_projects
-    find_related_on_kind
+    Project.tagged_with(kind_list, :any => true)
   end
 
   class << self

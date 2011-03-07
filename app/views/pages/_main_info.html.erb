@@ -1,10 +1,10 @@
 
 <div class="container", style="margin-top:1em">
 	<div id="blurb">
-		<h1>Portfolios for Innovators</h1>
+		<h1>Free Project Pages and Portfolios</h1>
 	</div>
 	<div id="home_project_box" class="span-17">
-		<%= link_to image_tag 'ozzie-profile.png', :style=>"width:90%; margin-left:30px"%>
+		<%= link_to image_tag ('ozzie-profile.png', :style=>"width:90%; margin-left:30px"), User.find(2) %> 
 	</div>
 	<div id="registration_box" class="span-6"><%= render 'pages/signup' %></div>
 	<%render 'pages/main_bottom' %>
