@@ -93,6 +93,18 @@
 		
 }
 
+#attachment_submit {
+	width:150px;
+	float:left;
+	margin:1em 0 1em 0;
+}
+
+#attachment_submit h3{
+	margin-bottom:0.3em;
+	font-weight:bold;
+}
+
+
 #current_tab a{
 	font-weight: bold;
 	left:0px;

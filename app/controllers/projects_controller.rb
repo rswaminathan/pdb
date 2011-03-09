@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
 
   before_filter :authenticate, 			:only => [:new, :create]
-  #before_filter :correct_project_user,	:only => [:edit, :update, :destroy]
   before_filter :correct_project_user,	:only => [:edit_collaborators, :update_collaborators, :delete_collaborators, :new_page, :edit_page, :update_page, :edit, :update, :destroy]
   autocomplete :user, :name
 

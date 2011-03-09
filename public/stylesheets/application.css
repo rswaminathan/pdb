@@ -20,9 +20,10 @@ body{
 }
 
 #home_info a{
-	color: white;
-	
+	color: white;	
 }
+
+
 
 #home_info a:hover{
 	color: white;
@@ -137,6 +138,8 @@ border-bottom-left-radius: 0.5em 0.5em;
 		background-color: #FF3900;
 }
 
+
+
 .search_options_box{
 	min-height:80px; 
 	background-color: #eee; 
@@ -226,6 +229,7 @@ border-bottom-left-radius: 0.5em 0.5em;
 	margin-bottom:0px;
     text-shadow: 1px 1px 8px #000;
 	font-weight:bold;
+	float:left;
 }
 
 .container #header_title a:hover{
@@ -234,18 +238,18 @@ border-bottom-left-radius: 0.5em 0.5em;
 
 #random_project{
 	color: #fff;
-	margin-right:2.4em;
-	margin-top:9px;
 	position:relative;
-	left: 10px;
+	float:left;
 	line-height:0.6em;
+	position:relative;
+	top:15px;
 }
 
 #random_project a{
 	background-color: #EE000B;	
 	color: #000;
 	text-align:center;	
-	font-size: 1em;
+	font-size: 0.9em;
 	padding: 0em 0.3em 0em 0.3em;
 	text-align:center;
 	font-weight:bold;
@@ -256,7 +260,7 @@ border-bottom-left-radius: 0.5em 0.5em;
 	background-color: #EE5E00;	
 	color: #000;
 	text-align:center;	
-	font-size: 1em;
+	font-size: 0.9em;
 	padding: 0em 0.3em 0em 0.3em;
 	text-align:center;
 	font-weight:bold;
@@ -907,12 +911,18 @@ a {
 
 
 #header{
-	background: rgba(20, 20, 20, 0.4);
-    font-size: 1.2em;
-	height: 30px;
+	background: rgba(20, 20, 20, 0.7);
+    font-size: 1.3em;
+	height: 32px;
     padding: 2px 0 0 0;
-	border-bottom: 1px solid #222;
-	
+	border-bottom: 1px solid #222;	
+}
+
+#header_image{
+	height:29px;
+	position:relative;
+	top:4px;
+	margin-left:3em;
 }
 
 #footer{
@@ -941,25 +951,47 @@ a {
 
 
 #header_menu{
-	color:#aaa;
 	text-align:right;
 	margin-top:4px;
 }
-#header_menu a{
-	color: #ccc;
-    text-shadow: 1px 1px 5px #000;
+
+#header_menu_right{
+	float:left;
 }
 
-#header_menu a:hover{
-	color: #fff;
+#header_menu_right a{
+    text-shadow: 1px 1px 5px #000;
+	color:#eee;	
+	margin-right:0.3em;
+}
+
+#header_menu_right a:hover{
 	border-bottom: 1px solid #fff;
+}
+
+#header_red{
+	float:left;
+	color:#ccc;
+	font-size:1.3em;
+	margin-right:3.7em;
+	position:relative;
+	top:-3px;
+}
+
+
+#header_red a{
+	color:#EE000B;	
+	margin-left:0.4em;
+}
+
+#header_red a:hover{
+	color:white;	
+	text-decoration: underline;
 	
 }
-
 
 #projects {
 	float: left;
-	
 }
 
 #projects img{

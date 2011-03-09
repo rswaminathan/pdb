@@ -1,7 +1,5 @@
-
-
 		
-<div style="float:right; max-width:260px; margin-top:7px; margin-bottom:0.3em">
+<div style="float:right; max-width:230px; margin-top:7px; margin-bottom:0.3em">
 	<% @project.users.each do |p| %>
 	<% unless !p.profile.photo.exists? %>
 	<div style="float:right; margin-left:4px; width:40px; height:40px; margin-bottom:4px"> <% logo = image_tag p.profile.photo.url(:teeny)%> <%= link_to logo, p, :class => "left"  %> </div>

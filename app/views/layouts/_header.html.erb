@@ -1,33 +1,42 @@
 <div id='header'>
 	<div class="container">
-		<div class="span-3">
+		<div class="span-8">
 			<div id="header_title">
-					<%=link_to "Holono", root_url %>
+					<%= link_to image_tag("logo5.png", :id=>"header_image"), root_url %> 
 			</div>
+			
+				<div id="random_project"  >
+					<%= link_to "Random", random_projects_path %> 
+				</div>				
 		</div>
-		<div class="span-21 last">
+		<div class="span-16 last">
 			
 			<% if !facebook_user? %>
-				<%= link_to image_tag('facebook-connect.gif', :style=>"height:18px; width:66px; float:right; position:relative; top: 2px; margin-right:2px; margin-left:10px"),  "/auth/facebook"%>
+				<%= link_to image_tag('facebook-connect.gif', :style=>"height:18px; width:66px; float:right; position:relative; top: 7px; margin-right:2px; margin-left:10px"),  "/auth/facebook" %>
 			<% end %>
 			
 			<div id="header_menu", style="float:right">
-			<%= link_to "Stage", stage_path %> | <%= link_to "Search", search_projects_path %> | 
-			<% if signed_in? %>
-				<% if admin_user? %>
-					<%= link_to "Admin", admin_email_path %> |
+				
+			<div id="header_red">
+			
+				<%= link_to "Stage", stage_path %>  <%= link_to "Search", search_projects_path %>  
+				
+				<% if signed_in? %>
+					<% if admin_user? %>
+						<%= link_to "Admin", admin_email_path %> 
+					<% end %>
+					  <%=link_to "Profile", user_path(current_user) %> 
+					</div> <div id="header_menu_right">
+					 <%= link_to "Settings", edit_user_path(current_user)  %> <%= link_to "Log Out", logout_path %>
+				<% else %>
+					 </div> <div id="header_menu_right"><%= link_to "Sign In", login_path %>
 				<% end %>
-				  <%=link_to "My Profile", user_path(current_user) %> | <%= link_to "Settings", edit_user_path(current_user)  %> | <%= link_to "Log Out", logout_path %>
-			<% else %>
-				   <%= link_to "Sign In", login_path %>
-			<% end %>
+				
+				</div>
+				
 			</div>
 
-			<% if signed_in? %> 
-				<div id="random_project" style="float:right" >
-					<%= link_to "Random", random_projects_path %> 
-				</div>	
-			<% end %>
+
 			
 		</div>
 	</div>
