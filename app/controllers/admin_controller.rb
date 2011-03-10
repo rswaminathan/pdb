@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
     
+  before_filter :admin_user?
     def email
       @users = User.all
     end
@@ -34,4 +35,5 @@ class AdminController < ApplicationController
       UserMailer.feedback(message, e).deliver
       end
     end
+
 end

@@ -40,6 +40,17 @@
 	</div>
 
 	<% end %>
+
+	<% @project.attachments.each do |file| %>
+		<div class="span-5 last">
+			<div class="span-4 last" style="margin-top:3px;text-decoration: underline; font-size:1.1em">
+				<% name = file.file_file_name %>
+				<%= link_to name, file.file.url %>
+			</div>
+		</div>
+
+	<% end %>
+	
 </div>
 
 

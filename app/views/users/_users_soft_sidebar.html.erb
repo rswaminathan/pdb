@@ -13,8 +13,7 @@
 					<div id="container", style="width: 100%;">
 
 						<% if @profile.photo.exists? %>						
-						<% mudd = image_tag @profile.photo.url(:large), :id => "big-user-pic-part" %>
-						<%= link_to mudd, @profile.photo.url%>
+						<% image_tag @profile.photo.url(:large), :id => "big-user-pic-part" %>
 						<div id="user_page_name"  style="top:1px; border-radius: 0.1em 0.1em 0.3em 0.8em;" >	
 							<% else %>
 							<div id="user_page_name" style=" top: 1px; border-radius: 0.8em 0.3em 0.3em 0.8em;" >
