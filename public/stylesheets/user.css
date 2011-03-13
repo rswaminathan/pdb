@@ -376,11 +376,13 @@
 	text-decoration: underline;
 	color:white;
 	float:left;
+	height: 1.2em;
 }
 
 #edit_profile a{
 	color:white;
 }
+
 #project_list {
 padding-bottom: 0.7em;
 padding-top: 0.5em;

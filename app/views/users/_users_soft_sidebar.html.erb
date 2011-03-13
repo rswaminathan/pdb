@@ -14,21 +14,23 @@
 
 						<% if @profile.photo.exists? %>						
 						<%= image_tag @profile.photo.url(:large) %>
+						<% end %>
 						<div id="user_page_name"  style="top:1px; " >	
+
 								<div style="font-weight: bold; color: #fff;">		
 									<h1><%= link_to @user.name, @user %></h1>
 									<% if !@profile.quote.nil? && !@profile.quote.empty? %>
 									<h2><%=  raw @profile.quote %></h2>
 									<%end%>
+
 								</div>
 
 								<% # This brings up the "Edit Profile" Button %>
 								<% if signed_in? && current_user_page? %>	
-									<div id="edit_profile", align="center">
+									<div id="edit_profile">
 										<%= link_to "Edit", edit_profile_user_path(current_user) %>
 									</div>
 								<% end %>
-
 
 
 							</div>
