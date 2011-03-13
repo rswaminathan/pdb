@@ -13,12 +13,8 @@
 					<div id="container", style="width: 100%;">
 
 						<% if @profile.photo.exists? %>						
-						<% image_tag @profile.photo.url(:large), :id => "big-user-pic-part" %>
-						<div id="user_page_name"  style="top:1px; border-radius: 0.1em 0.1em 0.3em 0.8em;" >	
-							<% else %>
-							<div id="user_page_name" style=" top: 1px; border-radius: 0.8em 0.3em 0.3em 0.8em;" >
-								<% end %>
-
+						<%= image_tag @profile.photo.url(:large) %>
+						<div id="user_page_name"  style="top:1px; " >	
 								<div style="font-weight: bold; color: #fff;">		
 									<h1><%= link_to @user.name, @user %></h1>
 									<% if !@profile.quote.nil? && !@profile.quote.empty? %>
@@ -26,19 +22,18 @@
 									<%end%>
 								</div>
 
+								<% # This brings up the "Edit Profile" Button %>
+								<% if signed_in? && current_user_page? %>	
+									<div id="edit_profile", align="center">
+										<%= link_to "Edit", edit_profile_user_path(current_user) %>
+									</div>
+								<% end %>
+
+
+
 							</div>
 						</div>
 					</div>
-
-					<% # This brings up the "Edit Profile" Button %>
-					<% if signed_in? && current_user_page? %>	
-					<div id="projects", style="float:center">		
-						<div id="login_special", align="center">
-							<%= link_to "Edit Your Profile!", edit_profile_user_path(current_user) %>
-						</div>
-					</div>
-					<% end %>
-
 
 
 

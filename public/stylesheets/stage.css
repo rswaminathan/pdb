@@ -10,7 +10,7 @@ div.hr hr {
 
 #Holono-description{
 	color:white;
-	margin:0.5em 0 0 0.8em;
+	margin:0 0 0 0.8em;
 	font-size:1.2em;
 }
 
@@ -211,7 +211,20 @@ color:white;
 	
 }
 
+.pagination{
+	margin: 0.7em 1em 0.6em 0.5em;
+	font-size:1.1em;
+	float:left;
+}
 
+.pagination a{
+	font-size:1.1em;
+}
+
+.current{
+	font-size:1.1em;
+	color:red;	
+}
 #home-user-projects {
 	padding: 0;
 	width: 720px;
@@ -229,8 +242,7 @@ color:white;
 	padding-bottom:0.8em;
 	padding-top:1.4em;
 	border-bottom: 1px solid #E6CDC2;
-	min-width:680px;
-
+	width:100%;
 }
 #time-posted{
 	font-size:11px;

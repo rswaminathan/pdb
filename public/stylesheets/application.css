@@ -85,7 +85,7 @@ border-bottom-left-radius: 0.5em 0.5em;
 }
 
 .search_bottom {
-	float: middle;
+	float: left;
 	background-color: white;
 	-moz-box-shadow: 2px 2px 4px rgba(0,0,0,1);
 	-khtml-box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
@@ -520,13 +520,11 @@ a {
 
 #sidebar_div{
 	padding: 0.3em 0 0.1em 0 ;
-	border-radius: 0.9em 0 0 0.9em;
-	-moz-border-radius: 0.9em 0 0 0.9em;
 	vertical-align: top;
 	margin-top:0.5em;	
 	margin-bottom:0.5em;
 	background: rgba(0,0,0,0.6);
-	margin-left:1.3em;
+	margin-left:1.1em;
 }
 
 #project_sidebar{

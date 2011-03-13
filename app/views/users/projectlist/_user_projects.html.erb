@@ -71,7 +71,7 @@
 									<div style="float:right">
 										 <% u.links.each do |thing| %>
 										 <% string = "/images/icons/used-icons/#{thing.provider.to_s}.png" %>
-										<% unless (thing.provider == "none")%>
+										<% unless (thing.provider == "none" || thing.provider.nil? )%>
 										<% mudd = image_tag string, :width =>"20px", :style => "margin:0.2em 0.2em 0 0; float:right"%><%= link_to mudd, thing.link %>
 										<% end %>
 										<% end %>

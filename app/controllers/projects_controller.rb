@@ -191,6 +191,14 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def delete_attachment
+    @project = Project.find_by_id(params[:id])
+    attachment = @project.find_by_id(params[:attachment_id])
+    attachment.destroy
+    flash[:success] = "Attachment Removed" 
+    redirect_to @project
+  end
+
   def new_page
     @title = "New Page"
     @project = Project.find_by_id(params[:id])

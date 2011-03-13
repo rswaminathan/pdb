@@ -22,16 +22,14 @@
 </div>
 <% end %>
 
-
-
-<div style="float:left; margin-bottom:1em">
+<div style="float:left; margin-bottom:1em; text-align:left">
 	<% @project.links.each do |thing| %>
 	<% string = "/images/icons/used-icons/#{thing.provider.to_s}.png" %>
 
 	<div class="span-5 last">
-		<div style="width:29px; height:25px; float:left">
+		<div style="width:25px; height:25px; float:left">
 			<% if ((thing.provider != "none")) %>
-			<% mudd = image_tag string, :width => "20px", :style => "margin:0.2em 0.2em 0 0"%><%= link_to mudd, thing.link %>
+			<% mudd = image_tag string, :width => "18px", :style => "margin:0.2em 0.2em 0 0"%><%= link_to mudd, thing.link %>
 			<% end %>
 		</div>
 		<div class="span-4 last" style="margin-top:3px;text-decoration: underline; font-size:1.1em">
@@ -43,7 +41,9 @@
 
 	<% @project.attachments.each do |file| %>
 		<div class="span-5 last">
-			<div class="span-4 last" style="margin-top:3px;text-decoration: underline; font-size:1.1em">
+			<div style="width:25px; height:25px; float:left">
+			</div>
+			<div class="span-4 last" style="margin-top:3px;text-decoration: underline; font-size:1.1em; text-align:left">
 				<% name = file.file_file_name %>
 				<%= link_to name, file.file.url %>
 			</div>
@@ -52,8 +52,6 @@
 	<% end %>
 	
 </div>
-
-
 
 <% if !@similar_projects.empty? %>
 <div style="width:180px; margin-left:0.8em">		
