@@ -24,7 +24,7 @@
 		<%= form_for [@project, Link.new] do |f| %>
 				<div class="field">
 					<%= f.label :add_external_link %><br />
-					http://<%= f.text_field :link, :size => 18%>
+					http://<%= f.text_field :link, :size => 20%>
 				</div>
 			<div class="submit">
 				<%= f.submit "Add Link" %><br />
