@@ -10,21 +10,23 @@
 	</div>
 
 	<div class="span-5 last" id = "attachment_submit" >
-		<h3>Upload File</h3>
 		<% form_for :attachment, :url => create_attachment_project_path, :html => { :multipart => true } do |f| %>
-			<%= f.file_field :file %>
-
+			<div class="field">
+				<%= f.label :Upload_File %><br />
+				
+				<%= f.file_field :file %>
+			</div>
 			<div class="submit">
-				<%= f.submit %><br />
+				<%= f.submit "Add File" %><br />
 			</div>
 		<% end %>
 	</div>
 
-	<div class="span-5 last" id="link_sumbit">
+	<div class="span-5 last" id="link_submit">
 		<%= form_for [@project, Link.new] do |f| %>
 				<div class="field">
 					<%= f.label :add_external_link %><br />
-					http://<%= f.text_field :link, :size => 18%>
+					<%= f.text_field :link, :size => 18%>
 				</div>
 			<div class="submit">
 				<%= f.submit "Add Link" %><br />
