@@ -10,7 +10,7 @@
 <% end %>
 <div class="yui-skin-sam home_register">
 <h1>Edit Project</h1>
-<%= form_for @project, :html => { :multipart => true } do |f| %>
+<%= form_for @project, :html => { :multipart => true } do |f|%>
 	<%= render	'shared/error_messages', :object => f.object %>
 
 	<div class="field">
@@ -22,10 +22,6 @@
 		<%= f.label "Project Photo" %><br />
 		<%= "Note: This is shown on the home page and also acts as the project tag" %><br />
 		<%= f.file_field :photo %>
-	</div>
-	<div class="field">
-		<%= f.label "File to Upload" %><br />
-		<%= f.file_field :mainfile %>
 	</div>
 	</br>
 	<div class="submit">

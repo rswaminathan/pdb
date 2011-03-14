@@ -5,41 +5,52 @@
 <div style="text-align:center; margin-left:0.6em">
 
 <% if current_project_user? %> 
-<div id="login_special", style="text-align:center">
-	<%= link_to "Edit Project Info", edit_project_path %>
-</div>
+	<div id="login_special", style="text-align:center">
+		<%= link_to "Edit Project Info", edit_project_path %>
+	</div>
 
-<div class="span-5 last" id = "attachment_submit" >
+	<div class="span-5 last" id = "attachment_submit" >
 		<h3>Upload File</h3>
 		<% form_for :attachment, :url => create_attachment_project_path, :html => { :multipart => true } do |f| %>
 			<%= f.file_field :file %>
-			
-		<div class="submit">
-			<%= f.submit %><br />
-		</div>
+
+			<div class="submit">
+				<%= f.submit %><br />
+			</div>
 		<% end %>
-		</body>
-</div>
-<% end %>
 
-<div style="float:left; margin-bottom:1em; text-align:left">
-	<% @project.links.each do |thing| %>
-	<% string = "/images/icons/used-icons/#{thing.provider.to_s}.png" %>
 
-	<div class="span-5 last">
-		<div style="width:25px; height:25px; float:left">
-			<% if ((thing.provider != "none")) %>
-			<% mudd = image_tag string, :width => "18px", :style => "margin:0.2em 0.2em 0 0"%><%= link_to mudd, thing.link %>
-			<% end %>
-		</div>
-		<div class="span-4 last" style="margin-top:3px;text-decoration: underline; font-size:1.1em">
-			<%= link_to (truncate(URI.parse(thing.link).host, :length=>25)), thing.link %>
-		</div>
 	</div>
 
+	<%= form_for [@project, Link.new] do |f| %>
+			<div class="field">
+				<%= f.label :link %><br />
+				<%= f.text_field :link %>
+			</div>
+		<div class="submit">
+			<%= f.submit "Add Link" %><br />
+		</div>
 	<% end %>
+<% end %>
 
-	<% @project.attachments.each do |file| %>
+	<div style="float:left; margin-bottom:1em; text-align:left">
+		<% @project.links.each do |thing| %>
+		<% string = "/images/icons/used-icons/#{thing.provider.to_s}.png" %>
+
+		<div class="span-5 last">
+			<div style="width:25px; height:25px; float:left">
+				<% if ((thing.provider != "none") && thing.provider != nil) %>
+				<% mudd = image_tag string, :width => "18px", :style => "margin:0.2em 0.2em 0 0"%><%= link_to mudd, thing.link %>
+				<% end %>
+			</div>
+			<div class="span-4 last" style="margin-top:3px;text-decoration: underline; font-size:1.1em">
+				<%= link_to (truncate(URI.parse(thing.link).host, :length=>25)), thing.link %>
+			</div>
+		</div>
+
+		<% end %>
+
+		<% @project.attachments.each do |file| %>
 		<div class="span-5 last">
 			<div style="width:25px; height:25px; float:left">
 			</div>
@@ -49,24 +60,24 @@
 			</div>
 		</div>
 
-	<% end %>
-	
-</div>
+		<% end %>
 
-<% if !@similar_projects.empty? %>
-<div style="width:180px; margin-left:0.8em">		
-	<div style="font-size:1.2em; float:left; line-height:1em; margin-bottom:0.3em; color:#333;  margin-top:0.5em">
-		Similar Projects
 	</div>
-	<hr style="background:#666; width:166px; margin-bottom:0.5em; height:2px">
 
-	<% @similar_projects.each do |project| %>
-	<% if project.photo.exists?%>
-	<div id="user_projects_photo" style="float:left; margin-right:0.2em"><% logo = image_tag project.photo.url(:teeny) %><%= link_to logo, project %></div>
+	<% if !@similar_projects.empty? %>
+	<div style="width:180px; margin-left:0.8em">		
+		<div style="font-size:1.2em; float:left; line-height:1em; margin-bottom:0.3em; color:#333;  margin-top:0.5em">
+			Similar Projects
+		</div>
+		<hr style="background:#666; width:166px; margin-bottom:0.5em; height:2px">
+
+		<% @similar_projects.each do |project| %>
+		<% if project.photo.exists?%>
+		<div id="user_projects_photo" style="float:left; margin-right:0.2em"><% logo = image_tag project.photo.url(:teeny) %><%= link_to logo, project %></div>
+		<% end %>
+		<% end %>
+	</div>
 	<% end %>
-	<% end %>
-</div>
-<% end %>
 
 </div>
 

@@ -1,6 +1,6 @@
-		 <% @project.links.each do |thing| %>
-		<div style="width:38px; float:right">
-		  <% string = "/images/icons/used-icons/#{thing.provider.to_s}.png" %>
-		  <% mudd = image_tag string, :width => "26px" %><%= link_to mudd, thing.link %>
-		</div>
-		<% end%>
+<% @project.links.each do |thing| %>
+<div style="width:38px; float:right">
+    <% string = "/images/icons/used-icons/#{thing.provider.to_s}.png" %>
+    <% mudd = image_tag string, :width => "26px" %><%= link_to mudd, thing.link %>
+</div>
+<% end%>
