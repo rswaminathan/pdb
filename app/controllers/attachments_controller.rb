@@ -12,4 +12,12 @@ class AttachmentsController < ApplicationController
     end
   end
 
+  def destroy
+    @file = Attachment.find(params[:id])
+    @project = @file.project
+    @file.destroy
+    flash[:success] = "Deleted Attachment"
+    redirect_to(@project)
+  end
+
 end

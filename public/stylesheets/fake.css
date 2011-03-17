@@ -1,0 +1,43 @@
+#header1{
+	height:80px; 
+	background:red;
+	border-radius: 0.5em;
+}
+
+#social1{
+	height:80px; 
+	background:rgba(255,255,255,0.3);
+	border-radius: 0.5em;
+	
+}
+
+#menu{
+	background:yellow;
+	height:30px;
+	margin-top:0.7em; 
+	border-radius: 0.5em;
+	border: 2px solid black;
+	
+}
+
+#main1{
+	height:300px; 
+	margin-top:0.5em; 
+	background:white;
+	border-radius: 0.5em;
+	
+}
+
+#sidebar1{
+	height:200px; 
+	margin-top:4em; 
+	background:red;
+	border-radius: 0.5em;
+}
+
+#sidebar2{
+	height:200px; 
+	margin-top:0.7em; 
+	background: yellow;
+	border-radius: 0.5em;
+}

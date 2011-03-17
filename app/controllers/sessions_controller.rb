@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 		else
 			user = User.authenticate(params[:session][:email].downcase, params[:session][:password])						
 			if user.nil?
-				flash.now[:error] = "Check your detailz"
+				flash.now[:error] = "E-mail/Password Combination Not Found"
 				render 'new' 
             else 
 				sign_in(user)   

@@ -11,7 +11,7 @@ Pdb::Application.routes.draw do
   match	'/feed',					:to => 'pages#feed'
   match	'/login',					:to	=> 'sessions#new'
   match	'/register',					:to	=> 'sessions#new'
-
+  match '/fake',         :to => 'pages#fake'
   match	'/logout',					:to	=> 'sessions#destroy'
   match	'/search',					:to => 'pages#error'
   root 								:to => "pages#home"

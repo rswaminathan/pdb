@@ -41,7 +41,7 @@
 				<% if (!@project.description.nil? && !@project.description.empty?) %>
 				<div id="project_info" >
 					<div style="padding:0.7em; min-height:2em">
-						<%=simple_format raw(@project.description) %>
+						<%=raw(@project.description) %>
 					</div>
 				</div>
 				<% end %>

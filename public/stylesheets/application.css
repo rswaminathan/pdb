@@ -1,10 +1,10 @@
 body{
-	background-color:#333;
-    background: url("/images/wallpaper-4.jpg") no-repeat center center fixed;
+	background: #F3601A;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+
 }
 
 #main h1{
@@ -425,7 +425,6 @@ a {
 }
 
 #project_description {
-	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
 	border-radius: 0.4em 0.4em 0.4em 0.4em;
 	-moz-border-radius: 0.4em 0.4em 0.4em 0.4em;
 	margin-bottom: 0em;
@@ -1020,4 +1019,7 @@ a {
     width:  400px;
 }
 
+.delete_file input{
+  background-image:url(/images/icons/delete.png);
+}
 

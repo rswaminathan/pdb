@@ -14,7 +14,7 @@
 			<div class="field">
 				<%= f.label :Upload_File %><br />
 				
-				<%= f.file_field :file %>
+				<%= f.file_field(:file, :size => "30") %>
 			</div>
 			<div class="submit">
 				<%= f.submit "Add File" %><br />
@@ -56,15 +56,23 @@
 		<div class="span-5 last">
 			<div style="width:25px; height:25px; float:left">
 			</div>
-			<div class="span-4 last" style="margin-top:3px;text-decoration: underline; font-size:1.1em; text-align:left">
+			<div class="span-4 last" style="margin-top:3px; font-size:1.1em; text-align:left">
 				<% name = file.file_file_name %>
-				<%= link_to name, file.file.url %>
+				<% icon = image_tag("/images/icons/filetypes/#{icon_finder(name).titleize}.png", :size => "30x33") %>
+				<%= form_tag attachment_path(file), :method => :delete, :confirm => "Are you sure?" do %>
+					<%= link_to icon, file.file.url %>
+					<%= link_to "#{name}", file.file.url %>					
+					<%= image_submit_tag("icons/delete.png") if current_project_user? %>
+				<% end %>
 			</div>
 		</div>
 
 		<% end %>
 
 	</div>
+
+
+<!--- http://1.bp.blogspot.com/_CZzJAEITEmI/TTlXeIE5YOI/AAAAAAAAAOI/TMSyfafYj6E/s200/delete+logo+icon.png --->
 
 	<% if !@similar_projects.empty? %>
 	<div style="width:180px; margin-left:0.8em">		
