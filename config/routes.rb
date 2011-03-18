@@ -23,6 +23,8 @@ Pdb::Application.routes.draw do
   #	match 	"/signout", 				:to => "sessions#destroy", :as => :signout
 
   resources :profile
+  resources :groups
+  
   resources :users do
     member do
       put 'update_profile'

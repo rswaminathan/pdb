@@ -51,24 +51,30 @@
 		</div>
 
 		<% end %>
-
-		<% @project.attachments.each do |file| %>
 		<div class="span-5 last">
-			<div style="width:25px; height:25px; float:left">
-			</div>
-			<div class="span-4 last" style="margin-top:3px; font-size:1.1em; text-align:left">
-				<% name = file.file_file_name %>
-				<% icon = image_tag("/images/icons/filetypes/#{icon_finder(name).titleize}.png", :size => "30x33") %>
-				<%= form_tag attachment_path(file), :method => :delete, :confirm => "Are you sure?" do %>
-					<%= link_to icon, file.file.url %>
-					<%= link_to "#{name}", file.file.url %>					
-					<%= image_submit_tag("icons/delete.png") if current_project_user? %>
-				<% end %>
-			</div>
+			<table>
+			<% @project.attachments.each do |file| %>
+
+				<div style="width:25px; height:25px; float:left">
+					<% name = file.file_file_name %>
+					<% icon = image_tag("/images/icons/filetypes/#{icon_finder(name).titleize}.png", :size => "20x20", :style => "margin:0.2em 0.2em 0 0") %>
+				</div>
+			
+					<div class="span-4 last" style="margin-top:3px; font-size:1.1em; text-align:left">
+					<tr>
+					<%= form_tag attachment_path(file), :method => :delete, :confirm => "Are you sure?" do %>
+						<td><%= link_to icon, file.file.url %></td>
+						<td><%= link_to "#{name}", file.file.url %></td>
+						<td><%= image_submit_tag("icons/delete.png", :size => "10x10") if current_project_user?%></td>
+					<% end %>
+					</tr>
+					<tr></tr>
+				</div>
+
+
+			<% end %>
+			</table>
 		</div>
-
-		<% end %>
-
 	</div>
 
 

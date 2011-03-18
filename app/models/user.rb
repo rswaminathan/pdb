@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :projects
   has_many                :comments
   has_many                :likes
+  has_many                :links
+  
   has_many				:relationship_projects,			:foreign_key => :follower_id,
     :dependent => :destroy
   has_many				:relationship_users,			:foreign_key => :follower_id,
@@ -30,6 +32,7 @@ class User < ActiveRecord::Base
     :class_name => "RelationshipUser",
     :dependent => :destroy
   has_many				:followers,						:through => :reverse_relationship_users
+  has_and_belongs_to_many :groups
 
   validates :name, :presence          => true,
     :length                   => { :maximum => 50}

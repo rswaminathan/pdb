@@ -1,107 +1,120 @@
 <% content_for :head do %>
-  <%= render 'projects/yui_dependencies' %> <%= stylesheet_link_tag 'project' %> <%= stylesheet_link_tag 'user-list/user-regular' %>
+<%= render 'projects/yui_dependencies' %> <%= stylesheet_link_tag 'project' %> <%= stylesheet_link_tag 'user-list/user-regular' %>
 <% end %>
+
+
+<%= form_for(@project) do |f| %>
 
 <% if !signed_in? %>
-  <p> Create an account </p>
-
+<p> Create an account </p>
 <% end %>
 
-<div class="container yui-skin-sam" id="project_new">
-	<%= form_for(@project) do |f| %>
-   	<%= render	'shared/error_messages', :object => f.object %>
-    <div class="span-7" id="project_new_left">  
-		  <div class="field">jj
-        <%= f.label :project_name %>
-			  <%= f.text_field :name %>
-		  </div>
-		
-		  <div class="field">			
-        <%= f.label :short_description %>		
-       	<%= f.text_area :abstract, :rows=>2, :cols=>4  %>
-		 </div> 
 
-		  <div class="field">
-			  <%= f.label :tags %>
-			  <%= f.text_field :kind_list, :value => @tag_string %></br>
-		  </div>
-    
-      <div class= "span-6 last" id="common_tags">
-        <h3>Some common tags include: </h3>
-        <p>
-        <% Project.kind_counts.first(10).each do |k| %>
-          <%= k[:name] %>, 
-        <% end %>
-        </p>
-      </div>
+<div class="container">		
+	<table cellspaceing="0" style="margin-bottom:1em" id="project_main_background2">
+		<tbody>			
+			<tr>				
+				<td class="span-19 last" style="padding:2px"> <div id="project-main-background"> 
+						<div class="container yui-skin-sam span-19 last" >
+							
+							<div class="span-13" >  
+								<%= render	'shared/error_messages', :object => f.object %>
 
-      <div class="span-7 last" id="include_collaborotars">
-        <%= f.label :collaborators %><br />
-        <div id="added_collaborators">
-			<% if signed_in? %>			
-				<%= render 'user_list', :users => [current_user]  %>
-			<% end %>
-        </div>        
-		<%= autocomplete_field_tag 'collaborotors', '', autocomplete_user_name_projects_path, :placeholder => "Search collaborators to add" %>
-		<%= text_field_tag 'add_by_email','',:placeholder => "...or add by emails(comma separated)" %>
-      </div>
+								<div class="field" >					
+									<%= f.text_field :name, :id=>"project_name_header", :style=>"width:500px",:placeholder => "Project Name" %></div>
 
-      <%= hidden_field_tag 'cids' %>
-    </div>
 
-    <div class="span-16 last" id="project_new_right">
-      <div class="field">
-          <%= f.label :project_description %><br />
-			    <%= f.text_area :description, :rows=>5, :cols=>40 %>
-	    </div>
-	
-      <div class="field">
-          <%= f.label :add_project_picture %>
-			    <%= f.file_field :photo %>
-	    </div>
-		<div class="field">
-			<%= f.label :add_attachment %><br />
-			<%= f.file_field :mainfile %>
-		</div>
-		
-		  <div class="submit">
-			  <%= f.submit "Create Project" %><br />
-		  </div>
-    </div>
-  <% end %>
-	<%= render 'projects/yui_script', :editor => "project_description" %>
+								<div id="include_collaborotars" >
+									<%= f.label :collaborators %><br />
+
+									<%= autocomplete_field_tag 'collaborotors', '', autocomplete_user_name_projects_path, :placeholder => "Search collaborators to add", :style=>"width:200px"%>
+									<%= text_field_tag 'add_by_email','',:placeholder => "...or add by email(comma separated)", :style=>"width:200px" %>
+								</div>
+
+								<%= hidden_field_tag 'cids' %>
+							</div>
+
+							<div class="span-6 last" id="added_collaborators" style="float:right">
+								<%= render 'user_list', :users => [current_user]  %>
+							</div>
+
+							<hr style="background:#ccc; margin:1em 0 1.45em 0; border-bottom: 1px solid white">
+
+							<div class="span-16 last" id="project_new_right">
+
+								<div class="field">			
+									<%= f.label :Summary %>		
+									<%= f.text_field :abstract %>
+								</div>
+								<div class="field">
+									<%= f.label :tags %>
+									<%= f.text_field :kind_list, :value => @tag_string %></br>
+								</div>
+								<div class="field">
+									<%= f.text_area :description, :rows=>5, :cols=>40 %>
+								</div>
+
+
+								<div class="submit">
+									<%= f.submit "Create Project" %><br />
+								</div>
+							</div>
+
+							<%= render 'projects/yui_script', :editor => "project_description" %>
+						</div>
+						<%= javascript_tag do %>
+						function monkeyPatchAutocomplete() {
+
+						// don't really need this, but in case I did, I could store it and chain
+						var oldFn = $.ui.autocomplete.prototype._renderItem;
+
+						$.ui.autocomplete.prototype._renderItem = function( ul, item) {
+						var re = new RegExp("^" + this.term, "i") ;
+						var t = item.label.replace(re,"<span style='font-weight:bold;'>" + 
+							this.term + 
+							"</span>");
+						var userpic = "<div class='user_pic'><img src=" + item.img + "></div>";
+						var userinfo = "<div class='user_info'>" + item.info + "<br></div>";
+						var userdiv = "<div class='user' style='width:208px; height:50px;'>" + userpic + t + userinfo + "</div>";
+						return $( "<li></li>" )
+						.data( "item.autocomplete", item )
+						.append( "<a>" + userdiv + "</a>" )
+						.appendTo( ul );
+						};
+						}
+
+						monkeyPatchAutocomplete();
+						$( "input[data-autocomplete]" ).bind( "autocompleteselect", function(event, ui) {
+						var userpic = "<div class='user_pic'><img src=" + ui.item.img + "></div>";
+						var userinfo = "<div class='user_info'>" + ui.item.info + "<br></div>";
+						var userdiv = "<div class='user' style='width:208px; font-weight:bold; height:50px; float: left;'>" + userpic + ui.item.label +  userinfo + "</div>";
+						$("#added_collaborators").append(userdiv);
+						$('#cids').val(function(index, value) {
+						return value + ui.item.id + ',';
+						});
+						});
+
+
+				</div></td>
+				<% end %>
+
+
+
+
+
+				<td class="span-5 last" style="vertical-align: top; padding:2px 2px 0 0">
+					<div class="field">
+						<%= f.label :add_project_picture %>
+						<%= f.file_field :photo %>
+					</div>
+
+
+				</td>				
+			</tr>			
+		</tbody>
+	</div>
+</table>
 </div>
-<%= javascript_tag do %>
-  function monkeyPatchAutocomplete() {
-
-      // don't really need this, but in case I did, I could store it and chain
-      var oldFn = $.ui.autocomplete.prototype._renderItem;
-
-      $.ui.autocomplete.prototype._renderItem = function( ul, item) {
-          var re = new RegExp("^" + this.term, "i") ;
-          var t = item.label.replace(re,"<span style='font-weight:bold;'>" + 
-                  this.term + 
-                  "</span>");
-          var userpic = "<div class='user_pic'><img src=" + item.img + "></div>";
-          var userinfo = "<div class='user_info'>" + item.info + "<br></div>";
-          var userdiv = "<div class='user' style='width:208px; height:50px;'>" + userpic + t + userinfo + "</div>";
-          return $( "<li></li>" )
-              .data( "item.autocomplete", item )
-              .append( "<a>" + userdiv + "</a>" )
-              .appendTo( ul );
-      };
-  }
-
-  monkeyPatchAutocomplete();
-      $( "input[data-autocomplete]" ).bind( "autocompleteselect", function(event, ui) {
-        var userpic = "<div class='user_pic'><img src=" + ui.item.img + "></div>";
-        var userinfo = "<div class='user_info'>" + ui.item.info + "<br></div>";
-        var userdiv = "<div class='user' style='width:208px; font-weight:bold; height:50px; float: left;'>" + userpic + ui.item.label +  userinfo + "</div>";
-        $("#added_collaborators").append(userdiv);
-        $('#cids').val(function(index, value) {
-          return value + ui.item.id + ',';
-        });
-      });
 
 <% end %>
 

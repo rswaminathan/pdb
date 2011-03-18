@@ -1,0 +1,20 @@
+<div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 350px">
+    <div class="home_register span-15">
+        <div class="span-8"><h1 style="color:#fff">New Group</h1>
+            <%= form_for @group do |f| %>
+            <div class="field">
+                <%= f.label :name %><br />
+                <%= f.text_field :name %>
+            </div>
+            <div class="field">
+                <%= f.label :description %><br />
+                <%= f.text_field :description %>
+            </div>
+
+            <div class="submit">
+                <%= f.submit "Add group" %><br />
+            </div>
+            <% end %>
+        </div>
+    </div>
+</div>

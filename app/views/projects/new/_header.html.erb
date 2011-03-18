@@ -1,0 +1,98 @@
+<%= form_for(@project) do |f| %>
+
+<% if !signed_in? %>
+  <p> Create an account </p>
+<% end %>
+
+<div class="container yui-skin-sam span-19 last" >
+	
+    <div class="span-15" >  
+		<%= render	'shared/error_messages', :object => f.object %>
+	
+		  <div class="field">
+        <%= f.label :project_name %>
+			  <%= f.text_field :name %>
+		  </div>
+
+
+		  <div class="field">
+			  <%= f.label :tags %>
+			  <%= f.text_field :kind_list, :value => @tag_string %></br>
+		  </div>
+
+
+      <div class="span-7 last" id="include_collaborotars" >
+        <%= f.label :collaborators %><br />
+
+		<%= autocomplete_field_tag 'collaborotors', '', autocomplete_user_name_projects_path, :placeholder => "Search collaborators to add" %>
+		<%= text_field_tag 'add_by_email','',:placeholder => "...or add by emails(comma separated)" %>
+      </div>
+
+      <%= hidden_field_tag 'cids' %>
+    </div>
+
+		<div class="span-4 last" id="added_collaborators" style="float:right">
+				<%= render 'user_list', :users => [current_user]  %>
+        </div>
+
+	<hr style="background:#ccc; margin:1em 0 1.45em 0; border-bottom: 1px solid white">
+
+	    <div class="span-16 last" id="project_new_right">
+
+		  <div class="field">			
+	        <%= f.label :short_description %>		
+	       	<%= f.text_field :abstract %>
+		 </div>
+
+	      <div class="field">
+	          <%= f.label :project_description %><br />
+				    <%= f.text_area :description, :rows=>5, :cols=>40 %>
+		    </div>
+
+	      <div class="field">
+	          <%= f.label :add_project_picture %>
+				    <%= f.file_field :photo %>
+		    </div>
+
+			  <div class="submit">
+				  <%= f.submit "Create Project" %><br />
+			  </div>
+	    </div>
+	  <% end %>
+		<%= render 'projects/yui_script', :editor => "project_description" %>
+	</div>
+	<%= javascript_tag do %>
+	  function monkeyPatchAutocomplete() {
+
+	      // don't really need this, but in case I did, I could store it and chain
+	      var oldFn = $.ui.autocomplete.prototype._renderItem;
+
+	      $.ui.autocomplete.prototype._renderItem = function( ul, item) {
+	          var re = new RegExp("^" + this.term, "i") ;
+	          var t = item.label.replace(re,"<span style='font-weight:bold;'>" + 
+	                  this.term + 
+	                  "</span>");
+	          var userpic = "<div class='user_pic'><img src=" + item.img + "></div>";
+	          var userinfo = "<div class='user_info'>" + item.info + "<br></div>";
+	          var userdiv = "<div class='user' style='width:208px; height:50px;'>" + userpic + t + userinfo + "</div>";
+	          return $( "<li></li>" )
+	              .data( "item.autocomplete", item )
+	              .append( "<a>" + userdiv + "</a>" )
+	              .appendTo( ul );
+	      };
+	  }
+
+	  monkeyPatchAutocomplete();
+	      $( "input[data-autocomplete]" ).bind( "autocompleteselect", function(event, ui) {
+	        var userpic = "<div class='user_pic'><img src=" + ui.item.img + "></div>";
+	        var userinfo = "<div class='user_info'>" + ui.item.info + "<br></div>";
+	        var userdiv = "<div class='user' style='width:208px; font-weight:bold; height:50px; float: left;'>" + userpic + ui.item.label +  userinfo + "</div>";
+	        $("#added_collaborators").append(userdiv);
+	        $('#cids').val(function(index, value) {
+	          return value + ui.item.id + ',';
+	        });
+	      });
+
+	<% end %>
+
+	</div></td>

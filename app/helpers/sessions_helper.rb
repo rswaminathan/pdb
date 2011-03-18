@@ -40,7 +40,7 @@ module SessionsHelper
   def correct_project_user
     @project = Project.find_by_id(params[:id])
     @users = @project.users
-    redirect_to(root_path) unless (signed_in? && @users.exists?(current_user))
+    redirect_to(root_path) unless (admin_user? || (signed_in? && @users.exists?(current_user)))
   end
 
   def check_admin_user

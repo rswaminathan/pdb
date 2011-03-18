@@ -14,6 +14,16 @@
 			<div id="user_projects_photo" class="span-3"><%logo = image_tag u.photo.url(:standard) %>    <%= link_to logo, u %></div>
 			<div style="min-height:60px"> 
 				<div id="project_name_div"><%= link_to u.name, u %></div>
+				<% if admin_user? %>
+					<div id="delete_user" style="float: left;">
+						<%= form_tag project_path(u), :method => :delete, :confirm => "Are you sure?" do %>
+							<div class="submit">
+								<%= submit_tag "Delete Project" %><br />
+							</div>
+						<% end %>
+					</div>
+					<br />
+				<% end %>
 				<div id="project_description_div", style="margin-right:13em">
 					<% if u.abstract.nil? || u.abstract.empty? %>
 						<%= truncate(u.description, :length => 310) %>
@@ -39,6 +49,16 @@
 					</div>
 					
 					<div id="project_name_div"><%= link_to u.name, u %> </div>
+					<% if admin_user? %>
+						<div id="delete_user" style="float: left;">
+						<%= form_tag project_path(u), :method => :delete, :confirm => "Are you sure?" do %>
+							<div class="submit">
+								<%= submit_tag "Delete Project" %><br />
+							</div>
+						<% end %>
+						</div>
+						<br />
+					<% end %>
 					<div id="project_description_div", style="min-height:12px; margin-right:13em">
 						<% if u.abstract.nil? || u.abstract.empty? %>
 							<%= truncate(u.description, :length => 310) %>

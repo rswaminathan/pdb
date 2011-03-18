@@ -7,16 +7,10 @@ class ProjectsController < ApplicationController
   #for the autocomplote in projects/new - send all the data
   def json_for_autocomplete(items, method)
     #merge with fb friends
-    if signed_in? && facebook_user?
-      @fb_json = facebook_friends.select{|u| u.name.downcase.starts_with? params[:term].downcase }.collect { |item| {"id" => item.identifier, "label" => item.name, "value" => item.name,
-        "img" => item.picture, "info" => "Facebook Friend"}}
-    else
-      @fb_json = []
-    end
     items.collect {|item| {"id" => item.id, "label" => item.name, "value" => item.name,
       "img" => item.profile.photo.url(:tiny),
       "info" => "#{item.profile.department} #{item.profile.occupation} #{item.profile.year}"
-    }}.concat(@fb_json)
+    }}
   end
 
   def new
