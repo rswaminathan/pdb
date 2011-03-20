@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  #TODO: ADD BEFORE FILTER FOR PASSWORD RESET BASED ON RANDOM RESET ID GENERATED
   before_filter :authenticate, :only => [:edit, :destroy]
   before_filter :correct_user, :only => [:edit, :update, :edit_profile, :update_profile]
   before_filter :check_admin_user,   :only => [:destroy]
@@ -57,6 +58,23 @@ class UsersController < ApplicationController
     @title = "Edit #{@user.name}'s Account"
     @projects = @user.projects
   end
+
+  def reset
+    @user = User.find_by_id(params[:id])
+    @title = "Reset #{@user.name}'s Password"
+  end
+
+  def reset_password
+    @user = User.find_by_id(params[:id])
+    if @user.update_attributes(params[:user])
+      sign_in @user
+      flash[:success] = "Password Reset!"
+      redirect_to(@user) 
+    else
+      #flash[:error] = "Something went wrong, try again"
+      render 'edit'
+    end  
+  end 
 
   def edit_profile
     @title = "Edit #{@user.name}'s Profile"

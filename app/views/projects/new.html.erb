@@ -16,7 +16,7 @@
 			<tr>				
 				<td class="span-19 last" style="padding:2px"> <div id="project-main-background"> 
 						<div class="container yui-skin-sam span-19 last" >
-							
+
 							<div class="span-13" >  
 								<%= render	'shared/error_messages', :object => f.object %>
 
@@ -86,16 +86,13 @@
 						monkeyPatchAutocomplete();
 						$( "input[data-autocomplete]" ).bind( "autocompleteselect", function(event, ui) {
 						var userpic = "<div class='user_pic'><img src=" + ui.item.img + "></div>";
-						var userinfo = "<div class='user_info'>" + ui.item.info + "<br></div>";
-						var userdiv = "<div class='user' style='width:208px; font-weight:bold; height:50px; float: left;'>" + userpic + ui.item.label +  userinfo + "</div>";
+						var userdiv = "<div style='height:50px; float: right;'>" + userpic + "</div>";
 						$("#added_collaborators").append(userdiv);
 						$('#cids').val(function(index, value) {
 						return value + ui.item.id + ',';
 						});
 						});
 
-
-				</div></td>
 				<% end %>
 
 

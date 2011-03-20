@@ -27,6 +27,8 @@ Pdb::Application.routes.draw do
   
   resources :users do
     member do
+      get 'reset'
+      put 'reset_password'
       put 'update_profile'
       get 'edit_profile'
       get 'edit_facebook_profile'
