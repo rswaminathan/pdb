@@ -37,6 +37,13 @@ module SessionsHelper
     deny_access if !signed_in?
   end
 
+  def reset_code
+    unless params[:pc] == User.find(params[:id]).reset && !User.find(params[:id]).reset.nil?
+      flash[:notice] = "Incorrect Reset Code!"
+      redirect_to root_url
+    end
+  end
+
   def correct_project_user
     @project = Project.find_by_id(params[:id])
     @users = @project.users

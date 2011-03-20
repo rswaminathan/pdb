@@ -16,6 +16,12 @@ class UserMailer < ActionMailer::Base
     mail(:to => email, :subject => subject)
   end
 
+  def reset_password(user)
+    @user = user
+    subject = "Holono Password Reset"
+    mail(:to => user.email, :subject => subject)
+  end 
+
   def feedback(text, email)
     @text = text
     mail(:to => email, :subject => "Got feedback")

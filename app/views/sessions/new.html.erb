@@ -16,8 +16,11 @@
             </div>
             <% end %>
         </div>
-        <div id="alternate_login" class="span-3 last" style="padding: 60px; margin-top: 10px; border-left: 1px solid #222;">
+        <div id="alternate_login" class="span-3" style="padding: 60px; margin-top: 10px; border-left: 1px solid #222;">
             <%= link_to image_tag('facebook-login.png'),  "/auth/facebook"%>
-        </div>
+        </div><br />
+	<div>
+		Forgot Password? <%= link_to("Reset your password here.", "users/1/forgot") %>
+	</div>
     </div>
 </div>

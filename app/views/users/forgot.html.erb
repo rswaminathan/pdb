@@ -1,0 +1,13 @@
+<div id="know_more_form" title="Forgotten Password">
+	<%= form_for User.new, :url => forgot_password_user_path do |f| %>
+	<%= render 'shared/error_messages', :object => f.object %>
+	<div class="field">
+		<%= f.label :email %><br />
+		<%= f.text_field :email %>
+	</div>
+        <div class="submit">
+            <%= f.submit "Reset My Password" %><br />
+        </div>
+
+    <% end %>
+</div>

@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 
-  #TODO: ADD BEFORE FILTER FOR PASSWORD RESET BASED ON RANDOM RESET ID GENERATED
-  before_filter :authenticate, :only => [:edit, :destroy]
-  before_filter :correct_user, :only => [:edit, :update, :edit_profile, :update_profile]
-  before_filter :check_admin_user,   :only => [:destroy]
+  before_filter :reset_code,		:only => [:reset]
+  before_filter :authenticate,		:only => [:edit, :destroy]
+  before_filter :correct_user,		:only => [:edit, :update, :edit_profile, :update_profile]
+  before_filter :check_admin_user,	:only => [:destroy]
   sidebar_type=["user_info","project_list"]
 
   def new
@@ -59,6 +59,36 @@ class UsersController < ApplicationController
     @projects = @user.projects
   end
 
+  def forgot
+    if signed_in?
+      flash[:notice] = "You're already signed in!"
+      redirect_to root_url
+    else 
+      @title = "Forgot Password"
+    end
+  end
+
+  def forgot_password
+    if signed_in?
+      sign_out
+    end
+    if @user = User.find_by_email(params[:user][:email])
+      list = (('a'..'z').to_a + ('A'..'Z').to_a + ('0'..'9').to_a)
+      reset = ""
+      24.times do |i|
+         reset += list.shuffle[0]
+      end
+      @user.reset = reset
+      @user.save
+      UserMailer.reset_password(@user).deliver
+      flash[:success] = "Check your email for password reset instructions."
+      redirect_to(root_url)
+    else
+      flash[:error] = "No User with that email address was found"
+      render 'forgot'
+    end
+  end
+
   def reset
     @user = User.find_by_id(params[:id])
     @title = "Reset #{@user.name}'s Password"
@@ -69,10 +99,12 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:user])
       sign_in @user
       flash[:success] = "Password Reset!"
-      redirect_to(@user) 
+      @user.reset = nil
+      @user.save
+      redirect_to(@user)
     else
       #flash[:error] = "Something went wrong, try again"
-      render 'edit'
+      render 'reset'
     end  
   end 
 

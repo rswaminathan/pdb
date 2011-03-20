@@ -1,32 +1,36 @@
 Pdb::Application.routes.draw do
 
 
-  match	'search_users',				:to => 'pages#search_users'
-  match	'search_projects',			:to => 'pages#search_projects'
-  match 	'error',  					:to => 'pages#error'
+  match	'search_users',					:to => 'pages#search_users'
+  match	'search_projects',				:to => 'pages#search_projects'
+  match 'error',  					:to => 'pages#error'
   match	'/create',					:to => 'pages#home'
-  match	'/ozzie_gooen',				:to => 'users#show', :id => 2
+  match	'/ozzie_gooen',					:to => 'users#show', :id => 2
   match	'/about',					:to => 'projects#show', :id => 1
   match	'signup',					:to => 'pages#home'
   match	'/feed',					:to => 'pages#feed'
-  match	'/login',					:to	=> 'sessions#new'
-  match	'/register',					:to	=> 'sessions#new'
-  match '/fake',         :to => 'pages#fake'
-  match	'/logout',					:to	=> 'sessions#destroy'
+  match	'/login',					:to => 'sessions#new'
+  match	'/register',					:to => 'sessions#new'
+  match '/fake',					:to => 'pages#fake'
+  match	'/logout',					:to => 'sessions#destroy'
   match	'/search',					:to => 'pages#error'
-  root 								:to => "pages#home"
-  match 	'/home',					:to => "pages#home"
-  match 	'/stage',					:to => "pages#stage"
-  match '/facebookinfo',    :to => 'pages#facebookinfo'
+  root 							:to => "pages#home"
+  match '/home',					:to => "pages#home"
+  match '/stage',					:to => "pages#stage"
+  match '/facebookinfo',				:to => 'pages#facebookinfo'
+  match '/forgot',					:to => 'users#forgot'
+  match '/forgot_password',				:to => 'users#forgot_password'
+  match "/auth/:provider/callback",			:to => "sessions#create"
 
-  match 	"/auth/:provider/callback",	:to => "sessions#create"
-  #	match 	"/signout", 				:to => "sessions#destroy", :as => :signout
+  #match "/signout", 					:to => "sessions#destroy", :as => :signout
 
   resources :profile
   resources :groups
   
   resources :users do
     member do
+      get 'forgot'
+      post 'forgot_password'
       get 'reset'
       put 'reset_password'
       put 'update_profile'
