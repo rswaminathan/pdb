@@ -1,6 +1,7 @@
 class AdminController < ApplicationController
     
-  before_filter :admin_user?
+  before_filter :check_admin_user, :except => :feedback
+
     def email
       @users = User.all
     end
@@ -13,6 +14,12 @@ class AdminController < ApplicationController
       UserMailer.custom_email(u, @message, @subject).deliver
       end
     end 
+
+    def become_user
+      user = User.find(params[:user]) 
+      sign_in(user)
+      redirect_to(user)
+    end
 
     def email_one
       @users = User.all

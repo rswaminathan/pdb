@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/thedarkone/rails-dev-boost.git
+  revision: c9428f87042d9422aad2b119c8c04de97f504148
+  specs:
+    rails-dev-boost (0.1.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -232,6 +238,7 @@ DEPENDENCIES
   omnisocial
   paperclip
   rails (= 3.0.5)
+  rails-dev-boost!
   rails3-jquery-autocomplete
   rspec-rails (= 2.0.1)
   sqlite3-ruby

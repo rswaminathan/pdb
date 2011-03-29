@@ -36,12 +36,17 @@ class Project < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :kind
   
+  attr_reader :collaborator_tokens
   def to_param
     "#{id}-#{name.gsub(/[^a-z0-9]+/i, '-')}"      
   end
 
   def similar_projects
     Project.tagged_with(kind_list, :any => true)
+  end
+
+  def collaborator_tokens=(ids)
+    self.user_ids = ids.split(",")
   end
 
   class << self

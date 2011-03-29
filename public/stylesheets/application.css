@@ -1,5 +1,7 @@
+/* @override http://localhost:3000/stylesheets/application.css?1301218623 */
+
 body{
-	background: #aaa;
+	background: #eee;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -192,7 +194,6 @@ border-bottom-left-radius: 0.5em 0.5em;
 #following a:hover{
 	border-bottom: 1px solid white;
 }
-	
 
 .sidebar_header {
 	height: 20px;
@@ -276,12 +277,6 @@ border-bottom-left-radius: 0.5em 0.5em;
 }
 
 
-#home h1{
- color: #EE000B;
-	font-size: 2.8em;
-	padding-left:0.5em;
-	
-}
 
 #home h2{
 	color: #fff;
@@ -307,29 +302,6 @@ border-bottom-left-radius: 0.5em 0.5em;
 	width: 910px;	
 }
 
-
-
-#user_user_name h1{
-	font-size: 2.1em;
-	color:white;
-	margin-left:0.5em;
-	margin-top:0.1em;
-	margin-bottom: 0.2em;
-}
-#user_user_name h1 a{
-	color:white;
-	
-}
-#user_user_name a:hover {
-	text-decoration: underline;
-}
-
-
-#user_user_name h2{
-	font-size:1.2em;
-	color:white;
-	margin-left:0.9em;
-}
 
 
 .user_info_2{
@@ -414,10 +386,6 @@ a {
 	text-align:center;
 }
 
-
-#user_sidebar_pages{
-	padding: 0.3em 0.7em 0.5em 0.6em;	
-}
 
 #project_background{
 	border-radius: 0.5em 0.5em 0.5em 0.5em;
@@ -508,22 +476,11 @@ a {
 .big-picture{
 	border-radius: 0.5em;
 }
-#profile_div{
-	padding: 0.5em 0 0.5em 0 ;
-	border-radius: 0.5em 0 0 0.5em;
-	-moz-border-radius: 0.5em 0 0 0.5em;
-	vertical-align: top;
-	/*background:rgba(170, 40, 40, 0.7);*/
-	
-}
 
-#sidebar_div{
-	padding: 0.3em 0 0.1em 0 ;
-	vertical-align: top;
-	margin-top:0.5em;	
-	margin-bottom:0.5em;
-	background: rgba(0,0,0,0.6);
-	margin-left:1.1em;
+#default-container{
+	padding-top:8px; 
+	padding-bottom:20px; 
+	min-height: 350px;
 }
 
 #project_sidebar{
@@ -663,19 +620,6 @@ a {
 #project_sidebar_kind a:hover {
 	color: #fff;
 	border-bottom: 1px solid #fff;
-}
-
-#project_kind{
-	float:left;
-	text-align:center;
-	-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	 font-size: 1em;
-	-moz-border-radius: 5px;
-	color: #9F4900;
-	margin-right:0.5em;
-	padding: 0 0.3em 0 0.3em;
-	font-weight: bold;	
 }
 
 #add_project_kind_list{

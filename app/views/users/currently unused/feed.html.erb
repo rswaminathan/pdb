@@ -1,0 +1,12 @@
+<div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 350px">
+<div id="user_background" class="span-24">
+
+		<% h = {:L => @user.projects_following} %>
+	<% @user.users_following.each do |i| %>
+		<% i.projects.each do |u| %>
+			<% h[:L] += [u] unless (h[:L].include?(u) || (@user.projects.include?(u) && u.users.count=1) %>
+		<% end %>
+	<% end %>
+	<%= render 'snippets', :list => h[:L].sort!{|t1,t2|t2.updated_at <=> t1.updated_at} %>
+</div>
+</div>

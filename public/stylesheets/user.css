@@ -1,10 +1,4 @@
-#user_page_name{
-	position: relative; 
-	width:210px; 
-	text-align:left; 
-	background-color: #AF250D;
-	padding: 0.4em 0 0.4em 0;
-}
+/* @override http://localhost:3000/stylesheets/user.css?1301218697 */
 
 #big-user-pic-regular{
 	position: relative;
@@ -16,21 +10,29 @@
 	left: 1px;
 }
 
+#user_projects_padding{
+	padding: 0.3em 2px 0.5em 0.6em;	
+}
+
 #form_back{
 	background: #DCF5DC; 
 	margin-right:0;
 	margin-top:0.5em;
-	padding:0.5em 0.5em 0;
+	padding: 0.5em 0 0 0.5em;
 	border-radius:0.6em;
 	-moz-border-radius:0.6em;
 	border: 2px solid #67BC56;
 	color: #70BE67;	
-	
+	height:156px;
 }
 
 #form_back textarea{
     height: 5em;
     width: 21.5em;
+}
+
+
+#no_projects{
 }
 
 #nocool_project_button{
@@ -371,6 +373,50 @@
 	top:4px;
 }
 
+#user_sidebar_position{
+	padding: 0.5em 0;
+	border-radius: 0.5em 0 0 0.5em;
+	-moz-border-radius: 0.5em 0 0 0.5em;
+	vertical-align: top;
+}
+
+#user_sidebar{
+	padding: 3px 0 9px 3px;
+	vertical-align: top;
+	margin-left: 13px;
+	margin-top: 13px;
+	border-radius: 0.9em 0.2em 0.2em 0.2em;
+	border-radius: 0.9em 0em 0em 0.9em;
+
+}
+
+#user_sidebar h1{
+	font-size: 2.3em;
+	color:white;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	margin-left: 3px;
+}
+#user_sidebar h1 a{
+	color:black;	
+}
+
+#user_sidebar h1 a:hover {
+	text-decoration: underline;
+}
+
+#user_sidebar h2{
+	font-size:1.3em;
+	color:black;
+	margin-left: 5px;
+	margin-bottom: 0;
+}
+
+#user_sidebar_picture{
+	border-radius: 0.9em 0.2em 0.2em 0.2em;
+	-moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
+}
+
 #edit_profile{
 	font-size:1.2em;
 	text-decoration: underline;
@@ -384,19 +430,13 @@
 	color:white;
 }
 
-#project_list {
-padding-bottom: 0.7em;
-padding-top: 0.5em;
-border-bottom: 1px solid #e6e6e6;
-margin:0 0.6em 0 0.6em;
-}
-
 #user_projects {
-border-radius: 0;
--moz-border-radius: 0em;
-padding: 0;
-vertical-align: top;
-background-color: rgba(255,255,255,1);
+	padding: 0;
+	vertical-align: top;
+	background-color: rgba(255,255,255,0.9);
+	border-radius: 0.4em 0.4em 0.4em 0.4em;
+	-moz-border-radius: 0.4em 0.4em 0.4em 0.4em;
+	border: 1px solid #d6d6d6;
 }
 
 

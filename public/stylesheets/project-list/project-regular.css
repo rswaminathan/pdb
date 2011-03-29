@@ -1,27 +1,34 @@
+/* @override http://localhost:3000/stylesheets/project-list/project-regular.css?1301218645 */
+
 .user_info_2{
   padding: 0em 0em 0em 5.4em;
   font-size: 0.8em;
   text-align: bottom;
 }
 
-.users_list a{
+.list_project h2{
+	font-size:1em;
+	float: left;
+}
+.list_project h2 a{
 	color:#CC645D;
 	font-size:0.95em;
 	margin-right:0.3em;
-	float:left;
 	font-weight:bold;
 }
-
-.users_list a:hover{
-	text-decoration: underline;
-  
+.list_project h2 a:hover{
+	text-decoration: underline; 
 }
 
+.list_project_icon{
+margin: 5px 0 0 8px; float:right;
+width:20px;
+}
 #user_projects {
   padding: 0;
   width: 720px;
   vertical-align: top;
-  background-color: white;
+  background-color: rgba(255,255,255,0.9);
   border-radius: 0.5em 0.5em 0.5em 0.5em;
   -moz-border-radius: 0.5em 0em 0.5em 0.5em;	
 }
@@ -44,6 +51,7 @@
   -moz-border-radius: 0.5em 0em 0em 0em;
 
 }
+
 #project_name_sidebar a{
   color:white; 	
 }
@@ -64,30 +72,47 @@
   color: #DF0200;
 
 }
-
-
-
-#project_name_div {
-  font-size: 1.4em;
-  color: #852D00;
-  line-height:1em;
-  margin-bottom:0.3em;
+.list_project {
+	padding-bottom: 0.7em;
+	padding-top: 0.5em;
+	border-bottom: 1px solid #e6e6e6;
+	margin:0 0.6em 0 0.6em;
+	
 }
 
-#project_name_div  a{
-  font-weight: bold;
-  color: #C80200;
-
+.list_project h1{
+	font-size: 1.3em;
+	color: #852D00;
+	line-height:1em;
+	margin-bottom:0.3em;
 }
 
-#project_name_div  a:hover {
-  text-decoration: underline;
-  color: #C80200;
-
-
+.list_project h1 a{
+	font-weight: bold;
+	color: #C80200;
 }
 
-#sample_project_name_div a{
+.list_project h1 a:hover{
+	text-decoration: underline;
+	color: #C80200;
+}
+
+.list_project p{
+  font-size: 1.1em;
+  line-height: 1.1em;
+  color:#333;
+  margin:0;
+}
+
+.list_project_wpic{
+	min-height:82px
+}
+
+.list_project_wopic{
+	min-height:76px; padding-bottom:1em
+}
+
+#sample_list_project_name a{
   font-size: 1.1em;
   font-weight: bold;
   color: #EE000B;
@@ -97,21 +122,27 @@
 #project_edit_name {
   color: #eef;
   font-size: 1em;
-
 }
 
-#project_name_div_edit a{
+#list_project_name_edit a{
   font-size: 2.3em;
   font-weight: bold;
   color: #C30F01;
-
 }
 
-#project_description_div {
-  font-size: 1.1em;
-  line-height: 1.1em;
-  padding-bottom: 0.4em;
-  color:#333;
-  min-height:40px;
+.list_project_users_list{
+	margin-bottom:0.3em;
+}
 
+#project_kind{
+	float:left;
+	text-align:center;
+	-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	 font-size: 1em;
+	-moz-border-radius: 5px;
+	color: #9F4900;
+	margin-right:0.5em;
+	padding: 0 0.3em 0 0.3em;
+	font-weight: bold;	
 }

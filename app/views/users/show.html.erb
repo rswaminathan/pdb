@@ -3,21 +3,17 @@
 
 <%= stylesheet_link_tag 'user' %>
 
-<div class="container" style="padding-top:8px; padding-bottom:20px; min-height: 350px">
+<div class="container" id="default-container">
 	<div id="user_background" class="span-24">	
 		<table cellspaceing="0" style="margin:0">
 			<tbody>
 				<tr>
-					<td id="profile_div" class="span-6 last">
-<%= render 'users/users_soft_sidebar' %>
+					<td id="user_sidebar_position" class="span-6 last">
+						<%= render 'users/show_project/user_sidebar' %>
 					</td>
 					<td id="user_projects" class="span-18">
-						
-						<div id ="user_sidebar_pages" class="yui-skin-sam">
-							<%= render "users/projectlist/user_projects" %>
-						</div><br/>
-						
-						</td>
+						<%= render "users/show_project/user_projects" %>	
+					</td>
 				</tr>
 			</tbody>
 		</table>

@@ -1,0 +1,14 @@
+<% if !@user.profile.facebook.nil? && !@user.profile.facebook.blank?%>
+<%string = "/images/icons/style3/32/" << "facebook" << ".png" %>
+<% mudd = image_tag string %><%= link_to mudd, @user.profile.facebook %>
+<% end %>		
+
+<% if !@user.profile.twitter.nil? && !@user.profile.twitter.blank?%>
+<%string = "/images/icons/style3/32/" << "twitter" << ".png" %>
+<% mudd = image_tag string %><%= link_to mudd, @user.profile.twitter %>
+<% end %>
+
+<% if !@user.profile.linked_in.nil? && !@user.profile.linked_in.blank?%>
+<%string = "/images/icons/style3/32/" << "linkedin" << ".png" %>
+<% mudd = image_tag string %><%= link_to mudd, @user.profile.linked_in %>
+<% end %>

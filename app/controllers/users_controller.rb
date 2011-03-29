@@ -1,10 +1,21 @@
 class UsersController < ApplicationController
 
-  before_filter :reset_code,		:only => [:reset]
+  before_filter :reset_code,		:only => [:reset, :reset_password]
   before_filter :authenticate,		:only => [:edit, :destroy]
   before_filter :correct_user,		:only => [:edit, :update, :edit_profile, :update_profile]
   before_filter :check_admin_user,	:only => [:destroy]
   sidebar_type=["user_info","project_list"]
+
+  def index
+    @users = User.search_by_name(params[:q])
+    respond_to do |format|
+      format.html
+      format.json{ render :json => @users.map{|user| 
+                  {:id => user.id,
+                   :name => html_for_autocomplete(user)}
+                  }}
+    end
+  end
 
   def new
     @title = "Sign Up"

@@ -40,7 +40,7 @@ Pdb::Application.routes.draw do
       get :feed
       get :about
       get 'edit_about'
-    end  
+    end 
 
   end
 
@@ -50,6 +50,7 @@ Pdb::Application.routes.draw do
     post 'feedback'
     get 'email_one'
     post 'email_one'
+    get 'become_user'
   end 
 
   resources :sessions, :only => [:new, :create, :destroy]

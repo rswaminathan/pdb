@@ -1,0 +1,52 @@
+<h1>Edit Profile</h1>
+<%= form_for @profile, :url => update_profile_user_path, :html => { :multipart => true } do |f| %>
+	<%= render	'shared/error_messages', :object => f.object %>
+	<div class="field">
+		<%= f.label "Institution" %><br />
+		<%= f.text_field :institution %>
+	</div>
+	<div class="field">
+		<%= f.label 'Occupation' %><br />
+		<%= select( "profile", "occupation", ["Professor", "Student", "Alumni", "Staff"]) %>
+	</div>
+	<div class="field">
+		<%= f.label 'Department' %><br />
+		<%= select( "profile", "department", [ "Biology", "Biology/Chemistry", "Chemistry", "Computer Science", "Engineering", "HSA","Mathematics", "Mathematics/Computer Science", "Mathematical Biology", "Physics", "Independent", "Undecided", "Off-Campus" ]) %>
+	</div>
+	<div class="field">
+		<%= f.label 'Graduation Year' %><br />
+		<%= f.text_field :year %>
+	</div>
+	<div class="field">
+		<%= f.label :quote %><br />
+		<%= f.text_field :quote %>
+	</div>
+	<div class="field">
+		<%= f.label 'Facebook link' %><br />
+		<%= f.text_field :facebook %>
+	</div>
+	<div class="field">
+		<%= f.label 'LinkedIn link' %><br />
+		<%= f.text_field :linked_in %>
+	</div>
+	<div class="field">
+		<%= f.label 'Twitter link' %><br />
+		<%= f.text_field :twitter %>
+	</div>
+ 	<div class="field">
+		<%= f.label :photo %><br />
+		<%= f.file_field :photo %>
+	</div>
+	<div class="field">
+		<%= f.label :interesting_photo %><br />
+		<%= f.file_field :interesting_photo %>
+	</div>
+	<div class="field">
+		<%= f.label :awesome_photo %><br />
+		<%= f.file_field :awesome_photo %>
+	</div>
+
+	<div class="submit">
+		<%= f.submit "Update Profile" %><br />
+	</div>
+<% end %>

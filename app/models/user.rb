@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   has_many                :comments
   has_many                :likes
   has_many                :links
-  
+
   has_many				:relationship_projects,			:foreign_key => :follower_id,
     :dependent => :destroy
   has_many				:relationship_users,			:foreign_key => :follower_id,
@@ -42,7 +42,8 @@ class User < ActiveRecord::Base
     :uniqueness               => { :case_sensitive => false} 
 
   validates :password, :presence     => true,
-    :confirmation => true, :on => :create
+    :confirmation => true,
+    :on => :create
 
   before_save :encrypt_password     
 
@@ -51,7 +52,7 @@ class User < ActiveRecord::Base
     encrypted_password == encrypt(submitted_password)
   end
 
-  
+
   def to_param
     "#{id}-#{name.gsub(/[^a-z0-9]+/i, '-')}"      
   end

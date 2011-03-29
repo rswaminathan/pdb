@@ -26,8 +26,8 @@
 
 								<div id="include_collaborotars" >
 									<%= f.label :collaborators %><br />
+									<%= f.text_field :collaborator_tokens %>
 
-									<%= autocomplete_field_tag 'collaborotors', '', autocomplete_user_name_projects_path, :placeholder => "Search collaborators to add", :style=>"width:200px"%>
 									<%= text_field_tag 'add_by_email','',:placeholder => "...or add by email(comma separated)", :style=>"width:200px" %>
 								</div>
 
@@ -62,38 +62,15 @@
 
 							<%= render 'projects/yui_script', :editor => "project_description" %>
 						</div>
-						<%= javascript_tag do %>
-						function monkeyPatchAutocomplete() {
+<%= javascript_tag do %>
+$(function() {
+  $("#project_collaborator_tokens").tokenInput("/users.json", {
+    crossDomain: false,
+	theme: "facebook"
+  });
+});
 
-						// don't really need this, but in case I did, I could store it and chain
-						var oldFn = $.ui.autocomplete.prototype._renderItem;
-
-						$.ui.autocomplete.prototype._renderItem = function( ul, item) {
-						var re = new RegExp("^" + this.term, "i") ;
-						var t = item.label.replace(re,"<span style='font-weight:bold;'>" + 
-							this.term + 
-							"</span>");
-						var userpic = "<div class='user_pic'><img src=" + item.img + "></div>";
-						var userinfo = "<div class='user_info'>" + item.info + "<br></div>";
-						var userdiv = "<div class='user' style='width:208px; height:50px;'>" + userpic + t + userinfo + "</div>";
-						return $( "<li></li>" )
-						.data( "item.autocomplete", item )
-						.append( "<a>" + userdiv + "</a>" )
-						.appendTo( ul );
-						};
-						}
-
-						monkeyPatchAutocomplete();
-						$( "input[data-autocomplete]" ).bind( "autocompleteselect", function(event, ui) {
-						var userpic = "<div class='user_pic'><img src=" + ui.item.img + "></div>";
-						var userdiv = "<div style='height:50px; float: right;'>" + userpic + "</div>";
-						$("#added_collaborators").append(userdiv);
-						$('#cids').val(function(index, value) {
-						return value + ui.item.id + ',';
-						});
-						});
-
-				<% end %>
+<% end %>
 
 
 

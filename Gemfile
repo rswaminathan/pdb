@@ -19,6 +19,7 @@ gem 'fb_graph'
 gem 'mechanize'
 group :development do
   gem 'rspec-rails', '2.0.1'
+  gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git', :require => 'rails_development_boost'
 end 
 
 group :test do

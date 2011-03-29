@@ -1,10 +1,17 @@
 module UsersHelper
-  
+
+  def html_for_autocomplete(user)
+   p = "<div class='user_pic'><img src=#{user.profile.photo.url(:tiny)}></div>"
+   n =  "<div class='users_list'>#{user.name}</div>"
+   d = "<div class='user' style='height: 40px;'>" + p + n + "</div>"
+    return d
+  end
+
   def random_project(user)
     user.projects.all[rand(user.projects.count)] 
   end
-  
-  
+
+
   def slider_projects
     [2, 61, 106, 41].map{|p| User.find(p)}
   end

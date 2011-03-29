@@ -1,0 +1,30 @@
+<div class="span-6 last yui-skin-sam" id="user_projects_padding">
+	<div id="user_sidebar" style="margin-bottom: 0.3em;">
+			<% # This shows the user picture, name, basic info %>
+				<% if @profile.photo.exists? %>						
+					<%= image_tag @profile.photo.url(:large), :id=>"user_sidebar_picture" %>
+				<% end %>
+				
+				<h1><%= link_to @user.name, @user %></h1>
+				
+				<% if !@profile.quote.nil? && !@profile.quote.empty? %>
+					<h2><%=  raw @profile.quote %></h2>
+				<%end%>
+
+				<% # This brings up the "Edit Profile" Button %>
+				<% if signed_in? && current_user_page? %>	
+					<div id="edit_profile">
+						<%= link_to "Edit", edit_profile_user_path(current_user) %>
+					</div>
+				<% end %>
+				<% if admin_user? %>
+					<%= link_to "Become User", admin_become_user_path(:user => @user) %>
+				<% end %>
+		</div>
+		
+		<div style="text-align:right; margin-right:0.5em; float:right">
+			<div>
+				<%= render 'users/show_project/social_links' %>
+			</div>
+		</div>
+</div>

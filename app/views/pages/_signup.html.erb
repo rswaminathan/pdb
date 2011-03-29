@@ -1,13 +1,15 @@
 
-<div class="span-6"><h2> 
-	</br>
-	Showcase </br> what you're doing <br />and what you've made</h2></div>
+<ul>
+<li> Showcase what you're doing. </li>
+<li> See projects in your community. </li> 
+<li> Get involved.</li> 
+</ul>
+
 <% unless signed_in? %>
-	<div class="span-6 last" id="facebook_signup">
+	<div id="facebook_signup">
 		<%= link_to image_tag('facebook-register.png', :style=>"width:280px"),  "/auth/facebook"%>
 	</div>
-	</br>
-	<div style=" color: #fff; font-size: 1em; font-weight: bold; float:left; margin-left:0.4em;">
+	<div style="font-weight: bold;margin-left:1em;">
 		Or, <%= link_to  'Register Normally', "users/new" %>
 	</div>
 <% end %>

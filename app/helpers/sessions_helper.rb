@@ -38,7 +38,7 @@ module SessionsHelper
   end
 
   def reset_code
-    unless params[:pc] == User.find(params[:id]).reset && !User.find(params[:id]).reset.nil?
+    unless (params[:reset] || params[:user][:reset]) == User.find(params[:id]).reset && !User.find(params[:id]).reset.nil?
       flash[:notice] = "Incorrect Reset Code!"
       redirect_to root_url
     end
