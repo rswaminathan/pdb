@@ -2,100 +2,163 @@
 
 <%= render 'project_pages' %>
 
+
 <div style="text-align:center; margin-left:0.6em">
-
-<% if current_project_user? %> 
-	<div id="login_special", style="text-align:center">
-		<%= link_to "Edit Project Info", edit_project_path %>
-	</div>
-
-	<div class="span-5 last" id = "attachment_submit" >
-		<% form_for :attachment, :url => create_attachment_project_path, :html => { :multipart => true } do |f| %>
-			<div class="field">
-				<%= f.label :Upload_File %><br />
-				
-				<%= f.file_field(:file, :size => "30") %>
-			</div>
-			<div class="submit">
-				<%= f.submit "Add File" %><br />
-			</div>
-		<% end %>
-	</div>
-
-	<div class="span-5 last" id="link_submit">
-		<%= form_for [@project, Link.new] do |f| %>
-				<div class="field">
-					<%= f.label :add_external_link %><br />
-					<%= f.text_field :link, :size => 18%>
-				</div>
-			<div class="submit">
-				<%= f.submit "Add Link" %><br />
-			</div>
-			<% end %>
-	</div>
-<% end %>
-
-	<div style="float:left; margin-bottom:1em; text-align:left">
-		<% @project.links.each do |thing| %>
-		<% string = "/images/icons/used-icons/#{thing.provider.to_s}.png" %>
-
+	
+	<%if !signed_in?%>
 		<div class="span-5 last">
-			<div style="width:25px; height:25px; float:left">
-				<% if ((thing.provider != "none") && thing.provider != nil) %>
-				<% mudd = image_tag string, :width => "18px", :style => "margin:0.2em 0.2em 0 0"%><%= link_to mudd, thing.link %>
-				<% end %>
+			<div style = "position:relative; top:-5px; margin-left:28px; float:left" >
+					<a href="http://twitter.com/share" class="twitter-share-button" data-url=<%= project_url(@project)%> data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 			</div>
-			<div class="span-4 last" style="margin-top:3px;text-decoration: underline; font-size:1.1em">
-				<%= link_to (truncate(URI.parse(thing.link).host, :length=>25)), thing.link %>
+	
+			<div style="top:-5px; display:inline; position:relative; margin-left:18px ">
+			<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href=<%= project_url(@project)%>  layout="button_count" show_faces="true" ref="holono.com" width="40px"></fb:like>
 			</div>
+	
 		</div>
+	<% end %>
+	
 
-		<% end %>
-		<div class="span-5 last">
-			<table>
-			<% @project.attachments.each do |file| %>
+	<% if !@project.links.empty? || !@project.attachments.empty?%>
+		<div style="float:left; margin-bottom:1em; text-align:left">
+			<% @project.links.each do |thing| %>
+			<% string = "/images/icons/used-icons/#{thing.provider.to_s}.png" %>
 
+			<div class="span-5 last">
 				<div style="width:25px; height:25px; float:left">
-					<% name = file.file_file_name %>
-					<% icon = image_tag("/images/icons/filetypes/#{icon_finder(name).titleize}.png", :size => "20x20", :style => "margin:0.2em 0.2em 0 0") %>
-				</div>
-			
-					<div class="span-4 last" style="margin-top:3px; font-size:1.1em; text-align:left">
-					<tr>
-					<%= form_tag attachment_path(file), :method => :delete, :confirm => "Are you sure?" do %>
-						<td><%= link_to icon, file.file.url %></td>
-						<td><%= link_to "#{name}", file.file.url %></td>
-						<td><%= image_submit_tag("icons/delete.png", :size => "10x10") if current_project_user?%></td>
+					<% if ((thing.provider != "none") && thing.provider != nil) %>
+					<% mudd = image_tag string, :width => "18px", :style => "margin:0.2em 0.2em 0 0"%><%= link_to mudd, thing.link %>
 					<% end %>
-					</tr>
-					<tr></tr>
 				</div>
-
+				<div class="span-4 last" style="margin-top:3px;text-decoration: underline; font-size:1.1em">
+					<%= link_to (truncate(URI.parse(thing.link).host, :length=>25)), thing.link %>
+				</div>
+			</div>
 
 			<% end %>
-			</table>
+			<div class="span-5 last">
+				<table>
+				<% @project.attachments.each do |file| %>
+
+					<div style="width:25px; height:25px; float:left">
+						<% name = file.file_file_name %>
+						<% icon = image_tag("/images/icons/filetypes/#{icon_finder(name).titleize}.png", :size => "20x20", :style => "margin:0.2em 0.2em 0 0") %>
+					</div>
+			
+						<div class="span-4 last" style="margin-top:3px; font-size:1.1em; text-align:left">
+						<tr>
+						<%= form_tag attachment_path(file), :method => :delete, :confirm => "Are you sure?" do %>
+							<td><%= link_to icon, file.file.url %></td>
+							<td><%= link_to "#{name}", file.file.url %></td>
+							<td><%= image_submit_tag("icons/delete.png", :size => "10x10") if current_project_user?%></td>
+						<% end %>
+						</tr>
+						<tr></tr>
+					</div>
+
+
+				<% end %>
+				</table>
+			</div>
 		</div>
-	</div>
+	<%end%>
 
-
-<!--- http://1.bp.blogspot.com/_CZzJAEITEmI/TTlXeIE5YOI/AAAAAAAAAOI/TMSyfafYj6E/s200/delete+logo+icon.png --->
-
-	<% unless @similar_projects.empty? %>
-	<div style="width:180px; margin-left:0.8em">		
-		<div style="font-size:1.2em; float:left; line-height:1em; margin-bottom:0.3em; color:#333;  margin-top:0.5em">
-			Similar Projects
+	<% if current_project_user? %> 
+		<div id="login_special", style="text-align:center">
+			<%= link_to "Edit Project Info", edit_project_path %>
 		</div>
-		<hr style="background:#666; width:166px; margin-bottom:0.5em; height:2px">
 
-		<% @similar_projects.each do |project| %>
-		<% if project.photo.exists?%>
-		<div id="user_projects_photo" style="float:left; margin-right:0.2em"><% logo = image_tag project.photo.url(:teeny) %><%= link_to logo, project %></div>
-		<% end %>
-		<% end %>
-	</div>
+		<div class="span-5 last" id = "attachment_submit" >
+			<% form_for :attachment, :url => create_attachment_project_path, :html => { :multipart => true } do |f| %>
+				<div class="field">
+					<%= f.label :Upload_File %><br />
+				
+					<%= f.file_field(:file, :size => "30") %>
+				</div>
+				<div class="submit">
+					<%= f.submit "Add File" %><br />
+				</div>
+			<% end %>
+		</div>
+
+		<div class="span-5 last" id="link_submit">
+			<%= form_for [@project, Link.new] do |f| %>
+					<div class="field">
+						<%= f.label :add_external_link %><br />
+						<%= f.text_field :link, :size => 18%>
+					</div>
+				<div class="submit">
+					<%= f.submit "Add Link" %><br />
+				</div>
+				<% end %>
+		</div>
+	<% end %>
+	
+<!--- http://1.bp.blogspot.com/_CZzJAEITEmI/TTlXeIE5YOI/AAAAAAAAAOI/TMSyfafYj6E/s200/delete+logo+icon.png ---->
+
+	<% if signed_in? %>
+		<div class="span-5 last">
+				<div style = "position:relative; top:3px; margin-left:7px; float:left" >
+				<a href="http://twitter.com/share" class="twitter-share-button" data-url=<%= project_url(@project)%>  data-count="vertical" data-via="ozziegooen">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+				</div>
+		
+				<div style ="position:relative; top:8px; margin-left:7px; float:left" >	
+				<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href=<%= project_url(@project)%> layout="box_count" show_faces="true" ref="holono.com" width="40px"></fb:like>
+				</div>
+		
+				<div style = "position:relative; top:10px; float:left; margin-left 7px" >
+				<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share" data-counter="top"></script>
+				</div>
+			</div>
 	<% end %>
 
+
+
+	<% if !current_project_user? %>
+	
+		<% unless @more_by_team.nil? ||  @more_by_team.empty?  %>
+			<div style="width:180px; margin-left:0.8em; float:left; margin-top:0.5em">		
+				<div style="font-size:1.2em; float:left; line-height:1em; margin-bottom:0.3em; color:#333;  margin-top:0.5em">
+					More by Group Members
+				</div>
+				<hr style="background:#666; width:166px; margin-bottom:0.5em; height:2px">
+				<% @more_by_team.each do |project| %>
+				<div id="user_projects_photo" style="float:left; margin-right:0.4em; height:53px; margin-bottom:0.3em"><% logo = image_tag (project.photo.url(:thumb), :style=>"width:53px") %><%= link_to logo, project %></div>
+				<% end %>
+			</div>
+		<% end %>
+		<% if !(@user_projects.nil? || @user_projects.empty?) %>
+			<div style="width:180px; margin-left:0.8em; float:left; margin-top:0.5em">		
+				<div style="font-size:1.2em; float:left; line-height:1em; margin-bottom:0.3em; color:#333;  margin-top:0.5em">
+					More by <%= @user.name %>
+				</div>
+				<hr style="background:#666; width:166px; margin-bottom:0.5em; height:2px">
+				<% @user_projects.each do |project| %>
+				<div id="user_projects_photo" style="float:left; margin-right:0.4em; height:53px; margin-bottom:0.3em"><% logo = image_tag (project.photo.url(:thumb), :style=>"width:53px") %><%= link_to logo, project %></div>
+				<% end %>
+			</div>
+		<% end %>
+	
+		<% if @similar_projects.count > 3  %>
+			<div style="width:180px; margin-left:0.8em; float:left; margin-top:0.5em">		
+				<div style="font-size:1.2em; float:left; line-height:1em; margin-bottom:0.3em; color:#333;  margin-top:0.5em">
+					Similar Projects
+				</div>
+				<hr style="background:#666; width:166px; margin-bottom:0.5em; height:2px">
+				<% @similar_projects.each do |project| %>
+				<div id="user_projects_photo" style="float:left; margin-right:0.4em; height:53px; margin-bottom:0.3em"><% logo = image_tag (project.photo.url(:thumb), :style=>"width:53px") %><%= link_to logo, project %></div>
+				<% end %>
+			</div>	
+		<% else %>
+			<div style="width:180px; margin-left:0.8em; float:left; margin-top:0.5em">		
+				<div style="font-size:1.2em; float:left; line-height:1em; margin-bottom:0.3em; color:#333;  margin-top:0.5em">
+					Other Interesting Projects
+				</div>
+				<hr style="background:#666; width:166px; margin-bottom:0.5em; height:2px">
+				<% @cool_projects.each do |project| %>
+				<div id="user_projects_photo" style="float:left; margin-right:0.4em; height:53px; margin-bottom:0.3em"><% logo = image_tag (project.photo.url(:thumb), :style=>"width:53px") %><%= link_to logo, project %></div>
+				<% end %>
+			</div>
+		<% end %>
+	<%end%>	
 </div>
-
-
-

@@ -45,7 +45,6 @@ class ProjectsController < ApplicationController
     @users = @project.users
     @collaborators = @users.first(4) 
     @title = "#{@project.name}"
-    @similar_projects = @project.similar_projects.first(8)
     @comments = @project.comments
     @pages = @project.project_pages
     @project.count += 1
@@ -57,6 +56,19 @@ class ProjectsController < ApplicationController
     else
       @page_is_main = true
     end
+    
+  if @users.count > 1
+    @more_by_team = more_by_team(@project).shuffle[1,9]
+  elsif @users.first.projects.count >1 
+    @user_projects = (@users.first.projects - @project.to_a).find_all{|project| project.photo.exists?}.shuffle[0,9]
+    @user = @users.first
+  end
+    
+    @similar_projects = (@project.similar_projects - @project.to_a).find_all{|project| project.photo.exists?}.shuffle[0,3]
+    
+    @cool_projects = Project.all.find_all{|project| (project.count>30) && (project.photo.exists?)}.shuffle[0,3]
+    
+    
   end
 
   def show_all_collaborators
@@ -234,11 +246,7 @@ class ProjectsController < ApplicationController
   end
 
   def random
-    if (rand(5)!=1)
-      redirect_to Project.random
-    else
-      redirect_to Project.find_by_id([1])
-    end
+      redirect_to Project.all.find_all{|project| !project.description.nil? && project.description.length > 20}[rand(Project.count)]
   end
 
   private

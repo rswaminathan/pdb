@@ -45,6 +45,11 @@ class Project < ActiveRecord::Base
     Project.tagged_with(kind_list, :any => true)
   end
 
+  def more_projects_by_team
+    return "hi"
+  end
+  
+    
   def collaborator_tokens=(ids)
     self.user_ids = ids.split(",")
   end

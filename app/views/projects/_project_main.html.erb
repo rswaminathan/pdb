@@ -28,10 +28,11 @@
 			<% end %>
 			<div style="float:left">
 				<%= render 'tell_me_more' unless current_project_user? %>
+				<%= link_to "edit collaborators", edit_collaborators_project_path unless !current_project_user? %>
 			</div>
 		</div>
 		
-<div style="min-height:340px">
+<div style="min-height:410px; padding:0.2em, 0 1em 0">
 		<hr style="background:#ccc; margin:1em 0 1.45em 0; border-bottom: 1px solid white">
 
 

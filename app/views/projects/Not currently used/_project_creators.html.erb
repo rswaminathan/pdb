@@ -1,0 +1,16 @@
+<% if @users.count == 1 %>
+	<%= render 'sidebar_triangles', :title => "Creator" %>
+<% else %>
+	<%= render 'sidebar_triangles', :title => "Creators" %>
+<% end %>
+<div style="padding-left:0.6em;padding-right:0.4em;">
+<%= render 'user_list', :users => @users %>
+<% if current_project_user? %>
+	<%= form_tag edit_collaborators_project_path, :method => :get do%>
+		<div class="submit">
+			<%= submit_tag "Add Collaborator" %><br />
+		</div>
+	<% end %>  
+<% end%>
+<%= render 'follow_form' if (signed_in? && @project.followers.empty? && !(current_project_user? && (@users.count==1))) %>
+</div>

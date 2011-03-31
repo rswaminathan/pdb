@@ -1,0 +1,8 @@
+<%if users.any? %>  
+		<% users.each do |u| %>
+			<div style=" height:50px; float:right" >
+				<div class="user_pic"><% logo = image_tag u.profile.photo.url(:tiny)%> <%= link_to logo, u, :class => "left"  %></div>    
+			</div>
+		<% end%>
+<% end %> 
+
