@@ -1,0 +1,12 @@
+<div id="project-description-div", style="margin-top:0.5em; float:left">	
+	<% if (project.description == nil) %>
+	<%= strip_tags(project.abstract) %>
+	<% else %>
+	<%= strip_tags(truncate(project.description, :length => 1000)) %>
+	<% if (project.description.length >= 1000) %>
+		<div id="more-projects">
+			<%= link_to "more", project %><br />
+		</div>
+	<% end%>
+	<% end%>
+</div>

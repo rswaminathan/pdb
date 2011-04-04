@@ -1,49 +1,54 @@
 <% if list_project.photo.exists? %>
-	<div class="list_project list_project_wpic">
-		<div id="user_projects_photo" class="span-3">
-			<% logo = image_tag list_project.photo.url(:standard) %><%= link_to logo, list_project %>
+	<div class="list_project list_project_wpic span-18 last">
+		<div id="user_projects_photo" class="span-4">
+			<% logo = image_tag list_project.photo.url(:standard), :class=> "list-project-picture" %><%= link_to logo, list_project  %>
 		</div>					
-		<div class="span-12">
+		<div class="span-14">
+			<div class="list-project-middle-position">
+				<div class="list-project-bottom-push">
+					<h1> <%= link_to list_project.name, list_project%> </h1>
+							<% if list_project.abstract.nil? || list_project.abstract.empty? %>
+								<p><%= strip_tags(truncate(list_project.description, :length => 220)) %></p>
+							<% else %>
+								<p><%= strip_tags(truncate(list_project.abstract, :length => 220)) %></p>
+							<% end %>
+				</div>
+				<div class="span-14">
+					<% (0..3).each do |i| %>
+						<% if !(list_project.users[(i+1)..6].nil? || list_project.users[(i+1)..4].empty?) %>
+							<h2><%= link_to (list_project.users[i].name << ","), list_project.users[i] %></h2>
+						<% elsif list_project.users[i] %>
+							<h2><%= link_to (list_project.users[i].name), list_project.users[i] %></h2>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
+			
+		</div>
+	</div>		
 <%else%>		
-	<div class="list_project list_project_wopic">
-		<div class="span-15">
-<%end%> 
-			<h1> <%= link_to list_project.name, list_project %> </h1>
-			<% if list_project.photo.exists? %>
-				<div class="span-12">
-					<% if list_project.abstract.nil? || list_project.abstract.empty? %>
-						<p><%= strip_tags(truncate(list_project.description, :length => 220)) %></p>
-					<% else %>
-						<p><%= strip_tags(truncate(list_project.abstract, :length => 220)) %></p>
+	<div class="list_project list_project_wopic span-18 last">
+		<div class="span-18 last">
+			<div class="list-project-middle-position" style="padding-left:0">
+				<div class="list-project-bottom-push">
+					<h1> <%= link_to list_project.name, list_project%> </h1>
+						<% if list_project.abstract.nil? || list_project.abstract.empty? %>
+							<p><%= (truncate(strip_tags(list_project.description), :length => 360)) %></p>
+						<% else %>
+							<p><%= (truncate(strip_tags(list_project.abstract), :length => 360)) %></p>
+						<% end %>
+				</div>
+				<div class="span-17">
+					<% (0..3).each do |i| %>
+						<% if !(list_project.users[(i+1)..6].nil? || list_project.users[(i+1)..4].empty?) %>
+							<h2><%= link_to (list_project.users[i].name << ","), list_project.users[i] %></h2>
+						<% elsif list_project.users[i] %>
+							<h2><%= link_to (list_project.users[i].name), list_project.users[i] %></h2>
+						<% end %>
 					<% end %>
 				</div>
-			<% else %>
-				<div class="span-15">
-					<% if list_project.abstract.nil? || list_project.abstract.empty? %>
-						<p><%= (truncate(strip_tags(list_project.description), :length => 260)) %></p>
-					<% else %>
-						<p><%= (truncate(strip_tags(list_project.abstract), :length => 260)) %></p>
-					<% end %>
-				</div>
-			<%end%>
-			<div class="span-12">
-				<% (0..4).each do |i| %>
-					<% if !(list_project.users[(i+1)..4].nil? || list_project.users[(i+1)..4].empty?) %>
-						<h2><%= link_to (list_project.users[i].name << ","), list_project.users[i] %></h2>
-					<% elsif list_project.users[i] %>
-						<h2><%= link_to (list_project.users[i].name), list_project.users[i] %></h2>
-					<% end %>
-				<% end %>
 			</div>
 		</div>
-		<div class="span-3 last">
-				<div style="float:right">
-					 <% list_project.links.each do |thing| %>
-					 <% string = "/images/icons/used-icons/#{thing.provider.to_s}.png" %>
-					<% unless (thing.provider == "none" || thing.provider.nil? )%>
-					<% mudd = image_tag string, :class=>"list_project_icon" %><%= link_to mudd, thing.link %>
-					<% end %>
-					<% end %>
-				</div>
-		</div>
-	</div>
+	</div>	
+<%end%> 		
+

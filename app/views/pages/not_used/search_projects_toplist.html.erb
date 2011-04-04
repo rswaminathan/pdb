@@ -1,0 +1,44 @@
+<div class="container" style="padding-top:10px; padding-bottom:20px; min-height: 550px">
+
+	<div class="search_top">
+		<div style="float:left; color:white; font-size:2em; position:relative; line-height:0; top:13px">
+			<%= "Search" %>
+		</div>
+		
+			
+		<%= form_tag search_projects_path, :method => :get, :remote => true do %>
+ 				<div class="submit", style="float:right; margin-top:0.4em">
+					<%= submit_tag "Search Projects" %><br />
+				</div>
+				<div class="field" style="float:right; margin-right:0.5em;">
+					<%= text_field_tag :search, params[:search], 
+	                         :id => "main_search_box" %> 
+				</div>
+
+		<% end %>
+		
+		<div id="search_names" style="float:right; margin-top:0.2em;margin-right:2em;">		
+			<%=link_to "Users", search_users_path%>
+		</div>
+		<div id="search_names_chosen" style="float:right;  margin-top:0.2em">
+			<%=link_to "Projects", search_projects_path%>
+		</div>	
+	</div>	
+	
+
+
+	<div class="search_bottom", style="padding-top:0.5em">
+		<div style="min-height:60px">
+		<% @links.each do |u| %>
+		<div id="popular_tags"><%= link_to u[0], search_projects_path(:search => u[0]) %> <%="[ #{u[1]} ]"%> </div>
+		<%end%>
+		</div>
+
+		
+		<div id="project-header-user-names-style"></div>
+    <%= render :partial => "project", :collection => @projects_found %>
+		<div id="invite_user"></div>
+		<br />
+	</div>
+	
+	</div>

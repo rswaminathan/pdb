@@ -1,0 +1,28 @@
+<div class="span-6 last yui-skin-sam" id="stage-sidebar-outer-position">
+	<div id="stage-sidebar-inner-position">
+		
+		<div class="span-6 last stage-main-links">
+			Show All: 
+			<%= link_to "People", stage_path(:type => "people") %>
+			<%= link_to "Projects", stage_path(:type => "projects") %>
+		</div>
+		<div class="span-6 last">
+			<%=form_tag stage_path, :size => @size, :method => 'get' do %>
+				<div class="submit", id="stage-search-button-position">
+					<%= submit_tag "Search", :id => "stage-search-button-style" %>
+				</div>
+				<div class="field" id="stage-search-bar-position">
+					<%= text_field_tag :search, params[:search], :id => "stage-search-bar-style" %> 
+				</div>
+			<% end %>
+		</div>
+		<div class="span-6 last">
+			<% link_generator(Project.all,0,30) %>
+			<% @links.each do |u| %>
+				<div class="stage-popular-tags">
+					<%="[ #{u[1]} ] "%><%= link_to u[0], stage_path(:search => u[0], :size => @size) %> 
+				</div>
+			<%end%>
+		</div>
+	</div>
+</div>

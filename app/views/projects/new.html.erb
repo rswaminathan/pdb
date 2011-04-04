@@ -10,49 +10,61 @@
 <% end %>
 
 
-<div class="container">		
-	<table cellspaceing="0" style="margin-bottom:1em" id="project_main_background2">
+<div class="container" id="general-positioning">		
+	<table cellspaceing="0" id="project-main-background-outer">
 		<tbody>			
 			<tr>				
-				<td class="span-19 last" style="padding:2px"> <div id="project-main-background"> 
-						<div class="container yui-skin-sam span-19 last" >
+				<td class="span-19 last" id="project-main-background-position"> 
+						<div class="container yui-skin-sam span-19 last" id="project-main-background-inner">
 
 							<div class="span-13" >  
-								<%= render	'shared/error_messages', :object => f.object %>
+								<%= render 'shared/error_messages', :object => f.object %>
 
 								<div class="field" >					
-									<%= f.text_field :name, :id=>"project_name_header", :style=>"width:500px",:placeholder => "Project Name" %></div>
+									<%= f.text_field :name, :id=>"project_header_name", :style=>"width:500px",:placeholder => "Project Name" %></div>
 
 
-								<div id="include_collaborotars" >
+								<div id="project-edit-include_collaboratars" >
 									<%= f.label :collaborators %><br />
 									<%= f.text_field :collaborator_tokens %>
-
-									<%= text_field_tag 'add_by_email','',:placeholder => "...or add by email(comma separated)", :style=>"width:200px" %>
+									<%= text_field_tag 'add_by_email','',:placeholder => "...or add by email(comma separated)", :id=>"project-edit-collaborators-field" %>
 								</div>
 
 								<%= hidden_field_tag 'cids' %>
 							</div>
-
+							
 							<div class="span-6 last" id="added_collaborators" style="float:right">
-								<%= render 'user_list', :users => [current_user]  %>
 							</div>
-
-							<hr style="background:#ccc; margin:1em 0 1.45em 0; border-bottom: 1px solid white">
-
-							<div class="span-16 last" id="project_new_right">
-
-								<div class="field">			
-									<%= f.label :Summary %>		
-									<%= f.text_field :abstract %>
+							
+							<hr class="separation-line">
+							<div class="span-19 last" id="project_new_right">
+								<div class="span-5">
+								<div class="field project-edit-form-placement">			
+									<%= f.label "Abstract (300 Characters Max)" %><br />		
+									<%= f.text_field :abstract, :id=>"project-edit-abstract-field" %>
 								</div>
-								<div class="field">
-									<%= f.label :tags %>
-									<%= f.text_field :kind_list, :value => @tag_string %></br>
 								</div>
+								<div class="span-5">
+								
+								<div class="field project-edit-form-placement">
+									<%= f.label "Tags (Separate with Commas)" %><br />
+									<%= f.text_field :kind_list, :value => @tag_string, :id=>"project-edit-tags-field" %></br>
+								</div>
+								</div>
+								<div class="span-5">
+								
+								<div class="field project-edit-form-placement">
+									<%= f.label :add_project_picture %>
+									<%= f.file_field :photo %>
+								</div>
+								</div>
+								<hr class="separation-line">
+								
 								<div class="field">
 									<%= f.text_area :description, :rows=>5, :cols=>40 %>
 								</div>
+
+								<hr class="separation-line">
 
 
 								<div class="submit">
@@ -62,27 +74,15 @@
 
 							<%= render 'projects/yui_script', :editor => "project_description" %>
 						</div>
-<%= javascript_tag do %>
-$(function() {
-  $("#project_collaborator_tokens").tokenInput("/users.json", {
-    crossDomain: false,
-	theme: "facebook"
-  });
-});
-
-<% end %>
-
-
-
-
-
-				<td class="span-5 last" style="vertical-align: top; padding:2px 2px 0 0">
-					<div class="field">
-						<%= f.label :add_project_picture %>
-						<%= f.file_field :photo %>
-					</div>
-
-
+						<%= javascript_tag do %>
+						$(function() {
+						  $("#project_collaborator_tokens").tokenInput("/users.json", {
+						    crossDomain: false,
+							theme: "facebook"
+						  });
+						});
+						<% end %>
+				<td class="span-5 last" id="project-sidebar-outer-position">
 				</td>				
 			</tr>			
 		</tbody>

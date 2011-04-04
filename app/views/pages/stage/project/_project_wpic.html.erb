@@ -1,0 +1,18 @@
+<div id="home-user-projects-photo" >
+	<%logo = image_tag project.photo.url(:feed), :class => "big-picture" %>
+	<%= link_to logo, project %>
+</div>
+
+
+<div id="project-description-div">	
+	<% if (project.description == nil) %>
+	<%= strip_tags(project.abstract) %>
+	<% else %>
+	<%= strip_tags(truncate(project.description, :length => 1000)) %>
+	<% if (project.description.length >= 1000) %>
+		<div id="more-projects">
+			<%= link_to "more", project %><br />
+		</div>
+	<% end%>
+	<% end%>
+</div>

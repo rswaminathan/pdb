@@ -1,0 +1,10 @@
+<% if result.class == Project %>
+<% if @size == "large"%>
+<%= render 'pages/stage/project', :project => result %>	
+<% else %>
+<%= render 'shared/common_list_elements/list_project', :list_project => result %>
+<% end %>
+
+<% elsif result.class == User %>
+<%= render 'shared/common_list_elements/list_user', :list_user => result %>
+<% end %>

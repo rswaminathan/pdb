@@ -1,0 +1,9 @@
+	<div class="span-12">
+		<% (0..3).each do |i| %>
+			<% if !(list_project.users[(i+1)..4].nil? || list_project.users[(i+1)..4].empty?) %>
+				<h2><%= link_to (list_project.users[i].name << ","), list_project.users[i] %></h2>
+			<% elsif list_project.users[i] %>
+				<h2><%= link_to (list_project.users[i].name), list_project.users[i] %></h2>
+			<% end %>
+		<% end %>
+	</div>

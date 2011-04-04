@@ -1,0 +1,51 @@
+<% user = list_user %>
+
+	<% if user.profile.photo.exists? %>
+		<div class="list_project list_project_wpic span-18 last">
+			<div id="user_projects_photo" class="span-4">
+				<% logo = image_tag user.profile.photo.url(:standard), :class=> "list-project-picture" %><%= link_to logo, user  %>
+			</div>					
+			<div class="span-12 last">
+				<div class="list-project-middle-position">
+					<div class="list-project-bottom-push span-12">
+						<h1> <%= link_to user.name, user%> </h1>
+						<% if !user.profile.quote.nil? && !user.profile.quote.empty? %>
+							<p><%= (truncate(strip_tags(user.profile.quote), :length => 260)) %></p>
+						<% end %>
+					</div>
+					<div class="span-12">
+						<% (0..4).each do |i| %>
+							<% if !(user.projects[(i+1)..4].nil? || user.projects[(i+1)..4].empty?) %>
+								<h2><%= link_to (user.projects[i].name << ","), user.projects[i] %></h2>
+							<% elsif user.projects[i] %>
+								<h2><%= link_to (user.projects[i].name), user.projects[i] %></h2>
+							<% end %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>		
+	<%else%>		
+		<div class="list_project list_project_wopic span-18 last">
+			<div class="span-18 last">
+				<div class="list-project-middle-position" style="padding-left:0">
+					<div class="list-project-bottom-push span-18">
+						<h1> <%= link_to user.name, user%> </h1>
+						<% if !user.profile.quote.nil? && !user.profile.quote.empty? %>
+							<p><%= (truncate(strip_tags(user.profile.quote), :length => 260)) %></p>
+						<% end %>
+					</div>
+					<div class="span-18">
+						<% (0..4).each do |i| %>
+							<% if !(user.projects[(i+1)..4].nil? || user.projects[(i+1)..4].empty?) %>
+								<h2><%= link_to (user.projects[i].name << ","), user.projects[i] %></h2>
+							<% elsif user.projects[i] %>
+								<h2><%= link_to (user.projects[i].name), user.projects[i] %></h2>
+							<% end %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>	
+	<%end%> 		
+

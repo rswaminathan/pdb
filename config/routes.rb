@@ -86,6 +86,8 @@ Pdb::Application.routes.draw do
       delete 'delete_page_section'
       get 'show_all_collaborators'
       get 'edit_main_page'
+      post 'main_edit'
+      
     end
     collection do
       get 'random'

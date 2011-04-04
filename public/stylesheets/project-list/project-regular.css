@@ -1,43 +1,28 @@
-/* @override http://localhost:3000/stylesheets/project-list/project-regular.css?1301218645 */
+/* @override 
+	http://localhost:3000/stylesheets/project-list/project-regular.css?1301816580
+	http://localhost:3000/stylesheets/project-list/project-regular.css?1301817311
+	http://localhost:3000/stylesheets/project-list/project-regular.css?1301819130
+	http://localhost:3000/stylesheets/project-list/project-regular.css?1301820547
+	http://localhost:3000/stylesheets/project-list/project-regular.css?1301820682
+	http://localhost:3000/stylesheets/project-list/project-regular.css?1301820887
+	http://localhost:3000/stylesheets/project-list/project-regular.css?1301821006
+*/
 
-.user_info_2{
-  padding: 0em 0em 0em 5.4em;
-  font-size: 0.8em;
-  text-align: bottom;
-}
-
-.list_project h2{
-	font-size:1em;
-	float: left;
-}
-.list_project h2 a{
-	color:#CC645D;
-	font-size:0.95em;
-	margin-right:0.3em;
-	font-weight:bold;
-}
-.list_project h2 a:hover{
-	text-decoration: underline; 
-}
-
-.list_project_icon{
-margin: 5px 0 0 8px; float:right;
+.list_project_icon {
+margin: 3px 0 0 3px; float:right;
 width:20px;
 }
 #user_projects {
   padding: 0;
   width: 720px;
   vertical-align: top;
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgba(255,255,255,1);
   border-radius: 0.5em 0.5em 0.5em 0.5em;
   -moz-border-radius: 0.5em 0em 0.5em 0.5em;	
 }
 
 #user_projects_photo {
-  margin-right:1.1em;
-  max-width:80px;
-  max-height:80px;
-  margin-top: 3px;
+  width:70px;
 }
 
 #project_name_sidebar {	
@@ -73,15 +58,15 @@ width:20px;
 
 }
 .list_project {
-	padding-bottom: 0.7em;
-	padding-top: 0.5em;
+	padding-bottom: 0.8em;
+	padding-top: 0.6em;
 	border-bottom: 1px solid #e6e6e6;
 	margin:0 0.6em 0 0.6em;
 	
 }
 
 .list_project h1{
-	font-size: 1.3em;
+	font-size: 1.7em;
 	color: #852D00;
 	line-height:1em;
 	margin-bottom:0.3em;
@@ -92,24 +77,128 @@ width:20px;
 	color: #C80200;
 }
 
+/* @group right */
+
+
+
+/* @end */
+
+/* @group middle */
+
+.list-project-middle-position{
+	float: left;
+	padding-left: 4em;
+}
+
+.list-project-bottom-push{ 
+min-height: 65px;
+margin-bottom: 0.4em;
+float: left;
+}
+
+.user_info_2{
+  padding: 0em 0em 0em 5.4em;
+  font-size: 0.8em;
+  text-align: bottom;
+}
+
+.list_project h2{
+	font-size:1em;
+	float: left;
+	line-height:1.1em;
+	margin:0;
+}
+.list_project h2 a{
+	color: #db6969;
+	font-size:1.1em;
+	margin-right:0.5em;
+	font-weight:bold;
+	line-height:0;
+	text-decoration: underline; 
+
+}
+.list_project h2 a:hover{
+	text-decoration: underline; 
+}
+
+
+
+/* @end */
+
+/* @group middle */
+
+.list-project-middle-position{
+	float: left;
+	padding-left: 4em;
+}
+
+.list-project-bottom-push{ 
+min-height: 65px;
+margin-bottom: 0.4em;
+float: left;
+}
+
+.user_info_2{
+  padding: 0em 0em 0em 5.4em;
+  font-size: 0.8em;
+  text-align: bottom;
+}
+
+.list_project h2{
+	font-size:1em;
+	float: left;
+	line-height:1.1em;
+	margin:0;
+}
+.list_project h2 a{
+	color: #db6969;
+	font-size:1.1em;
+	margin-right:0.5em;
+	font-weight:bold;
+	line-height:0;
+	text-decoration: underline; 
+
+}
+.list_project h2 a:hover{
+	text-decoration: underline; 
+}
+
+
+
+/* @end */
+
+/* @group left
+ */
+
+.list-project-picture{
+width: 120px;
+height: 90px;	
+float: left;
+border-radius:0.2em;
+}
+
+/* @end */
+
 .list_project h1 a:hover{
 	text-decoration: underline;
 	color: #C80200;
 }
 
 .list_project p{
-  font-size: 1.1em;
+  font-size: 1.2em;
   line-height: 1.1em;
-  color:#333;
+  color:#444;
   margin:0;
+  margin-bottom:0.3em
 }
 
 .list_project_wpic{
-	min-height:82px
+	float:left;
 }
 
 .list_project_wopic{
-	min-height:76px; padding-bottom:1em
+	float: left;
+	padding-bottom:0.5em
 }
 
 #sample_list_project_name a{

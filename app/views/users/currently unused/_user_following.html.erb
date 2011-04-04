@@ -2,7 +2,7 @@
 	<div style="font-size:2em"> Following <%= "#{@user.followers.count} #{@user.users_following.count==1 ? 'User' : 'Users'}" %></div>
 	<hr style="margin-bottom:0.5em; height:1px" />
 	
-	<div id="users_list", style="margin-left:0em">
+	<div id="project-header-user-names-style", style="margin-left:0em">
 		<% @user.users_following.each do |u| %>
 			<div class="user" >
 				<div class="user_pic"><% logo = image_tag u.profile.photo.url(:tiny)%> <%= link_to logo, u, :class => "left"  %></div>    

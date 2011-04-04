@@ -13,12 +13,12 @@ module ProjectsHelper
   end
   
   def more_by_team(start_project)
-      more_by_team = []
+      m = []
        start_project.users.each do |user|
-         more_by_team += user.projects.all.find_all{|project| project.photo.exists?}
+         m += user.projects.all.find_all{|project| project.photo.exists?}
        end
-       x= (more_by_team.uniq-start_project.to_a)
-       return x
+       m.uniq!.delete(start_project)
+       return m
    end
   
   

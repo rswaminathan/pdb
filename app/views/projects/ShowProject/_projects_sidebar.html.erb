@@ -1,0 +1,157 @@
+<% javascript_include_tag "mulitselector" %>
+
+<%= render 'projects/ShowProject/project_pages' %>
+
+<div id="project_page_align">
+	
+	<%if !signed_in?%>
+		<div class="span-5 last">
+			<div id"twitter-position-small" >
+				<a href="http://twitter.com/share" class="twitter-share-button" data-url=<%= project_url(@project)%> data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+			</div>
+	
+			<div id"facebook-position-small">
+			<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href=<%= project_url(@project)%>  layout="button_count" show_faces="true" ref="holono.com" width="40px"></fb:like>
+			</div>
+	
+		</div>
+	<% end %>
+	
+
+	<% if !@project.links.empty? || !@project.attachments.empty?%>
+		<div id="project-files-align">
+			<% @project.links.each do |thing| %>
+			<% string = "/images/icons/used-icons/#{thing.provider.to_s}.png" %>
+
+			<div class="span-5 last">
+				<div class="project-link-picture-position">
+					<% if ((thing.provider != "none") && thing.provider != nil) %>
+					<% mudd = image_tag string, :class=>"project-link-picture-size"%><%= link_to mudd, thing.link %>
+					<% end %>
+				</div>
+				<div class="span-4 last" class="project-link-text-position">
+					<%= link_to (truncate(URI.parse(thing.link).host, :length=>25)), thing.link %>
+				</div>
+			</div>
+			<% end %>
+			<div class="span-5 last">
+				<table>
+					<% @project.attachments.each do |file| %>
+						<div class="project-attachment-picture-position">
+							<% name = file.file_file_name %>
+							<% icon = image_tag("/images/icons/filetypes/#{icon_finder(name).titleize}.png", :class=>"project-attachment-picture-size") %>
+						</div>
+			
+							<div class="span-4 last" class=".project-attachment-delete-position">
+							<tr>
+							<%= form_tag attachment_path(file), :method => :delete, :confirm => "Are you sure?" do %>
+								<td><%= link_to icon, file.file.url %></td>
+								<td><%= link_to "#{name}", file.file.url %></td>
+								<td><%= image_submit_tag("icons/delete.png", :class=>"project-attachment-delete-picture") if current_project_user?%></td>
+							<% end %>
+							</tr>
+							<tr></tr>
+						</div>
+					<% end %>
+				</table>
+			</div>
+		</div>
+	<%end%>
+
+	<% if current_project_user? %> 
+		<div id="login_special", style="text-align:center">
+			<%= link_to "Edit Project Info", edit_project_path %>
+		</div>
+
+		<div class="span-5 last" id = "attachment_submit" >
+			<% form_for :attachment, :url => create_attachment_project_path, :html => { :multipart => true } do |f| %>
+				<div class="field">
+					<%= f.label :Upload_File %><br />
+					<%= f.file_field(:file, :size => "30") %>
+				</div>
+				<div class="submit">
+					<%= f.submit "Add File" %><br />
+				</div>
+			<% end %>
+		</div>
+
+		<div class="span-5 last" id="link_submit">
+			<%= form_for [@project, Link.new] do |f| %>
+					<div class="field">
+						<%= f.label :add_external_link %><br />
+						<%= f.text_field :link, :size => 18%>
+					</div>
+				<div class="submit">
+					<%= f.submit "Add Link" %><br />
+				</div>
+			<% end %>
+		</div>
+	<% end %>
+	
+
+	<% if signed_in? %>
+		<div class="span-5 last">
+				<div id="twitter-position-big" >
+				<a href="http://twitter.com/share" class="twitter-share-button" data-url=<%= project_url(@project)%>  data-count="vertical" data-via="ozziegooen">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+				</div>
+		
+				<div id="facebook-position-big" >	
+				<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href=<%= project_url(@project)%> layout="box_count" show_faces="true" ref="holono.com" width="40px"></fb:like>
+				</div>
+		
+				<div id="linkedin-position-big" >
+				<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share" data-counter="top"></script>
+				</div>
+		</div>
+	<% end %>
+
+
+
+	<% if !current_project_user? %>
+	
+		<% unless @more_by_team.nil? ||  @more_by_team.empty?  %>
+			<div class="project-more-position">		
+				<div class="project-more-text">
+					More by Group Members
+				</div>
+				<hr class="project-more-line">
+				<% @more_by_team.each do |project| %>
+				<div class="project-more-photo-position"><% logo = image_tag project.photo.url(:thumb), :class=>"project-more-photo-position" %><%= link_to logo, project %></div>
+				<% end %>
+			</div>
+		<% end %>
+		<% if !(@user_projects.nil? || @user_projects.empty?) %>
+			<div class="project-more-position">		
+				<div class="project-more-text">
+				More by <%= @user.name %>
+				</div>
+				<hr class="project-more-line">
+				<% @user_projects.each do |project| %>
+				<div class="project-more-photo-position"><% logo = image_tag project.photo.url(:thumb), :class=>"project-more-photo-position" %><%= link_to logo, project %></div>
+				<% end %>
+			</div>
+		<% end %>
+	
+		<% if @similar_projects.count > 3  %>
+			<div class="project-more-position">		
+				<div class="project-more-text">
+					Similar Projects
+				</div>
+				<hr class="project-more-line">
+				<% @similar_projects.each do |project| %>
+				<div class="project-more-photo-position"><% logo = image_tag project.photo.url(:thumb), :class=>"project-more-photo-position" %><%= link_to logo, project %></div>
+				<% end %>
+			</div>	
+		<% else %>
+			<div class="project-more-position">		
+				<div class="project-more-text">
+					Other Interesting Projects
+				</div>
+				<hr class="project-more-line">
+				<% @cool_projects.each do |project| %>
+				<div class="project-more-photo-position"><% logo = image_tag project.photo.url(:thumb), :class=>"project-more-photo-position" %><%= link_to logo, project %></div>
+				<% end %>
+			</div>
+		<% end %>
+	<%end%>	
+</div>

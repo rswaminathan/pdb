@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-  before_filter :authenticate, 			:only => [:new, :create]
+  before_filter :authenticate, 	:only => [:new, :create]
   before_filter :correct_project_user,	:only => [:edit_collaborators, :update_collaborators, :delete_collaborators, :new_page, :edit_page, :update_page, :edit, :update, :destroy]
   autocomplete :user, :name
 
@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find_by_id(params[:id])
+    @project = Project.find(params[:id])
     @users = @project.users
     @collaborators = @users.first(4) 
     @title = "#{@project.name}"
@@ -58,17 +58,16 @@ class ProjectsController < ApplicationController
     end
     
   if @users.count > 1
-    @more_by_team = more_by_team(@project).shuffle[1,9]
+    @more_by_team = more_by_team(@project).shuffle.first(9)
   elsif @users.first.projects.count >1 
-    @user_projects = (@users.first.projects - @project.to_a).find_all{|project| project.photo.exists?}.shuffle[0,9]
+    @user_projects = (@users.first.projects - [@project]).find_all{|project| project.photo.exists?}.shuffle[0,9]
     @user = @users.first
   end
-    
-    @similar_projects = (@project.similar_projects - @project.to_a).find_all{|project| project.photo.exists?}.shuffle[0,3]
+    @similar_projects = @project.similar_projects
+   # @similar_projects.delete(@project)
+    @similar_projects.find_all{|project| project.photo.exists?}.shuffle[0,3]
     
     @cool_projects = Project.all.find_all{|project| (project.count>30) && (project.photo.exists?)}.shuffle[0,3]
-    
-    
   end
 
   def show_all_collaborators

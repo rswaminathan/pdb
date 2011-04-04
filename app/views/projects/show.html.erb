@@ -1,6 +1,7 @@
 <% content_for :head do %>
 <%= stylesheet_link_tag 'user-list/user-regular' %>
 <%= stylesheet_link_tag 'project' %>
+
 <script>
 	$(document).ready(function() {
 
@@ -22,16 +23,17 @@
 
 
 <%= render 'shared/open_graph' %>
-<div class="container" style="min-height: 550px; clear:none">		
+<div class="container" id="general-positioning">		
 
-	<table cellspaceing="0" style="margin-bottom:1em" id="project_main_background2">
+	<table cellspaceing="0" id="project-main-background-outer">
 
 		<tbody>			
 			<tr>				
-				<td class="span-19 last" style="padding:2px; vertical-align: top"> <div id="project-main-background"> <%= render 'projects/project_main' %></div></td> 
-				<td class="span-5 last" style="vertical-align: top; padding:2px 2px 0 0">
-					<%= render 'projects/projects_sidebar' %>
-				</td>				
+				<td class="span-5 last" id="project-sidebar-outer-position">
+					<%= render 'projects/ShowProject/projects_sidebar' %>
+				</td>
+				<td class="span-19 last" id="project-main-background-position"> <div id="project-main-background-inner"> <%= render 'projects/ShowProject/project_main' %></div></td> 
+						
 			</tr>			
 		</tbody>
 	</div>

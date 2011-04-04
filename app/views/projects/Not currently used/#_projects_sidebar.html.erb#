@@ -42,7 +42,7 @@
 <% if (!@comments.count==0) || signed_in?%>
 <%= render 'sidebar_triangles', :title => "Comments" %>
 <div id="project_sidebar_section", style="border: 1px solid rgba(212, 70, 4, 1)">
-	<div id="users_list">
+	<div id="project-header-user-names-style">
 		<% @comments.each do |c| %>
 		<%= link_to c.user.name, c.user %> : <%= c.body %><br />
 		<% end %> 

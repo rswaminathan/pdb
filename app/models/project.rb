@@ -2,7 +2,7 @@ class Project < ActiveRecord::Base
 
   
   has_attached_file :photo, 
-                    :styles => {:itsy => "30x30#", :teeny => "40x40#", :tiny=> "50x50#", :thumb => "60x60#", :standard=> "80x80#", :small=> "100x100#", :medium  => "140x180#", :feed => "450x300#", :huge  => "640x480>" },   
+                    :styles => {:itsy => "30x30#", :tiny=> "50x50#", :standard=> "120x90#", :feed => "450x300#"},   
                     :storage => :s3,
                     :default_url => "/images/lightbulb.jpg",
                     :s3_credentials => "#{::Rails.root.to_s}/config/s3.yml", 

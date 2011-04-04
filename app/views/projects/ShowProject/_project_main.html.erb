@@ -1,0 +1,75 @@
+<div id="#project-header-user_pictures-positioning">
+	<% @project.users.each do |p| %>
+		<% unless !p.profile.photo.exists? %>
+			<div class="project-header-user_pictures-size"> 
+				<% logo = image_tag p.profile.photo.url(:teeny)%> 
+				<%= link_to logo, p, :class => "left"  %> 
+			</div>
+		<% end %>
+	<% end %>
+</div>
+	
+	
+<div id="project_header_name" >
+	<%= link_to @project.name, @project %>
+</div>	
+
+
+<div id="project-header-user-names-positioning">
+			<% (0..20).each do |i| %>
+				<% if !(@project.users[(i+1)..20].nil? || @project.users[(i+1)..20].empty?) %>
+				<div class="project-header-user-names-style">
+					<%= link_to (@project.users[i].name << ","), @project.users[i] %>
+				</div>
+				<% elsif @project.users[i] %>
+					<div class="project-header-user-names-style">
+						<%= link_to (@project.users[i].name), @project.users[i] %>
+					</div>
+				<% end %>
+			<% end %>
+			<div style="float:left">
+				<%= render 'tell_me_more' unless current_project_user? %>
+				<%= link_to "edit collaborators", edit_collaborators_project_path unless !current_project_user? %>
+			</div>
+		</div>
+		
+<div id="project-main-middle-position">
+		<hr class="separation-line">
+
+
+			<% if @page_is_main %>	
+				<div class="span-18">
+				<% if @project.photo.exists? %>	
+						<div id="home-user-projects-photo" style="text-align:center">
+							<% logo = image_tag @project.photo.url(:feed), :class => "big-picture", :style => "border-radius:0.2em" %>
+							<%= link_to logo, @project.photo.url %>
+						</div>
+				<% end %>
+				</div>
+
+				<% if current_project_user? %> 
+					<div id="login_special"style="margin-right:1em; text-align:right">
+							<%= link_to "Edit Page Content", edit_main_page_project_path%>
+					</div>
+				<% end%>
+		
+				<% if (!@project.description.nil? && !@project.description.empty?) %>
+				<div id="project_info" >
+					<div style="padding:0.7em; min-height:2em">
+						<%=raw(@project.description) %>
+					</div>
+				</div>
+				<% end %>
+			<% else %>
+	
+			<% if current_project_user? %> 
+					<div id="login_special"style="margin-right:1em; text-align:right">
+						<%= link_to "Edit Page", edit_page_project_path(@project, :page => params[:page]) %> 
+						| <%=link_to "Delete Page", delete_page_project_path(@project, :page => @page.title), :confirm => "Are you sure?", :method => :delete %>
+					</div>
+				<% end%>
+			<% end %>
+		
+</div>
+	<%= render "projects/ShowProject/bottom" %>
+

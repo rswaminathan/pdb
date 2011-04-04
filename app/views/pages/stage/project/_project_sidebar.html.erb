@@ -1,0 +1,45 @@
+<div class="project-feedback-button-bottom" style= "background-color: #428FCF">
+	<%= link_to "Awesome", project_likes_path(project, :description => 'awesome'), :method => :post, :remote => true %><br />
+</div>
+
+<div class="project-feedback-button-bottom" style="background-color:#2AB153">
+	<%= link_to "Interesting", project_likes_path(project, :description => 'interesting'), :method => :post, :remote => true %><br />
+</div>		
+
+
+
+<% if project.likes.interesting.count != 0 %>
+
+	<div class="like-box" style="border: 1px solid #BDE7AE" >	
+	
+		<% project.likes.interesting.each do |like| %>
+				<%= render 'pages/stage/project/project_fan_pictures', :like => like %>
+		<% end %>
+
+		<% project.likes.interesting.each do |like| %>
+				<%= render 'pages/stage/project/project_fan_names', :like => like %>
+		<% end %>
+
+	</div>
+<% end %>
+
+<% if project.likes.awesome.count != 0 %>
+
+	<div class="like-box" style="border: 1px solid #CCD1E7" >	
+	
+		<% project.likes.awesome.each do |like| %>
+				<%= render 'pages/stage/project/project_fan_pictures', :like => like %>
+		<% end %>
+
+		<% project.likes.awesome.each do |like| %>
+				<%= render 'pages/stage/project/project_fan_names', :like => like %>
+		<% end %>
+	</div>
+<% end %>
+
+<% if @needs_picture == true%>
+	<div style="font-size:1.3em; padding:0.5em; ">
+Add a special '<%= @like.description%>'  photo in your <%=link_to "User Profile", user_path(current_user, :page=> "edit_profile")%>
+	</div>
+<%end%>
+

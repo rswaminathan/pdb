@@ -6,7 +6,7 @@
 	<div class="triangle2-sidebar"> </div>
 	
      <%if @users.any? %>  
-     	<div id="users_list">
+     	<div id="project-header-user-names-style">
 	
      <% @users.each do |u| %>
        <div class="user" >
@@ -51,7 +51,7 @@
 	<div class="triangle1-sidebar"> </div>
 	<div class="triangle2-sidebar"> </div>
 	
-    <div id="users_list"> 
+    <div id="project-header-user-names-style"> 
 	<% @comments.each do |c| %>
      <%= link_to c.user.name, c.user %> : <%= c.body %><br />
      <% end %>
