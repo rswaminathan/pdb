@@ -1,4 +1,16 @@
 GIT
+  remote: git://github.com/rails/exception_notification
+  revision: 192a49a02d63d28b23ed41cebadfedd490929cf1
+  specs:
+    exception_notification (1.0.0)
+
+GIT
+  remote: git://github.com/rfred999/responds_to_parent.git
+  revision: b13a6bd7db7e0008673aee56b00871342ddefbdd
+  specs:
+    responds_to_parent (1.1.20100826)
+
+GIT
   remote: git://github.com/thedarkone/rails-dev-boost.git
   revision: c9428f87042d9422aad2b119c8c04de97f504148
   specs:
@@ -180,7 +192,6 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.8.7)
-    responds_to_parent (1.0.20091013)
     rest-client (1.6.1)
       mime-types (>= 1.16)
     rspec (2.0.1)
@@ -229,6 +240,7 @@ DEPENDENCIES
   capybara
   cucumber-rails
   database_cleaner
+  exception_notification!
   fb_graph
   jquery-rails
   mechanize
@@ -241,7 +253,7 @@ DEPENDENCIES
   rails (= 3.0.5)
   rails-dev-boost!
   rails3-jquery-autocomplete
-  responds_to_parent
+  responds_to_parent!
   rspec-rails (= 2.0.1)
   sqlite3-ruby
   will_paginate (~> 3.0.pre2)

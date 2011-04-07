@@ -1,31 +1,35 @@
-<div class="span-6 last yui-skin-sam" id="stage-sidebar-outer-position">
-	<div id="stage-sidebar-inner-position">
-		
-		<div class="span-6 stage-sidebar-social">
-		</div>
-		<div class="span-6 stage-sidebar">
-				<%=form_tag stage_path :method => 'get' do %>
-					<div class="submit", id="stage-search-button-position">
-						<%= submit_tag "Search", :id => "stage-search-button-style" %>
-					</div>
-					<div class="field" id="stage-search-bar-position">
-						<%= text_field_tag :search, params[:search],:id => "stage-search-bar-style" %> 
-					</div>
-				<% end %>
-				<div class="span-6 stage-main-links">
-					See All: 
-					<%= link_to "People", stage_path(:type => "people") %>
-					<%= link_to "Projects", stage_path(:type => "projects") %>
-				</div>
-				<div class="span-6 stage-tag-links">
-					<% link_generator(Project.all,0,30) %>
-					<% @links.each do |u| %>
-						<div class="stage-popular-tags">
-							<%="[ #{u[1]} ] "%><%= link_to u[0], stage_path(:search => u[0], :size => @size) %> 
-						</div>
-					<%end%>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="span-6 last" id="stage-sidebar-outer-position">
+    <div id="stage-sidebar-inner-position">
+
+        <% if signed_in? %>
+        <div class="span-6 stage-sidebar">
+            <%=form_tag stage_path :method => 'get' do %>
+            <div class="submit", id="stage-search-button-position">
+                <%= submit_tag "Search", :id => "stage-search-button-style" %>
+            </div>
+            <div class="field" id="stage-search-bar-position">
+                <%= text_field_tag :search, params[:search],:id => "stage-search-bar-style" %> 
+            </div>
+            <% end %>
+            <div class="span-6 stage-main-links">
+                See All: 
+                <%= link_to "People", stage_path(:type => "people") %>
+                <%= link_to "Projects", stage_path(:type => "projects") %>
+            </div>
+            <div class="span-6 stage-tag-links">
+                <% link_generator(Project.all,0,30) %>
+                <% @links.each do |u| %>
+                <div class="stage-popular-tags">
+                    <%="[ #{u[1]} ] "%><%= link_to u[0], stage_path(:search => u[0], :size => @size) %> 
+                </div>
+                <%end%>
+            </div>
+        </div>
+    </div>
+    <% else %>
+    <div class="span-6 stage-sidebar-social">
+        <%= render 'pages/home/main_details' %>
+    </div>
+    <% end %>
+</div>
 </div>

@@ -1,7 +1,8 @@
 <% content_for :head do %>
 <%= javascript_include_tiny_mce_if_used %>
 <%= tiny_mce if using_tiny_mce? %>
-<%= render 'projects/yui_dependencies' %> <%= stylesheet_link_tag 'project' %> <%= stylesheet_link_tag 'user-list/user-regular' %>
+<%= stylesheet_link_tag 'project' %>
+<%= stylesheet_link_tag 'user-list/user-regular' %>
 <% end %>
 
 

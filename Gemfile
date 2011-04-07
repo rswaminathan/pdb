@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.5'
-# gem "exception_notification", :git => "git://github.com/rails/exception_notification", :require => 'exception_notifier'
+gem "exception_notification", :git => "git://github.com/rails/exception_notification", :require => 'exception_notifier'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'annotate'
 gem 'paperclip'
@@ -17,7 +17,7 @@ gem 'meta_where'
 gem 'rails3-jquery-autocomplete'
 gem 'fb_graph'
 gem 'mechanize'
-gem 'responds_to_parent'
+gem 'responds_to_parent', :git => 'git://github.com/rfred999/responds_to_parent.git'
 
 group :development do
   gem 'rspec-rails', '2.0.1'

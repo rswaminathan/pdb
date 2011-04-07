@@ -1,73 +1,59 @@
 <% content_for :head do %>
-	<%= javascript_include_tag 'jquery.nivo.slider.pack.js', 'jquery.freeow.min.js' %>
-	<%= stylesheet_link_tag 'stage' %>
-	<%= stylesheet_link_tag 'freeow' %>
-	<%= stylesheet_link_tag 'user' %>
-	<%= stylesheet_link_tag 'project-list/project-regular' %>
-	
-	<%= render 'shared/facebook_graph' %>
+<%= javascript_include_tag 'jquery.nivo.slider.pack.js', 'jquery.freeow.min.js' %>
+<%= stylesheet_link_tag 'stage' %>
+<%= stylesheet_link_tag 'freeow' %>
+<%= stylesheet_link_tag 'user' %>
+<%= stylesheet_link_tag 'project-list/project-regular' %>
+
+<%= render 'shared/facebook_graph' %>
 <% end %>
 
 <div class="container" id="default-container">
-	<div id="user_background" class="span-24">	
-		<table cellspaceing="0" style="margin:0">
-			<tbody>
-				<tr>
-					
-					<td id="user_sidebar_position" class="span-6">						
-						<%= render 'pages/stage/sidebar' %>
-					</td>
-					<td id="user_projects" class="span-18 last">
-						<div class="span-18 last" id = "home-banner">
-							<div class="span-7" style="height:200px"></div>
-							<div class="span-11 last">
-								<h1> You've Made Incredible Things </h1>
-								<br /><br />
-								<h2> Now Show Them to the World </h2>
-								<% unless signed_in? %>
-									<div id="register-position">
-										
-										<div class="span-5 last">
-											<h2> <%= link_to "Sign Up","users/new" %> </h2>
-										</div>
-										<div class="span-5 last">
-											<h3> or </h3>
-											<div id="facebook_signup">
-										            <%= link_to image_tag('facebook-login.png'),  "/auth/facebook"%>
-											</div>
-										</div>
-									</div>
-								<% end %>
-							</div>
-						</div>
-						
-						<% if !@type.empty? %>
-						<div id="stage-header">
-							
-							<div id="stage-header-text-position">
-							<% if @type == "people" %>
-								<h3> Sort: </h3>
-								<%= link_to "Productivity", stage_path(:sort => "projects", :type => "people") %>
-								<%= link_to "Date", stage_path(:sort => "date", :type => "people") %>
-							<% else %>
-								<h3> Sort: </h3>
-								<%= link_to "Random", stage_path(:sort => "auto", :size => @size, :type => "projects") %>
-								<%= link_to "Popularity", stage_path(:sort => "popularity",:size => @size, :type => "projects") %>
-								<%= link_to "Date", stage_path(:sort => "date", :size => @size, :type => "projects") %>
-								<h3> Size: </h3>
-								<%= link_to "Large", stage_path(:size => "large", :sort => @sort, :type => "projects", :page =>@page) %>
-								<%= link_to "Small", stage_path(:size => "small",  :sort => @sort, :type => "projects", :page => @page) %>
-							<% end %>
-							</div>
-						</div>	
-						<div class="stage-header-line"><hr /></div>
-						
-						<% end %>					
-						<%= render :partial => 'pages/stage/result', :collection => @results %>
-						<%= will_paginate @results %>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+    <div id="user_background" class="span-24">	
+        <table cellspaceing="0" style="margin:0">
+            <tbody>
+                <tr>
+
+                    <td id="user_sidebar_position" class="span-6">						
+                        <%= render 'pages/stage/sidebar' %>
+                    </td>
+                    <td id="user_projects" class="span-18 last">
+                        <div class="span-18 last" id = "home-banner">
+                            <div class="span-7" style="height:200px"></div>
+                            <div class="span-11 last">
+                                <h1> You've Made Incredible Things </h1>
+                                <br /><br />
+                                <h2> Now Show Them to the World </h2>
+                            </div>
+                        </div>
+
+                        <% if !@type.empty? %>
+                        <div id="stage-header">
+
+                            <div id="stage-header-text-position">
+                                <% if @type == "people" %>
+                                <h3> Sort: </h3>
+                                <%= link_to "Productivity", stage_path(:sort => "projects", :type => "people") %>
+                                <%= link_to "Date", stage_path(:sort => "date", :type => "people") %>
+                                <% else %>
+                                <h3> Sort: </h3>
+                                <%= link_to "Random", stage_path(:sort => "auto", :size => @size, :type => "projects") %>
+                                <%= link_to "Popularity", stage_path(:sort => "popularity",:size => @size, :type => "projects") %>
+                                <%= link_to "Date", stage_path(:sort => "date", :size => @size, :type => "projects") %>
+                                <h3> Size: </h3>
+                                <%= link_to "Large", stage_path(:size => "large", :sort => @sort, :type => "projects", :page =>@page) %>
+                                <%= link_to "Small", stage_path(:size => "small",  :sort => @sort, :type => "projects", :page => @page) %>
+                                <% end %>
+                            </div>
+                        </div>	
+                        <div class="stage-header-line"><hr /></div>
+
+                        <% end %>					
+                        <%= render :partial => 'pages/stage/result', :collection => @results %>
+                        <%= will_paginate @results %>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

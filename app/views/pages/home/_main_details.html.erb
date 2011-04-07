@@ -1,45 +1,33 @@
-<div class="container" id="benefits">
+<div id="signupnow">
+    <h2> What have you done?</h2>
+    <div class="button orange">
+        <%= link_to "Add a Project", new_project_path%>
+    </div>
+</div>
 
-    <hr style="margin-bottom:0;"/>
-
-    <br />
-
+<div id="benefits">
+    <p> Wondering what Holono's about? Check out the <%= link_to "project page", "#{projects_path}/1" %>,
+    or find out why you should make your own Holono page for something awesome you've done...</p>
     <div id="details_spacing">
         <div style="margin-bottom:1em">
-            <h3>Holono</h3>
-            <h3>Beats Resumes</h3>
+            <h3>Holono Beats Resumes</h3>
         </div>
-        <% recognition = image_tag "example_2a.png", :size => "200x100" %><%= link_to recognition, User.find(2)  %>
         <p>  You've built cool things that you can't show on a resume. You've done activities that few friends or colleagues know about. Holono provides user portfolios to organize and show all of it.</p>
     </div>
 
     <div id="details_spacing">
         <div style="margin-bottom:1em">
-            <h3>Organize Everything</h3>
-            <h3>You've done </h3>
+            <h3>Organize Everything You've done</h3>
         </div>
-        <% mudd = image_tag "example_1a.png", :size => "200x100" %><%= link_to mudd, Project.find(56) %>
         <p> Say you've made a few websites.  One has a related Youtube channel, two of them have related blogs, and all of them have Twitter accounts.  Holono summarizes that with corresponding badges.  </p>
     </div>
 
 
     <div id="details_spacing">
         <div style="margin-bottom:1em">
-            <h3>Expansive Project</h3>
-            <h3>Pages</h3>
+            <h3>Expansive Project Pages</h3>
         </div>
-        <% awesome = image_tag "example_3a.png", :size => "200x100" %><%= link_to awesome, Project.find(50) %>
         <p>Each one of your projects gets it's own website, linked to all of its collaborators.  Create multiple pages to comprehensively describe your work, or just use it to organize content from other places.</p>
     </div>
-
-    <div id="details_spacing">
-        <div style="margin-bottom:1em">
-            <h3>An Online Stage</h3>
-            <h3>For Your Community</h3>
-        </div>
-        <% apply = image_tag "example_3.png", :size => "200x100" %><%= link_to apply, search_projects_path(:page => "sort_by_views") %>
-        <p> Holono features a hybrid of a blog and news feed called a Stage.  The Stage allows you to see and comment on everything new being posted by members in your community. </p>
-    </div>
-
 
 </div>

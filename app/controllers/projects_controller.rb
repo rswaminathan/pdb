@@ -9,8 +9,8 @@ class ProjectsController < ApplicationController
   def json_for_autocomplete(items, method)
     #merge with fb friends
     items.collect {|item| {"id" => item.id, "label" => item.name, "value" => item.name,
-      "img" => item.profile.photo.url(:tiny),
-      "info" => "#{item.profile.department} #{item.profile.occupation} #{item.profile.year}"
+                           "img" => item.profile.photo.url(:tiny),
+                           "info" => "#{item.profile.department} #{item.profile.occupation} #{item.profile.year}"
     }}
   end
 
@@ -58,18 +58,18 @@ class ProjectsController < ApplicationController
     else
       @page_is_main = true
     end
-    
-  if @users.count > 1
-    @more_by_team = more_by_team(@project).shuffle.first(9)
-  elsif @users.first.projects.count >1 
-    @user_projects = (@users.first.projects - [@project]).find_all{|project| project.photo.exists?}.shuffle[0,9]
-    @user = @users.first
-  end
+
+    if @users.count > 1
+      @more_by_team = more_by_team(@project).shuffle.first(9)
+    elsif @users.first.projects.count >1 
+      @user_projects = (@users.first.projects - [@project]).find_all{|project| project.photo.exists?}.shuffle[0,9]
+      @user = @users.first
+    end
     @similar_projects = @project.similar_projects
-   # @similar_projects.delete(@project)
+    # @similar_projects.delete(@project)
     @similar_projects.find_all{|project| project.photo.exists?}.shuffle[0,3]
-    
-    @cool_projects = Project.all.find_all{|project| (project.count > 30) && (project.photo.exists?)}.shuffle[0,3]
+
+    @cool_projects = Project.all.find_all{|project| project.count > 30 && project.photo.exists?}.shuffle[0,3]
   end
 
   def show_all_collaborators
@@ -247,7 +247,7 @@ class ProjectsController < ApplicationController
   end
 
   def random
-      redirect_to Project.all.find_all{|project| !project.description.nil? && project.description.length > 20}[rand(Project.count)]
+    redirect_to Project.all.find_all{|project| !project.description.nil? && project.description.length > 20}[rand(Project.count)]
   end
 
   private
