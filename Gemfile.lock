@@ -244,4 +244,4 @@ DEPENDENCIES
   responds_to_parent
   rspec-rails (= 2.0.1)
   sqlite3-ruby
-  will_paginate (= 3.0.pre2)
+  will_paginate (~> 3.0.pre2)

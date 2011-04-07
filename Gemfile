@@ -8,7 +8,7 @@ gem 'paperclip'
 gem 'aws-s3'
 gem 'omniauth'
 gem 'omnisocial'
-gem 'will_paginate', '3.0.pre2'
+gem "will_paginate", "~> 3.0.pre2"
 gem 'mongrel', '1.2.0.pre2'
 gem 'acts-as-taggable-on'
 gem 'jquery-rails'
