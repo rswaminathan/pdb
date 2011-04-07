@@ -23,17 +23,14 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = current_user.projects.build(params[:project])
+    @user = current_user
+    @project = @user.projects.build(params[:project])
     @project.count = 0
-    if params[:cids]
-      @users = params[:cids].split(",").map{ |u| User.find(u) }
-      @project.users = @project.users | @users
-    end
     if @project.save
       if (@project.description.nil? || @project.description.empty?)
         @project.update_attributes(:description => @project.abstract)
       end
-      current_user.projects << @project
+      @user.projects << @project
       flash[:success] = "Project added!"
       #current_user.facebook.feed!(:message => "Check out my new project #{link_to(@project.name,@project)} at Holono.com", :name => "My New Project" )
       redirect_to @project
@@ -69,6 +66,7 @@ class ProjectsController < ApplicationController
     # @similar_projects.delete(@project)
     @similar_projects.find_all{|project| project.photo.exists?}.shuffle[0,3]
 
+   
     @cool_projects = Project.all.find_all{|project| project.count > 30 && project.photo.exists?}.shuffle[0,3]
   end
 
