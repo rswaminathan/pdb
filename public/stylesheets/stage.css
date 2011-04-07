@@ -1,16 +1,101 @@
-/* @override http://localhost:3000/stylesheets/stage.css?1301774366 */
+/* @override 
+	http://localhost:3000/stylesheets/stage.css?1301774366
+	http://localhost:3000/stylesheets/stage.css?1301767556
+	http://localhost:3000/stylesheets/stage.css?1301759920
+	http://localhost:3000/stylesheets/stage.css?1301758855
+	http://localhost:3000/stylesheets/stage.css?1301757798
+	http://localhost:3000/stylesheets/stage.css?1301756282
+	http://localhost:3000/stylesheets/stage.css?1302115760
+	http://localhost:3000/stylesheets/stage.css?1302147059
+*/
 
-/* @override http://localhost:3000/stylesheets/stage.css?1301767556 */
-
-/* @override http://localhost:3000/stylesheets/stage.css?1301759920 */
-
-/* @override http://localhost:3000/stylesheets/stage.css?1301758855 */
-
-/* @override http://localhost:3000/stylesheets/stage.css?1301757798 */
-
-/* @override http://localhost:3000/stylesheets/stage.css?1301756282 */
+#facebook_signup {
+margin-right:0.7em;
+}
 
 
+#register-position{
+float:left;
+margin-left: 20em;
+width: 500px;
+}
+
+#register-position a {
+
+color: white;
+font-size: 1em;
+}
+
+
+#register_without_facebook{
+    font-size: 2.6em;
+    font-weight: bold;
+	background:orange;
+	float:left;
+	padding: 0 0.3em 0 0.3em;
+	border:2px solid white;
+	box-shadow: 1px 1px 10px rgba(100, 0,0, 1);
+    webkit-box-shadow: 0 0 10px rgba(255, 0,0, 1); 
+    moz-box-shadow: 0 0 10px rgba(255, 0,0, 1);
+	border-radius:0.3em;
+	background: orange;
+	background: -webkit-gradient(linear, left top, left bottom, from(orange), to(red));
+	background: -moz-linear-gradient(top,  orange,  red); /* for firefox 3.6+ */ 
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#000000'); /* for IE */
+	
+	
+	
+}
+
+#register_without_facebook a {
+	color:white;
+}
+
+#register_without_facebook:hover{
+   color:  #FFFFFF;
+    cursor: pointer;
+}
+
+
+#facebook-signup-button{
+width: 178px;
+margin-left: 1em;
+position: relative;
+top: -3px;
+
+}
+
+#home-banner{
+margin-left:5px;
+margin-top:4px;
+border-radius:0.5em;
+width: 715px;
+background: url("/images/home-banner2.png"); 
+height:200px;
+position:relative;
+
+}
+
+#home-banner h1{
+width: 350px;
+margin-top: 0.7em;
+font-size: 2em;
+float: right;
+}
+
+#home-banner h2{
+margin-right: 0.6em;
+float: right;
+margin-top: 0.3em;
+font-weight: bold;
+font-size: 2.2em;
+line-height: 1.2em;
+color: white;
+margin-bottom: 0.3em;
+}
+#home-banner h3{
+	float: right;
+}
 #Holono-description{
 	color:white;
 	margin:0 0 0 0.8em;
@@ -192,13 +277,18 @@ color:white;
 
 
 .pagination{
-	margin: 0.7em 1em 0.6em 0.5em;
-	font-size:1.1em;
+	margin: 0.7em 1em 0.6em 15em;
+	font-size:1.3em;
 	float:left;
+	color: 	 #C80200;
+	text-align:center;
+	font-weight:bold;
 }
-
+.pagination a:hover{
+	text-decoration: underline;
+}
 .pagination a{
-	font-size:1.1em;
+	color: 	 #C80200;
 }
 
 .current{
@@ -571,11 +661,11 @@ color:white;
 
 .stage-header-line hr {
   height: 1px;
-  margin-bottom: 1em;
-  width: 695px;
+  width: 706px;
+  margin-bottom: 0.1em;
   margin-left: 0.6em;
   color: brown;
- border-top: 1px dotted #ddd;
+ border-top: 1px solid #ddd;
 }
 
 div.stage-header-line hr {
@@ -590,7 +680,7 @@ div.stage-header-line hr {
 
 #stage-header-text-position{
 	float: right;
-	margin: 0.3em 0.5em 0 0;
+	margin: 0.6em 0.5em 0.4em 0;
 }
 #stage-header-text-position h3{
 display:inline;
@@ -598,6 +688,7 @@ color: #555;
 font-size: 12px;
 margin-right: 0.3em;
 margin-left: 1.5em;
+
 }
 #stage-header-text-position a{
 color: #db6969;
@@ -609,6 +700,19 @@ text-decoration: underline;
 /* @end */
 
 /* @group sidebar */
+
+/* @group social */
+
+.stage-sidebar-social {
+	background: #ffbf74;
+	width: 222px;
+	border: 1px solid #d67773;
+	height: 200px;
+	}
+
+
+
+/* @end */
 
 /* @group line */
 
@@ -627,19 +731,36 @@ div.stage-sidebar-line hr {
 
 /* @end */
 
+.stage-sidebar{
+	width:223px;
+	background: #ffbf74;
+	margin-top:2em;
+	border-radius: 0.3em;
+	padding-top: 8px;
+	padding-bottom: 10px;
+	border: 1px solid #d67773;
+}
+
+.stage-tag-links{
+	padding:1em;
+}
+
 .stage-main-links{
+	padding: 0.5em;
 	line-height:11px;
 	font-weight: bold;
 	margin-top: 0.5em;	
 	font-weight:bold;
 	color: #333;
-	margin-bottom: 1em;
+	margin-left:4px;
+	margin-bottom: 0.6em;
+	font-size: 1.2em;
+
 }
 .stage-main-links a, .stage-popular-tags a{
 	font-weight:bold;
 	font-size: 1.2em;
 	margin-left: 0.5em;
-	text-decoration: underline;
 	color: #C80200;
 }
 
@@ -655,6 +776,7 @@ div.stage-sidebar-line hr {
 
 .stage-popular-tags a{
 	margin-left: 0.3em;
+	font-size: 1.2em;
 }
 .stage-popular-tags a:hover{
 	color:black;
@@ -671,13 +793,13 @@ div.stage-sidebar-line hr {
 }
 
 #stage-search-bar-style{
-	width: 160px;
+	width: 147px;
 	font-size: 14px;
 	padding: 0.3em 0.2em;
 	border-radius: 0 0.3em 0.3em 0;
 	margin: 0;
 	border-left: none;
-	margin-bottom: 1.3em;
+	border-color: red;
 }
 #stage-search-button-position{
 	float: left;
@@ -687,7 +809,7 @@ div.stage-sidebar-line hr {
 	color: white;
 	border: none;
 	width: 60px;
-	margin-left: 0;
+	margin-left: 7px;
 	font-size: 14px;
 	padding: 0.3em 0.3em 6px 0.3em;
 	border-radius:  0.3em 0 0 0.3em;
@@ -704,7 +826,6 @@ div.stage-sidebar-line hr {
 }
 
 #stage-sidebar-outer-position{
-	padding: 0.3em 2px 0.5em 0.6em;	
 }
 
 /* @end */

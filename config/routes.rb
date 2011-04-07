@@ -14,7 +14,7 @@ Pdb::Application.routes.draw do
   match '/fake',					:to => 'pages#fake'
   match	'/logout',					:to => 'sessions#destroy'
   match	'/search',					:to => 'pages#error'
-  root 							:to => "pages#home"
+  root 							:to => "pages#stage"
   match '/home',					:to => "pages#home"
   match '/stage',					:to => "pages#stage"
   match '/facebookinfo',				:to => 'pages#facebookinfo'
@@ -57,7 +57,6 @@ Pdb::Application.routes.draw do
   resources :relationship_users, :only => [:create, :destroy]
   resources :relationship_projects, :only => [:create, :destroy]
   resources :comments
-  resources :attachments
   resources :projects do
     resources :likes do
       collection do

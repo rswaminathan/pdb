@@ -43,6 +43,7 @@ class PagesController < ApplicationController
     
     if params[:page]
       @home_page = params[:page]
+      @page = :page
     end
     
     #Search All
@@ -50,6 +51,7 @@ class PagesController < ApplicationController
       @results = []
       @results += Project.search_by_name(params[:search])
       @results += User.search_by_name(params[:search])
+      @search = :search
     else #home-show the good projects
       
       #Just Search People
@@ -66,24 +68,26 @@ class PagesController < ApplicationController
     end
     
     #This Ranks Everybody
-    if params[:sort] == "projects"   #Ranks Users by Productivity
+    if params[:sort] == "date" || params[:search]   #Ranks Users by Productivity
+      @results = @results.sort! {|a,b| -(a.created_at <=> b.created_at)}  
+      @filter = "date"
+    elsif params[:sort] == "projects"   #Ranks Users by Productivity
       @results = @results.sort! {|a,b| -(a.projects.count <=> b.projects.count)}
       @filter = "projects"
     elsif params[:sort] == "popularity"
       @results = @results.sort! {|a,b| -(a.count <=> b.count)}
       @filter = "popularity"
     else
-      @results = @results.sort! {|a,b| -(a.created_at <=> b.created_at)}  
-      @filter = "date"
-    end
+      @results = @results.find_all{|project| project.photo.exists?}.shuffle
+      @filter ="auto"    
+      end
     
     if params[:size] == "large"
       @size = "large"
       @results = @results.paginate :page => params[:page], :per_page => 8
     else
       @size = "small"
-      @results = @results.paginate :page => params[:page], :per_page => 12
-      
+      @results = @results.paginate :page => params[:page], :per_page => 8
     end
       end
 

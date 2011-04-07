@@ -1,15 +1,15 @@
 <% if current_project_user? %>
 <% content_for :head do %>
-<%= render 'projects/yui_dependencies' %>
+<%= javascript_include_tiny_mce_if_used %>
+<%= tiny_mce if using_tiny_mce? %>
 <% end %>
 <% end %>
 <div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px">
 
 	<div class="home_register span-18" style="float:center; margin-left: 10em">
-		<div id="project_delete" style="font-size:0.5em; text-align:right"><%= (link_to "Delete Project", @project , :confirm => "Are you sure?", :method => :delete) if current_project_user? %></div>
 
 		<h1>Edit Project</h1>
-		<div class="yui-skin-sam">
+		<div class="project_edit">
 			<%= form_for @project, :html => { :multipart => true } do |f| %>
 			<%= render	'shared/error_messages', :object => f.object %>
 			<div class="field">
@@ -26,7 +26,7 @@
 			</div>
 			<div class="field">
 				<%= f.label :description %><br />
-				<%= f.text_area :description %>
+                <%= f.text_area :description, :class => "mceEditor" %>
 			</div>
 			<div class="field">
 				<%= f.label :project_photo %><br />
@@ -39,4 +39,3 @@
 		</div>
 	</div>
 </div>
-<%= render 'projects/yui_script', :editor => "project_description" %>

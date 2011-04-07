@@ -6,6 +6,7 @@
 	http://localhost:3000/stylesheets/project-list/project-regular.css?1301820682
 	http://localhost:3000/stylesheets/project-list/project-regular.css?1301820887
 	http://localhost:3000/stylesheets/project-list/project-regular.css?1301821006
+	http://localhost:3000/stylesheets/project-list/project-regular.css?1301824411
 */
 
 .list_project_icon {
@@ -114,50 +115,6 @@ float: left;
 	margin-right:0.5em;
 	font-weight:bold;
 	line-height:0;
-	text-decoration: underline; 
-
-}
-.list_project h2 a:hover{
-	text-decoration: underline; 
-}
-
-
-
-/* @end */
-
-/* @group middle */
-
-.list-project-middle-position{
-	float: left;
-	padding-left: 4em;
-}
-
-.list-project-bottom-push{ 
-min-height: 65px;
-margin-bottom: 0.4em;
-float: left;
-}
-
-.user_info_2{
-  padding: 0em 0em 0em 5.4em;
-  font-size: 0.8em;
-  text-align: bottom;
-}
-
-.list_project h2{
-	font-size:1em;
-	float: left;
-	line-height:1.1em;
-	margin:0;
-}
-.list_project h2 a{
-	color: #db6969;
-	font-size:1.1em;
-	margin-right:0.5em;
-	font-weight:bold;
-	line-height:0;
-	text-decoration: underline; 
-
 }
 .list_project h2 a:hover{
 	text-decoration: underline; 

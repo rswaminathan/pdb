@@ -1,4 +1,7 @@
-/* @override http://localhost:3000/stylesheets/user.css?1301218697 */
+/* @override 
+	http://localhost:3000/stylesheets/user.css?1301218697
+	http://localhost:3000/stylesheets/user.css?1301901098
+*/
 
 #big-user-pic-regular{
 	position: relative;
@@ -16,7 +19,7 @@
 
 #form_back{
 	background: #DCF5DC; 
-	margin-right:0;
+	margin-left:0.5em;
 	margin-top:0.5em;
 	padding: 0.5em 0 0 0.5em;
 	border-radius:0.6em;
@@ -374,7 +377,7 @@
 }
 
 #user_sidebar_position{
-	padding: 0.5em 0;
+	padding: 0;
 	border-radius: 0.5em 0 0 0.5em;
 	-moz-border-radius: 0.5em 0 0 0.5em;
 	vertical-align: top;
@@ -420,14 +423,14 @@
 #edit_profile{
 	font-size:1.2em;
 	text-decoration: underline;
-	color:white;
+	color:black;
 	float:left;
 	height: 1.2em;
 	margin:1em;
 }
 
 #edit_profile a{
-	color:white;
+	color:black;
 }
 
 #user_projects {

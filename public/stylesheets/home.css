@@ -111,27 +111,6 @@
 	width:500px;
 }
 
-#facebook_signup {
-}
-
-
-
-#register_without_facebook{
-    color:  #CE0000;
-    margin: 0.5em 0 0 0.6em;
-    border: 0;
-    font-size: 1.5em;
-    font-weight: bold;
-	border-bottom: 1px solid #CE0000;
-}
-
-#register_without_facebook:hover{
-   color:  #FFFFFF;
-    cursor: pointer;
-	border-bottom: 1px solid #FFFFFF;
-
-	
-}
 
 
 

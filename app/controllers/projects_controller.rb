@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
 
   before_filter :authenticate, 	:only => [:new, :create]
   before_filter :correct_project_user,	:only => [:edit_collaborators, :update_collaborators, :delete_collaborators, :new_page, :edit_page, :update_page, :edit, :update, :destroy]
+  uses_tiny_mce :options => AppConfig.default_mce_options, :only => [:new, :edit] 
   autocomplete :user, :name
 
   #for the autocomplote in projects/new - send all the data
@@ -14,6 +15,7 @@ class ProjectsController < ApplicationController
   end
 
   def new
+    @user = current_user
     @title = "New Project"
     @project = current_user.projects.build
     @project.links.build

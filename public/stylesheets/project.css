@@ -323,6 +323,11 @@
 	vertical-align: top
 }
 
+#project-main-background-position textarea{
+	width: 700px;
+    height: 350px;
+}
+
 /* @end */
 
 /* @group full-page-specs */

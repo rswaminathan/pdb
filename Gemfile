@@ -8,7 +8,7 @@ gem 'paperclip'
 gem 'aws-s3'
 gem 'omniauth'
 gem 'omnisocial'
-gem 'will_paginate'
+gem "will_paginate", "~> 3.0.pre2"
 gem 'mongrel', '1.2.0.pre2'
 gem 'acts-as-taggable-on'
 gem 'jquery-rails'
@@ -17,6 +17,8 @@ gem 'meta_where'
 gem 'rails3-jquery-autocomplete'
 gem 'fb_graph'
 gem 'mechanize'
+gem 'responds_to_parent'
+
 group :development do
   gem 'rspec-rails', '2.0.1'
   gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git', :require => 'rails_development_boost'

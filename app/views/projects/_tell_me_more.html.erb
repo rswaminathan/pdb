@@ -13,7 +13,7 @@
         </div>
 
         <div class="submit">
-            <%= submit_tag "Contact the #{@project.name} team" %><br />
+            <%= submit_tag "Contact the #{@project.name} team", :disable_with => "Please wait..." %><br />
         </div>
     <% end %>
 </div>
