@@ -10,6 +10,7 @@
 	http://localhost:3000/stylesheets/blueprint/print.css?1290854950
 	http://localhost:3000/stylesheets/stage.css?1302155783
 	http://localhost:3000/stylesheets/stage.css?1302157903
+	http://localhost:3000/stylesheets/stage.css?1302158181
 */
 
 #facebook_signup {
@@ -26,29 +27,9 @@ margin-left: 10em;
 #register-position a {
 
 color: white;
-font-size: 1em;
 }
 
 
-#register_without_facebook{
-    font-size: 2.6em;
-    font-weight: bold;
-	background:orange;
-	float:left;
-	padding: 0 0.3em 0 0.3em;
-	border:2px solid white;
-	box-shadow: 1px 1px 10px rgba(100, 0,0, 1);
-    webkit-box-shadow: 0 0 10px rgba(255, 0,0, 1); 
-    moz-box-shadow: 0 0 10px rgba(255, 0,0, 1);
-	border-radius:0.3em;
-	background: orange;
-	background: -webkit-gradient(linear, left top, left bottom, from(orange), to(red));
-	background: -moz-linear-gradient(top,  orange,  red); /* for firefox 3.6+ */ 
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#000000'); /* for IE */
-	
-	
-	
-}
 
 #register_without_facebook a {
 	color:white;
@@ -101,14 +82,8 @@ margin-bottom: 0.3em;
 }
 
 #home-banner h2 a{
-margin-right: 0.6em;
-float: right;
-margin-top: 0.3em;
-font-weight: bold;
-font-size: 2.2em;
-line-height: 1.2em;
-color: white;
-margin-bottom: 0.3em;}
+	font-size: 2em;
+}
 
 #Holono-description{
 	color:white;

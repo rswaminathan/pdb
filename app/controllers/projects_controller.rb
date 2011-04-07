@@ -69,7 +69,7 @@ class ProjectsController < ApplicationController
    # @similar_projects.delete(@project)
     @similar_projects.find_all{|project| project.photo.exists?}.shuffle[0,3]
     
-    @cool_projects = Project.all.find_all{|project| (project.count>30) && (project.photo.exists?)}.shuffle[0,3]
+    @cool_projects = Project.all.find_all{|project| (project.count > 30) && (project.photo.exists?)}.shuffle[0,3]
   end
 
   def show_all_collaborators

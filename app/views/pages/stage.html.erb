@@ -25,11 +25,12 @@
 								<br /><br />
 								<h2> Now Show Them to the World </h2>
 								<% unless signed_in? %>
-									<div id="register-position" class="span-4 last">
-										<div class="span-4 last">
+									<div id="register-position">
+										
+										<div class="span-5 last">
 											<h2> <%= link_to "Sign Up","users/new" %> </h2>
 										</div>
-										<div class="span-4 last">
+										<div class="span-5 last">
 											<h3> or </h3>
 											<div id="facebook_signup">
 										            <%= link_to image_tag('facebook-login.png'),  "/auth/facebook"%>
