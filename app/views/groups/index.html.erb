@@ -1,0 +1,25 @@
+<% content_for :head do %>
+<%= stylesheet_link_tag 'stage' %>
+<%= stylesheet_link_tag 'user' %>
+
+<%= stylesheet_link_tag 'project-list/project-regular' %>
+<%= render 'shared/facebook_graph' %>
+<% end %>
+
+<div class="container" id="default-container">
+  <div id="user_projects">
+    <table>
+      <% for group in @groups %>
+      <tr>
+        <td> <%= link_to group.name, group %> </td> 
+        <td> <% group.projects.each do |project|%>
+          <%= link_to project.name, project %>
+          <% end %>
+          <td> <%= link_to 'Edit', edit_group_path(group)%> </td>
+          <td> <%= link_to "Delete", group , :confirm => "Are you sure?", :method => :delete  %> </td>
+
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>

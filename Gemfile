@@ -20,6 +20,7 @@ gem 'mechanize'
 gem 'responds_to_parent', :git => 'git://github.com/rfred999/responds_to_parent.git'
 
 group :development do
+  gem 'bullet'
   gem 'rspec-rails', '2.0.1'
   gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git', :require => 'rails_development_boost'
 end 

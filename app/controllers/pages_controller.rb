@@ -41,55 +41,21 @@ class PagesController < ApplicationController
     @type = "all" #this sets it to auto-show filtering options
     @filter = "none"
     
-    if params[:page]
-      @home_page = params[:page]
-      @page = :page
-    end
-    
-    #Search All
-    if params[:search] && ((params[:search]).length != 0)  
-      @results = []
-      @results += Project.search_by_name(params[:search])
-      @results += User.search_by_name(params[:search])
-      @search = :search
-    else #home-show the good projects
-      
-      #Just Search People
-      if params[:type] == "people"
-        @results = User.all.sort!{|a,b| -(a.created_at <=> b.created_at)}
-        @type = "people"
-      #Just Search Projects - should do all the time that people aren't requested
-      elsif (params[:type] == "projects") || (1==1)
-        # Adds Holono on top, filters rest
-        @results = Project.all.find_all{|project| (!project.abstract.nil? && (project.abstract.length > 35)) || (!project.description.nil? && project.description.length>35)}
-        @type = "projects"
-      end
-      
-    end
-    
-    #This Ranks Everybody
-    if params[:sort] == "date" || params[:search]   #Ranks Users by Productivity
-      @results = @results.sort! {|a,b| -(a.created_at <=> b.created_at)}  
-      @filter = "date"
-    elsif params[:sort] == "projects"   #Ranks Users by Productivity
-      @results = @results.sort! {|a,b| -(a.projects.count <=> b.projects.count)}
-      @filter = "projects"
-    elsif params[:sort] == "popularity"
-      @results = @results.sort! {|a,b| -(a.count <=> b.count)}
-      @filter = "popularity"
+    stage = StagePresenter.new()
+    if params[:search]
+      results = stage.search_all(params[:search])
     else
-      @results = @results.find_all{|project| project.photo.exists?}.shuffle
-      @filter ="auto"    
-      end
-    
-    if params[:size] == "large"
-      @size = "large"
-      @results = @results.paginate :page => params[:page], :per_page => 8
-    else
-      @size = "small"
-      @results = @results.paginate :page => params[:page], :per_page => 8
+      results = stage.find_by_type(params[:type])
     end
-      end
+
+    @results = stage.sort(results, params[:sort], params[:type])
+
+    @results = @results.paginate :page => params[:page], :per_page => 8
+
+    if params[:size]
+      @size = params[:size]
+    end
+  end
 
   
   def search        

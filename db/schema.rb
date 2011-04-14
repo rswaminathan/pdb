@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110406092503) do
+ActiveRecord::Schema.define(:version => 20110413080933) do
 
   create_table "admins", :force => true do |t|
     t.text      "email_list"
@@ -38,12 +38,12 @@ ActiveRecord::Schema.define(:version => 20110406092503) do
   add_index "adminusers", ["reset_password_token"], :name => "index_adminusers_on_reset_password_token", :unique => true
 
   create_table "attachments", :force => true do |t|
-    t.integer   "project_id"
-    t.string    "file_file_name"
-    t.string    "file_content_type"
-    t.integer   "file_file_size"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.integer  "project_id"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "authorizations", :force => true do |t|
@@ -63,10 +63,17 @@ ActiveRecord::Schema.define(:version => 20110406092503) do
   end
 
   create_table "groups", :force => true do |t|
-    t.string    "name"
-    t.string    "description"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.string   "banner_link"
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
   end
 
   create_table "groups_projects", :id => false, :force => true do |t|

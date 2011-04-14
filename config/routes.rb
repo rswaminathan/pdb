@@ -25,7 +25,6 @@ Pdb::Application.routes.draw do
   #match "/signout", 					:to => "sessions#destroy", :as => :signout
 
   resources :profile
-  resources :groups
   
   resources :users do
     member do
@@ -53,6 +52,19 @@ Pdb::Application.routes.draw do
     get 'become_user'
   end 
 
+  resources :groups do
+    member do
+      delete 'delete_projects'
+      delete 'delete_users'      
+      post 'add_projects'
+      post 'add_users'
+      put 'update'
+      
+    end
+  end
+    
+    
+
   resources :sessions, :only => [:new, :create, :destroy]
   resources :relationship_users, :only => [:create, :destroy]
   resources :relationship_projects, :only => [:create, :destroy]
@@ -65,6 +77,7 @@ Pdb::Application.routes.draw do
     end
     resources :links
     member do
+      post 'create_group'
       get 'edit_collaborators'
       post 'update_collaborators'
       post 'search_collaborators'

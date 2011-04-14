@@ -13,14 +13,14 @@
             <% end %>
             <div class="span-6 stage-main-links">
                 See All: 
-                <%= link_to "People", stage_path(:type => "people") %>
-                <%= link_to "Projects", stage_path(:type => "projects") %>
+                <%= link_to "People", stage_path(:type => "people", :group => @group) %>
+                <%= link_to "Projects", stage_path(:type => "projects", :group => @group) %>
             </div>
             <div class="span-6 stage-tag-links">
                 <% link_generator(Project.all,0,30) %>
                 <% @links.each do |u| %>
                 <div class="stage-popular-tags">
-                    <%="[ #{u[1]} ] "%><%= link_to u[0], stage_path(:search => u[0], :size => @size) %> 
+                    <%="[ #{u[1]} ] "%><%= link_to u[0], stage_path(:search => u[0], :size => @size, :group => @group) %> 
                 </div>
                 <%end%>
             </div>

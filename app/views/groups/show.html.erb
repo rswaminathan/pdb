@@ -4,6 +4,7 @@
 <%= stylesheet_link_tag 'freeow' %>
 <%= stylesheet_link_tag 'user' %>
 <%= stylesheet_link_tag 'project-list/project-regular' %>
+
 <%= render 'shared/facebook_graph' %>
 <% end %>
 
@@ -14,15 +15,15 @@
                 <tr>
 
                     <td id="user_sidebar_position" class="span-6">						
-                        <%= render 'pages/stage/sidebar' %>
+                        <%= render 'groups/groups_stage/sidebar' %>
                     </td>
                     <td id="user_projects" class="span-18 last">
                         <div class="span-18 last" id = "home-banner">
                             <div class="span-7" style="height:200px"></div>
                             <div class="span-11 last">
-                                <h1> You've Made Incredible Things </h1>
+                                <h1> Presenting Creations From </h1>
                                 <br /><br />
-                                <h2> Now Show Them to the World </h2>
+                                <h2> <%= @group.name.titleize %> </h2>
                             </div>
                         </div>
 
@@ -32,16 +33,16 @@
                             <div id="stage-header-text-position">
                                 <% if params[:type] == "people" %>
                                 <h3> Sort: </h3>
-                                <%= link_to "Productivity", stage_path(:sort => "projects", :type => "people") %>
-                                <%= link_to "Date", stage_path(:sort => "date", :type => "people") %>
+                                <%= link_to "Productivity", group_path(:sort => "projects", :type => "people") %>
+                                <%= link_to "Date", group_path(:sort => "date", :type => "people") %>
                                 <% else %>
                                 <h3> Sort: </h3>
-                                <%= link_to "Random", stage_path(:sort => "auto", :size => @size, :type => "projects") %>
-                                <%= link_to "Popularity", stage_path(:sort => "popularity",:size => @size, :type => "projects") %>
-                                <%= link_to "Date", stage_path(:sort => "date", :size => @size, :type => "projects") %>
+                                <%= link_to "Random", group_path(:sort => "auto", :size => @size, :type => "projects") %>
+                                <%= link_to "Popularity", group_path(:sort => "popularity",:size => @size, :type => "projects") %>
+                                <%= link_to "Date", group_path(:sort => "date", :size => @size, :type => "projects") %>
                                 <h3> Size: </h3>
-                                <%= link_to "Large", stage_path(:size => "large", :sort => @sort, :type => "projects", :page =>@page) %>
-                                <%= link_to "Small", stage_path(:size => "small",  :sort => @sort, :type => "projects", :page => @page) %>
+                                <%= link_to "Large", group_path(:size => "large", :sort => @sort, :type => "projects", :page =>@page) %>
+                                <%= link_to "Small", group_path(:size => "small",  :sort => @sort, :type => "projects", :page => @page) %>
                                 <% end %>
                             </div>
                         </div>	

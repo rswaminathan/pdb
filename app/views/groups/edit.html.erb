@@ -1,0 +1,104 @@
+<% content_for :head do %>
+<%= javascript_include_tag 'jquery.nivo.slider.pack.js', 'jquery.freeow.min.js' %>
+<%= stylesheet_link_tag 'stage' %>
+<%= stylesheet_link_tag 'freeow' %>
+<%= stylesheet_link_tag 'user' %>
+
+<%= stylesheet_link_tag 'project-list/project-regular' %>
+<%= render 'shared/facebook_graph' %>
+<% end %>
+
+<div class="container" id="default-container">
+	
+	<div class="span-4" id="user_projects" style="width:150px">
+        	<h2><%= @group.name %></h2>
+		<h3><%= @group.description %></h3>
+		<%= form_for @group, :html => { :multipart => true } do |f|  %>
+		<%= render 'shared/error_messages', :object => f.object %>
+		<div class="field">
+			<%= f.label "name" %><br />
+			<%= f.text_field :name %>
+		</div>
+		</br>
+		<div class="field">
+			<%= f.label 'description' %><br />
+			<%= f.text_field :description%>
+		</div>
+		
+		<div class="field">
+			<% if @group.photo.exists? %>
+				<div style="width:200px; float:right"> <%= image_tag (@group.photo.url) %> </div>
+				</br>
+				<%= f.label "Enter Different Photo" %><br />
+			<% else %>
+				<%= f.label :photo %><br />
+			<% end %>
+			<%= f.file_field :photo %>
+		</div>
+		<div class="field">
+			<% if @group.banner.exists? %>
+				<div style="width:200px; float:right"> <%= image_tag (@group.banner.url) %> </div>
+				</br>
+				<%= f.label "Enter Different banner" %><br />
+			<% else %>
+				<%= f.label :banner %><br />
+			<% end %>
+			<%= f.file_field :banner %>
+		</div>
+		<div class="submit">
+			<%= f.submit "Save Group" %><br />
+		</div>
+		<% end %>
+	</div>
+	
+        <div class="span-4" id="user_projects" style="width:200px">
+		<h2> Group Projects </h2>
+		<table>
+		<% for project in @projects %>
+			<tr>
+				<td> <%= link_to project.name, project %> </td> 
+				<td> <%= link_to "Remove", delete_projects_group_path(@group, :project_id => project.id), :method => :delete  %> </td>	
+			</tr>
+		<% end %>
+		</table>
+	</div>
+	<div class="span-4" id="user_projects" style="width:200px">
+		<h2> Group Users </h2>
+		
+		<table>
+		<% for user in @people %>
+			<tr>
+				<td> <%= link_to user.name, user %> </td> 
+				<td> <%= link_to "Remove", delete_users_group_path(@group, :user_id => user.id), :method => :delete  %> </td>	
+			</tr>
+		<% end %>
+		</table>
+	</div>
+		<div class="span-4" id="user_projects" style="width:150px">
+			<h2> All Other Projects </h2>
+			
+		<table>
+		<% for project in @other_projects %>
+			<tr>
+				<td> <%= link_to project.name, project %> </td>
+				<td> <%= link_to "add", add_projects_group_path(@group, :project_id => project.id), :method => :create  %> </td>	
+			</tr>
+		<% end %>
+		</table>
+
+		</div>
+		<div class="span-4" id="user_projects" style="width:150px">
+			<h2> All Other Users </h2>
+		
+		<table>
+
+		<% for user in @other_users %>		
+			<tr>
+				<td> <%= link_to user.name, user %> </td>
+				<td> <%= link_to "add", add_users_group_path(@group, :user_id => user.id), :method => :create  %> </td>	
+			</tr>
+		<% end %>
+		</table>
+		</div>
+	</div>
+</div>

@@ -6,7 +6,5 @@ class LinksController < ApplicationController
       fix_providers(@project.links)
       redirect_to(@project)
   end
-
-
 end
 

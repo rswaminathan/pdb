@@ -137,6 +137,19 @@ module SessionsHelper
     @links = p_sorted[start_index,num]
   end
 
+  def group_sorter(users,length)
+    g_hash = Hash.new
+    users.each do |user|
+      user.projects.each do |project|
+        project.groups.each do |group|
+	  g_hash[group] = (g_hash.has_key?(group) ? g_hash[group]+1 : 1)
+        end
+      end
+    end
+    @groups_list = (g_hash.sort {|a,b| -(a[1]<=>b[1])})[0,length]
+  end
+      
+
   private
 
   def user_from_remember_token

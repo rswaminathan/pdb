@@ -28,10 +28,14 @@ class Project < ActiveRecord::Base
   has_many :likes
 
   accepts_nested_attributes_for :links, :allow_destroy => true
+  accepts_nested_attributes_for :groups
+  accepts_nested_attributes_for :attachments
 
   validates :name,        :presence   => true
   
   scope :by_count, :order => 'projects.count DESC'
+  #todo: check if sql injection possible
+  scope :by_group, lambda{|g| joins(:groups).where(:groups => g) if !g.nil?}
   
   acts_as_taggable
   acts_as_taggable_on :kind

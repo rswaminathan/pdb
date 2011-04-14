@@ -57,11 +57,24 @@ border-radius: 7px;
 background: none repeat scroll 0 0 rgba(20, 20, 20, 0.5);
 border-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.2) rgba(255, 255, 255, 0.1);
 border-style: solid;border-width: 1px;
-color: #919191;padding: 2px 10px 9px;
+color: white;
+padding: 2px 10px 9px;
 text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
 float:left;
     
 }
+
+.home_register a {
+color: white;
+
+}
+
+.home_register a:hover {
+color: white;
+text-decoration: underline;
+
+}
+
 #main-page-large{
 padding: 0;
 width: 720px;

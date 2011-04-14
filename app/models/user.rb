@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+  scope :by_group, lambda{|g| joins(:groups).where(:groups => g) if !g.nil?}
 
   has_many :authorizations
 
@@ -63,7 +64,7 @@ class User < ActiveRecord::Base
 
   class << self
     def search_by_name(query)
-      where("name like ?", "%#{query}%")
+      where("users.name like ?", "%#{query}%")
     end
 
     def authenticate(email, submitted_password)

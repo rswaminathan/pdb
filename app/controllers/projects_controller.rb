@@ -97,6 +97,8 @@ class ProjectsController < ApplicationController
     @pages = @project.project_pages
     @project_page = @project.project_pages
     @project.links.build
+    @user = current_user
+    @tag_string = params[:tags] ? params[:tags].gsub(" ", ", ") : ""
   end
 
   def edit_main_page
@@ -196,6 +198,27 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def create_group
+    @project = Project.find_by_id(params[:id])
+    if @group = Group.find_by_name(params[:group][:name]) 
+	redirect = nil
+    else 
+	@group = Group.new(params[:group])
+	redirect = True
+    end
+    @group.projects += [@project]
+    if @group.save
+      flash[:success] = "New Group Added"
+    else 
+      flash[:error] = "Error"
+    end
+    if redirect
+	redirect_to @group
+    else 
+	redirect_to @project
+    end
+  end
+
   def new_page
     @title = "New Page"
     @project = Project.find_by_id(params[:id])
@@ -245,7 +268,7 @@ class ProjectsController < ApplicationController
   end
 
   def random
-    redirect_to Project.all.find_all{|project| !project.description.nil? && project.description.length > 20}[rand(Project.count)]
+    redirect_to Project.random
   end
 
   private
