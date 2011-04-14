@@ -4,19 +4,6 @@
 
 <div id="project_page_align">
 	
-	<%if !signed_in?%>
-		<div class="span-5 last">
-			<div id"twitter-position-small" >
-				<a href="http://twitter.com/share" class="twitter-share-button" data-url=<%= project_url(@project)%> data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-			</div>
-	
-			<div id"facebook-position-small">
-			<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href=<%= project_url(@project)%>  layout="button_count" show_faces="true" ref="holono.com" width="40px"></fb:like>
-			</div>
-	
-		</div>
-	<% end %>
-	
 
 	<% unless @project.links.empty? || @project.attachments.empty?%>
 		<div id="project-files-align">
@@ -58,6 +45,20 @@
 		</div>
 	<%end%>
 
+	<div class="span-5 last">
+			<div id="twitter-position-big" >
+			<a href="http://twitter.com/share" class="twitter-share-button" data-url=<%= project_url(@project)%>  data-count="vertical" data-via="ozziegooen">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+			</div>
+	
+			<div id="facebook-position-big" >	
+			<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href=<%= project_url(@project)%> layout="box_count" show_faces="true" ref="holono.com" width="40px"></fb:like>
+			</div>
+	
+			<div id="linkedin-position-big" >
+			<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share" data-counter="top"></script>
+			</div>
+	</div>
+	
 	<% if current_project_user? %> 
 		<div id="login_special", style="text-align:center">
 			<%= link_to "Edit Project Info", edit_project_path %>
@@ -109,22 +110,6 @@
 	<% end %>
 	
 
-	<% if signed_in? %>
-		<div class="span-5 last">
-				<div id="twitter-position-big" >
-				<a href="http://twitter.com/share" class="twitter-share-button" data-url=<%= project_url(@project)%>  data-count="vertical" data-via="ozziegooen">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-				</div>
-		
-				<div id="facebook-position-big" >	
-				<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href=<%= project_url(@project)%> layout="box_count" show_faces="true" ref="holono.com" width="40px"></fb:like>
-				</div>
-		
-				<div id="linkedin-position-big" >
-				<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share" data-counter="top"></script>
-				</div>
-		</div>
-	<% end %>
-
 
 
 	<% if !current_project_user? %>
@@ -174,4 +159,10 @@
 			</div>
 		<% end %>
 	<%end%>	
+	
+	<% if !@project.groups.empty? %>
+	<% @project.groups.each do |group| %>
+	<% logo = image_tag group.banner.url(:banner), :style=>"width:180px" %><%= link_to logo, group %>
+	<% end %>
+	<% end %>
 </div>

@@ -1,7 +1,8 @@
 <div class="span-6 last" id="stage-sidebar-outer-position">
     <div id="stage-sidebar-inner-position">
+		<%= image_tag (@group.banner.url(:banner), :style=>"width:220px") %>
+		<h4><%= @group.description %></h4>
 
-        <% if signed_in? %>
         <div class="span-6 stage-sidebar">
             <%=form_tag group_path(@group), :method => 'get' do %>
             	    <div class="submit", id="stage-search-button-position">
@@ -11,11 +12,6 @@
 	                <%= text_field_tag :search, params[:search],:id => "stage-search-bar-style" %> 
 	            </div>
             <% end %>
-            <div class="span-6 stage-main-links">
-                See All: 
-                <%= link_to "People", group_path(:type => "people", :group => @group) %>
-                <%= link_to "Projects", group_path(:type => "projects", :group => @group) %>
-            </div>
             <div class="span-6 stage-tag-links">
                 <% link_generator(@projects.all,0,30) %>
                 <% @links.each do |u| %>
@@ -25,11 +21,7 @@
                 <%end%>
             </div>
         </div>
+
     </div>
-    <% else %>
-    <div class="span-6 stage-sidebar-social">
-        <%= render 'pages/home/main_details' %>
-    </div>
-    <% end %>
 </div>
 </div>

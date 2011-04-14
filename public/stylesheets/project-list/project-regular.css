@@ -1,13 +1,4 @@
-/* @override 
-	http://localhost:3000/stylesheets/project-list/project-regular.css?1301816580
-	http://localhost:3000/stylesheets/project-list/project-regular.css?1301817311
-	http://localhost:3000/stylesheets/project-list/project-regular.css?1301819130
-	http://localhost:3000/stylesheets/project-list/project-regular.css?1301820547
-	http://localhost:3000/stylesheets/project-list/project-regular.css?1301820682
-	http://localhost:3000/stylesheets/project-list/project-regular.css?1301820887
-	http://localhost:3000/stylesheets/project-list/project-regular.css?1301821006
-	http://localhost:3000/stylesheets/project-list/project-regular.css?1301824411
-*/
+
 
 .list_project_icon {
 margin: 3px 0 0 3px; float:right;
@@ -19,7 +10,7 @@ width:20px;
   vertical-align: top;
   background-color: rgba(255,255,255,1);
   border-radius: 0.5em 0.5em 0.5em 0.5em;
-  -moz-border-radius: 0.5em 0em 0.5em 0.5em;	
+  -moz-border-radius: 0.5em 0em 0.5em 0.5em;	  
 }
 
 #user_projects_photo {
@@ -92,7 +83,7 @@ width:20px;
 }
 
 .list-project-bottom-push{ 
-min-height: 65px;
+min-height: 70px;
 margin-bottom: 0.4em;
 float: left;
 }

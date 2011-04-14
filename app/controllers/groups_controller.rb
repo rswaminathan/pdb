@@ -38,7 +38,7 @@ class GroupsController < ApplicationController
     @users = stage.allpeople(@projects)
 
      if params[:search]
-       @results = stage.search_all(params[:search])
+       @results = stage.search_all(params[:search], @group)
      elsif params[:type]
        @results = stage.find_by_type(params[:type])
      else 

@@ -1,4 +1,4 @@
-/* @override http://localhost:3000/stylesheets/application.css?1301218623 */
+
 
 body{
 	background: #eee;
@@ -14,7 +14,7 @@ body{
 	clear:none;
 }
 #main h1{
-    color: #fff;
+    color: #333;
 }
 .home_1{
 	visibility: visible;
@@ -26,7 +26,7 @@ body{
 }
 
 #home_info a{
-	color: white;	
+	color: #333;	
 }
 
 
@@ -51,16 +51,16 @@ body{
 }
 
 .home_register {
-border-radius: 7px;
--moz-border-radius: 7px;
--webkit-border-radius: 7px;
-background: none repeat scroll 0 0 rgba(20, 20, 20, 0.5);
-border-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.2) rgba(255, 255, 255, 0.1);
-border-style: solid;border-width: 1px;
-color: white;
-padding: 2px 10px 9px;
-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
-float:left;
+	width:223px;
+	margin-top:0em;
+	padding-top: 8px;
+	padding-bottom: 10px;
+	border: 1px solid #ddd;
+	background-color: rgba(255,255,255,0.9);
+	border-radius: 0.4em 0.4em 0.4em 0.4em;
+	-moz-border-radius: 0.4em 0.4em 0.4em 0.4em;
+	border: 1px solid #d6d6d6;
+	padding: 1em;
     
 }
 

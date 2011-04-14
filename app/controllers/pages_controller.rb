@@ -40,10 +40,10 @@ class PagesController < ApplicationController
     @user = (current_user || User.new)
     @type = "all" #this sets it to auto-show filtering options
     @filter = "none"
-    
+    @group = nil
     stage = StagePresenter.new()
     if params[:search]
-      results = stage.search_all(params[:search])
+      results = stage.search_all(params[:search], @group)
     else
       results = stage.find_by_type(params[:type])
     end

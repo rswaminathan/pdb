@@ -11,11 +11,6 @@
                 <%= text_field_tag :search, params[:search],:id => "stage-search-bar-style" %> 
             </div>
             <% end %>
-            <div class="span-6 stage-main-links">
-                See All: 
-                <%= link_to "People", stage_path(:type => "people", :group => @group) %>
-                <%= link_to "Projects", stage_path(:type => "projects", :group => @group) %>
-            </div>
             <div class="span-6 stage-tag-links">
                 <% link_generator(Project.all,0,30) %>
                 <% @links.each do |u| %>

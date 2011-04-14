@@ -7,4 +7,8 @@
 
 <% elsif result.class == User %>
 <%= render 'shared/common_list_elements/list_user', :list_user => result %>
+
+<% elsif result.class == Group %>
+><%= render 'shared/common_list_elements/list_group', :list_group => result %>
+
 <% end %>

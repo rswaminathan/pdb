@@ -6,8 +6,17 @@
 <%= stylesheet_link_tag 'project-list/project-regular' %>
 
 <%= render 'shared/facebook_graph' %>
+
 <% end %>
 
+<head>
+	
+	<style type="text/css">
+    		#home-banner{
+		background: url("<%= @group.photo.url(:large)%>");
+		}
+   	</style>
+</head>
 <div class="container" id="default-container">
     <div id="user_background" class="span-24">	
         <table cellspaceing="0" style="margin:0">
@@ -18,15 +27,19 @@
                         <%= render 'groups/groups_stage/sidebar' %>
                     </td>
                     <td id="user_projects" class="span-18 last">
-                        <div class="span-18 last" id = "home-banner">
-				<%= image_tag (@group.banner.url(:large), :style=>"width:700px") %>
-	
+                        <div class="span-18 last" id = "home-banner" style="background: url("http://www.collegefinancialaidguide.com/pictures/Harvey%20Mudd%20College/library.jpg"); "
+			">	
                         
                         </div>
 
                         <% if !@type.empty? %>
                         <div id="stage-header">
 
+		            <div class="stage-main-links">
+		                <%= link_to @group.projects.count.to_s+" "+"Projects", group_path(:type => "projects", :group => @group) %>
+		                <%= link_to @group.users.count.to_s+" "+"People", group_path(:type => "people", :group => @group) %>
+		            </div>
+		
                             <div id="stage-header-text-position">
                                 <% if params[:type] == "people" %>
                                 <h3> Sort: </h3>

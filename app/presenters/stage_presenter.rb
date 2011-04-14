@@ -22,33 +22,58 @@ class StagePresenter
   def find_by_type(type)
     if type == "people"
       stage_users
-    else 
+    elsif type == "groups"
+      results = Group.all
+    else
       stage_projects
     end
   end
 
   def sort(results, sort ,type)
-    if sort.nil?
-      if type && (type == "people") 
-        results.sort! {|a,b| -(a.created_at <=> b.created_at)} 
-      elsif !results.nil?
-         results.shuffle!
-      end
-    elsif sort == "date"
-      results.sort! {|a,b| -(a.created_at <=> b.created_at)}  
-    elsif sort == "popularity"
-      results.sort! {|a,b| -(a.count <=> b.count)}
-    elsif sort == "productivity"
-      results.sort! {|a,b| -(a.projects.count <=> b.projects.count)}
+    if type && (type == "people") 
+      sort_people(results, sort)
+    elsif type && (type == "projects")
+      sort_projects(results, sort)
+    elsif type && (type == "groups")
+      sort_groups(results, sort)
     else
-      results.shuffle!
+      results.sort! {|a,b| -(a.created_at <=> b.created_at)} 
     end
   end
 
-  def search_all(query)
+  def sort_people(results, sort)
+    if sort == "productivity"
+      results.sort! {|a,b| -(a.projects.count <=> b.projects.count)}
+    else
+      results.sort! {|a,b| -(a.created_at <=> b.created_at)} 
+    end
+  end
+  
+  def sort_projects(results, sort)
+    if sort == "date"
+      results.sort! {|a,b| -(a.created_at <=> b.created_at)}  
+    elsif sort == "popularity"
+      results.sort! {|a,b| -(a.count <=> b.count)}
+    else !results.nil?
+       results.shuffle!
+    end
+  end
+  
+  def sort_groups(results, sort)
+    if sort == "size"
+       results.sort! {|a,b| -(a.projects.count <=> b.projects.count)}
+    else 
+       results.sort! {|a,b| -(a.created_at <=> b.created_at)}
+    end
+  end    
+  
+  def search_all(query, group)
     results = []
     results += (Project.by_group(@group).search_by_name(query)) || []
     results += (User.by_group(@group).search_by_name(query)) || []
+    if group.nil?
+    results += (Group.search_by_name(query)) || []
+    end
     return results
   end
 
@@ -80,7 +105,7 @@ class StagePresenter
       return User.all
     end
   end
-    
+  
   def show_in_stage?(project)
     (!project.abstract.nil? && (project.abstract.length > 35)) || (!project.description.nil? && project.description.length>35) && project.photo.exists?
   end

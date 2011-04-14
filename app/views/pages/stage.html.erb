@@ -28,7 +28,12 @@
 
                         <% if !@type.empty? %>
                         <div id="stage-header">
-
+		            <div class="stage-main-links">
+		                <%= link_to Project.all.count.to_s+" "+"Projects", stage_path(:type => "projects") %>
+		                <%= link_to Group.all.count.to_s+" "+"Groups", stage_path(:type => "groups") %>
+		                <%= link_to User.all.count.to_s+" "+"People", stage_path(:type => "people") %>
+		            
+				</div>
                             <div id="stage-header-text-position">
                                 <% if params[:type] == "people" %>
                                 <h3> Sort: </h3>
