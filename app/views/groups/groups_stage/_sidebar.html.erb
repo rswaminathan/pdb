@@ -3,7 +3,7 @@
 
         <% if signed_in? %>
         <div class="span-6 stage-sidebar">
-            <%=form_tag groups_path :method => 'get' do %>
+            <%=form_tag group_path(@group), :method => 'get' do %>
             	    <div class="submit", id="stage-search-button-position">
 	                <%= submit_tag "Search", :id => "stage-search-button-style" %>
 	            </div>
