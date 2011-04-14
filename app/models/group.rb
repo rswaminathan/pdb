@@ -6,14 +6,14 @@ class Group < ActiveRecord::Base
                     :default_url => "/images/wally_profile-tiny.jpg",
                     :storage => :s3,
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
-                    :path => "/profiles/photo/:id/:style/:filename"    
+                    :path => "/groups/photo/:id/:style/:filename"    
 
   has_attached_file :banner, 
                     :styles => {:standard => "120x90", :banner =>"160x60"},
                     :default_url => "/images/wally_profile-tiny.jpg",
                     :storage => :s3,
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
-                    :path => "/:style/:filename"    
+                    :path => "/groups/banners/:id/:style/:filename"    
   
   
   has_and_belongs_to_many :projects

@@ -112,7 +112,7 @@ class GroupsController < ApplicationController
   
   def delete_users
     @group = Group.find(params[:id])
-    users_to_delete = User.find(params[:user_id])
+    user_to_delete = User.find(params[:user_id])
     if user_to_delete.nil?
       flash.now[:error] = "Cannot find user" 
       redirect_to edit_group_path(@group)
