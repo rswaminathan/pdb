@@ -23,11 +23,11 @@
 					<% if admin_user? %>
 						<%= link_to "Admin", admin_email_path %> 
 					<% end %>
-					  <%=link_to "Profile", user_path(current_user) %> 
+					  
 					</div> <div id="header_menu_right">
-					 <%= link_to "Settings", edit_user_path(current_user)  %> <%= link_to "Log Out", logout_path %>
+					 <%=link_to "Profile", user_path(current_user) %> | <%= link_to "New Project", new_project_path %> | <%= link_to "Settings", edit_user_path(current_user)  %> | <%= link_to "Log Out", logout_path %>
 				<% else %>
-					 </div> <div id="header_menu_right"><%= link_to "Sign In", login_path %>
+					 </div> <div id="header_menu_right"><%= link_to "Sign In", login_path %> | <%= link_to "Register", new_user_path %>
 				<% end %>
 				</div>	
 			</div>

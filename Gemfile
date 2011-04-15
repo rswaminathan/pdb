@@ -23,6 +23,7 @@ group :development do
   gem 'bullet'
   gem 'rspec-rails', '2.0.1'
   gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git', :require => 'rails_development_boost'
+  gem 'newrelic_rpm'
 end 
 
 group :test do

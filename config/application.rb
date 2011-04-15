@@ -1,6 +1,9 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'new_relic/collection_helper'
+require 'new_relic/rack_app'
+
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
@@ -14,6 +17,7 @@ module Pdb
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
+    config.middleware.use NewRelic::Rack::DeveloperMode
     config.autoload_paths += %W(#{config.root}/presenters)
 
     # Only load the plugins named here, in the order given (default is alphabetical).

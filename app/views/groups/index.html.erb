@@ -7,6 +7,8 @@
 <% end %>
 
 <div class="container" id="default-container">
+	 <h3><%= link_to "New Group", new_group_path() %> </h3>	
+	
   <div id="user_projects">
     <table>
       <% for group in @groups %>

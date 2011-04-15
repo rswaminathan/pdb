@@ -8,7 +8,7 @@
 			<div class="span-12 last">
 				<div class="list-project-middle-position">
 					<div class="list-project-bottom-push span-12">
-						<h1> <%= link_to group.name, group%> </h1>
+						<h1> <%= link_to group.name, group %> </h1>
 						<% if !group.description.nil? && !group.description.empty? %>
 							<p><%= (truncate(strip_tags(group.description), :length => 260)) %></p>
 						<% end %>

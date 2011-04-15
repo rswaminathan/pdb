@@ -1,8 +1,10 @@
 class StagePresenter
 
-  def initialize(group = nil)
+  def initialize(group = nil, page = nil, perpage = 8)
     @filter = nil
     @group = group
+    @page = page
+    @perpage = perpage
   end
 
   def recent_projects
@@ -88,10 +90,12 @@ class StagePresenter
   def stage_projects
     if @group
       results = @group.projects
+      results.find_all{|project| show_in_stage_group?(project)}
     else
       results = Project.all
+      results.find_all{|project| show_in_stage_home?(project)}
     end
-    results.find_all{|project| show_in_stage?(project)}.shuffle
+    
   end
 
   def stage_users
@@ -106,9 +110,11 @@ class StagePresenter
     end
   end
   
-  def show_in_stage?(project)
+  def show_in_stage_home?(project)
     (!project.abstract.nil? && (project.abstract.length > 35)) || (!project.description.nil? && project.description.length>35) && project.photo.exists?
   end
 
-
+  def show_in_stage_group?(project)
+    (!project.abstract.nil? && (project.abstract.length > 20)) || (!project.description.nil? && project.description.length>20)
+  end
 end

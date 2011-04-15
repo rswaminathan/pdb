@@ -41,7 +41,7 @@ class PagesController < ApplicationController
     @type = "all" #this sets it to auto-show filtering options
     @filter = "none"
     @group = nil
-    stage = StagePresenter.new()
+    stage = StagePresenter.new(params[:page], 8)
     if params[:search]
       results = stage.search_all(params[:search], @group)
     else

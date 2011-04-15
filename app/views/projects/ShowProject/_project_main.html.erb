@@ -1,5 +1,5 @@
 <div id="#project-header-user_pictures-positioning">
-	<% @project.users.each do |p| %>
+	<% @project.users.includes(:profile).each do |p| %>
 		<% unless !p.profile.photo.exists? %>
 			<div class="project-header-user_pictures-size"> 
 				<% logo = image_tag p.profile.photo.url(:teeny)%> 

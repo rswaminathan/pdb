@@ -14,13 +14,7 @@
 							<% end %>
 				</div>
 				<div class="span-14">
-					<% (0..3).each do |i| %>
-						<% if !(list_project.users[(i+1)..6].nil? || list_project.users[(i+1)..4].empty?) %>
-							<h2><%= link_to (list_project.users[i].name << ","), list_project.users[i] %></h2>
-						<% elsif list_project.users[i] %>
-							<h2><%= link_to (list_project.users[i].name), list_project.users[i] %></h2>
-						<% end %>
-					<% end %>
+          <h2><%= raw list_project.users.first(4).collect{|u| link_to(u.name, user_path(u))}.to_sentence %></h2>
 				</div>
 			</div>
 			
@@ -39,13 +33,7 @@
 						<% end %>
 				</div>
 				<div class="span-17">
-					<% (0..3).each do |i| %>
-						<% if !(list_project.users[(i+1)..6].nil? || list_project.users[(i+1)..4].empty?) %>
-							<h2><%= link_to (list_project.users[i].name << ","), list_project.users[i] %></h2>
-						<% elsif list_project.users[i] %>
-							<h2><%= link_to (list_project.users[i].name), list_project.users[i] %></h2>
-						<% end %>
-					<% end %>
+          <h2><%= raw list_project.users.first(4).collect{|u| link_to(u.name, user_path(u))}.to_sentence %></h2>
 				</div>
 			</div>
 		</div>

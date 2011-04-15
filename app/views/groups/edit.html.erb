@@ -11,8 +11,11 @@
 <div class="container" id="default-container">
 	
 	<div class="span-4" id="user_projects" style="width:150px">
-        	<h2><%= @group.name %></h2>
+        	<h2><%= link_to @group.name, @group %> 	</h2>
 		<h3><%= @group.description %></h3>
+		</br>
+		 <h5><%= link_to "New Group", new_group_path() %> </h5>	
+		</br>
 		<%= form_for @group, :html => { :multipart => true } do |f|  %>
 		<%= render 'shared/error_messages', :object => f.object %>
 		<div class="field">
@@ -27,7 +30,8 @@
 		
 		<div class="field">
 			<% if @group.photo.exists? %>
-				<div style="width:200px; float:right"> <%= image_tag (@group.photo.url) %> </div>
+				<div> <%= image_tag @group.photo.url(:standard) %>
+				 </div>
 				</br>
 				<%= f.label "Enter Different Photo" %><br />
 			<% else %>
@@ -37,7 +41,7 @@
 		</div>
 		<div class="field">
 			<% if @group.banner.exists? %>
-				<div style="width:200px; float:right"> <%= image_tag (@group.banner.url) %> </div>
+				<div> <%= image_tag (@group.banner.url(:standard)) %> </div>
 				</br>
 				<%= f.label "Enter Different banner" %><br />
 			<% else %>

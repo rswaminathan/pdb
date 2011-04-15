@@ -1,27 +1,38 @@
-<div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px">
-	<div class="home_register span-12" style="float:center; margin-left: 16em">
+<div class="container">
+	
+	<div class="home_register span-14">
 		<h1>Register New Account</h1>
-		<%= form_for @user do |f| %>
-			<%= render	'shared/error_messages', :object => f.object %>
-			<div class="field">
-				<%= f.label :name %><br />
-				<%= f.text_field :name %>
-			</div>
-			<div class="field">
-				<%= f.label :email %><br />
-				<%= f.text_field :email %>
-			</div>
-			<div class="field">
-				<%= f.label :password %><br />
-				<%= f.password_field :password %>
-			</div>
-			<div class="field">
-				<%= f.label :password_confirmation, "Confirm password" %><br />
-				<%= f.password_field :password_confirmation %>
-			</div>
-			<div class="submit">
-				<%= f.submit "Register" %><br />
-			</div>
-		<% end %>
+		
+	    	<div class="span-6">
+			<%= form_for @user do |f| %>
+				<%= render	'shared/error_messages', :object => f.object %>
+				<div class="field">
+					<%= f.label :name %><br />
+					<%= f.text_field :name %>
+				</div>
+				<div class="field">
+					<%= f.label :email %><br />
+					<%= f.text_field :email %>
+				</div>
+				<div class="field">
+					<%= f.label :password %><br />
+					<%= f.password_field :password %>
+				</div>
+				<div class="field">
+					<%= f.label :password_confirmation, "Confirm password" %><br />
+					<%= f.password_field :password_confirmation %>
+				</div>
+				<div class="submit">
+					<%= f.submit "Register" %><br />
+				</div>
+			<% end %>
+		</div>
+	    <div id="alternate_login" class="span-3 last" style="padding: 60px; margin-top: 10px; border-left: 1px solid #222;">
+	        <%= link_to image_tag('facebook-login.png'),  "/auth/facebook"%>
+	    </div><br />
+		<div>
+		</div>
 	</div>
+	
 </div>
+

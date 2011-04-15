@@ -51,16 +51,16 @@ body{
 }
 
 .home_register {
-	width:223px;
 	margin-top:0em;
 	padding-top: 8px;
 	padding-bottom: 10px;
-	border: 1px solid #ddd;
-	background-color: rgba(255,255,255,0.9);
+	border: 1px solid #bbb;
+	background-color: rgba(0,0,0,0.1);
 	border-radius: 0.4em 0.4em 0.4em 0.4em;
 	-moz-border-radius: 0.4em 0.4em 0.4em 0.4em;
 	border: 1px solid #d6d6d6;
 	padding: 1em;
+	margin-bottom:3em;
     
 }
 

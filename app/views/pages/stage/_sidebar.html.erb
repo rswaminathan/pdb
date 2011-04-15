@@ -13,6 +13,7 @@
             <% end %>
             <div class="span-6 stage-tag-links">
                 <% link_generator(Project.all,0,30) %>
+		View By Tag: 
                 <% @links.each do |u| %>
                 <div class="stage-popular-tags">
                     <%="[ #{u[1]} ] "%><%= link_to u[0], stage_path(:search => u[0], :size => @size, :group => @group) %> 
