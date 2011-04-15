@@ -49,8 +49,11 @@ class GroupsController < ApplicationController
      
     @results = @results.paginate :page => params[:page], :per_page => 8
     
+      @size = "small"
     if params[:size]
       @size = params[:size]
+    elsif !(params[:type] || params[:search] || params[:size])
+      @size = "large"
     end
     
   end

@@ -25,7 +25,7 @@
 									<%= link_to "Home", @project %>
 								</div><br />
 								<div class="header_tabs">
-									New Pages Go Here! Finish with the General info first.
+									New Pages Go Here! 
 								</div><br />
 							</div>
 						</div>
@@ -34,14 +34,22 @@
 
 					<div id="project_page_align">	
 
-						<% if !@project.links.empty? || !@project.attachments.empty?%>
+						<% if !@project.links.empty? || !@project.attachments.empty? %>
 							<div id="project-files-align">
-								<table><tr><td>Project Links Go Here!</td></tr></table>
+								<%= f.fields_for :links do |link_field| %>
+								<div class="field">
+									<%= link_field.label :add_external_link %><br />
+									<%= link_field.text_field :link, :size => 18%>
+								</div>
+								<% end %>
 								<div class="span-5 last">
-									<table>
-										<tr><td>Project Attachments Go Here!</td></tr><tr></tr>
-										<tr><td>Finish Adding the General Data to add attachments and links</td></tr>
-									</table>
+									<%= f.fields_for :attachments, :html => { :multipart => true } do |attachments_field| %>
+
+										<div class="field">
+											<%= attachments_field.label :Upload_File %><br />
+											<%= attachments_field.file_field(:file, :size => "30") %>
+										</div>
+									<% end %>
 								</div>
 							</div>
 						<%end%>
