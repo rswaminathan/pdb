@@ -32,7 +32,6 @@ class ProjectsController < ApplicationController
       end
       @user.projects << @project
       flash[:success] = "Project added!"
-      #current_user.facebook.feed!(:message => "Check out my new project #{link_to(@project.name,@project)} at Holono.com", :name => "My New Project" )
       redirect_to @project
     else
       render 'new'
@@ -199,17 +198,17 @@ class ProjectsController < ApplicationController
 
   def create_group
     @project = Project.find_by_id(params[:id])
-    if @group = Group.find_by_name(params[:group][:name]) 
+    if @group = (Group.find_by_name(params[:group][:name]) || Group.find_by_name(params[:group][:name]))
 	redirect = nil
     else 
-	@group = Group.new(params[:group])
-	redirect = True
+	@group = Group.new(:name => params[:group][:nameone])
+	redirect = true
     end
-    @group.projects += [@project]
+    @group.projects << @project
     if @group.save
-      flash[:success] = "New Group Added"
+      flash[:success] = "Group Added"
     else 
-      flash[:error] = "Error"
+      flash[:error] = "Error, #{@group.name}, #{@group.projects.to_s}"
     end
     if redirect
 	redirect_to @group

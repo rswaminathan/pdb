@@ -29,7 +29,7 @@ class Project < ActiveRecord::Base
 
   accepts_nested_attributes_for :links, :allow_destroy => true
   accepts_nested_attributes_for :groups
-  accepts_nested_attributes_for :attachments
+  accepts_nested_attributes_for :attachments, :allow_destroy => true
 
   validates :name,        :presence   => true
   

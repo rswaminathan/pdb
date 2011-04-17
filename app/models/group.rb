@@ -9,7 +9,7 @@ class Group < ActiveRecord::Base
                     :path => "/groups/photo/:id/:style/:filename"    
 
   has_attached_file :banner, 
-                    :styles => {:standard => "120x90#", :banner =>"220x80#"},
+                    :styles => {:standard => "120x90#", :banner =>"220x80"},
                     :default_url => "/images/wally_profile-tiny.jpg",
                     :storage => :s3,
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 

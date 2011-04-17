@@ -5,14 +5,14 @@
 <div id="project_page_align">
 	
 
-	<% unless @project.links.empty? || @project.attachments.empty?%>
+	<% unless @project.links.empty? %>
 		<div id="project-files-align">
 			<% @project.links.each do |thing| %>
 			<% string = "/images/icons/used-icons/#{thing.provider.to_s}.png" %>
 
 			<div class="span-5 last">
 				<div class="project-link-picture-position">
-					<% if ((thing.provider != "none") && thing.provider != nil) %>
+					<% if ((thing.provider != "none") && thing.provider) %>
 					<% mudd = image_tag string, :class=>"project-link-picture-size"%><%= link_to mudd, thing.link %>
 					<% end %>
 				</div>
@@ -21,6 +21,8 @@
 				</div>
 			</div>
 			<% end %>
+	<% end %>
+	<% unless @project.attachments.empty? %>
 			<div class="span-5 last">
 				<table>
 					<% @project.attachments.each do |file| %>
@@ -43,7 +45,7 @@
 				</table>
 			</div>
 		</div>
-	<%end%>
+	<% end %>
 
 	<div class="span-5 last">
 			<div id="twitter-position-big" >
@@ -75,7 +77,7 @@
 				</div>
 			<% end %>
 		</div>
-
+<!---
 		<div class="span-5 last" id="link_submit">
 			<%= form_for [@project, Link.new] do |f| %>
 					<div class="field">
@@ -87,7 +89,7 @@
 				</div>
 			<% end %>
 		</div>
-
+--->
 		<div class = "span-5 last" id="group_submit">
 			<% form_for :group, :url => create_group_project_path do |f| %>
 				<% group_sorter(@users, 5) %>
@@ -95,13 +97,13 @@
 				Select one of the following:<br />
 				<% @groups_list.each do |button| %>
 					<% unless @project.groups.include?(button[0]) %><div>
-						<%= radio_button("group", "name", button[0].name) %>   <%= button[0].name %></div>
+						<%= radio_button(:group, :name, button[0].name) %>   <%= button[0].name %></div>
 					<% end %>
 				<% end %>
 				Or create a new group:
 				<div class="field">
 					<%= f.label :Group_Name %><br />
-					<%= f.text_field(:name, :size => "30") %>
+					<%= f.text_field(:nameone, :size => "30") %>
 				</div>
 				<div class="submit">
 					<%= f.submit "Create Group" %><br />
