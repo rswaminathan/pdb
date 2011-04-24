@@ -1,0 +1,29 @@
+	<div class="span-5 last" id="link_submit">
+		<%= form_for [@project, Link.new] do |f| %>
+				<div class="field">
+					<%= f.label :add_external_link %><br />
+					<%= f.text_field :link, :size => 18%>
+				</div>
+			<div class="submit">
+				<%= f.submit "Add Link" %><br />
+			</div>
+		<% end %>
+	</div>
+	
+	<% unless @project.links.empty? %>
+		<div id="project-files-align">
+			<% @project.links.each do |thing| %>
+			<% string = "/images/icons/used-icons/#{thing.provider.to_s}.png" %>
+
+			<div class="span-5 last">
+				<div class="project-link-picture-position">
+					<% if ((thing.provider != "none") && thing.provider) %>
+					<% mudd = image_tag string, :class=>"project-link-picture-size"%><%= link_to mudd, thing.link %>
+					<% end %>
+				</div>
+				<div class="span-4 last" class="project-link-text-position">
+					<%= link_to (truncate(URI.parse(thing.link).host, :length=>25)), thing.link %>
+				</div>
+			</div>
+			<% end %>
+	<% end %>

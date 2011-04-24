@@ -1,4 +1,8 @@
-
+/* @override 
+	http://localhost:3000/stylesheets/user.css?1303641397
+	http://localhost:3000/stylesheets/user.css?1303642739
+	http://localhost:3000/stylesheets/user.css?1303642905
+*/
 
 #big-user-pic-regular{
   position: relative;
@@ -64,6 +68,8 @@
   float:left;
   width:115px;
 }
+
+
 
 #add_project h2{
   line-height:1.1em;

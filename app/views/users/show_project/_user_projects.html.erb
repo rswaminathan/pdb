@@ -5,7 +5,7 @@
 
 
 <% if signed_in? && current_user_page? %>
-	<%= render 'users/show_project/user_quick_project' %>
+	<%= render 'shared/common_list_elements/add_project' %>	
 <% else %>
 	<% unless @projects.any? %>
 		<div id="no_projects"><%= "#{@user.name} has not posted any projects." %></div>

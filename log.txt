@@ -1,0 +1,400 @@
+2011-04-23T12:46:53+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:138:in `eager_load!'
+2011-04-23T12:46:53+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:137:in `each'
+2011-04-23T12:46:53+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:137:in `eager_load!'
+2011-04-23T12:46:53+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:135:in `each'
+2011-04-23T12:46:53+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:25:in `run'
+2011-04-23T12:46:53+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:50:in `run_initializers'
+2011-04-23T12:46:53+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/application.rb:134:in `initialize!'
+2011-04-23T12:46:53+00:00 app[web.1]: 	from /app/config/environment.rb:5
+2011-04-23T12:46:53+00:00 app[web.1]: 	from config.ru:3
+2011-04-23T12:46:53+00:00 app[web.1]: 	from /home/heroku_rack/heroku.ru:23
+2011-04-23T12:46:53+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `instance_eval'
+2011-04-23T12:46:53+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `initialize'
+2011-04-23T12:46:53+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/rack-1.2.1/lib/rack/builder.rb:63:in `new'
+2011-04-23T12:46:53+00:00 app[web.1]: 	from /home/heroku_rack/heroku.ru:11
+2011-04-23T05:46:54-07:00 heroku[web.1]: State changed from starting to crashed
+2011-04-23T12:55:34+00:00 heroku[router]: Error H10 (App crashed) -> GET holono.com/robots.txt dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T05:56:58-07:00 heroku[web.1]: State changed from crashed to created
+2011-04-23T05:56:58-07:00 heroku[web.1]: State changed from created to starting
+2011-04-23T12:57:17+00:00 app[web.1]: Starting the New Relic Agent.
+2011-04-23T12:57:17+00:00 app[web.1]: /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `initialize': FATAL:  connection limit exceeded for non-superusers (PGError)
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `connect'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `connect'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:228:in `initialize'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:25:in `new'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:25:in `postgresql_connection'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:229:in `send'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:229:in `new_connection'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:237:in `checkout_new_connection'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:191:in `checkout'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:187:in `loop'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:187:in `checkout'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /usr/ruby1.8.7/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:186:in `checkout'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:94:in `connection'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:317:in `retrieve_connection'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_specification.rb:97:in `retrieve_connection'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_specification.rb:89:in `connection'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/associations.rb:1804:in `create_has_and_belongs_to_many_reflection'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/associations.rb:1411:in `has_and_belongs_to_many'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/autosave_association.rb:137:in `has_and_belongs_to_many'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/app/models/group.rb:17
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:239:in `require'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:239:in `require'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:227:in `load_dependency'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:239:in `require'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:346:in `require_or_load'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:300:in `depend_on'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:216:in `require_dependency'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:25:in `run'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/application.rb:77:in `send'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from config.ru:3
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/rack-1.2.1/lib/rack/builder.rb:63:in `map'
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /home/heroku_rack/heroku.ru:18
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /home/heroku_rack/heroku.ru:11
+2011-04-23T12:57:17+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `initialize'
+2011-04-23T05:57:18-07:00 heroku[web.1]: State changed from starting to crashed
+2011-04-23T12:57:20+00:00 heroku[router]: Error H10 (App crashed) -> GET holono.com/ozzie_gooen dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T06:07:39-07:00 heroku[web.1]: State changed from crashed to created
+2011-04-23T06:07:39-07:00 heroku[web.1]: State changed from created to starting
+2011-04-23T13:07:51+00:00 app[web.1]: Starting the New Relic Agent.
+2011-04-23T13:07:51+00:00 app[web.1]: /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `initialize': FATAL:  connection limit exceeded for non-superusers (PGError)
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `connect'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `connect'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:228:in `initialize'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:25:in `new'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:25:in `postgresql_connection'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:229:in `send'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:229:in `new_connection'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:237:in `checkout_new_connection'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:191:in `checkout'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:187:in `loop'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:187:in `checkout'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /usr/ruby1.8.7/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:186:in `checkout'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:94:in `connection'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:317:in `retrieve_connection'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_specification.rb:97:in `retrieve_connection'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_specification.rb:89:in `connection'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/associations.rb:1804:in `create_has_and_belongs_to_many_reflection'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/associations.rb:1411:in `has_and_belongs_to_many'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/autosave_association.rb:137:in `has_and_belongs_to_many'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/app/models/group.rb:17
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:239:in `require'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:239:in `require'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:227:in `load_dependency'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:239:in `require'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:346:in `require_or_load'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:300:in `depend_on'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:216:in `require_dependency'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:138:in `eager_load!'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:137:in `each'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:137:in `eager_load!'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:135:in `each'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:135:in `eager_load!'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/application.rb:108:in `eager_load!'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/application/finisher.rb:41
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:25:in `instance_exec'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:25:in `run'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:50:in `run_initializers'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:49:in `each'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:49:in `run_initializers'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/application.rb:134:in `initialize!'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/application.rb:77:in `send'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/application.rb:77:in `method_missing'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/config/environment.rb:5
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /usr/ruby1.8.7/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /usr/ruby1.8.7/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from config.ru:3
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /home/heroku_rack/heroku.ru:23
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `instance_eval'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `initialize'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /home/heroku_rack/heroku.ru:11:in `new'
+2011-04-23T13:07:51+00:00 app[web.1]: 	from /home/heroku_rack/heroku.ru:11
+2011-04-23T06:07:52-07:00 heroku[web.1]: State changed from starting to crashed
+2011-04-23T13:10:22+00:00 heroku[router]: Error H10 (App crashed) -> GET holono.com/projects/133-Alumni-Weekend-2011 dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T06:10:22-07:00 heroku[nginx]: GET /projects/133-Alumni-Weekend-2011 HTTP/1.0 | 67.195.112.248 | 790 | http | 503
+2011-04-23T13:11:20+00:00 heroku[router]: Error H10 (App crashed) -> GET holono.com/ dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T06:11:20-07:00 heroku[nginx]: GET / HTTP/1.0 | 65.52.110.53 | 795 | http | 503
+2011-04-23T13:17:20+00:00 heroku[router]: Error H10 (App crashed) -> GET holono.com/projects/1-Holono dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T06:17:20-07:00 heroku[nginx]: GET /projects/1-Holono HTTP/1.0 | 207.46.13.91 | 795 | http | 503
+2011-04-23T06:17:51-07:00 heroku[web.1]: State changed from crashed to created
+2011-04-23T06:17:51-07:00 heroku[web.1]: State changed from created to starting
+2011-04-23T13:17:59+00:00 app[web.1]: Starting the New Relic Agent.
+2011-04-23T13:17:59+00:00 app[web.1]: /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `initialize': FATAL:  connection limit exceeded for non-superusers (PGError)
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `connect'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `connect'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:228:in `initialize'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:25:in `new'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:25:in `postgresql_connection'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:229:in `send'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:229:in `new_connection'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:237:in `checkout_new_connection'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:191:in `checkout'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:187:in `loop'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:187:in `checkout'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /usr/ruby1.8.7/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:186:in `checkout'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:94:in `connection'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:317:in `retrieve_connection'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_specification.rb:97:in `retrieve_connection'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_specification.rb:89:in `connection'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/associations.rb:1804:in `create_has_and_belongs_to_many_reflection'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/associations.rb:1411:in `has_and_belongs_to_many'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/autosave_association.rb:137:in `has_and_belongs_to_many'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/app/models/group.rb:17
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:239:in `require'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:239:in `require'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:227:in `load_dependency'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:239:in `require'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:346:in `require_or_load'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:300:in `depend_on'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:216:in `require_dependency'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:138:in `eager_load!'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:137:in `each'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/rack-1.2.1/lib/rack/builder.rb:63:in `map'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /home/heroku_rack/heroku.ru:18
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `instance_eval'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `initialize'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /home/heroku_rack/heroku.ru:11:in `new'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /home/heroku_rack/heroku.ru:11
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `instance_eval'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `initialize'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /home/heroku_rack/heroku.ru:1:in `new'
+2011-04-23T13:17:59+00:00 app[web.1]: 	from /home/heroku_rack/heroku.ru:1
+2011-04-23T06:18:00-07:00 heroku[web.1]: State changed from starting to crashed
+2011-04-23T13:21:48+00:00 heroku[router]: Error H10 (App crashed) -> GET holono.com/ dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T06:21:48-07:00 heroku[nginx]: GET / HTTP/1.0 | 207.46.204.235 | 796 | http | 503
+2011-04-23T06:27:52-07:00 heroku[web.1]: State changed from crashed to created
+2011-04-23T06:27:52-07:00 heroku[web.1]: State changed from created to starting
+2011-04-23T13:28:04+00:00 app[web.1]: Starting the New Relic Agent.
+2011-04-23T13:28:04+00:00 app[web.1]: /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `initialize': FATAL:  connection limit exceeded for non-superusers (PGError)
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `connect'
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `connect'
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:228:in `initialize'
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:25:in `new'
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:25:in `postgresql_connection'
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:229:in `send'
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:229:in `new_connection'
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:237:in `checkout_new_connection'
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:191:in `checkout'
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:187:in `loop'
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:187:in `checkout'
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /usr/ruby1.8.7/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:186:in `checkout'
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:94:in `connection'
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:317:in `retrieve_connection'
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_specification.rb:97:in `retrieve_connection'
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_specification.rb:89:in `connection'
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:137:in `each'
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:135:in `each'
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:25:in `run'
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/config/environment.rb:5
+2011-04-23T13:28:04+00:00 app[web.1]: 	from config.ru:3
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /home/heroku_rack/heroku.ru:11
+2011-04-23T13:28:04+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `instance_eval'
+2011-04-23T06:28:05-07:00 heroku[web.1]: State changed from starting to crashed
+2011-04-23T06:40:11-07:00 heroku[web.1]: State changed from crashed to created
+2011-04-23T06:40:11-07:00 heroku[web.1]: State changed from created to starting
+2011-04-23T13:40:22+00:00 app[web.1]: Starting the New Relic Agent.
+2011-04-23T13:40:23+00:00 app[web.1]: /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `initialize': FATAL:  connection limit exceeded for non-superusers (PGError)
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `connect'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `connect'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:228:in `initialize'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:25:in `new'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:25:in `postgresql_connection'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:229:in `send'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:94:in `connection'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:317:in `retrieve_connection'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_specification.rb:97:in `retrieve_connection'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_specification.rb:89:in `connection'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/associations.rb:1804:in `create_has_and_belongs_to_many_reflection'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/associations.rb:1411:in `has_and_belongs_to_many'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/autosave_association.rb:137:in `has_and_belongs_to_many'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:239:in `require'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:239:in `require'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:137:in `each'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:135:in `each'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:135:in `eager_load!'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/application.rb:108:in `eager_load!'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/application.rb:77:in `send'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/application.rb:77:in `method_missing'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/config/environment.rb:5
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /usr/ruby1.8.7/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/rack-1.2.1/lib/rack/builder.rb:63:in `map'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /home/heroku_rack/heroku.ru:18
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `initialize'
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /home/heroku_rack/heroku.ru:11
+2011-04-23T13:40:23+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `instance_eval'
+2011-04-23T06:40:24-07:00 heroku[web.1]: State changed from starting to crashed
+2011-04-23T13:41:15+00:00 heroku[router]: Error H10 (App crashed) -> GET holono.com/ dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T06:41:15-07:00 heroku[nginx]: HEAD / HTTP/1.1 | 174.129.117.237 | 188 | http | 503
+2011-04-23T13:42:18+00:00 heroku[router]: Error H10 (App crashed) -> GET holono.com/robots.txt dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T06:50:16-07:00 heroku[web.1]: State changed from crashed to created
+2011-04-23T06:50:16-07:00 heroku[web.1]: State changed from created to starting
+2011-04-23T13:50:28+00:00 app[web.1]: Starting the New Relic Agent.
+2011-04-23T13:50:28+00:00 app[web.1]: /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `initialize': FATAL:  connection limit exceeded for non-superusers (PGError)
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `connect'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `connect'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:228:in `initialize'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:25:in `new'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:25:in `postgresql_connection'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:229:in `send'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:229:in `new_connection'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:237:in `checkout_new_connection'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:191:in `checkout'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:187:in `loop'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:187:in `checkout'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /usr/ruby1.8.7/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:186:in `checkout'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:94:in `connection'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:317:in `retrieve_connection'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_specification.rb:97:in `retrieve_connection'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_specification.rb:89:in `connection'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/associations.rb:1804:in `create_has_and_belongs_to_many_reflection'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/associations.rb:1411:in `has_and_belongs_to_many'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/autosave_association.rb:137:in `has_and_belongs_to_many'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/app/models/group.rb:17
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:239:in `require'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:239:in `require'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:227:in `load_dependency'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:239:in `require'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:346:in `require_or_load'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:300:in `depend_on'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:216:in `require_dependency'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:138:in `eager_load!'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:137:in `each'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:137:in `eager_load!'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:135:in `each'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:135:in `eager_load!'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/application.rb:108:in `eager_load!'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/application/finisher.rb:41
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:25:in `instance_exec'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:25:in `run'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:50:in `run_initializers'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:49:in `each'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:49:in `run_initializers'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/application.rb:134:in `initialize!'
+2011-04-23T13:50:28+00:00 app[web.1]: 	from config.ru:3
+2011-04-23T06:50:30-07:00 heroku[web.1]: State changed from starting to crashed
+2011-04-23T13:56:51+00:00 heroku[router]: Error H10 (App crashed) -> GET holono.com/users/73-Alexa-Noxon- dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T06:56:51-07:00 heroku[nginx]: GET /users/73-Alexa-Noxon- HTTP/1.0 | 65.52.110.84 | 795 | http | 503
+2011-04-23T07:01:06-07:00 heroku[web.1]: State changed from crashed to created
+2011-04-23T07:01:06-07:00 heroku[web.1]: State changed from created to starting
+2011-04-23T14:01:22+00:00 app[web.1]: Starting the New Relic Agent.
+2011-04-23T14:01:22+00:00 app[web.1]: /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `initialize': FATAL:  connection limit exceeded for non-superusers (PGError)
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `connect'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `connect'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:228:in `initialize'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:25:in `new'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:25:in `postgresql_connection'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:229:in `send'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:229:in `new_connection'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:237:in `checkout_new_connection'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:191:in `checkout'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:187:in `loop'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:187:in `checkout'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /usr/ruby1.8.7/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:186:in `checkout'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:94:in `connection'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:317:in `retrieve_connection'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_specification.rb:97:in `retrieve_connection'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_specification.rb:89:in `connection'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/associations.rb:1804:in `create_has_and_belongs_to_many_reflection'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/associations.rb:1411:in `has_and_belongs_to_many'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/autosave_association.rb:137:in `has_and_belongs_to_many'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/app/models/group.rb:17
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:239:in `require'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:239:in `require'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:227:in `load_dependency'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:239:in `require'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:346:in `require_or_load'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:300:in `depend_on'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:216:in `require_dependency'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:138:in `eager_load!'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:137:in `eager_load!'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/application/finisher.rb:41
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:25:in `instance_exec'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:25:in `run'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /usr/ruby1.8.7/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /usr/ruby1.8.7/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from config.ru:3
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `initialize'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `initialize'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /home/heroku_rack/heroku.ru:11:in `new'
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /home/heroku_rack/heroku.ru:11
+2011-04-23T14:01:22+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `instance_eval'
+2011-04-23T07:01:23-07:00 heroku[web.1]: State changed from starting to crashed
+2011-04-23T14:03:26+00:00 heroku[router]: Error H10 (App crashed) -> GET holono.com/ dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T07:03:26-07:00 heroku[nginx]: GET / HTTP/1.1 | 202.156.14.106 | 796 | http | 503
+2011-04-23T14:03:29+00:00 heroku[router]: Error H10 (App crashed) -> GET holono.com/favicon.ico dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T07:03:29-07:00 heroku[nginx]: GET /favicon.ico HTTP/1.1 | 202.156.14.106 | 796 | http | 503
+2011-04-23T14:07:41+00:00 heroku[router]: Error H10 (App crashed) -> GET holono.com/ dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T07:07:42-07:00 heroku[nginx]: GET / HTTP/1.1 | 134.173.202.195 | 796 | http | 503
+2011-04-23T14:09:56+00:00 heroku[router]: Error H10 (App crashed) -> POST muddfish.heroku.com/_heroku/console dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T14:09:56+00:00 heroku[router]: Error H10 (App crashed) -> POST muddfish.heroku.com/_heroku/console dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T14:09:56+00:00 heroku[router]: Error H10 (App crashed) -> POST muddfish.heroku.com/_heroku/console dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T07:09:57-07:00 heroku[nginx]: POST /_heroku/console?session_action=create&session_id=735882 HTTP/1.1 | 50.16.106.30 | 747 | http | 503
+2011-04-23T07:09:57-07:00 heroku[nginx]: POST /_heroku/console?session_action=create&session_id=735881 HTTP/1.1 | 184.72.135.231 | 747 | http | 503
+2011-04-23T14:09:57+00:00 heroku[router]: Error H10 (App crashed) -> POST muddfish.heroku.com/_heroku/console dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T14:09:57+00:00 heroku[router]: Error H10 (App crashed) -> POST muddfish.heroku.com/_heroku/console dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T07:09:57-07:00 heroku[nginx]: POST /_heroku/console?session_action=create&session_id=735884 HTTP/1.1 | 174.129.132.237 | 747 | http | 503
+2011-04-23T14:09:57+00:00 heroku[router]: Error H10 (App crashed) -> POST muddfish.heroku.com/_heroku/console dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T14:09:57+00:00 heroku[router]: Error H10 (App crashed) -> POST muddfish.heroku.com/_heroku/console dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T07:09:57-07:00 heroku[nginx]: POST /_heroku/console?session_action=create&session_id=735887 HTTP/1.1 | 50.17.21.82 | 747 | http | 503
+2011-04-23T07:09:57-07:00 heroku[nginx]: POST /_heroku/console?session_action=create&session_id=735885 HTTP/1.1 | 50.16.121.136 | 747 | http | 503
+2011-04-23T07:09:57-07:00 heroku[nginx]: POST /_heroku/console?session_action=create&session_id=735886 HTTP/1.1 | 184.73.60.212 | 747 | http | 503
+2011-04-23T14:09:57+00:00 heroku[router]: Error H10 (App crashed) -> POST muddfish.heroku.com/_heroku/console dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T14:09:57+00:00 heroku[router]: Error H10 (App crashed) -> POST muddfish.heroku.com/_heroku/console dyno=none queue=0 wait=0ms service=0ms bytes=0
+2011-04-23T07:09:58-07:00 heroku[nginx]: POST /_heroku/console?session_action=create&session_id=735888 HTTP/1.1 | 75.101.223.225 | 747 | http | 503
+2011-04-23T07:11:11-07:00 heroku[web.1]: State changed from crashed to created
+2011-04-23T07:11:11-07:00 heroku[web.1]: State changed from created to starting
+2011-04-23T14:11:23+00:00 app[web.1]: Starting the New Relic Agent.
+2011-04-23T14:11:24+00:00 app[web.1]: /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `initialize': FATAL:  connection limit exceeded for non-superusers (PGError)
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `connect'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:929:in `connect'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:228:in `initialize'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:25:in `new'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/postgresql_adapter.rb:25:in `postgresql_connection'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:229:in `send'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:229:in `new_connection'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:237:in `checkout_new_connection'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:191:in `checkout'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:187:in `loop'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:187:in `checkout'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /usr/ruby1.8.7/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:186:in `checkout'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:94:in `connection'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:317:in `retrieve_connection'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_specification.rb:97:in `retrieve_connection'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_specification.rb:89:in `connection'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/associations.rb:1804:in `create_has_and_belongs_to_many_reflection'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/associations.rb:1411:in `has_and_belongs_to_many'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activerecord-3.0.5/lib/active_record/autosave_association.rb:137:in `has_and_belongs_to_many'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/app/models/group.rb:17
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:239:in `require'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:239:in `require'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:227:in `load_dependency'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:239:in `require'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:346:in `require_or_load'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:300:in `depend_on'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/activesupport-3.0.5/lib/active_support/dependencies.rb:216:in `require_dependency'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:138:in `eager_load!'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:137:in `each'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:137:in `eager_load!'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:135:in `each'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/engine.rb:135:in `eager_load!'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/application.rb:108:in `eager_load!'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/application/finisher.rb:41
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:25:in `instance_exec'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:25:in `run'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:50:in `run_initializers'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:49:in `each'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/initializable.rb:49:in `run_initializers'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/application.rb:134:in `initialize!'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/application.rb:77:in `send'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/railties-3.0.5/lib/rails/application.rb:77:in `method_missing'
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/config/environment.rb:5
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /home/heroku_rack/heroku.ru:18
+2011-04-23T14:11:24+00:00 app[web.1]: 	from /app/.bundle/gems/ruby/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `instance_eval'
+2011-04-23T07:11:25-07:00 heroku[web.1]: State changed from starting to crashed

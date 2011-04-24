@@ -4,14 +4,12 @@
 
 <script>
 	$(document).ready(function() {
-
 		$("#know_more_form").dialog({
 			height: 250,
 			width: 500,
 			modal: true,
 			autoOpen: false
 		});
-
 		$("#know_more").click(function() {
 			$("#know_more_form").dialog("open");
 			return false;
@@ -20,7 +18,6 @@
 	});
 </script>
 <% end %>
-
 
 <%= render 'shared/open_graph' %>
 <div class="container" id="general-positioning">		
@@ -39,4 +36,3 @@
 	</div>
 </table>
 </div>
-

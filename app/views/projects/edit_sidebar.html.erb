@@ -1,0 +1,37 @@
+<!---td class="span-6" id="project-sidebar-outer-position">
+					<div class="span-6">
+					<% javascript_include_tag "mulitselector" %>
+
+
+					<div id="project_tabs_left">
+						<div style="width:100%; background:rgba(250,250,250,0.6); border-radius: 0 0.2em 0 0; float:left; padding-bottom:1em">
+							<div style="padding:0.6em 0.5em 0.5em 0.5em">
+								<div class="header_tabs" id = 'current_tab'>	
+									<%= link_to "Home", @project %>
+								</div><br />
+								<div class="header_tabs">
+									New Pages Go Here! Finish with the General info first.
+								</div><br />
+							</div>
+						</div>
+					</div>
+
+
+					<div id="project_page_align">	
+
+						<% if !@project.links.empty? || !@project.attachments.empty?%>
+							<div id="project-files-align">
+								<table><tr><td>Project Links Go Here!</td></tr></table>
+								<div class="span-5 last">
+									<table>
+										<tr><td>Project Attachments Go Here!</td></tr><tr></tr>
+										<tr><td>Finish Adding the General Data to add attachments and links</td></tr>
+									</table>
+								</div>
+							</div>
+						<%end%>
+					</div>
+					</div>
+					
+					
+				</td>--->

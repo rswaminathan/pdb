@@ -980,3 +980,35 @@ a {
   background-image:url(/images/icons/delete.png);
 }
 
+
+/* @group add-project */
+
+#add-project-position{
+	padding-bottom: 0em;
+	padding-top: 1em;
+	border-bottom: 1px solid #e6e6e6;
+	margin:0 0.6em 0 0.6em;
+	
+}
+
+#add-project-short {
+margin-top: 0.4em;
+height: 50px;
+margin-left: 0.5em;
+}
+
+#add-project-short a{
+  line-height:1.1em;
+  color:#199E2F;
+  font-weight: bold;
+  font-size:1.3em;
+}
+
+#add-project-short a:hover{
+  text-decoration: underline;
+}
+#add-project-plus{
+	margin: 0em 3em;
+	width:40px
+}
+/* @end */

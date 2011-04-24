@@ -1,4 +1,7 @@
-/* @override http://localhost:3000/stylesheets/project.css?1301764402 */
+/* @override 
+	http://localhost:3000/stylesheets/project.css?1301764402
+	http://localhost:3000/stylesheets/project.css?1303359974
+*/
 
 #know_more{
   	float:left;
@@ -273,9 +276,9 @@
 .project-header-user_pictures-size {
 	float:right; 
 	margin-left:4px; 
-	width:40px; 
-	height:40px; 
-	margin-bottom:4px
+	margin-bottom:4px;
+	margin-top:9px;
+	
 }
 
 #project-header-user_pictures-positioning {

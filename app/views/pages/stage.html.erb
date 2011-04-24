@@ -52,9 +52,15 @@
                         </div>	
                         <div class="stage-header-line"><hr /></div>
 
-                        <% end %>					
-                        <%= render :partial => 'pages/stage/result', :collection => @results %>
-                        <%= will_paginate @results %>
+                        <% end %>	
+
+
+			<% if signed_in? && params[:type] && params[:type] == "groups"%>
+			<%= render 'shared/common_list_elements/add_group' %>
+                      	<% end  %>
+			 <%= render :partial => 'pages/stage/result', :collection => @results %>
+
+			<%= will_paginate @results %>
                     </td>
                 </tr>
             </tbody>

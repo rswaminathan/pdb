@@ -1,4 +1,32 @@
-
+--->
+		<div class = "span-5 last" id="group_submit">
+			<% form_for :group, :url => create_group_project_path do |f| %>
+				<% group_sorter(@users, 5) %>
+				Associate your project with a group <br />
+				<% unless @groups_list.nil? || @groups_list.empty? %> 
+					Select one of the following:<br />
+					<% @groups_list.each do |button| %>
+						<% unless @project.groups.include?(button[0]) %><div>
+							<%= radio_button(:group, :name, button[0].name) %>   <%= button[0].name %></div>
+						<% end %>
+					<% end %>
+					Or create
+				<% else %>
+					Create 
+				<% end %>a new group:
+				<div class="field">
+					<%= f.label :Group_Name %><br />
+					<%= f.text_field(:nameone, :size => "30") %>
+				</div>
+				<div class="submit">
+					<%= f.submit "Create Group" %><br />
+				</div>
+			<% end %>
+			
+			
+			
+			
+			
 
 	<% if current_project_user? %> 
 	<div id="login_special", style="text-align:center">

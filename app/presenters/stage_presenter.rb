@@ -93,7 +93,7 @@ class StagePresenter
       results.find_all{|project| show_in_stage_group?(project)}
     else
       results = Project.all
-      results.find_all{|project| show_in_stage_home?(project)}
+       Group.find_by_name(["Projects of the Week"]).projects.shuffle[1,3] + results.find_all{|project| show_in_stage_home?(project)}
     end
     
   end

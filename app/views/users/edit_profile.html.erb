@@ -1,5 +1,5 @@
 <div class="container" style="padding-top:20px; padding-bottom:20px; min-height: 550px">
-	<div class="home_register span-12" style="float:center; margin-left: 16em; font-size:1.2em; color:white">
+	<div class="home_register span-12" style="float:center; margin-left: 16em; font-size:1.2em;">
 		<h1>Edit Profile</h1>
 		<%= form_for @profile, :url => update_profile_user_path, :html => { :multipart => true } do |f| %>
 		<%= render	'shared/error_messages', :object => f.object %>

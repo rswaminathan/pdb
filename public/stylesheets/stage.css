@@ -1,3 +1,5 @@
+/* @override http://localhost:3000/stylesheets/stage.css?1302787748 */
+
 
 #facebook_signup {
 margin-right:0.7em;
@@ -36,10 +38,10 @@ margin-left: 10em;
 }
 
 #home-banner{
-  margin-left:5px;
+  margin-left:4px;
   margin-top:4px;
   border-radius:0.5em;
-  width: 715px;
+  width: 710px;
   background: url("/images/home-banner2.png"); 
   height:200px;
   position:relative;
