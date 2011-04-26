@@ -34,12 +34,12 @@ class StagePresenter
   def sort(results, sort ,type)
     if type && (type == "people") 
       sort_people(results, sort)
-    elsif type && (type == "projects")
+    elsif (type && (type == "projects")) || (!type && sort)
       sort_projects(results, sort)
     elsif type && (type == "groups")
       sort_groups(results, sort)
     else
-      results.sort! {|a,b| -(a.created_at <=> b.created_at)} 
+      results+ Group.find_by_name(["Projects of the Week"]).projects.shuffle[0,2]
     end
   end
 
@@ -93,7 +93,7 @@ class StagePresenter
       results.find_all{|project| show_in_stage_group?(project)}
     else
       results = Project.all
-       Group.find_by_name(["Projects of the Week"]).projects.shuffle[1,3] + results.find_all{|project| show_in_stage_home?(project)}
+      results.find_all{|project| show_in_stage_home?(project)}
     end
     
   end

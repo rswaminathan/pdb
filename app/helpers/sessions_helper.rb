@@ -33,8 +33,21 @@ module SessionsHelper
     end
   end
 
+  def current_group_admin(user)
+    Group.find_by_id(params[:id]).admins.include? user
+  end
+
+  def group_privs
+    deny_group_access unless current_group_admin(current_user)
+  end
+
   def authenticate
-    deny_access if !signed_in?
+    deny_access unless signed_in?
+  end
+
+  def deny_group_access
+    flash[:notice] = "You're not a Group Admin!"
+    redirect_to groups_path
   end
 
   def reset_code

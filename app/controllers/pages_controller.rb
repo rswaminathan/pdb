@@ -47,11 +47,8 @@ class PagesController < ApplicationController
     else
       results = stage.find_by_type(params[:type])
     end
-
     @results = stage.sort(results, params[:sort], params[:type])
-
     @results = @results.paginate :page => params[:page], :per_page => 8
-
     if params[:size]
       @size = params[:size]
     elsif !(params[:type] || params[:search] || params[:size])

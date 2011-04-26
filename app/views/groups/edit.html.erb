@@ -1,4 +1,4 @@
-<% content_for :head do %>
+	<% content_for :head do %>
 <%= javascript_include_tag 'jquery.nivo.slider.pack.js', 'jquery.freeow.min.js' %>
 <%= stylesheet_link_tag 'stage' %>
 <%= stylesheet_link_tag 'freeow' %>
@@ -72,8 +72,11 @@
 		<table>
 		<% for user in @people %>
 			<tr>
-				<td> <%= link_to user.name, user %> </td> 
-				<td> <%= link_to "Remove", delete_users_group_path(@group, :user_id => user.id), :method => :delete  %> </td>	
+				<td> <%= link_to user.name, user %><%= ' (Admin)' if current_group_admin(user) %></td> 
+				<td> <%= link_to "Remove", delete_users_group_path(@group, :user_id => user.id), :method => :delete  %> </td>
+				<% unless current_group_admin(user) %>
+					<td> <%= link_to "Make Admin", add_admins_group_path(@group, :user_id => user.id), :method => :create  %> </td>
+				<% end %>
 			</tr>
 		<% end %>
 		</table>
@@ -99,7 +102,8 @@
 		<% for user in @other_users %>		
 			<tr>
 				<td> <%= link_to user.name, user %> </td>
-				<td> <%= link_to "add", add_users_group_path(@group, :user_id => user.id), :method => :create  %> </td>	
+				<td> <%= link_to "Add", add_users_group_path(@group, :user_id => user.id), :method => :create  %> </td>
+				<td> <%= link_to "Make Admin", add_admins_group_path(@group, :user_id => user.id), :method => :create  %> </td>
 			</tr>
 		<% end %>
 		</table>

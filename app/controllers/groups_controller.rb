@@ -1,11 +1,14 @@
 class GroupsController < ApplicationController
 
+  before_filter :group_privs, :only => [:edit, :add_users, :add_admins, :destroy]
+
   def new
     @group = Group.new
   end
 
   def create
     @group = Group.new(params[:group])
+    @group.admins += [current_user]
     if @group.save
       flash[:success] = "New Group Added"
     else 
@@ -94,6 +97,20 @@ class GroupsController < ApplicationController
       @group.users << user_to_add
       @group.save
       flash[:success] = "Added user"
+    end   
+    redirect_to edit_group_path(@group)
+  end
+
+  def add_admins
+    @group = Group.find(params[:id])
+    user_to_add = User.find_by_id(params[:user_id])
+    if (user_to_add.nil?)
+      flash[:error] = "Cannot find user / Duplicate user" 
+    else
+      @group.users << user_to_add unless @group.users.exists?(user_to_add)
+      @group.admins << user_to_add
+      @group.save
+      flash[:success] = "Added Admin"
     end   
     redirect_to edit_group_path(@group)
   end
