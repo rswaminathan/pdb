@@ -21,19 +21,21 @@ class User < ActiveRecord::Base
   has_many                :likes
   has_many                :links
 
-  has_many				:relationship_projects,			:foreign_key => :follower_id,
+  has_many				:relationship_projects,		:foreign_key => :follower_id,
     :dependent => :destroy
-  has_many				:relationship_users,			:foreign_key => :follower_id,
+  has_many				:relationship_users,		:foreign_key => :follower_id,
     :dependent => :destroy
-  has_many				:projects_following,			:through => :relationship_projects,
+  has_many				:projects_following,		:through => :relationship_projects,
     :source => :followed
-  has_many				:users_following, 				:through => :relationship_users,
+  has_many				:users_following, 		:through => :relationship_users,
     :source => :followed
   has_many 				:reverse_relationship_users,	:foreign_key => :followed_id,
     :class_name => "RelationshipUser",
     :dependent => :destroy
-  has_many				:followers,						:through => :reverse_relationship_users
-  has_and_belongs_to_many :groups
+  has_many				:followers,			:through => :reverse_relationship_users
+
+  has_many :groups, 	:through => :group_relations
+  has_many :group_relations, :foreign_key => :user_id, :dependent => :destroy
 
   validates :name, :presence          => true,
     :length                   => { :maximum => 50}
@@ -100,6 +102,40 @@ class User < ActiveRecord::Base
   def following_project?(followed)
     relationship_projects.find_by_followed_id(followed)
   end
+
+  def in_group?(group)
+    ans = false
+    GroupRelations.find_all_by_user_id(self.id).each do |relation|
+      ans = true if relation.group_id == group.id
+    end
+    ans
+  end
+
+  def is_admin?(group)
+    if @relation = GroupRelations.find_by_group_id(group.id)
+    	@relation.admin
+    end
+  end
+
+  def join_group!(group)
+    relation = GroupRelations.create(:group_id => group.id)
+    relation.group_id = group.id
+    relation.user_id = self.id
+    relation.save
+  end
+
+  def join_as_admin!(group)
+    relation = GroupRelations.create(:group_id => group.id, :admin => true)
+    relation.group_id = group.id
+    relation.user_id = self.id
+    relation.save
+  end
+
+  def become_admin(group)
+    @relation = GroupRelations.find_by_group_id(group.id)
+    @relation.admin=true
+    @relation.save
+  end 
 
   def follow_user!(followed)
     relationship_users.create!(:followed_id => followed.id)

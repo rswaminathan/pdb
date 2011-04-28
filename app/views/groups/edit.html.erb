@@ -70,14 +70,17 @@
 		<h2> Group Users </h2>
 		
 		<table>
-		<% for user in @people %>
+		<% for relation in @people %>
+		<% if relation.user_id %>
+		<% user = User.find(relation.user_id) %>
 			<tr>
-				<td> <%= link_to user.name, user %><%= ' (Admin)' if current_group_admin(user) %></td> 
+				<td> <%= link_to user.name, user %><%= ' (Admin)' if relation.admin %></td> 
 				<td> <%= link_to "Remove", delete_users_group_path(@group, :user_id => user.id), :method => :delete  %> </td>
 				<% unless current_group_admin(user) %>
 					<td> <%= link_to "Make Admin", add_admins_group_path(@group, :user_id => user.id), :method => :create  %> </td>
 				<% end %>
 			</tr>
+		<% end %>
 		<% end %>
 		</table>
 	</div>

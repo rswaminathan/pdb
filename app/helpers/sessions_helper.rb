@@ -34,7 +34,7 @@ module SessionsHelper
   end
 
   def current_group_admin(user)
-    Group.find_by_id(params[:id]).admins.include? user
+    user.is_admin?(Group.find_by_id(params[:id])) || admin_user?
   end
 
   def group_privs
@@ -68,7 +68,7 @@ module SessionsHelper
   end
 
   def admin_user?
-    if !@admin_user.nil?
+    unless @admin_user.nil?
       return @admin_user
     end
     return @admin_user = admin_user
@@ -76,8 +76,8 @@ module SessionsHelper
 
   def admin_user
     current_user == User.find_by_email("ozzie_gooen@hmc.edu") ||
-      current_user == User.find_by_email("rswaminathan@hmc.edu") ||
-      current_user == User.find_by_email("matt_mcdermott@hmc.edu")
+    current_user == User.find_by_email("rswaminathan@hmc.edu") ||
+    current_user == User.find_by_email("matt_mcdermott@hmc.edu")
   end
 
   def current_project_user?

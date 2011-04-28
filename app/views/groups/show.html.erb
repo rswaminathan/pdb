@@ -34,7 +34,7 @@
 
 		            <div class="stage-main-links">
 		                <%= link_to @group.projects.count.to_s+" "+"Projects", group_path(:type => "projects", :group => @group) %>
-		                <%= link_to @group.users.count.to_s+" "+"People", group_path(:type => "people", :group => @group) %>
+		                <%= link_to GroupRelations.find_all_by_group_id(@group.id).count.to_s+" "+"People", group_path(:type => "people", :group => @group) %>
 		            </div>
 		
                             <div id="stage-header-text-position">

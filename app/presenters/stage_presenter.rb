@@ -15,7 +15,8 @@ class StagePresenter
 
   def users
     if @group
-      @group.users
+      relations = GroupRelations.find_all_by_group_id(@group.id)
+      relations.map!{|x| User.find(x.user_id)}
     else
       User.all
     end
@@ -100,7 +101,8 @@ class StagePresenter
 
   def stage_users
     if @group
-      people = @group.users
+      relations = GroupRelations.find_all_by_group_id(@group.id)
+      people = relations.map{|x| User.find(x.user_id)}
       @group.projects.each do |project|
         people |= project.users
       end

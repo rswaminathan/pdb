@@ -8,20 +8,21 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(params[:group])
-    @group.admins += [current_user]
-    if @group.save
+    a = true if @group.save
+    current_user.join_as_admin!(@group)
+    if a
       flash[:success] = "New Group Added"
     else 
       flash[:error] = "Error"
     end
-    redirect_to new_group_path
+    redirect_to @group
   end
 
   def edit
     @group = Group.find_by_id(params[:id])
     @title = "Edit #{@group.name}'s Account"
     @projects = @group.projects
-    @people = @group.users
+    @people = GroupRelations.find_all_by_group_id(@group.id)
     @other_projects = Project.all - @projects
     @other_users = User.all - @people
   end
@@ -63,6 +64,9 @@ class GroupsController < ApplicationController
 
   def destroy
     @group = Group.find(params[:id])
+    GroupRelations.find_all_by_group_id(@group.id).each do |x| 
+      x.destroy
+      end
     @group.destroy
     flash[:success] = "Deleted group"
     redirect_to "/groups"
@@ -91,11 +95,10 @@ class GroupsController < ApplicationController
   def add_users
     @group = Group.find(params[:id])
     user_to_add = User.find_by_id(params[:user_id])
-    if (user_to_add.nil? || @group.users.exists?(user_to_add) )
+    if (user_to_add.nil? || user_to_add.in_group?(@group))
       flash[:error] = "Cannot find user / Duplicate user" 
     else
-      @group.users << user_to_add
-      @group.save
+      user_to_add.join_group!(@group)
       flash[:success] = "Added user"
     end   
     redirect_to edit_group_path(@group)
@@ -107,9 +110,11 @@ class GroupsController < ApplicationController
     if (user_to_add.nil?)
       flash[:error] = "Cannot find user / Duplicate user" 
     else
-      @group.users << user_to_add unless @group.users.exists?(user_to_add)
-      @group.admins << user_to_add
-      @group.save
+      if user_to_add.in_group?(@group)
+        user_to_add.become_admin!(@group) unless user_to_add.is_admin?(@group)
+      else
+        user_to_add.join_as_admin!(@group)
+      end
       flash[:success] = "Added Admin"
     end   
     redirect_to edit_group_path(@group)

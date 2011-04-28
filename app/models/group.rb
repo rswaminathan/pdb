@@ -15,8 +15,10 @@ class Group < ActiveRecord::Base
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
                     :path => "/groups/banners/:id/:style/:filename"      
   has_and_belongs_to_many :projects
-  has_and_belongs_to_many :users
-  has_and_belongs_to_many :admins, :class_name => "User"
+
+  has_many :users, :through => :group_relations
+  has_many :group_relations, :foreign_key => :group_id, :dependent => :destroy
+
   
   scope :by_count, :order => 'projects.count DESC'
   

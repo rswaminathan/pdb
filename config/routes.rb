@@ -58,6 +58,7 @@ Pdb::Application.routes.draw do
       delete 'delete_users'      
       post 'add_projects'
       post 'add_users'
+      post 'add_admins'
       put 'update'
       
     end
